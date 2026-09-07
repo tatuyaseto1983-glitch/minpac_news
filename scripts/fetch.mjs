@@ -2,8 +2,9 @@
 // 行政サイトから見出しをあつめて data/articles.json と data/stats.json を更新します。
 // 記事本文は保存しません（見出し・日付・出典・リンクのみ）。
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { getText } from './lib/http.mjs';
-import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs, parseGoogleNews, parseRyokanStats, parseLodgingStats, parseMunicipalities } from './lib/parse.mjs';
+import { getText, getBuffer } from './lib/http.mjs';
+import { pdfToText } from './lib/pdf.mjs';
+import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs, parseGoogleNews, parseRyokanStats, parseLodgingStats, parseMunicipalities, findPdfLink, parseFilingsPdf, checkFilings } from './lib/parse.mjs';
 import { screen, categorize, detectAreas, detectBusinessTypes, isBlockedOutlet, isBlockedTitle, normalizeOutlet } from './lib/classify.mjs';
 
 const root = new URL('../', import.meta.url);
@@ -39,6 +40,22 @@ for (const src of sources) {
       }, null, 2) + '\n');
       report.push({ source: src.id, found: prefs + muni, added: 0,
         note: `都道府県${prefs}件・市区町村${muni}件` });
+      continue;
+    }
+
+    if (src.type === 'filings-pdf') {
+      // PDFのURLは更新のたびに変わるので、ページの見出しから毎回探し直す
+      const pdfUrl = findPdfLink(await getText(src.url), src.url, src.pdfLabel);
+      if (!pdfUrl) throw new Error(`「${src.pdfLabel}」のリンクが見つかりません`);
+      const kw = JSON.parse(readFileSync(p('data/keywords.json'), 'utf8'));
+      const r = checkFilings(parseFilingsPdf(await pdfToText(await getBuffer(pdfUrl)), kw));
+      writeFileSync(p('data/filings.json'), JSON.stringify({
+        updatedAt: today, source: src.name, sourceUrl: src.url, pdfUrl, asOf: r.asOf,
+        totals: r.totals, managers: r.managers, brokers: r.brokers, tokku: r.tokku,
+        areas: r.byPrefecture,
+      }, null, 2) + '\n');
+      report.push({ source: src.id, found: r.rows.length, added: 0,
+        note: `${r.asOf}時点 47都道府県 / 届出住宅${r.totals.all.homes.toLocaleString('ja-JP')}件` });
       continue;
     }
 

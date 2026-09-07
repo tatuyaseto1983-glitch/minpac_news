@@ -290,4 +290,110 @@ function toIsoDate(raw) {
   return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
 }
 
+/** 観光庁「施行状況」ページから、見出しの文言でPDFのリンクを探す */
+export function findPdfLink(html, baseUrl, label) {
+  for (const m of html.matchAll(/<a\s[^>]*href="([^"]+\.pdf)"[^>]*>([\s\S]*?)<\/a>/gi)) {
+    if (strip(m[2]).includes(label)) return absolute(m[1], baseUrl);
+  }
+  return null;
+}
+
+/**
+ * 観光庁「都道府県別届出状況一覧」のPDFを pdftotext -layout で文字にしたものを読み取る。
+ * 表は「都道府県」「保健所設置市」「特別区」の3列が横に並んでいて、
+ * どの列も「通し番号・名前・届出件数・事業廃止件数・届出住宅数」の5つ組。
+ */
+export function parseFilingsPdf(text, { prefectures, cityToPref }) {
+  const n = (v) => Number(String(v).replace(/,/g, ''));
+  const prefSet = new Set(prefectures);
+  const asOf = warekiToIso(text.match(/(令和[^\n]{0,14}?日)\s*時点/)?.[1] ?? '');
+
+  const rows = [];
+  const unmapped = [];
+  const ROW = /(\d{1,2})\s+(\S+?)\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)(?=\s|$)/g;
+  for (const line of text.split('\n')) {
+    for (const m of line.matchAll(ROW)) {
+      const name = m[2];
+      let kind = null;
+      let prefecture = null;
+      if (prefSet.has(name)) { kind = 'prefecture'; prefecture = name; }
+      else if (name.endsWith('区')) { kind = 'ward'; prefecture = '東京都'; } // この表の「区」は特別区だけ
+      else if (name.endsWith('市')) { kind = 'city'; prefecture = cityToPref[name] ?? null; }
+      else continue;
+      if (!prefecture) { unmapped.push(name); continue; }
+      rows.push({ no: n(m[1]), name, kind, prefecture, filed: n(m[3]), closed: n(m[4]), homes: n(m[5]) });
+    }
+  }
+
+  // 表の下にある集計欄。読み取りが正しいかを突き合わせるために使う。
+  const totals = {};
+  const KIND_OF = { 都道府県: 'prefecture', 保健所設置市: 'city', 特別区: 'ward', 合計: 'all' };
+  for (const m of text.matchAll(/^[ \t]*(都道府県|保健所設置市|特別区|合計)\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)(?=\s|$)/gm)) {
+    totals[KIND_OF[m[1]]] = { filed: n(m[2]), closed: n(m[3]), homes: n(m[4]) };
+  }
+
+  const byPrefecture = {};
+  for (const r of rows) {
+    const a = (byPrefecture[r.prefecture] ??= {
+      prefecture: r.prefecture, filed: 0, closed: 0, homes: 0, breakdown: [],
+    });
+    a.filed += r.filed; a.closed += r.closed; a.homes += r.homes;
+    a.breakdown.push({ name: r.name, kind: r.kind, filed: r.filed, closed: r.closed, homes: r.homes });
+  }
+  for (const a of Object.values(byPrefecture)) {
+    a.breakdown.sort((x, y) => y.homes - x.homes);
+  }
+
+  return {
+    asOf,
+    rows,
+    unmapped,
+    totals,
+    byPrefecture,
+    managers: readLabelled(text, 0),
+    brokers: readLabelled(text, 1),
+    tokku: readTokku(text),
+  };
+}
+
+/** 「登録件数 4,529 件」が1行に2つ並ぶ（住宅宿泊管理業／仲介業の順） */
+function readLabelled(text, index) {
+  const hit = [...text.matchAll(/登録件数\s+([\d,]+)\s*件/g)][index];
+  return hit ? Number(hit[1].replace(/,/g, '')) : null;
+}
+
+/** 特区民泊の認定居室数（時点が月末までしか書かれていないので、表記のまま持つ） */
+function readTokku(text) {
+  const rooms = text.match(/([\d,]+)\s+居室/);
+  if (!rooms) return null;
+  return {
+    rooms: Number(rooms[1].replace(/,/g, '')),
+    asOfLabel: text.match(/特区民泊の認定居室数[\s\S]{0,60}?（([^）]+?)時点）/)?.[1] ?? null,
+  };
+}
+
+/** 読み取り結果が表の集計欄と合っているかを確かめる。合わなければ理由を投げる。 */
+export function checkFilings(r, { expect = 47 } = {}) {
+  const prefs = Object.keys(r.byPrefecture).length;
+  if (r.unmapped.length) throw new Error(`どの都道府県か分からない市があります: ${[...new Set(r.unmapped)].join('、')}`);
+  if (prefs !== expect) throw new Error(`都道府県が${prefs}件しか揃いませんでした（表の作りが変わったかもしれません）`);
+  if (!r.asOf) throw new Error('「◯年◯月◯日時点」を読み取れませんでした');
+
+  const sum = (kind) => r.rows.filter((x) => kind === 'all' || x.kind === kind)
+    .reduce((a, x) => ({ filed: a.filed + x.filed, closed: a.closed + x.closed, homes: a.homes + x.homes }),
+      { filed: 0, closed: 0, homes: 0 });
+  const LABEL = { prefecture: '都道府県', city: '保健所設置市', ward: '特別区', all: '合計' };
+  for (const kind of ['prefecture', 'city', 'ward', 'all']) {
+    const want = r.totals[kind];
+    if (!want) throw new Error(`集計欄の「${LABEL[kind]}」を読み取れませんでした`);
+    const got = sum(kind);
+    for (const key of ['filed', 'closed', 'homes']) {
+      if (got[key] !== want[key]) {
+        throw new Error(`${LABEL[kind]}の合計が合いません（読み取り${got[key].toLocaleString('ja-JP')} / 表${want[key].toLocaleString('ja-JP')}）`);
+      }
+    }
+  }
+  return r;
+}
+
 export { strip };

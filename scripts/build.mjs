@@ -27,6 +27,14 @@ const muni = existsSync(p('data/municipalities.json'))
   ? JSON.parse(readFileSync(p('data/municipalities.json'), 'utf8')) : { areas: {}, pdfs: [] };
 const docs = existsSync(p('data/documents.json'))
   ? JSON.parse(readFileSync(p('data/documents.json'), 'utf8')) : { sources: [] };
+const filings = existsSync(p('data/filings.json'))
+  ? JSON.parse(readFileSync(p('data/filings.json'), 'utf8')) : null;
+
+// 都道府県を届出住宅数（いま生きている届出）の多い順に並べたもの。順位表示に使う。
+const filingRank = filings
+  ? Object.values(filings.areas).sort((a, b) => b.homes - a.homes).map((a, i) => ({ ...a, rank: i + 1 }))
+  : [];
+const filingOf = Object.fromEntries(filingRank.map((a) => [a.prefecture, a]));
 const slugs = JSON.parse(readFileSync(p('data/keywords.json'), 'utf8')).prefectureSlugs;
 
 const news = articles.items;
@@ -493,6 +501,33 @@ ${m ? `<div class="panel">
     : `<p class="lead-t">時点の違うデータが2件以上たまると、ここに推移のグラフが出ます（現在 ${h.length} 件）。観光庁は年6回ほど更新しているため、半年ほどで形が見えてきます。</p>`}
 </div>
 
+${filingRank.length ? `<div class="panel">
+  <h3>民泊はどこに多いか</h3>
+  <span class="meta">いま生きている届出の件数　／　${esc(filings.asOf)}時点　／　全国${num(filings.totals.all.homes)}件</span>
+  ${hbars(filingRank.slice(0, 15).map((a) => ({ name: `${a.rank}. ${a.prefecture}`, value: a.homes, key: 'k1' })), { unit: '件' })}
+  <p class="lead-t"><strong>上位3都道府県で全国の${Math.round((filingRank.slice(0, 3).reduce((t, a) => t + a.homes, 0) / filings.totals.all.homes) * 100)}%を占めます。</strong>いちばん少ない${esc(filingRank.at(-1).prefecture)}は${num(filingRank.at(-1).homes)}件で、上位との差は100倍以上あります。人が集まる場所に、そのまま集まっている形です。</p>
+  <div class="notice" style="margin-top:14px">この数字は「届出のあった住宅の数」で、実際に客を受け入れている数ではありません。届出をしたまま動いていない物件も含まれます。</div>
+</div>` : ''}
+
+${filings ? `<div class="panel">
+  <h3>受付の窓口はどこか</h3>
+  <span class="meta">届出は都道府県・保健所を持つ市・東京23区のどこかが受け付けます　／　${esc(filings.asOf)}時点</span>
+  ${proportionBar([
+    { name: '東京23区', value: filings.totals.ward.homes, key: 'k1' },
+    { name: '保健所設置市', value: filings.totals.city.homes, key: 'k2' },
+    { name: '都道府県', value: filings.totals.prefecture.homes, key: 'k1-pale' },
+  ], { unit: '件' })}
+  <p class="lead-t">全国の民泊の${Math.round((filings.totals.ward.homes / filings.totals.all.homes) * 100)}%が東京23区にあります。<strong>「どこに届け出るか」は、物件の住所で決まります。</strong>同じ都内でも、23区なら区、それ以外なら都が窓口です。</p>
+  ${filings.tokku ? `<dl class="tiles" style="margin-top:20px">
+    <div class="tile"><dt>特区民泊の認定居室数</dt><dd>${num(filings.tokku.rooms)}<span class="u">居室</span></dd>
+      <span class="d">${esc(filings.tokku.asOfLabel ?? '')}時点</span></div>
+    <div class="tile"><dt>住宅宿泊管理業の登録</dt><dd>${num(filings.managers)}<span class="u">件</span></dd>
+      <span class="d">${esc(filings.asOf)}時点</span></div>
+    <div class="tile"><dt>住宅宿泊仲介業の登録</dt><dd>${num(filings.brokers)}<span class="u">件</span></dd>
+      <span class="d">${esc(filings.asOf)}時点</span></div>
+  </dl>` : ''}
+</div>` : ''}
+
 ${areaRank.length ? `<div class="panel">
   <h3>いま話題になっている場所</h3>
   <span class="meta">直近90日にこのサイトが集めた記事の本数（${recent.length}件が対象）</span>
@@ -561,8 +596,7 @@ ${(() => {
     <thead><tr><th>数字</th><th>状況</th></tr></thead>
     <tbody>
       ${stats.lodging ? '' : '<tr><td>延べ宿泊者数・客室稼働率</td><td>観光庁の報道発表ページから読み取ります</td></tr>'}
-      <tr><td>都道府県別の延べ宿泊者数</td><td>e-Stat のデータベースは2016年分で更新が止まっており、最新分はファイル提供のみのため未取得です</td></tr>
-      <tr><td>都道府県別の届出件数</td><td>出典がPDFのみで、いまの仕組みでは読み取れません</td></tr>
+      <tr><td>都道府県別の延べ宿泊者数</td><td>e-Stat のデータベースは2016年分で更新が止まっています。観光庁の報道発表PDFから読み取る形で、次に対応する予定です</td></tr>
       <tr><td>ADR（平均客室単価）・掲載件数</td><td>公的な無料の出典が見つかっていません</td></tr>
     </tbody>
   </table></div>
@@ -579,6 +613,9 @@ ${(() => {
       ${r ? `<tr><td>旅館業の営業許可施設数</td>
         <td><a href="${esc(r.sourceUrl)}" rel="noopener" target="_blank">${esc(r.source)}</a></td>
         <td>${esc(r.asOfLabel ?? '—')}</td><td>${esc(r.fetchedAt)}</td></tr>` : ''}
+      ${filings ? `<tr><td>都道府県別の届出件数・特区民泊の認定居室数</td>
+        <td><a href="${esc(filings.pdfUrl)}" rel="noopener" target="_blank">${esc(filings.source)}</a>（PDF）</td>
+        <td>${esc(filings.asOf)}</td><td>${esc(filings.updatedAt)}</td></tr>` : ''}
       ${stats.lodging ? `<tr><td>延べ宿泊者数・客室稼働率</td>
         <td><a href="${esc(stats.lodging.sourceUrl)}" rel="noopener" target="_blank">${esc(stats.lodging.source)}</a></td>
         <td>${esc(stats.lodging.period)}</td><td>${esc(stats.lodging.fetchedAt)}</td></tr>` : ''}
@@ -630,7 +667,15 @@ function pageAreaIndex() {
     return `<a class="pill" href="${base}area/${slugs[a]}.html">${a}${ord ? `　<span style="color:var(--green-ink)">条例${ord}</span>` : ''}</a>`;
   }).join('')}
 </div>
-<div class="notice" style="margin-bottom:60px">数字は、その都道府県で条例が定められている自治体の数です（観光庁の一覧に基づく）。条例があると、区域や期間などに法律への上乗せの決まりがある場合があります。</div>`;
+<div class="notice">数字は、その都道府県で条例が定められている自治体の数です（観光庁の一覧に基づく）。条例があると、区域や期間などに法律への上乗せの決まりがある場合があります。</div>
+
+${filingRank.length ? `<div class="panel" style="margin-bottom:60px">
+  <h3>民泊の多い都道府県</h3>
+  <span class="meta">いま生きている届出の件数　／　${esc(filings.asOf)}時点</span>
+  ${hbars(filingRank.slice(0, 12).map((a) => ({ name: `${a.rank}. ${a.prefecture}`, value: a.homes, key: 'k1' })), { unit: '件' })}
+  <p class="lead-t">上位に偏っています。<strong>全国${num(filings.totals.all.homes)}件のうち、上位3都道府県だけで${Math.round((filingRank.slice(0, 3).reduce((t, a) => t + a.homes, 0) / filings.totals.all.homes) * 100)}%を占めます。</strong>都市部と観光地に集中している、というのが数字の形です。</p>
+  <p class="meta" style="margin-top:10px">出典：<a href="${esc(filings.pdfUrl)}" rel="noopener" target="_blank">${esc(filings.source)}</a>（PDF・取得日 ${esc(filings.updatedAt)}）</p>
+</div>` : '<div style="margin-bottom:60px"></div>'}`;
   return layout(base, { title: 'エリア', description: '都道府県ごとの民泊関連ニュースとルール情報。', current: 'area', body });
 }
 
@@ -661,6 +706,25 @@ function pageArea(pref) {
        <p class="meta" style="margin-top:10px">最終確認 ${esc(entry.verifiedAt ?? '—')}　／　${esc(entry.verifiedBy ?? '')}</p>`
     : '';
 
+  const f = filingOf[pref];
+  const KIND = { prefecture: '都道府県が窓口', city: '保健所設置市', ward: '特別区' };
+  const numbers = f ? `<section class="sec" style="margin-top:0">
+      ${secHead('この地域の届出件数', `${esc(filings.asOf)}時点`)}
+      <dl class="tiles">
+        <div class="tile"><dt>いま生きている届出</dt><dd>${num(f.homes)}<span class="u">件</span></dd>
+          <span class="d">全国${filingRank.length}都道府県中 ${f.rank}位</span></div>
+        <div class="tile"><dt>これまでの届出</dt><dd>${num(f.filed)}<span class="u">件</span></dd>
+          <span class="d">制度が始まってからの累計</span></div>
+        <div class="tile"><dt>すでにやめた</dt><dd>${num(f.closed)}<span class="u">件</span></dd>
+          <span class="d">累計のうち${Math.round((f.closed / f.filed) * 100)}%</span></div>
+      </dl>
+      ${f.breakdown.length > 1 ? `<h3 style="margin-top:26px">窓口ごとの内訳</h3>
+        <span class="meta">いま生きている届出の件数</span>
+        ${hbars(f.breakdown.map((b) => ({ name: b.name, value: b.homes, key: b.kind === 'prefecture' ? 'k2' : 'k1' })), { unit: '件' })}
+        <p class="meta" style="margin-top:10px">${esc(pref)}の行は、市区が自分で受け付ける地域を除いた残りの件数です。</p>` : ''}
+      <p class="meta" style="margin-top:12px">出典：<a href="${esc(filings.pdfUrl)}" rel="noopener" target="_blank">${esc(filings.source)}</a>（PDF・取得日 ${esc(filings.updatedAt)}）</p>
+    </section>` : '';
+
   const body = `
 <p class="crumb"><a href="${base}">ホーム</a> ＞ <a href="${base}area/">エリア</a> ＞ ${esc(pref)}</p>
 <div class="phead">
@@ -670,7 +734,8 @@ function pageArea(pref) {
 
 <div class="two">
   <div>
-    ${m ? `<section class="sec" style="margin-top:0">
+    ${numbers}
+    ${m ? `<section class="sec"${f ? '' : ' style="margin-top:0"'}>
       ${secHead('届出の窓口', m.municipalities.length ? `${esc(pref)}と、届出を受け付ける${m.municipalities.length}市区` : '')}
       <div class="feed">
         ${m.self ? office(m.self, true) : ''}

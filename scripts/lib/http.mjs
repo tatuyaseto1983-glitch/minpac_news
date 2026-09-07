@@ -7,6 +7,11 @@ let lastRequestAt = 0;
 const MIN_INTERVAL_MS = 1500; // 同一プロセスからの連続アクセス間隔
 
 export async function getText(url, { encoding = 'utf-8', retries = 3 } = {}) {
+  return decode(await getBuffer(url, { retries }), encoding);
+}
+
+/** PDFなど、文字に直さずそのまま受け取りたいとき */
+export async function getBuffer(url, { retries = 3 } = {}) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     const wait = Math.max(0, lastRequestAt + MIN_INTERVAL_MS - Date.now());
     if (wait) await sleep(wait);
@@ -18,8 +23,7 @@ export async function getText(url, { encoding = 'utf-8', retries = 3 } = {}) {
         redirect: 'follow',
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const buf = Buffer.from(await res.arrayBuffer());
-      return decode(buf, encoding);
+      return Buffer.from(await res.arrayBuffer());
     } catch (err) {
       if (attempt === retries) throw new Error(`${url} の取得に失敗しました: ${err.message}`);
       await sleep(2000 * 2 ** attempt);

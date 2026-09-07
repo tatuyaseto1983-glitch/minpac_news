@@ -1,0 +1,1155 @@
+{
+  "updatedAt": "2026-09-07",
+  "source": "民泊制度ポータル 都道府県別届出状況一覧",
+  "sourceUrl": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+  "pdfUrl": "https://www.mlit.go.jp/kankocho/minpaku/business/host/content/002014160.pdf",
+  "asOf": "2026-07-15",
+  "totals": {
+    "prefecture": {
+      "filed": 20854,
+      "closed": 5362,
+      "homes": 15492
+    },
+    "city": {
+      "filed": 18637,
+      "closed": 8979,
+      "homes": 9658
+    },
+    "ward": {
+      "filed": 26346,
+      "closed": 9426,
+      "homes": 16920
+    },
+    "all": {
+      "filed": 65837,
+      "closed": 23767,
+      "homes": 42070
+    }
+  },
+  "managers": 4529,
+  "brokers": 66,
+  "tokku": {
+    "rooms": 26167,
+    "asOfLabel": "令和8年4月末"
+  },
+  "areas": {
+    "北海道": {
+      "prefecture": "北海道",
+      "filed": 8073,
+      "closed": 3581,
+      "homes": 4492,
+      "breakdown": [
+        {
+          "name": "札幌市",
+          "kind": "city",
+          "filed": 6075,
+          "closed": 3034,
+          "homes": 3041
+        },
+        {
+          "name": "北海道",
+          "kind": "prefecture",
+          "filed": 1998,
+          "closed": 547,
+          "homes": 1451
+        }
+      ]
+    },
+    "東京都": {
+      "prefecture": "東京都",
+      "filed": 27116,
+      "closed": 9595,
+      "homes": 17521,
+      "breakdown": [
+        {
+          "name": "新宿区",
+          "kind": "ward",
+          "filed": 5496,
+          "closed": 1721,
+          "homes": 3775
+        },
+        {
+          "name": "墨田区",
+          "kind": "ward",
+          "filed": 3359,
+          "closed": 1045,
+          "homes": 2314
+        },
+        {
+          "name": "渋谷区",
+          "kind": "ward",
+          "filed": 3052,
+          "closed": 1207,
+          "homes": 1845
+        },
+        {
+          "name": "豊島区",
+          "kind": "ward",
+          "filed": 2957,
+          "closed": 1131,
+          "homes": 1826
+        },
+        {
+          "name": "台東区",
+          "kind": "ward",
+          "filed": 2413,
+          "closed": 1040,
+          "homes": 1373
+        },
+        {
+          "name": "港区",
+          "kind": "ward",
+          "filed": 1490,
+          "closed": 616,
+          "homes": 874
+        },
+        {
+          "name": "北区",
+          "kind": "ward",
+          "filed": 859,
+          "closed": 253,
+          "homes": 606
+        },
+        {
+          "name": "世田谷区",
+          "kind": "ward",
+          "filed": 768,
+          "closed": 222,
+          "homes": 546
+        },
+        {
+          "name": "江戸川区",
+          "kind": "ward",
+          "filed": 783,
+          "closed": 239,
+          "homes": 544
+        },
+        {
+          "name": "東京都",
+          "kind": "prefecture",
+          "filed": 668,
+          "closed": 136,
+          "homes": 532
+        },
+        {
+          "name": "中野区",
+          "kind": "ward",
+          "filed": 715,
+          "closed": 257,
+          "homes": 458
+        },
+        {
+          "name": "板橋区",
+          "kind": "ward",
+          "filed": 684,
+          "closed": 229,
+          "homes": 455
+        },
+        {
+          "name": "杉並区",
+          "kind": "ward",
+          "filed": 609,
+          "closed": 169,
+          "homes": 440
+        },
+        {
+          "name": "葛飾区",
+          "kind": "ward",
+          "filed": 800,
+          "closed": 406,
+          "homes": 394
+        },
+        {
+          "name": "文京区",
+          "kind": "ward",
+          "filed": 500,
+          "closed": 173,
+          "homes": 327
+        },
+        {
+          "name": "足立区",
+          "kind": "ward",
+          "filed": 385,
+          "closed": 107,
+          "homes": 278
+        },
+        {
+          "name": "大田区",
+          "kind": "ward",
+          "filed": 434,
+          "closed": 180,
+          "homes": 254
+        },
+        {
+          "name": "品川区",
+          "kind": "ward",
+          "filed": 415,
+          "closed": 173,
+          "homes": 242
+        },
+        {
+          "name": "練馬区",
+          "kind": "ward",
+          "filed": 162,
+          "closed": 43,
+          "homes": 119
+        },
+        {
+          "name": "中央区",
+          "kind": "ward",
+          "filed": 126,
+          "closed": 19,
+          "homes": 107
+        },
+        {
+          "name": "千代田区",
+          "kind": "ward",
+          "filed": 69,
+          "closed": 13,
+          "homes": 56
+        },
+        {
+          "name": "江東区",
+          "kind": "ward",
+          "filed": 112,
+          "closed": 64,
+          "homes": 48
+        },
+        {
+          "name": "八王子市",
+          "kind": "city",
+          "filed": 62,
+          "closed": 25,
+          "homes": 37
+        },
+        {
+          "name": "町田市",
+          "kind": "city",
+          "filed": 40,
+          "closed": 8,
+          "homes": 32
+        },
+        {
+          "name": "目黒区",
+          "kind": "ward",
+          "filed": 52,
+          "closed": 26,
+          "homes": 26
+        },
+        {
+          "name": "荒川区",
+          "kind": "ward",
+          "filed": 106,
+          "closed": 93,
+          "homes": 13
+        }
+      ]
+    },
+    "青森県": {
+      "prefecture": "青森県",
+      "filed": 168,
+      "closed": 16,
+      "homes": 152,
+      "breakdown": [
+        {
+          "name": "青森県",
+          "kind": "prefecture",
+          "filed": 168,
+          "closed": 16,
+          "homes": 152
+        }
+      ]
+    },
+    "宮城県": {
+      "prefecture": "宮城県",
+      "filed": 261,
+      "closed": 79,
+      "homes": 182,
+      "breakdown": [
+        {
+          "name": "宮城県",
+          "kind": "prefecture",
+          "filed": 175,
+          "closed": 53,
+          "homes": 122
+        },
+        {
+          "name": "仙台市",
+          "kind": "city",
+          "filed": 86,
+          "closed": 26,
+          "homes": 60
+        }
+      ]
+    },
+    "岩手県": {
+      "prefecture": "岩手県",
+      "filed": 155,
+      "closed": 32,
+      "homes": 123,
+      "breakdown": [
+        {
+          "name": "岩手県",
+          "kind": "prefecture",
+          "filed": 155,
+          "closed": 32,
+          "homes": 123
+        }
+      ]
+    },
+    "新潟県": {
+      "prefecture": "新潟県",
+      "filed": 569,
+      "closed": 117,
+      "homes": 452,
+      "breakdown": [
+        {
+          "name": "新潟県",
+          "kind": "prefecture",
+          "filed": 530,
+          "closed": 113,
+          "homes": 417
+        },
+        {
+          "name": "新潟市",
+          "kind": "city",
+          "filed": 39,
+          "closed": 4,
+          "homes": 35
+        }
+      ]
+    },
+    "神奈川県": {
+      "prefecture": "神奈川県",
+      "filed": 1714,
+      "closed": 438,
+      "homes": 1276,
+      "breakdown": [
+        {
+          "name": "神奈川県",
+          "kind": "prefecture",
+          "filed": 705,
+          "closed": 181,
+          "homes": 524
+        },
+        {
+          "name": "横浜市",
+          "kind": "city",
+          "filed": 448,
+          "closed": 122,
+          "homes": 326
+        },
+        {
+          "name": "横須賀市",
+          "kind": "city",
+          "filed": 155,
+          "closed": 14,
+          "homes": 141
+        },
+        {
+          "name": "川崎市",
+          "kind": "city",
+          "filed": 180,
+          "closed": 71,
+          "homes": 109
+        },
+        {
+          "name": "藤沢市",
+          "kind": "city",
+          "filed": 132,
+          "closed": 32,
+          "homes": 100
+        },
+        {
+          "name": "茅ヶ崎市",
+          "kind": "city",
+          "filed": 58,
+          "closed": 10,
+          "homes": 48
+        },
+        {
+          "name": "相模原市",
+          "kind": "city",
+          "filed": 36,
+          "closed": 8,
+          "homes": 28
+        }
+      ]
+    },
+    "秋田県": {
+      "prefecture": "秋田県",
+      "filed": 79,
+      "closed": 12,
+      "homes": 67,
+      "breakdown": [
+        {
+          "name": "秋田県",
+          "kind": "prefecture",
+          "filed": 79,
+          "closed": 12,
+          "homes": 67
+        }
+      ]
+    },
+    "山形県": {
+      "prefecture": "山形県",
+      "filed": 70,
+      "closed": 15,
+      "homes": 55,
+      "breakdown": [
+        {
+          "name": "山形県",
+          "kind": "prefecture",
+          "filed": 70,
+          "closed": 15,
+          "homes": 55
+        }
+      ]
+    },
+    "福島県": {
+      "prefecture": "福島県",
+      "filed": 184,
+      "closed": 37,
+      "homes": 147,
+      "breakdown": [
+        {
+          "name": "福島県",
+          "kind": "prefecture",
+          "filed": 184,
+          "closed": 37,
+          "homes": 147
+        }
+      ]
+    },
+    "愛知県": {
+      "prefecture": "愛知県",
+      "filed": 1543,
+      "closed": 531,
+      "homes": 1012,
+      "breakdown": [
+        {
+          "name": "名古屋市",
+          "kind": "city",
+          "filed": 1274,
+          "closed": 489,
+          "homes": 785
+        },
+        {
+          "name": "愛知県",
+          "kind": "prefecture",
+          "filed": 250,
+          "closed": 39,
+          "homes": 211
+        },
+        {
+          "name": "豊橋市",
+          "kind": "city",
+          "filed": 11,
+          "closed": 2,
+          "homes": 9
+        },
+        {
+          "name": "一宮市",
+          "kind": "city",
+          "filed": 8,
+          "closed": 1,
+          "homes": 7
+        }
+      ]
+    },
+    "茨城県": {
+      "prefecture": "茨城県",
+      "filed": 317,
+      "closed": 55,
+      "homes": 262,
+      "breakdown": [
+        {
+          "name": "茨城県",
+          "kind": "prefecture",
+          "filed": 317,
+          "closed": 55,
+          "homes": 262
+        }
+      ]
+    },
+    "京都府": {
+      "prefecture": "京都府",
+      "filed": 1968,
+      "closed": 530,
+      "homes": 1438,
+      "breakdown": [
+        {
+          "name": "京都市",
+          "kind": "city",
+          "filed": 1818,
+          "closed": 503,
+          "homes": 1315
+        },
+        {
+          "name": "京都府",
+          "kind": "prefecture",
+          "filed": 150,
+          "closed": 27,
+          "homes": 123
+        }
+      ]
+    },
+    "栃木県": {
+      "prefecture": "栃木県",
+      "filed": 586,
+      "closed": 93,
+      "homes": 493,
+      "breakdown": [
+        {
+          "name": "栃木県",
+          "kind": "prefecture",
+          "filed": 586,
+          "closed": 93,
+          "homes": 493
+        }
+      ]
+    },
+    "大阪府": {
+      "prefecture": "大阪府",
+      "filed": 6664,
+      "closed": 4064,
+      "homes": 2600,
+      "breakdown": [
+        {
+          "name": "大阪市",
+          "kind": "city",
+          "filed": 6201,
+          "closed": 3945,
+          "homes": 2256
+        },
+        {
+          "name": "大阪府",
+          "kind": "prefecture",
+          "filed": 308,
+          "closed": 74,
+          "homes": 234
+        },
+        {
+          "name": "堺市",
+          "kind": "city",
+          "filed": 49,
+          "closed": 14,
+          "homes": 35
+        },
+        {
+          "name": "枚方市",
+          "kind": "city",
+          "filed": 37,
+          "closed": 7,
+          "homes": 30
+        },
+        {
+          "name": "高槻市",
+          "kind": "city",
+          "filed": 38,
+          "closed": 11,
+          "homes": 27
+        },
+        {
+          "name": "吹田市",
+          "kind": "city",
+          "filed": 23,
+          "closed": 8,
+          "homes": 15
+        },
+        {
+          "name": "八尾市",
+          "kind": "city",
+          "filed": 5,
+          "closed": 2,
+          "homes": 3
+        },
+        {
+          "name": "寝屋川市",
+          "kind": "city",
+          "filed": 3,
+          "closed": 3,
+          "homes": 0
+        }
+      ]
+    },
+    "群馬県": {
+      "prefecture": "群馬県",
+      "filed": 307,
+      "closed": 52,
+      "homes": 255,
+      "breakdown": [
+        {
+          "name": "群馬県",
+          "kind": "prefecture",
+          "filed": 307,
+          "closed": 52,
+          "homes": 255
+        }
+      ]
+    },
+    "埼玉県": {
+      "prefecture": "埼玉県",
+      "filed": 587,
+      "closed": 122,
+      "homes": 465,
+      "breakdown": [
+        {
+          "name": "埼玉県",
+          "kind": "prefecture",
+          "filed": 560,
+          "closed": 111,
+          "homes": 449
+        },
+        {
+          "name": "川口市",
+          "kind": "city",
+          "filed": 27,
+          "closed": 11,
+          "homes": 16
+        }
+      ]
+    },
+    "兵庫県": {
+      "prefecture": "兵庫県",
+      "filed": 389,
+      "closed": 79,
+      "homes": 310,
+      "breakdown": [
+        {
+          "name": "神戸市",
+          "kind": "city",
+          "filed": 230,
+          "closed": 55,
+          "homes": 175
+        },
+        {
+          "name": "兵庫県",
+          "kind": "prefecture",
+          "filed": 128,
+          "closed": 19,
+          "homes": 109
+        },
+        {
+          "name": "姫路市",
+          "kind": "city",
+          "filed": 16,
+          "closed": 2,
+          "homes": 14
+        },
+        {
+          "name": "尼崎市",
+          "kind": "city",
+          "filed": 13,
+          "closed": 3,
+          "homes": 10
+        },
+        {
+          "name": "西宮市",
+          "kind": "city",
+          "filed": 1,
+          "closed": 0,
+          "homes": 1
+        },
+        {
+          "name": "明石市",
+          "kind": "city",
+          "filed": 1,
+          "closed": 0,
+          "homes": 1
+        }
+      ]
+    },
+    "千葉県": {
+      "prefecture": "千葉県",
+      "filed": 1567,
+      "closed": 348,
+      "homes": 1219,
+      "breakdown": [
+        {
+          "name": "千葉県",
+          "kind": "prefecture",
+          "filed": 1567,
+          "closed": 348,
+          "homes": 1219
+        }
+      ]
+    },
+    "岡山県": {
+      "prefecture": "岡山県",
+      "filed": 216,
+      "closed": 53,
+      "homes": 163,
+      "breakdown": [
+        {
+          "name": "岡山県",
+          "kind": "prefecture",
+          "filed": 94,
+          "closed": 19,
+          "homes": 75
+        },
+        {
+          "name": "岡山市",
+          "kind": "city",
+          "filed": 81,
+          "closed": 20,
+          "homes": 61
+        },
+        {
+          "name": "倉敷市",
+          "kind": "city",
+          "filed": 41,
+          "closed": 14,
+          "homes": 27
+        }
+      ]
+    },
+    "広島県": {
+      "prefecture": "広島県",
+      "filed": 983,
+      "closed": 437,
+      "homes": 546,
+      "breakdown": [
+        {
+          "name": "広島市",
+          "kind": "city",
+          "filed": 691,
+          "closed": 380,
+          "homes": 311
+        },
+        {
+          "name": "広島県",
+          "kind": "prefecture",
+          "filed": 292,
+          "closed": 57,
+          "homes": 235
+        }
+      ]
+    },
+    "富山県": {
+      "prefecture": "富山県",
+      "filed": 196,
+      "closed": 21,
+      "homes": 175,
+      "breakdown": [
+        {
+          "name": "富山県",
+          "kind": "prefecture",
+          "filed": 196,
+          "closed": 21,
+          "homes": 175
+        }
+      ]
+    },
+    "石川県": {
+      "prefecture": "石川県",
+      "filed": 154,
+      "closed": 52,
+      "homes": 102,
+      "breakdown": [
+        {
+          "name": "石川県",
+          "kind": "prefecture",
+          "filed": 79,
+          "closed": 19,
+          "homes": 60
+        },
+        {
+          "name": "金沢市",
+          "kind": "city",
+          "filed": 75,
+          "closed": 33,
+          "homes": 42
+        }
+      ]
+    },
+    "福井県": {
+      "prefecture": "福井県",
+      "filed": 82,
+      "closed": 11,
+      "homes": 71,
+      "breakdown": [
+        {
+          "name": "福井県",
+          "kind": "prefecture",
+          "filed": 82,
+          "closed": 11,
+          "homes": 71
+        }
+      ]
+    },
+    "山梨県": {
+      "prefecture": "山梨県",
+      "filed": 519,
+      "closed": 141,
+      "homes": 378,
+      "breakdown": [
+        {
+          "name": "山梨県",
+          "kind": "prefecture",
+          "filed": 519,
+          "closed": 141,
+          "homes": 378
+        }
+      ]
+    },
+    "長野県": {
+      "prefecture": "長野県",
+      "filed": 250,
+      "closed": 55,
+      "homes": 195,
+      "breakdown": [
+        {
+          "name": "長野県",
+          "kind": "prefecture",
+          "filed": 250,
+          "closed": 55,
+          "homes": 195
+        }
+      ]
+    },
+    "岐阜県": {
+      "prefecture": "岐阜県",
+      "filed": 410,
+      "closed": 71,
+      "homes": 339,
+      "breakdown": [
+        {
+          "name": "岐阜県",
+          "kind": "prefecture",
+          "filed": 410,
+          "closed": 71,
+          "homes": 339
+        }
+      ]
+    },
+    "静岡県": {
+      "prefecture": "静岡県",
+      "filed": 722,
+      "closed": 147,
+      "homes": 575,
+      "breakdown": [
+        {
+          "name": "静岡県",
+          "kind": "prefecture",
+          "filed": 722,
+          "closed": 147,
+          "homes": 575
+        }
+      ]
+    },
+    "三重県": {
+      "prefecture": "三重県",
+      "filed": 402,
+      "closed": 40,
+      "homes": 362,
+      "breakdown": [
+        {
+          "name": "三重県",
+          "kind": "prefecture",
+          "filed": 402,
+          "closed": 40,
+          "homes": 362
+        }
+      ]
+    },
+    "滋賀県": {
+      "prefecture": "滋賀県",
+      "filed": 322,
+      "closed": 60,
+      "homes": 262,
+      "breakdown": [
+        {
+          "name": "滋賀県",
+          "kind": "prefecture",
+          "filed": 322,
+          "closed": 60,
+          "homes": 262
+        }
+      ]
+    },
+    "奈良県": {
+      "prefecture": "奈良県",
+      "filed": 392,
+      "closed": 65,
+      "homes": 327,
+      "breakdown": [
+        {
+          "name": "奈良県",
+          "kind": "prefecture",
+          "filed": 290,
+          "closed": 44,
+          "homes": 246
+        },
+        {
+          "name": "奈良市",
+          "kind": "city",
+          "filed": 102,
+          "closed": 21,
+          "homes": 81
+        }
+      ]
+    },
+    "和歌山県": {
+      "prefecture": "和歌山県",
+      "filed": 587,
+      "closed": 211,
+      "homes": 376,
+      "breakdown": [
+        {
+          "name": "和歌山県",
+          "kind": "prefecture",
+          "filed": 587,
+          "closed": 211,
+          "homes": 376
+        }
+      ]
+    },
+    "鳥取県": {
+      "prefecture": "鳥取県",
+      "filed": 74,
+      "closed": 12,
+      "homes": 62,
+      "breakdown": [
+        {
+          "name": "鳥取県",
+          "kind": "prefecture",
+          "filed": 47,
+          "closed": 10,
+          "homes": 37
+        },
+        {
+          "name": "鳥取市",
+          "kind": "city",
+          "filed": 27,
+          "closed": 2,
+          "homes": 25
+        }
+      ]
+    },
+    "島根県": {
+      "prefecture": "島根県",
+      "filed": 117,
+      "closed": 29,
+      "homes": 88,
+      "breakdown": [
+        {
+          "name": "島根県",
+          "kind": "prefecture",
+          "filed": 117,
+          "closed": 29,
+          "homes": 88
+        }
+      ]
+    },
+    "高知県": {
+      "prefecture": "高知県",
+      "filed": 140,
+      "closed": 24,
+      "homes": 116,
+      "breakdown": [
+        {
+          "name": "高知県",
+          "kind": "prefecture",
+          "filed": 107,
+          "closed": 19,
+          "homes": 88
+        },
+        {
+          "name": "高知市",
+          "kind": "city",
+          "filed": 33,
+          "closed": 5,
+          "homes": 28
+        }
+      ]
+    },
+    "沖縄県": {
+      "prefecture": "沖縄県",
+      "filed": 2418,
+      "closed": 795,
+      "homes": 1623,
+      "breakdown": [
+        {
+          "name": "沖縄県",
+          "kind": "prefecture",
+          "filed": 1897,
+          "closed": 701,
+          "homes": 1196
+        },
+        {
+          "name": "那覇市",
+          "kind": "city",
+          "filed": 521,
+          "closed": 94,
+          "homes": 427
+        }
+      ]
+    },
+    "山口県": {
+      "prefecture": "山口県",
+      "filed": 197,
+      "closed": 28,
+      "homes": 169,
+      "breakdown": [
+        {
+          "name": "山口県",
+          "kind": "prefecture",
+          "filed": 197,
+          "closed": 28,
+          "homes": 169
+        }
+      ]
+    },
+    "徳島県": {
+      "prefecture": "徳島県",
+      "filed": 132,
+      "closed": 27,
+      "homes": 105,
+      "breakdown": [
+        {
+          "name": "徳島県",
+          "kind": "prefecture",
+          "filed": 132,
+          "closed": 27,
+          "homes": 105
+        }
+      ]
+    },
+    "香川県": {
+      "prefecture": "香川県",
+      "filed": 272,
+      "closed": 55,
+      "homes": 217,
+      "breakdown": [
+        {
+          "name": "香川県",
+          "kind": "prefecture",
+          "filed": 272,
+          "closed": 55,
+          "homes": 217
+        }
+      ]
+    },
+    "愛媛県": {
+      "prefecture": "愛媛県",
+      "filed": 333,
+      "closed": 53,
+      "homes": 280,
+      "breakdown": [
+        {
+          "name": "愛媛県",
+          "kind": "prefecture",
+          "filed": 333,
+          "closed": 53,
+          "homes": 280
+        }
+      ]
+    },
+    "福岡県": {
+      "prefecture": "福岡県",
+      "filed": 3136,
+      "closed": 1292,
+      "homes": 1844,
+      "breakdown": [
+        {
+          "name": "福岡県",
+          "kind": "prefecture",
+          "filed": 3136,
+          "closed": 1292,
+          "homes": 1844
+        }
+      ]
+    },
+    "佐賀県": {
+      "prefecture": "佐賀県",
+      "filed": 104,
+      "closed": 15,
+      "homes": 89,
+      "breakdown": [
+        {
+          "name": "佐賀県",
+          "kind": "prefecture",
+          "filed": 104,
+          "closed": 15,
+          "homes": 89
+        }
+      ]
+    },
+    "長崎県": {
+      "prefecture": "長崎県",
+      "filed": 275,
+      "closed": 64,
+      "homes": 211,
+      "breakdown": [
+        {
+          "name": "長崎県",
+          "kind": "prefecture",
+          "filed": 275,
+          "closed": 64,
+          "homes": 211
+        }
+      ]
+    },
+    "熊本県": {
+      "prefecture": "熊本県",
+      "filed": 388,
+      "closed": 73,
+      "homes": 315,
+      "breakdown": [
+        {
+          "name": "熊本県",
+          "kind": "prefecture",
+          "filed": 388,
+          "closed": 73,
+          "homes": 315
+        }
+      ]
+    },
+    "大分県": {
+      "prefecture": "大分県",
+      "filed": 195,
+      "closed": 56,
+      "homes": 139,
+      "breakdown": [
+        {
+          "name": "大分県",
+          "kind": "prefecture",
+          "filed": 195,
+          "closed": 56,
+          "homes": 139
+        }
+      ]
+    },
+    "宮崎県": {
+      "prefecture": "宮崎県",
+      "filed": 245,
+      "closed": 31,
+      "homes": 214,
+      "breakdown": [
+        {
+          "name": "宮崎県",
+          "kind": "prefecture",
+          "filed": 245,
+          "closed": 31,
+          "homes": 214
+        }
+      ]
+    },
+    "鹿児島県": {
+      "prefecture": "鹿児島県",
+      "filed": 259,
+      "closed": 53,
+      "homes": 206,
+      "breakdown": [
+        {
+          "name": "鹿児島県",
+          "kind": "prefecture",
+          "filed": 259,
+          "closed": 53,
+          "homes": 206
+        }
+      ]
+    }
+  }
+}

@@ -41,6 +41,15 @@
     "primary": true
   },
   {
+    "id": "minpaku-filings",
+    "name": "民泊制度ポータル 都道府県別届出状況一覧",
+    "type": "filings-pdf",
+    "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+    "pdfLabel": "都道府県別届出状況一覧",
+    "primary": true,
+    "note": "PDFの表を pdftotext で読み取り、都道府県ごとの届出件数にまとめます。data/filings.json に書き出します"
+  },
+  {
     "id": "mhlw-news",
     "name": "厚生労働省 新着情報",
     "type": "rss",

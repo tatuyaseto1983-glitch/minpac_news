@@ -12,7 +12,7 @@
     "serve": "node scripts/serve.mjs",
     "summarize": "node scripts/summarize.mjs",
     "estat": "node scripts/fetch-estat.mjs",
-    "test": "node scripts/lib/estat.test.mjs && node scripts/check-workflow.mjs"
+    "test": "node scripts/lib/estat.test.mjs && node scripts/lib/filings.test.mjs && node scripts/check-workflow.mjs"
   },
   "engines": {
     "node": ">=20"
