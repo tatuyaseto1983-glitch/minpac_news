@@ -46,8 +46,9 @@ for (const pg of pages) {
 /** ページ内リンクを #アンカー に、外部リンクはそのままにする */
 function rewrite(html, fromFile) {
   const dir = fromFile.replace(/[^/]*$/, '');
-  return html.replace(/href="([^"]+)"/g, (whole, href) => {
+  return html.replace(/href="([^"]*)"/g, (whole, href) => {
     if (/^(https?:|mailto:|#)/.test(href)) return whole;
+    if (href === '') return 'href="#home"';
     let path;
     try {
       path = new URL(href, `https://x${dir}`).pathname;
