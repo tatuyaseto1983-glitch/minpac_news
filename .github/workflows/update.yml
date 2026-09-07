@@ -40,6 +40,9 @@ jobs:
 
       - uses: actions/configure-pages@v5
         id: pages
+        with:
+          # Pages が未設定でも、このワークフローから有効にする
+          enablement: true
 
       - name: サイトを生成
         run: npm run build
