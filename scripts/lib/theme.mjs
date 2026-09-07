@@ -191,6 +191,77 @@ a.chip:hover{border-color:var(--teal);color:var(--teal-deep)}
 .sectionhead .rule{flex:1;height:2px;background:linear-gradient(90deg,var(--teal),var(--line) 34%)}
 .sectionhead .stamp{white-space:nowrap}
 
+/* マガジン風の一覧レイアウト */
+.crumb{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);padding:18px 0 0;letter-spacing:.06em}
+.crumb a{color:var(--ink-3);text-decoration:none}
+.crumb a:hover{color:var(--teal-deep)}
+.maghead{text-align:center;padding:34px 0 40px}
+.maghead h1{font-size:clamp(22px,3vw,30px);font-weight:900;letter-spacing:.16em;margin-bottom:10px}
+.maghead p{max-width:60ch;margin:0 auto;color:var(--ink-2);font-size:13.5px}
+.maglayout{display:grid;grid-template-columns:minmax(0,1fr) 244px;gap:46px;align-items:start;
+  padding-bottom:60px}
+.magsec{margin-bottom:38px}
+.magsec>h2{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--ink-3);font-weight:400;
+  border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:18px;text-transform:uppercase}
+
+/* 注目の2枚 */
+.feature2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.feat{display:flex;flex-direction:column;text-decoration:none;color:inherit;
+  transition:transform .16s ease, box-shadow .16s ease}
+.feat:hover,.feat:focus-visible{transform:translateY(-3px);box-shadow:0 16px 34px -24px rgba(10,40,38,.55)}
+.feat__panel{background:var(--cat);padding:20px 22px;min-height:154px;display:flex;flex-direction:column;
+  justify-content:flex-end;gap:9px;position:relative;overflow:hidden}
+.feat__panel::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 82% 12%,rgba(255,255,255,.16),transparent 52%)}
+.feat__meta{position:relative;font-family:var(--mono);font-size:10px;color:#fff;opacity:.85;letter-spacing:.06em}
+.feat__title{position:relative;font-family:var(--display);font-size:16.5px;font-weight:800;line-height:1.55;
+  color:#fff;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.feat__body{border:1px solid var(--line);border-top:none;background:var(--surface);padding:13px 16px;flex:1;
+  display:flex;flex-direction:column;gap:8px}
+.feat__label{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--cat);font-weight:700}
+.feat__text{font-size:12.5px;color:var(--ink-2);line-height:1.75;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.feat__tags{margin-top:auto;padding-top:4px;display:flex;gap:5px;flex-wrap:wrap}
+
+/* サイドバー */
+.magside{position:sticky;top:76px;display:flex;flex-direction:column;gap:30px}
+.magside h2{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--ink-3);font-weight:400;
+  border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:14px}
+.searchrow{display:flex;gap:8px}
+.searchrow input{flex:1;min-width:0;font-family:var(--body);font-size:13px;padding:7px 10px;
+  background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);border-radius:0}
+.searchrow button{font-family:var(--display);font-size:12px;font-weight:700;padding:7px 13px;cursor:pointer;
+  background:var(--teal);color:#fff;border:none;white-space:nowrap}
+.searchrow button:hover{background:var(--teal-deep)}
+.taggroup+.taggroup{margin-top:18px}
+.taggroup>p{font-size:11px;color:var(--ink-3);margin-bottom:7px}
+.taglist{display:flex;flex-wrap:wrap;gap:6px}
+.tagbtn{font-family:var(--mono);font-size:10.5px;padding:4px 9px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink-2);cursor:pointer;line-height:1.5}
+.tagbtn:hover{border-color:var(--teal);color:var(--teal-deep)}
+.tagbtn[aria-pressed=true]{background:var(--teal);border-color:var(--teal);color:#fff}
+.activefilter{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;font-size:12.5px;
+  color:var(--ink-2)}
+.clearbtn{font-family:var(--mono);font-size:10.5px;padding:3px 9px;border:1px solid var(--line-strong);
+  background:transparent;color:var(--ink-2);cursor:pointer}
+.clearbtn:hover{border-color:var(--alert);color:var(--alert)}
+
+/* ページ送り */
+.pager{display:flex;align-items:center;justify-content:center;gap:7px;margin:30px 0 10px;flex-wrap:wrap}
+.pager button{font-family:var(--mono);font-size:12px;min-width:28px;height:28px;padding:0 6px;cursor:pointer;
+  background:transparent;border:none;color:var(--ink-2);border-radius:99px}
+.pager button:hover{color:var(--teal-deep)}
+.pager button[aria-current=true]{background:var(--teal);color:#fff;font-weight:700}
+.pager .arrow{border:1px solid var(--line-strong);width:30px;height:30px;border-radius:99px}
+.pager .arrow:disabled{opacity:.3;cursor:default}
+.pager .gap{color:var(--ink-3);padding:0 2px}
+
+@media(max-width:900px){
+  .maglayout{grid-template-columns:1fr;gap:34px}
+  .magside{position:static}
+  .feature2{grid-template-columns:1fr}
+}
+
 /* charts */
 .chartcard{background:var(--surface);border:1px solid var(--line);padding:20px 22px;margin-top:16px}
 .chartcard h3{font-size:15px;font-weight:800}

@@ -131,6 +131,26 @@ function card(n, others = [], attrs = '', hero = false) {
 
 const heroCard = (n, others = []) => card(n, others, '', true);
 
+/** 注目の記事（写真の代わりにカテゴリ色の面へ見出しを載せる） */
+function featureCard(n, others = []) {
+  const im = impactFor(n);
+  return `<a class="feat" style="--cat:${hue(n)}" href="${esc(n.url)}" target="_blank" rel="noopener nofollow">
+  <div class="feat__panel">
+    <p class="feat__meta">${fmt(n.publishedAt)}　${esc(n.sourceName)}</p>
+    <p class="feat__title">${esc(n.title)}</p>
+  </div>
+  <div class="feat__body">
+    <p class="feat__label">${esc(im.label)}</p>
+    <p class="feat__text">${esc(im.text)}</p>
+    <div class="feat__tags">
+      <span class="chip cat">${esc(n.category.name)}</span>
+      ${areaChips(n)}
+      ${sourceChip(n)}
+      ${others.length ? `<span class="card__more">ほか${others.length}媒体</span>` : ''}
+    </div>
+  </div></a>`;
+}
+
 const cardGrid = (entries, emptyText = '該当する記事はまだありません。') =>
   entries.length
     ? `<div class="cardgrid">${entries.map((e) => card(e.lead ?? e, e.others ?? [])).join('')}</div>`
@@ -230,69 +250,185 @@ ${cardGrid([...govCore, ...statsFeed].sort((x, y) => (y.publishedAt ?? '').local
 
 function pageNews() {
   const base = '../';
-  const LIMIT = 240;
-  const shown = feed.slice(0, LIMIT);
-  const cards = shown.map((e) => {
+  const featured = feed.slice(0, 2);
+  const rest = feed.slice(2);
+  const PER = 20;
+
+  const rows = rest.map((e) => {
     const n = e.lead;
     const attrs = ` data-cat="${esc(n.category.name)}" data-area="${esc(n.areas.join('|'))}"` +
-      ` data-type="${esc(n.businessTypes.join('|'))}" data-src="${n.isPrimary ? 'gov' : 'press'}"` +
+      ` data-type="${esc(n.businessTypes.join('|'))}" data-src="${n.isPrimary ? '行政の発表' : '報道'}"` +
       ` data-title="${esc(n.title)}"`;
     return card(n, e.others, attrs);
   }).join('');
 
-  const body = `
-<section style="padding:34px 0 0">
-  <p class="eyebrow">ニュース一覧</p>
-  <h1 class="page-title">新着をまとめて見る</h1>
-  <p class="lede">行政の発表と報道を合わせた一覧です。同じ出来事を複数の媒体が報じている場合は、1枚にまとめて「ほか◯媒体」と表示しています。</p>
-</section>
+  // サイドバーに出すタグ（実際に記事がある分だけ）
+  const countOf = (pick) => {
+    const t = {};
+    for (const e of rest) for (const v of [].concat(pick(e.lead))) t[v] = (t[v] ?? 0) + 1;
+    return Object.entries(t).sort((x, y) => y[1] - x[1]);
+  };
+  const tagBtn = (kind, value, n) =>
+    `<button class="tagbtn" type="button" data-kind="${kind}" data-value="${esc(value)}" aria-pressed="false">#${esc(value)} ${n}</button>`;
 
-<div class="filters">
-  <div><label for="f-src">情報の種類</label>
-    <select id="f-src"><option value="">すべて</option><option value="gov">行政の発表</option><option value="press">報道</option></select></div>
-  <div><label for="f-cat">カテゴリ</label>
-    <select id="f-cat"><option value="">すべて</option>${categoryList.map((c) => `<option>${c.name}</option>`).join('')}</select></div>
-  <div><label for="f-area">エリア</label>
-    <select id="f-area"><option value="">すべて</option><option>全国</option>${prefectures.map((a) => `<option>${a}</option>`).join('')}</select></div>
-  <div><label for="f-q">キーワード</label><input id="f-q" type="search" placeholder="例：条例、新宿、統計"></div>
+  const body = `
+<p class="crumb"><a href="${base}">ホーム</a>　＞　ニュース一覧</p>
+
+<div class="maghead">
+  <h1>ニュース一覧</h1>
+  <p>行政の発表と報道を合わせた一覧です。同じ出来事を複数の媒体が報じている場合は、1つにまとめて「ほか◯媒体」と表示しています。</p>
 </div>
-<p class="count" id="count"></p>
-<div class="cardgrid" id="list">${cards}</div>
-<p class="empty" id="empty" hidden>条件に合う記事が見つかりませんでした。条件をゆるめてお試しください。</p>
-${feed.length > LIMIT ? `<p class="stamp" style="margin:26px 0 40px">新しい順に${LIMIT}話題を表示しています（全${feed.length}話題）。</p>` : ''}
+
+<div class="maglayout">
+  <div>
+    ${featured.length ? `<section class="magsec">
+      <h2>注目の話題</h2>
+      <div class="feature2">${featured.map((e) => featureCard(e.lead, e.others)).join('')}</div>
+    </section>` : ''}
+
+    <section class="magsec">
+      <h2>新着</h2>
+      <div class="activefilter" id="active">
+        <span id="count"></span>
+        <button class="clearbtn" type="button" id="clear" hidden>絞り込みを解除</button>
+      </div>
+      <div class="cardgrid" id="list">${rows}</div>
+      <p class="empty" id="empty" hidden>条件に合う記事が見つかりませんでした。キーワードを短くするか、タグを解除してお試しください。</p>
+      <nav class="pager" id="pager" aria-label="ページ送り"></nav>
+    </section>
+  </div>
+
+  <aside class="magside">
+    <div>
+      <h2>キーワードで探す</h2>
+      <div class="searchrow">
+        <input id="q" type="search" placeholder="例：条例、新宿、統計" aria-label="キーワード">
+        <button type="button" id="go">検索</button>
+      </div>
+    </div>
+    <div>
+      <h2>タグで探す</h2>
+      <div class="taggroup"><p>情報の種類</p><div class="taglist">
+        ${countOf((n) => (n.isPrimary ? '行政の発表' : '報道')).map(([v, c]) => tagBtn('src', v, c)).join('')}
+      </div></div>
+      <div class="taggroup"><p>カテゴリ</p><div class="taglist">
+        ${countOf((n) => n.category.name).map(([v, c]) => tagBtn('cat', v, c)).join('')}
+      </div></div>
+      <div class="taggroup"><p>エリア</p><div class="taglist">
+        ${countOf((n) => n.areas).slice(0, 12).map(([v, c]) => tagBtn('area', v, c)).join('')}
+      </div></div>
+      <div class="taggroup"><p>事業形態</p><div class="taglist">
+        ${countOf((n) => n.businessTypes).map(([v, c]) => tagBtn('type', v, c)).join('')}
+      </div></div>
+    </div>
+  </aside>
+</div>
 
 <script>
 (function () {
+  var PER = ${PER};
   var cards = Array.prototype.slice.call(document.querySelectorAll('#list .card'));
-  var f = { src: 'f-src', cat: 'f-cat', area: 'f-area', q: 'f-q' };
-  var el = {};
-  Object.keys(f).forEach(function (k) { el[k] = document.getElementById(f[k]); });
+  var q = document.getElementById('q');
+  var tags = Array.prototype.slice.call(document.querySelectorAll('.tagbtn'));
   var count = document.getElementById('count');
   var empty = document.getElementById('empty');
+  var pager = document.getElementById('pager');
+  var clear = document.getElementById('clear');
+  var active = {};   // kind -> value
+  var page = 1;
+
+  function matches(c) {
+    var text = q.value.trim();
+    if (text && c.dataset.title.indexOf(text) < 0) return false;
+    for (var kind in active) {
+      var v = active[kind];
+      if (!v) continue;
+      if (kind === 'cat' && c.dataset.cat !== v) return false;
+      if (kind === 'src' && c.dataset.src !== v) return false;
+      if (kind === 'area' && c.dataset.area.split('|').indexOf(v) < 0) return false;
+      if (kind === 'type' && c.dataset.type.split('|').indexOf(v) < 0) return false;
+    }
+    return true;
+  }
 
   function render() {
-    var q = el.q.value.trim();
-    var n = 0;
-    cards.forEach(function (c) {
-      var ok = true;
-      if (el.src.value && c.dataset.src !== el.src.value) ok = false;
-      if (ok && el.cat.value && c.dataset.cat !== el.cat.value) ok = false;
-      if (ok && el.area.value && c.dataset.area.split('|').indexOf(el.area.value) < 0) ok = false;
-      if (ok && q && c.dataset.title.indexOf(q) < 0) ok = false;
-      c.hidden = !ok;
-      if (ok) n++;
-    });
-    count.textContent = n + ' 件';
-    empty.hidden = n > 0;
+    var hits = cards.filter(matches);
+    var pages = Math.max(1, Math.ceil(hits.length / PER));
+    if (page > pages) page = pages;
+    var from = (page - 1) * PER;
+
+    cards.forEach(function (c) { c.hidden = true; });
+    hits.slice(from, from + PER).forEach(function (c) { c.hidden = false; });
+
+    count.textContent = hits.length + ' 件' + (pages > 1 ? '（' + page + ' / ' + pages + 'ページ）' : '');
+    empty.hidden = hits.length > 0;
+    clear.hidden = !q.value.trim() && !Object.keys(active).some(function (k) { return active[k]; });
+    drawPager(pages);
   }
-  Object.keys(el).forEach(function (k) { el[k].addEventListener('input', render); });
+
+  function drawPager(pages) {
+    pager.innerHTML = '';
+    if (pages < 2) return;
+    var add = function (label, target, opts) {
+      opts = opts || {};
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = label;
+      if (opts.arrow) { b.className = 'arrow'; b.setAttribute('aria-label', opts.label); }
+      else if (target === page) b.setAttribute('aria-current', 'true');
+      if (opts.disabled) b.disabled = true;
+      b.addEventListener('click', function () {
+        page = target; render();
+        pager.scrollIntoView({ block: 'nearest' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      pager.appendChild(b);
+    };
+    var gap = function () {
+      var s = document.createElement('span'); s.className = 'gap'; s.textContent = '…'; pager.appendChild(s);
+    };
+    add('‹', Math.max(1, page - 1), { arrow: true, label: '前のページ', disabled: page === 1 });
+    var shown = [];
+    for (var i = 1; i <= pages; i++) {
+      if (i <= 3 || i > pages - 1 || Math.abs(i - page) <= 1) shown.push(i);
+    }
+    shown.forEach(function (i, idx) {
+      if (idx && i - shown[idx - 1] > 1) gap();
+      add(String(i), i);
+    });
+    add('›', Math.min(pages, page + 1), { arrow: true, label: '次のページ', disabled: page === pages });
+  }
+
+  tags.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var kind = b.dataset.kind, value = b.dataset.value;
+      var on = active[kind] === value;
+      tags.forEach(function (o) { if (o.dataset.kind === kind) o.setAttribute('aria-pressed', 'false'); });
+      active[kind] = on ? null : value;
+      if (!on) b.setAttribute('aria-pressed', 'true');
+      page = 1; render();
+    });
+  });
+  q.addEventListener('input', function () { page = 1; render(); });
+  document.getElementById('go').addEventListener('click', function () { page = 1; render(); });
+  clear.addEventListener('click', function () {
+    q.value = '';
+    active = {};
+    tags.forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+    page = 1; render();
+  });
+
   var params = new URLSearchParams(location.search);
-  if (params.get('area')) el.area.value = params.get('area');
-  if (params.get('cat')) el.cat.value = params.get('cat');
+  ['cat', 'area', 'type', 'src'].forEach(function (k) {
+    var v = params.get(k);
+    if (!v) return;
+    var hit = tags.filter(function (b) { return b.dataset.kind === k && b.dataset.value === v; })[0];
+    if (hit) { active[k] = v; hit.setAttribute('aria-pressed', 'true'); }
+  });
   render();
 })();
 </script>`;
-  return layout(base, { title: 'ニュース一覧', description: '民泊・宿泊事業に関わる行政発表と報道の一覧。カテゴリ・エリアで絞り込めます。', current: 'news', body });
+  return layout(base, { title: 'ニュース一覧', description: '民泊・宿泊事業に関わる行政発表と報道の一覧。キーワードとタグで絞り込めます。', current: 'news', body });
 }
 
 function pageStats() {
