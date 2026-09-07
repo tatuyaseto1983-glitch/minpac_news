@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-09-07",
-  "count": 414,
+  "count": 412,
   "items": [
     {
       "id": "zqsvat",
@@ -2443,7 +2443,7 @@
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQYWN2cUVGb29FaGxGZmh6R0ZUMEN1NFhDc01XaFVuRUxlOEZTZEdSNXc3NEZQYkFHMUdzXzlBNnZiSWZZVmlSd2dJRVB3RFlfc2Njc0NnMmNFYmpuRTNCT2xQWkNsbm1paVkxbkk1UVdYVWtZX1NVMFJnVHlTTnlkUQ?oc=5",
       "publishedAt": "2026-07-16",
       "sourceId": "google-news",
-      "sourceName": "建通新聞",
+      "sourceName": "digital.kentsu.co.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -3728,36 +3728,12 @@
       "lastSeenAt": "2026-09-07"
     },
     {
-      "id": "1x3m8gv",
-      "title": "大阪市が特区民泊の新規受け付け停止 5月最多の千件超申請 既存の4900施設調査へ（写真・画像 1/1）",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNWFh2UGU1SzhnQnVJdXhhNkhPZzdIX2NDLU5SZWtERUlhRVJXZG5WbDN1MWxZcUM1LXNwQ0tYel95Ti1raFN1Q0V6Qk1sdDdtWVBRZjM0cXoxcVBmUXNuQTF0cUxreXZrUTlfNTdnWkQxVmtEZnNhUkFJUmNBaWZtWG4zUWw4V2VCd3ZwbzVPbTViRzE4UnMwc2R3V0xSX3drLXc?oc=5",
-      "publishedAt": "2026-05-29",
-      "sourceId": "google-news",
-      "sourceName": "産経ニュース",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "大阪府"
-      ],
-      "category": {
-        "id": "market",
-        "name": "市場データ"
-      },
-      "businessTypes": [
-        "特区民泊"
-      ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
-      "id": "1qes9wj",
+      "id": "1f3bhn7",
       "title": "特区民泊、千件超駆け込み 大阪市、新規申請停止",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQcVIxdEZSZXZTV0d4cHVTR0dCMGdUOUNZRW9KNFZVVExEWDV0eG5CTnhpVU54VGdXTVV2ZHhlWnd0NkllSUY1ek1GTlJiMFZxNFpkSWZVUFRwUXVzMzB4NUpWckFfSENBLURxY0E2N2JsWVlncUVWdm5nR2ZFbng1LVZINHJMcWE3SFE?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9ZazA2UlZwUmlBWnhWcU9tazh3Y3dnOXVzNVA1RFFfUV8wQy14eXd4YUtFSkNuanU2S1N4dEp0YUo0enF5em13RjRwYw?oc=5",
       "publishedAt": "2026-05-29",
       "sourceId": "google-news",
-      "sourceName": "山陽新聞",
+      "sourceName": "47NEWS",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -3782,30 +3758,6 @@
       "publishedAt": "2026-05-29",
       "sourceId": "google-news",
       "sourceName": "東奥日報社",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "大阪府"
-      ],
-      "category": {
-        "id": "start",
-        "name": "開業"
-      },
-      "businessTypes": [
-        "特区民泊"
-      ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
-      "id": "1bhraoq",
-      "title": "特区民泊、千件超駆け込み 大阪市、新規申請停止（共同通信）",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFA1UTlWNDhYRDJKd1pWSFFDMm81R0hSYXFuWWkwVFlsQmc2MGx0OHhhYzFLVHMtTGNhMFJuSHlEbUZ6SmYzYUlWeVlLT0UyNkdZUU82elZLWlBqdkNMWVhJbF9jQmpxUUpUcW14U3Nhd0kyT29IQUdHS09jWkNsNTg?oc=5",
-      "publishedAt": "2026-05-29",
-      "sourceId": "google-news",
-      "sourceName": "Yahoo!ニュース",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -4986,7 +4938,7 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9SYTFoN3YwSG1OeFY4cENhTVVBWU53UHloX21WYWRjQ1dWN0I3LVF3RmRwbmhvVUNUTVNzWTI3Umx2dUhmcndxX3YtcmM3cXVyTFI2UlZNOFdzQQ?oc=5",
       "publishedAt": "2026-03-25",
       "sourceId": "google-news",
-      "sourceName": "dot.asahi.com",
+      "sourceName": "AERA DIGITAL",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -5170,7 +5122,7 @@
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE83d1Q1VTdjU2NabWtWemxpZnJkSHE4Z0NlSnBENm5SNTRXT092VzJZbmR4N0RDOGo0MzY1OXJtdXpZY0ZDalZSYTRmU2tTRUFWQ2xtUklDTkI?oc=5",
       "publishedAt": "2026-02-21",
       "sourceId": "google-news",
-      "sourceName": "全国賃貸住宅新聞",
+      "sourceName": "zenchin.com",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -7255,6 +7207,28 @@
       "lastSeenAt": "2026-09-07"
     },
     {
+      "id": "dr6vql",
+      "title": "国の適当すぎる対応が招いた都内マンション「ホテル化」問題 「法の穴」を生んだ2つのイレギュラーとは（2ページ目）",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE14R0NNdWpocHBZbzA4Uk1pcnV4ZEJVVkh2NGJWNVFTSUFOMG5iSGZzTEp1eEJiblhyNThJejZJQ0JNTUxodmlpODcxUjJYbDE4Zm1jZExCOVRvLW05NklwWlJ6MF9TN1hfZmY4cGpwdzk?oc=5",
+      "publishedAt": "2025-09-04",
+      "sourceId": "google-news",
+      "sourceName": "デイリー新潮",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "全国"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
       "id": "94mdcc",
       "title": "宿泊旅行統計調査（2025年（令和７年）６月・第２次速報、2025年（令和７年）７月・第１次速報）",
       "url": "https://www.mlit.go.jp/kankocho/news02_00058.html",
@@ -7981,7 +7955,7 @@
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5hTG5pVmxrc3Z2WTdEajhFbEI3WnVydy11ZjFvcVlyY3ZFdWNPQV9iYzBOaUNtME5KcDl3RDRPUnpjdXlYWVI3S3dwRkVqdm83eXNlalkwY3M?oc=5",
       "publishedAt": "2024-07-04",
       "sourceId": "google-news",
-      "sourceName": "全国賃貸住宅新聞",
+      "sourceName": "zenchin.com",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -8018,28 +7992,6 @@
       "businessTypes": [
         "住宅宿泊事業"
       ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
-      "id": "tm307w",
-      "title": "日雇い労働者向けからバックパッカーの宿へ 「先駆け」が語る20年 [大阪府]",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9Sb3lYd2Z3WXU2NWg1N1ZmYlJmMTFiQVk3em5HVXljYlZ3LWtWVlNHc2ZSZ3lyYmYwWExJcEd5ZHFvbENsYXlWTzRQZzVfZ2RodlpLbXBrQ1UwcF8zU1VnczNyNGVkR2c?oc=5",
-      "publishedAt": "2024-05-27",
-      "sourceId": "google-news",
-      "sourceName": "朝日新聞",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "大阪府"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [],
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
@@ -8962,30 +8914,6 @@
       "lastSeenAt": "2026-09-07"
     },
     {
-      "id": "1fox5r",
-      "title": "「旅館業法施行条例」及び「公衆浴場の設置場所の配置及び衛生措置等の基準等に関する条例」の一部改正について",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFA2enpuVlVQSTNoTEhjaUExUUk4amlRMjJacGJXRkF3LUh6dUVDY1R0UlZ0UGJyUjRKbDFhd0VvTVNnY01CX29qank3eUViQ1NpQUxVdWJGNHN3UU5WUzZvYmVXNVNTQk9rTThiZGxqR0JrQlhkN1NSM1g0V3UyUQ?oc=5",
-      "publishedAt": "2022-04-21",
-      "sourceId": "google-news",
-      "sourceName": "pref.kanagawa.jp",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "local",
-        "name": "自治体ルール"
-      },
-      "businessTypes": [
-        "簡易宿所"
-      ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
       "id": "5gcbi1",
       "title": "人権よりも自治体の縄張りが優先される生活保護制度",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5BeVItN2JadnptbFhQSHRfaDBJdGhUV1VYeWJ5d3VBVmZqbWIxTUdYSEQ4U0dkdlltXzBGaXBCSEFiZVhTZjBka3JrUjdheVVvS2RPcXM5TEpkc1pB?oc=5",
@@ -9182,6 +9110,30 @@
       "isPrimary": false,
       "areas": [
         "全国"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [
+        "簡易宿所"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "x4b6q2",
+      "title": "京都でゲストハウスなど簡易宿所の廃業急増 半年で98施設、価格競争激化",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBjMUlPeHNyVnJpcXlLNE1lNVctNTdBdDU3QkNxMkhOaGlKVVMxeHE3NG1CUk10MTFmNFNIWmdLZ3NjYlpkLXVBdEQ4S2JXdG1JcWo3WXhtSk4?oc=5",
+      "publishedAt": "2019-11-16",
+      "sourceId": "google-news",
+      "sourceName": "京都新聞デジタル",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "京都府"
       ],
       "category": {
         "id": "industry",
