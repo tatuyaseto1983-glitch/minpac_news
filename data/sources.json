@@ -39,5 +39,39 @@
     "type": "minpaku-situation",
     "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
     "primary": true
+  },
+  {
+    "id": "mhlw-news",
+    "name": "厚生労働省 新着情報",
+    "type": "rss",
+    "url": "https://www.mhlw.go.jp/stf/news.rdf",
+    "primary": true,
+    "note": "省全体のRSS。キーワードで旅館業・民泊関係だけを拾います"
+  },
+  {
+    "id": "mhlw-ryokan",
+    "name": "厚生労働省 旅館業のページ",
+    "type": "mhlw-docs",
+    "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000110603.html",
+    "primary": true,
+    "sections": [
+      {
+        "anchor": "h2_free5",
+        "title": "関係法令"
+      },
+      {
+        "anchor": "h2_free6",
+        "title": "主な関係通知"
+      },
+      {
+        "anchor": "h2_free7",
+        "title": "参考資料集（パンフレットなど）"
+      },
+      {
+        "anchor": "h2_free8",
+        "title": "統計情報"
+      }
+    ],
+    "note": "ニュースではなく資料集。data/documents.json に書き出します"
   }
 ]

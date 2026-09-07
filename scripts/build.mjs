@@ -19,6 +19,9 @@ const site = {
 const articles = JSON.parse(readFileSync(p('data/articles.json'), 'utf8'));
 const stats = JSON.parse(readFileSync(p('data/stats.json'), 'utf8'));
 const areas = JSON.parse(readFileSync(p('data/areas.json'), 'utf8'));
+const docs = existsSync(p('data/documents.json'))
+  ? JSON.parse(readFileSync(p('data/documents.json'), 'utf8'))
+  : { sources: [] };
 const slugs = JSON.parse(readFileSync(p('data/keywords.json'), 'utf8')).prefectureSlugs;
 
 const news = articles.items;
@@ -45,6 +48,7 @@ function layout(base, { title, description, current, body }) {
     ['news/', 'ニュース一覧', 'news'],
     ['area/', 'エリア別', 'area'],
     ['stats/', '数字で見る', 'stats'],
+    ['docs/', '法令・通知', 'docs'],
     ['guides/', '解説記事', 'guides'],
     ['about.html', 'このサイトについて', 'about'],
   ];
@@ -152,6 +156,11 @@ function pageHome() {
       <h2>はじめての方へ</h2>
       <p>${esc(guides[0].title)}</p>
       <p style="margin-top:10px"><a href="${base}guides/${guides[0].slug}.html">読む →</a></p>
+    </div>` : ''}
+    ${docs.sources.length ? `<div class="panel">
+      <h2>法令・通知をまとめて見る</h2>
+      <p>旅館業法・住宅宿泊事業法の条文と、厚生労働省の主な通知を一覧にしています。</p>
+      <p style="margin-top:10px"><a href="${base}docs/">法令・通知の一覧へ →</a></p>
     </div>` : ''}
     ${system.length ? `<div class="panel">
       <h2>民泊制度運営システムの告知</h2>
@@ -378,6 +387,46 @@ function pageGuide(g) {
   return layout(base, { title: g.title, description: g.summary[0] ?? g.title, current: 'guides', body });
 }
 
+function pageDocs() {
+  const base = '../';
+  const total = docs.sources.reduce(
+    (a, src) => a + src.sections.reduce((b, sec) => b + sec.groups.reduce((c, g) => c + g.items.length, 0), 0), 0);
+
+  const item = (it) => `<li>
+    <span class="d">${it.date ? fmt(it.date) : '—'}</span>
+    <div>
+      <h3><a class="ext" href="${esc(it.url)}" rel="noopener" target="_blank">${esc(it.title)}</a></h3>
+      <div class="tags"><span class="chip">${esc(it.fileType)}</span>${it.size ? `<span class="chip">${esc(it.size)}</span>` : ''}</div>
+    </div></li>`;
+
+  const body = `
+<section style="padding:36px 0 0">
+  <p class="eyebrow">法令・通知</p>
+  <h1 class="page-title">旅館業法まわりの法令と通知</h1>
+  <p class="lede">厚生労働省が「旅館業のページ」でまとめている法令・通知・資料を、そのまま取り込んで並べています。リンク先はすべて厚生労働省または e-Gov のページです。</p>
+</section>
+
+${docs.sources.map((src) => `
+<p class="stamp" style="margin-top:22px">出典：<a href="${esc(src.url)}" rel="noopener" target="_blank">${esc(src.name)}</a>（取得日 ${esc(src.fetchedAt)}）　全${total}件</p>
+${src.sections.map((sec) => `
+<div style="margin-top:36px">
+  <div class="blockhead"><h2>${esc(sec.title)}</h2><span class="stamp">${sec.groups.reduce((a, g) => a + g.items.length, 0)}件</span></div>
+  ${sec.groups.map((g) => `
+    ${g.label ? `<h3 style="font-size:13px;font-family:var(--mono);letter-spacing:.08em;color:var(--teal-deep);margin:22px 0 2px">${esc(g.label)}</h3>` : ''}
+    <ul class="newslist">${g.items.map(item).join('')}</ul>`).join('')}
+</div>`).join('')}`).join('')}
+
+<div class="panel" style="margin:40px 0 56px">
+  <h2>日付がない資料について</h2>
+  <p>厚生労働省のページ上で発出日が書かれていないものは「—」と表示しています。日付の記載がない＝古い、という意味ではありません。内容の新しさはリンク先でご確認ください。</p>
+</div>`;
+  return layout(base, {
+    title: '法令・通知',
+    description: '旅館業法・住宅宿泊事業法の法令と、厚生労働省の主な通知・資料の一覧。',
+    current: 'docs', body,
+  });
+}
+
 function pageAbout() {
   const base = '';
   const sources = JSON.parse(readFileSync(p('data/sources.json'), 'utf8'));
@@ -391,7 +440,7 @@ function pageAbout() {
 
   <h2>取得している情報源</h2>
   <div class="scroller"><table><thead><tr><th>名称</th><th>取得方法</th><th>URL</th></tr></thead><tbody>
-  ${sources.map((s) => `<tr><td>${esc(s.name)}</td><td>${s.type === 'rss' ? 'RSS' : 'ページ巡回'}</td><td><a href="${esc(s.url)}" rel="noopener" target="_blank">${esc(s.url)}</a></td></tr>`).join('')}
+  ${sources.map((s) => `<tr><td>${esc(s.name)}</td><td>${s.type === 'rss' ? 'RSS' : s.type === 'mhlw-docs' ? '資料リンクの取り込み' : 'ページ巡回'}</td><td><a href="${esc(s.url)}" rel="noopener" target="_blank">${esc(s.url)}</a></td></tr>`).join('')}
   </tbody></table></div>
 
   <h2>守っていること</h2>
@@ -425,12 +474,13 @@ write('stats/index.html', pageStats());
 write('area/index.html', pageAreaIndex());
 write('about.html', pageAbout());
 write('guides/index.html', pageGuideIndex());
+if (docs.sources.length) write('docs/index.html', pageDocs());
 for (const g of guides) write(`guides/${g.slug}.html`, pageGuide(g));
 for (const pref of prefectures) write(`area/${slugs[pref]}.html`, pageArea(pref));
 write('robots.txt', `User-agent: *\nAllow: /\n${site.url ? `Sitemap: ${site.url}/sitemap.xml\n` : ''}`);
 write('.nojekyll', '');
 
-const pages = ['', 'news/', 'stats/', 'area/', 'guides/', 'about.html',
+const pages = ['', 'news/', 'stats/', 'area/', 'guides/', 'about.html', ...(docs.sources.length ? ['docs/'] : []),
   ...guides.map((g) => `guides/${g.slug}.html`), ...prefectures.map((a) => `area/${slugs[a]}.html`)];
 if (site.url) {
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>

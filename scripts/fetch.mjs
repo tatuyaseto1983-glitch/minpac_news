@@ -3,7 +3,7 @@
 // 記事本文は保存しません（見出し・日付・出典・リンクのみ）。
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { getText } from './lib/http.mjs';
-import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews } from './lib/parse.mjs';
+import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs } from './lib/parse.mjs';
 import { screen, categorize, detectAreas, detectBusinessTypes } from './lib/classify.mjs';
 
 const root = new URL('../', import.meta.url);
@@ -14,6 +14,7 @@ const sources = JSON.parse(readFileSync(p('data/sources.json'), 'utf8'));
 const store = existsSync(p('data/articles.json'))
   ? JSON.parse(readFileSync(p('data/articles.json'), 'utf8'))
   : { updatedAt: null, items: [] };
+const docsStore = { updatedAt: today, sources: [] };
 const statsStore = existsSync(p('data/stats.json'))
   ? JSON.parse(readFileSync(p('data/stats.json'), 'utf8'))
   : { updatedAt: null, minpaku: null, history: [] };
@@ -25,6 +26,15 @@ const report = [];
 
 for (const src of sources) {
   try {
+    if (src.type === 'mhlw-docs') {
+      const sections = parseMhlwDocs(await getText(src.url), src.url, src.sections ?? []);
+      const total = sections.reduce((a, sec) => a + sec.groups.reduce((b, g) => b + g.items.length, 0), 0);
+      if (!total) throw new Error('資料リンクを読み取れませんでした（ページ構成の変更かもしれません）');
+      docsStore.sources.push({ id: src.id, name: src.name, url: src.url, fetchedAt: today, sections });
+      report.push({ source: src.id, found: total, added: 0, note: `${sections.length}節 ${total}件の資料` });
+      continue;
+    }
+
     if (src.type === 'minpaku-situation') {
       const html = await getText(src.url);
       const s = parseMinpakuSituation(html);
@@ -114,6 +124,9 @@ const items = [...byUrl.values()].sort(
 
 writeFileSync(p('data/articles.json'), JSON.stringify({ updatedAt: today, count: items.length, items }, null, 2) + '\n');
 writeFileSync(p('data/stats.json'), JSON.stringify({ ...statsStore, updatedAt: today }, null, 2) + '\n');
+if (docsStore.sources.length) {
+  writeFileSync(p('data/documents.json'), JSON.stringify(docsStore, null, 2) + '\n');
+}
 
 console.log('取得結果');
 for (const r of report) {

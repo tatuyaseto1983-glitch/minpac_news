@@ -1,0 +1,364 @@
+{
+  "updatedAt": "2026-09-07",
+  "sources": [
+    {
+      "id": "mhlw-ryokan",
+      "name": "厚生労働省 旅館業のページ",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000110603.html",
+      "fetchedAt": "2026-09-07",
+      "sections": [
+        {
+          "title": "関係法令",
+          "anchor": "h2_free5",
+          "groups": [
+            {
+              "label": null,
+              "items": [
+                {
+                  "title": "旅館業法",
+                  "url": "https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?openerCode=1&amp;lawId=323AC0000000138_20170401_428AC0000000047",
+                  "date": null,
+                  "fileType": "e-Gov 法令",
+                  "size": null
+                },
+                {
+                  "title": "旅館業法施行令",
+                  "url": "https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?lawId=332CO0000000152",
+                  "date": null,
+                  "fileType": "e-Gov 法令",
+                  "size": null
+                },
+                {
+                  "title": "旅館業法施行規則",
+                  "url": "https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?lawId=323M40000100028",
+                  "date": null,
+                  "fileType": "e-Gov 法令",
+                  "size": null
+                },
+                {
+                  "title": "公衆浴場における衛生等管理要領等について（別添３ 旅館業における衛生等管理要領）（令和８年１月20日付）",
+                  "url": "https://www.mhlw.go.jp/content/001438962.pdf",
+                  "date": "2026-01-20",
+                  "fileType": "PDF",
+                  "size": "723KB"
+                },
+                {
+                  "title": "住宅宿泊事業法",
+                  "url": "https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?lawId=429AC0000000065_20180615_000000000000000&amp;openerCode=1",
+                  "date": null,
+                  "fileType": "e-Gov 法令",
+                  "size": null
+                },
+                {
+                  "title": "住宅宿泊事業法施行令",
+                  "url": "https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?lawId=429CO0000000273_20180615_000000000000000&amp;openerCode=1",
+                  "date": null,
+                  "fileType": "e-Gov 法令",
+                  "size": null
+                },
+                {
+                  "title": "住宅宿泊事業法施行規則",
+                  "url": "https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?lawId=429M60000900002_20180615_000000000000000&amp;openerCode=1",
+                  "date": null,
+                  "fileType": "e-Gov 法令",
+                  "size": null
+                },
+                {
+                  "title": "厚生労働省関係住宅宿泊事業法施行規則",
+                  "url": "https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?lawId=429M60000100117_20180615_000000000000000&amp;openerCode=1",
+                  "date": null,
+                  "fileType": "e-Gov 法令",
+                  "size": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "主な関係通知",
+          "anchor": "h2_free6",
+          "groups": [
+            {
+              "label": "旅館業法全般",
+              "items": [
+                {
+                  "title": "旅館業及び公衆浴場業におけるサウナ施設への安全対策の徹底について（令和８年４月21日）",
+                  "url": "https://www.mhlw.go.jp/content/001694730.pdf",
+                  "date": "2026-04-21",
+                  "fileType": "PDF",
+                  "size": "132KB"
+                },
+                {
+                  "title": "旅館業法の許可を得ないで旅館業を行っている者に対する取締りについて",
+                  "url": "https://www.mhlw.go.jp/content/001636992.pdf",
+                  "date": null,
+                  "fileType": "PDF",
+                  "size": "356KB"
+                },
+                {
+                  "title": "公衆浴場や旅館業の施設の共同浴室における男女の取扱いについて（令和５年６月23日）",
+                  "url": "https://www.mhlw.go.jp/content/001168571.pdf",
+                  "date": "2023-06-23",
+                  "fileType": "PDF",
+                  "size": "130KB"
+                },
+                {
+                  "title": "入浴着を着用した入浴にご理解・ご配慮をお願いします",
+                  "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000213520.html",
+                  "date": null,
+                  "fileType": "ページ",
+                  "size": null
+                },
+                {
+                  "title": "旅館業における衛生等管理要領の改正（令和７年３月11日付）に関するFAQについて",
+                  "url": "https://www.mhlw.go.jp/content/001438651.pdf",
+                  "date": "2025-03-11",
+                  "fileType": "PDF",
+                  "size": "202KB"
+                },
+                {
+                  "title": "旅館業法のFAQについて",
+                  "url": "https://www.mhlw.go.jp/content/001168573.pdf",
+                  "date": null,
+                  "fileType": "PDF",
+                  "size": "316KB"
+                },
+                {
+                  "title": "旅館等における宿泊者名簿への記載等の徹底について（平成26年12月19日）",
+                  "url": "https://www.mhlw.go.jp/file/06-Seisakujouhou-10900000-Kenkoukyoku/0000069420.pdf",
+                  "date": "2014-12-19",
+                  "fileType": "PDF",
+                  "size": "162KB"
+                },
+                {
+                  "title": "日本国内に住所を持たない外国人宿泊者に係る旅券の呈示及びコピーに関する案内（外国語）",
+                  "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000130600_00001.html",
+                  "date": null,
+                  "fileType": "ページ",
+                  "size": null
+                },
+                {
+                  "title": "ハンセン病に関する正しい知識の普及について（平成15年11月）",
+                  "url": "https://www.mhlw.go.jp/topics/bukyoku/kenkou/hansen/rikai/4.html",
+                  "date": null,
+                  "fileType": "ページ",
+                  "size": null
+                }
+              ]
+            },
+            {
+              "label": "「民泊サービス」関係",
+              "items": [
+                {
+                  "title": "民泊サービスと旅館業法に関するＱ＆Ａ",
+                  "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000111008.html",
+                  "date": null,
+                  "fileType": "ページ",
+                  "size": null
+                },
+                {
+                  "title": "旅館業法施行令の一部を改正する政令の施行等について（平成28年3月30日）",
+                  "url": "https://www.mhlw.go.jp/file/06-Seisakujouhou-11130500-Shokuhinanzenbu/0000126024.pdf",
+                  "date": "2016-03-30",
+                  "fileType": "PDF",
+                  "size": "229KB"
+                },
+                {
+                  "title": "旅館業法の遵守の徹底について（平成27年11月27日）",
+                  "url": "https://www.mhlw.go.jp/file/06-Seisakujouhou-10900000-Kenkoukyoku/0000105703.pdf",
+                  "date": "2015-11-27",
+                  "fileType": "PDF",
+                  "size": "1459KB"
+                }
+              ]
+            },
+            {
+              "label": "イベントホームステイ（イベント民泊）関係",
+              "items": [
+                {
+                  "title": "イベント民泊ガイドライン（イベントホームステイガイドライン）について（令和元年12月25日）",
+                  "url": "https://www.mhlw.go.jp/content/000581158.pdf",
+                  "date": "2019-12-25",
+                  "fileType": "PDF",
+                  "size": "779KB"
+                }
+              ]
+            },
+            {
+              "label": "農林漁業等体験民宿業関係",
+              "items": [
+                {
+                  "title": "旅館業法施行規則の一部を改正する省令の施行について（平成28年3月31日）",
+                  "url": "https://www.mhlw.go.jp/file/06-Seisakujouhou-11130500-Shokuhinanzenbu/0000119903_1.pdf",
+                  "date": "2016-03-31",
+                  "fileType": "PDF",
+                  "size": "69KB"
+                },
+                {
+                  "title": "農林漁業者が農林漁業体験民宿業を営む施設について（平成26年3月31日）",
+                  "url": "https://www.mhlw.go.jp/file/06-Seisakujouhou-11130500-Shokuhinanzenbu/file_3.pdf",
+                  "date": "2014-03-31",
+                  "fileType": "PDF",
+                  "size": "51KB"
+                }
+              ]
+            },
+            {
+              "label": "国家戦略特別区域 外国人滞在施設経営事業関係",
+              "items": [
+                {
+                  "title": "「外国人滞在施設経営事業の円滑な実施を図るための留意事項について（通知）」の一部改正について（令和７年４月１日）",
+                  "url": "https://www.mhlw.go.jp/content/001470747.pdf",
+                  "date": "2025-04-01",
+                  "fileType": "PDF",
+                  "size": "65KB"
+                },
+                {
+                  "title": "外国人滞在施設経営事業の円滑な実施を図るための留意事項について（平成27年7月31日）",
+                  "url": "https://www.mhlw.go.jp/file/06-Seisakujouhou-11130500-Shokuhinanzenbu/0000120266.pdf",
+                  "date": "2015-07-31",
+                  "fileType": "PDF",
+                  "size": "227KB"
+                },
+                {
+                  "title": "国家戦略特別区域法における旅館業法の特例の施行について（通知）（平成26年５月１日）",
+                  "url": "https://www.mhlw.go.jp/file/06-Seisakujouhou-10900000-Kenkoukyoku/0000045342.pdf",
+                  "date": "2014-05-01",
+                  "fileType": "PDF",
+                  "size": "108KB"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "参考資料集（パンフレットなど）",
+          "anchor": "h2_free7",
+          "groups": [
+            {
+              "label": null,
+              "items": [
+                {
+                  "title": "フロント要件の見直しに係るリーフレット",
+                  "url": "https://www.mhlw.go.jp/content/001439321.pdf",
+                  "date": null,
+                  "fileType": "PDF",
+                  "size": "600KB"
+                },
+                {
+                  "title": "簡易宿所営業における玄関帳場等に関する効率化事例集について",
+                  "url": "https://www.mhlw.go.jp/content/001438667.pdf",
+                  "date": null,
+                  "fileType": "PDF",
+                  "size": "1.2MB"
+                },
+                {
+                  "title": "民泊サービスを始める皆様へ ～簡易宿所営業の許可取得の手引き～",
+                  "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000141689.html",
+                  "date": null,
+                  "fileType": "ページ",
+                  "size": null
+                },
+                {
+                  "title": "民泊サービスと旅館業法に関するＱ＆Ａ[162KB]",
+                  "url": "https://www.mhlw.go.jp/content/000581159.pdf",
+                  "date": null,
+                  "fileType": "PDF",
+                  "size": "163KB"
+                },
+                {
+                  "title": "「民泊サービス」を提供する場合の注意喚起リーフレット（消防庁リンク）",
+                  "url": "http://www.fdma.go.jp/neuter/topics/fieldList4_19.html",
+                  "date": null,
+                  "fileType": "ページ",
+                  "size": null
+                },
+                {
+                  "title": "イベントホームステイリーフレット（A３版）（民泊制度ポータルサイト「minpaku」）",
+                  "url": "http://www.mlit.go.jp/kankocho/minpaku/content/KANKOCHO_minpaku_leaflet_A3_0326_ol.pdf",
+                  "date": null,
+                  "fileType": "PDF",
+                  "size": null
+                },
+                {
+                  "title": "イベントホームステイリーフレット（A４版）（民泊制度ポータルサイト「minpaku」）",
+                  "url": "http://www.mlit.go.jp/kankocho/minpaku/content/KANKOCHO_minpaku_leaflet_A4_0326_ol.pdf",
+                  "date": null,
+                  "fileType": "PDF",
+                  "size": null
+                },
+                {
+                  "title": "旅館業法の施行状況調査～ICT設備の活用状況・宿泊者名簿の電子化について～",
+                  "url": "https://www.mhlw.go.jp/stf/newpage_14594.html",
+                  "date": null,
+                  "fileType": "ページ",
+                  "size": null
+                },
+                {
+                  "title": "旅館業法におけるフロント要件見直しに係る施行状況調査",
+                  "url": "https://www.mhlw.go.jp/stf/newpage_65567.html",
+                  "date": null,
+                  "fileType": "ページ",
+                  "size": null
+                },
+                {
+                  "title": "旅館業法違反のおそれがあると自治体が把握している事案について",
+                  "url": "https://www.mhlw.go.jp/stf/newpage_68847.html",
+                  "date": null,
+                  "fileType": "ページ",
+                  "size": null
+                },
+                {
+                  "title": "オストメイト（人工肛門・人工膀胱のある人たち）の公衆浴場への入浴にご理解ください",
+                  "url": "https://www.mhlw.go.jp/file/06-Seisakujouhou-11130500-Shokuhinanzenbu/0000124340_3.pdf",
+                  "date": null,
+                  "fileType": "PDF",
+                  "size": null
+                },
+                {
+                  "title": "入れ墨（タトゥー）がある外国人旅行者の入浴に関する対応について（平成28年３月18日）",
+                  "url": "https://www.mhlw.go.jp/content/001165667.pdf",
+                  "date": "2016-03-18",
+                  "fileType": "PDF",
+                  "size": "518KB"
+                },
+                {
+                  "title": "入れ墨（タトゥー）がある外国人旅行者の入浴に関する対応について（観光庁ホームページ）",
+                  "url": "https://www.mlit.go.jp/kankocho/topics05_000183.html",
+                  "date": null,
+                  "fileType": "ページ",
+                  "size": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "統計情報",
+          "anchor": "h2_free8",
+          "groups": [
+            {
+              "label": null,
+              "items": [
+                {
+                  "title": "衛生行政報告例",
+                  "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/seikatsu-eisei/seikatsu-eisei21/index.html#list11",
+                  "date": null,
+                  "fileType": "ページ",
+                  "size": null
+                },
+                {
+                  "title": "生活衛生関係営業経営実態調査",
+                  "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/seikatsu-eisei/seikatsu-eisei22/index.html",
+                  "date": null,
+                  "fileType": "ページ",
+                  "size": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
