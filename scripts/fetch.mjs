@@ -3,7 +3,7 @@
 // 記事本文は保存しません（見出し・日付・出典・リンクのみ）。
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { getText } from './lib/http.mjs';
-import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs, parseGoogleNews, parseRyokanStats, parseLodgingStats } from './lib/parse.mjs';
+import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs, parseGoogleNews, parseRyokanStats, parseLodgingStats, parseMunicipalities } from './lib/parse.mjs';
 import { screen, categorize, detectAreas, detectBusinessTypes, isBlockedOutlet, isBlockedTitle, normalizeOutlet } from './lib/classify.mjs';
 
 const root = new URL('../', import.meta.url);
@@ -26,6 +26,22 @@ const report = [];
 
 for (const src of sources) {
   try {
+    if (src.type === 'municipalities') {
+      const slugs = JSON.parse(readFileSync(p('data/keywords.json'), 'utf8')).prefectureSlugs;
+      const bySlug = Object.fromEntries(Object.entries(slugs).map(([pref, slug]) => [slug, pref]));
+      Object.assign(bySlug, src.slugAliases ?? {}); // ページ側と綴りが違うもの（kouchi/ooita）
+      const r = parseMunicipalities(await getText(src.url), src.url, bySlug);
+      const prefs = Object.keys(r.areas).length;
+      if (prefs < 40) throw new Error(`都道府県が${prefs}件しか取れませんでした（ページ構成の変更かもしれません）`);
+      const muni = Object.values(r.areas).reduce((a, v) => a + v.municipalities.length, 0);
+      writeFileSync(p('data/municipalities.json'), JSON.stringify({
+        updatedAt: today, source: src.name, sourceUrl: src.url, pdfs: r.pdfs, areas: r.areas,
+      }, null, 2) + '\n');
+      report.push({ source: src.id, found: prefs + muni, added: 0,
+        note: `都道府県${prefs}件・市区町村${muni}件` });
+      continue;
+    }
+
     if (src.type === 'ryokan-stats') {
       const r = parseRyokanStats(await getText(src.url));
       if (!r.total) throw new Error('施設数を読み取れませんでした（ページ構成の変更かもしれません）');

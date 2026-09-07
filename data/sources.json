@@ -97,5 +97,17 @@
     "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/seikatsu-eisei/seikatsu-eisei03/03.html",
     "primary": true,
     "note": "旅館業の営業許可施設数（旅館・ホテル／簡易宿所）"
+  },
+  {
+    "id": "minpaku-municipalities",
+    "name": "民泊制度ポータル 各自治体の窓口案内（条例等の状況等）",
+    "type": "municipalities",
+    "url": "https://www.mlit.go.jp/kankocho/minpaku/municipality.html",
+    "primary": true,
+    "slugAliases": {
+      "kouchi": "高知県",
+      "ooita": "大分県"
+    },
+    "note": "自治体ごとの担当部署・連絡先・公式ページ・条例の有無。data/municipalities.json に書き出します"
   }
 ]

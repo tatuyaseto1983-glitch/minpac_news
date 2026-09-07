@@ -23,6 +23,8 @@ const articles = JSON.parse(readFileSync(p('data/articles.json'), 'utf8'));
 const stats = JSON.parse(readFileSync(p('data/stats.json'), 'utf8'));
 const areas = JSON.parse(readFileSync(p('data/areas.json'), 'utf8'));
 const guide = JSON.parse(readFileSync(p('data/start-guide.json'), 'utf8'));
+const muni = existsSync(p('data/municipalities.json'))
+  ? JSON.parse(readFileSync(p('data/municipalities.json'), 'utf8')) : { areas: {}, pdfs: [] };
 const docs = existsSync(p('data/documents.json'))
   ? JSON.parse(readFileSync(p('data/documents.json'), 'utf8')) : { sources: [] };
 const slugs = JSON.parse(readFileSync(p('data/keywords.json'), 'utf8')).prefectureSlugs;
@@ -621,55 +623,92 @@ function pageAreaIndex() {
   <h1 class="h-page">エリアから探す</h1>
   <p class="sub">民泊のルールは市区町村ごとに違います。まず都道府県を選んでください。</p>
 </div>
-<div class="pills" style="padding-bottom:60px">
-  ${prefectures.map((a) => `<a class="pill" href="${base}area/${slugs[a]}.html">${a}${counts[a] ? `　${counts[a]}` : ''}</a>`).join('')}
-</div>`;
+<div class="pills" style="padding-bottom:20px">
+  ${prefectures.map((a) => {
+    const m = muni.areas?.[a];
+    const ord = m ? (m.self?.hasOrdinance ? 1 : 0) + m.municipalities.filter((o) => o.hasOrdinance).length : 0;
+    return `<a class="pill" href="${base}area/${slugs[a]}.html">${a}${ord ? `　<span style="color:var(--green-ink)">条例${ord}</span>` : ''}</a>`;
+  }).join('')}
+</div>
+<div class="notice" style="margin-bottom:60px">数字は、その都道府県で条例が定められている自治体の数です（観光庁の一覧に基づく）。条例があると、区域や期間などに法律への上乗せの決まりがある場合があります。</div>`;
   return layout(base, { title: 'エリア', description: '都道府県ごとの民泊関連ニュースとルール情報。', current: 'area', body });
 }
 
 function pageArea(pref) {
   const base = '../';
   const items = feed.filter((e) => e.lead.areas.includes(pref));
+  const m = muni.areas?.[pref];
   const entry = (areas.entries ?? []).find((e) => e.pref === pref && !e.city);
+
+  const badge = (on) => (on ? '<span class="tag tag--gov">条例あり</span>' : '');
+  const office = (o, big = false) => `<div class="item" style="cursor:default">
+    <div class="item__top">
+      ${big ? `<span class="cat" style="--cat:var(--c-local)">${esc(pref)}の窓口</span>` : ''}
+      ${badge(o.hasOrdinance)}
+    </div>
+    <h3 class="item__title">${o.url ? `<a href="${esc(o.url)}" rel="noopener" target="_blank">${esc(o.name)}</a>` : esc(o.name)}</h3>
+    ${o.dept ? `<p class="item__sum">${esc(o.dept)}</p>` : ''}
+    <div class="item__tags">
+      ${o.tel ? `<span class="tag">${esc(o.tel)}</span>` : ''}
+      ${o.address ? `<span class="meta">${esc(o.address)}</span>` : ''}
+    </div></div>`;
+
   const rules = entry && entry.status === '確認済'
     ? `<div class="scroller"><table class="srctable">
         <thead><tr><th>制度</th><th>可否</th><th>主な条件</th><th>窓口</th></tr></thead>
-        <tbody>${entry.systems.map((s) => `<tr><td><strong>${esc(s.type)}</strong></td><td>${esc(s.availability)}</td>
-          <td>${esc(s.conditions ?? '')}</td><td>${esc(s.contact ?? '')}</td></tr>`).join('')}</tbody></table></div>
+        <tbody>${entry.systems.map((sx) => `<tr><td><strong>${esc(sx.type)}</strong></td><td>${esc(sx.availability)}</td>
+          <td>${esc(sx.conditions ?? '')}</td><td>${esc(sx.contact ?? '')}</td></tr>`).join('')}</tbody></table></div>
        <p class="meta" style="margin-top:10px">最終確認 ${esc(entry.verifiedAt ?? '—')}　／　${esc(entry.verifiedBy ?? '')}</p>`
-    : `<div class="notice">この地域のルールはまだ整備できていません。<br>
-        観光庁の<a href="https://www.mlit.go.jp/kankocho/minpaku/" rel="noopener" target="_blank">民泊制度ポータルサイト</a>と、
-        市区町村の保健所・建築指導課へご確認ください。</div>`;
+    : '';
 
   const body = `
 <p class="crumb"><a href="${base}">ホーム</a> ＞ <a href="${base}area/">エリア</a> ＞ ${esc(pref)}</p>
 <div class="phead">
-  <h1 class="h-page">${esc(pref)}の民泊情報</h1>
-  <p class="sub">${esc(pref)}に関わる行政発表・報道と、制度ごとの可否をまとめています。</p>
+  <h1 class="h-page">${esc(pref)}で民泊を始めるには</h1>
+  <p class="sub">届出の窓口、条例の有無、この地域のニュースをまとめています。</p>
 </div>
 
 <div class="two">
   <div>
-    <div class="sec__head"><h2>制度ごとの可否</h2></div>
-    ${rules}
-    <div class="sec">
+    ${m ? `<section class="sec" style="margin-top:0">
+      ${secHead('届出の窓口', m.municipalities.length ? `${esc(pref)}と、届出を受け付ける${m.municipalities.length}市区` : '')}
+      <div class="feed">
+        ${m.self ? office(m.self, true) : ''}
+        ${m.municipalities.map((o) => office(o)).join('')}
+      </div>
+      <div class="notice" style="margin-top:14px">
+        <strong>「条例あり」は、観光庁の一覧でその印が付いている自治体です。</strong>
+        区域や期間の制限など、法律に上乗せした決まりがある可能性があります。
+        <strong>中身は必ず自治体名のリンク先でご確認ください。</strong>
+        ${m.municipalities.length ? `${esc(pref)}内でも、上に挙げた市区は自分のところで届出を受け付けます。それ以外の地域は${esc(pref)}が窓口です。` : ''}
+      </div>
+      ${muni.pdfs?.length ? `<div class="item__tags" style="margin-top:12px">
+        ${muni.pdfs.map((f) => `<a class="tag" href="${esc(f.url)}" rel="noopener" target="_blank">${esc(f.title)}（PDF）</a>`).join('')}
+      </div>` : ''}
+      <p class="meta" style="margin-top:10px">出典：<a href="${esc(muni.sourceUrl)}" rel="noopener" target="_blank">${esc(muni.source)}</a>（取得日 ${esc(muni.updatedAt)}）</p>
+    </section>` : `<div class="notice">この地域の窓口情報を取得できていません。
+      <a href="https://www.mlit.go.jp/kankocho/minpaku/" rel="noopener" target="_blank">民泊制度ポータルサイト</a>でご確認ください。</div>`}
+
+    ${rules ? `<section class="sec">${secHead('制度ごとの可否', '')}${rules}</section>` : ''}
+
+    <section class="sec">
       ${secHead(`${esc(pref)}に関わるニュース`, `${items.length}件`)}
       ${feedList(items.slice(0, 20), `${esc(pref)}を名指しした発表はまだ取得できていません。全国向けの発表は<a href="${base}news/">ニュース</a>をご覧ください。`)}
-    </div>
+    </section>
   </div>
   <aside class="rail">
     <section>
       <h2>開業までの流れ</h2>
       <div class="linklist">
-        ${guide.steps.slice(0, 4).map((s) => `<a href="${base}start/#step-${s.n}">STEP ${s.n}　${esc(s.title)}</a>`).join('')}
+        ${guide.steps.slice(0, 4).map((sx) => `<a href="${base}start/#step-${sx.n}">STEP ${sx.n}　${esc(sx.title)}</a>`).join('')}
         <a href="${base}start/">全7ステップを見る</a>
       </div>
     </section>
     <section>
       <h2>ほかのエリア</h2>
       <div class="pills">
-        ${prefectures.filter((a) => a !== pref && news.some((n) => n.areas.includes(a))).slice(0, 8)
-          .map((a) => `<a class="pill" href="${base}area/${slugs[a]}.html">${a}</a>`).join('')}
+        ${prefectures.filter((x) => x !== pref && news.some((n) => n.areas.includes(x))).slice(0, 8)
+          .map((x) => `<a class="pill" href="${base}area/${slugs[x]}.html">${x}</a>`).join('')}
         <a class="pill" href="${base}area/">すべて</a>
       </div>
     </section>
@@ -677,7 +716,7 @@ function pageArea(pref) {
 </div>`;
   return layout(base, {
     title: `${pref}の民泊`,
-    description: `${pref}で民泊はできる？ 行政発表・報道と、制度ごとの可否をまとめています。`,
+    description: `${pref}で民泊を始めるには。届出の窓口、条例の有無、この地域のニュース。`,
     current: 'area', body,
   });
 }

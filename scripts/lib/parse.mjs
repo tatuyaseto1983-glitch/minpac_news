@@ -139,6 +139,67 @@ export function parseLodgingStats(html) {
   };
 }
 
+/**
+ * 民泊制度ポータル「各自治体の窓口案内（条例等の状況等）」から、
+ * 自治体ごとの担当部署・連絡先・公式ページ・条例の有無を取り出す。
+ * 「条例」の印は観光庁が付けているものをそのまま使います（こちらの判断は入れません）。
+ */
+export function parseMunicipalities(html, baseUrl, slugToPref) {
+  const rows = [...html.matchAll(/<tr[^>]*class="summary_table_inner_top"[^>]*>([\s\S]*?)<\/tr>/g)];
+  const out = {};
+  let current = null;
+
+  // strip() は改行も空白に潰すので、<br> はいったん目印に置き換えてから分ける
+  const cellLines = (h) => strip(h.replace(/<br\s*\/?>/gi, ' ¦ ')).split('¦').map((x) => x.trim()).filter(Boolean);
+  const cellText = (h) => cellLines(h).join(' ');
+
+  for (const [, body] of rows) {
+    const cells = [...body.matchAll(/<(t[hd])([^>]*)>([\s\S]*?)<\/\1>/g)]
+      .map((m) => ({ attrs: m[2], html: m[3] }));
+    if (!cells.length) continue;
+    // 都道府県の行は、先頭に都道府県名と届出先PDFのセル（group_head）が入る
+    const offset = /group_head/.test(cells[0].attrs) ? 1 : 0;
+    const head = cells[offset]?.html;
+    if (head == null) continue;
+
+    // 都道府県の行には <a id="tokyo"> のような目印が入っている
+    const anchor = head.match(/<a\s+id="([a-z]+)"/)?.[1];
+    if (anchor && slugToPref[anchor]) {
+      current = slugToPref[anchor];
+      out[current] ??= { pref: current, self: null, municipalities: [] };
+    }
+    if (!current) continue;
+
+    const link = head.match(/<a[^>]*href="(https?:\/\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/);
+    let name = strip(link?.[2] ?? head).replace(/\（?下記以外\）?/g, '').trim();
+    if (!name) continue;
+    // 「条例」の小さな印
+    const hasOrdinance = /list_small_box[\s\S]*?条例/.test(head);
+
+    const lines = cellLines(cells[offset + 2]?.html ?? '');
+    const tel = lines.join(' ').match(/0\d{1,4}-\d{1,4}-\d{3,4}/)?.[0] ?? null;
+    // 電話番号だけの行は住所から外す（同じ番号を二度出さないため）
+    const address = lines.filter((l) => !(tel && l.replace(/[（(].*$/, '').trim() === tel)).join(' ') || null;
+
+    const entry = {
+      name,
+      url: link?.[1] ?? null,
+      hasOrdinance,
+      dept: cellText(cells[offset + 1]?.html ?? '') || null,
+      address,
+      tel,
+    };
+    if (anchor && slugToPref[anchor]) out[current].self = entry;
+    else out[current].municipalities.push(entry);
+  }
+
+  // 条例まとめのPDF（観光庁が用意しているもの）
+  const pdfs = [...html.matchAll(/各自治体の([^<]{2,20})は<a href="([^"]+\.pdf)"/g)]
+    .map((m) => ({ title: `各自治体の${m[1]}`, url: absolute(m[2], baseUrl) }));
+
+  return { areas: out, pdfs };
+}
+
 /** 民泊制度ポータル「施行状況」ページから件数を取り出す */
 export function parseMinpakuSituation(html) {
   const text = strip(html);

@@ -1,0 +1,1079 @@
+{
+  "updatedAt": "2026-09-07",
+  "source": "民泊制度ポータル 各自治体の窓口案内（条例等の状況等）",
+  "sourceUrl": "https://www.mlit.go.jp/kankocho/minpaku/municipality.html",
+  "pdfs": [
+    {
+      "title": "各自治体の条例の制定状況の一覧",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/content/001418350.pdf"
+    },
+    {
+      "title": "各自治体の主な条例内容",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/content/001418351.pdf"
+    }
+  ],
+  "areas": {
+    "北海道": {
+      "pref": "北海道",
+      "self": {
+        "name": "北海道",
+        "url": "https://www.pref.hokkaido.lg.jp/kz/kkd/minpaku/portal.html",
+        "hasOrdinance": true,
+        "dept": "経済部観光局",
+        "address": "〒060-8588 札幌市中央区北3条西6丁目",
+        "tel": "011-206-6597"
+      },
+      "municipalities": [
+        {
+          "name": "札幌市",
+          "url": "http://www.city.sapporo.jp/keizai/kanko/news2/2018_2_28.html",
+          "hasOrdinance": true,
+          "dept": "【届出関係】保健福祉局保健所 環境衛生課 【条例関係】経済観光局観光･ MICE推進部観光･MICE推進課",
+          "address": "【届出関係】〒060-0042 北海道札幌市中央区大通西19丁目 【条例関係】〒060-8611 北海道札幌市中央区北1条西2丁目 【届出関係】011-622-5165 【条例関係】011-211-2376",
+          "tel": "011-622-5165"
+        }
+      ]
+    },
+    "青森県": {
+      "pref": "青森県",
+      "self": {
+        "name": "青森県",
+        "url": "https://www.pref.aomori.lg.jp/soshiki/kenko/hoken/minpakuaomori.html",
+        "hasOrdinance": false,
+        "dept": "健康福祉部保健衛生課 ※実際の届出先は県内各保健所",
+        "address": "〒030-8570 青森県青森市長島1丁目1-1",
+        "tel": "017-734-9213"
+      },
+      "municipalities": []
+    },
+    "岩手県": {
+      "pref": "岩手県",
+      "self": {
+        "name": "岩手県",
+        "url": "https://www.pref.iwate.jp/kurashikankyou/anzenanshin/seikatsueisei/1016554/1016555.html",
+        "hasOrdinance": true,
+        "dept": "環境生活部県民くらしの安全課生活衛生担当 ※実際の届出及び届出に関する相談は県内各広域振興局環境衛生課",
+        "address": "〒020-8570 岩手県盛岡市内丸10-1",
+        "tel": "019-629-5360"
+      },
+      "municipalities": []
+    },
+    "宮城県": {
+      "pref": "宮城県",
+      "self": {
+        "name": "宮城県",
+        "url": "https://www.pref.miyagi.jp/site/miyagiminpaku/",
+        "hasOrdinance": false,
+        "dept": "環境生活部食と暮らしの安全推進課 ※届出先は、県内各保健所・支所",
+        "address": "〒980-8570 宮城県仙台市青葉区本町3丁目8番1号",
+        "tel": "022-211-2645"
+      },
+      "municipalities": [
+        {
+          "name": "仙台市",
+          "url": "http://www.city.sendai.jp/sekatsuese/jigyosha/kankyo/shokuhin/shisetsu/sonot\r\na/minpaku/jorei.html",
+          "hasOrdinance": true,
+          "dept": "文化観光局 誘客戦略推進課 健康福祉局 保健所 生活衛生課",
+          "address": "〒980-8671 宮城県仙台市青葉区国分町三丁目7-1 誘客戦略推進課:022-214-8019 生活衛生課:022-214-8206",
+          "tel": "022-214-8019"
+        }
+      ]
+    },
+    "秋田県": {
+      "pref": "秋田県",
+      "self": {
+        "name": "秋田県",
+        "url": "http://www.pref.akita.lg.jp/pages/archive/31592",
+        "hasOrdinance": false,
+        "dept": "生活環境部生活衛生課 ※実際の届出先は県内各保健所",
+        "address": "〒010-8570 秋田市山王四丁目1番1号",
+        "tel": "018-860-1592"
+      },
+      "municipalities": []
+    },
+    "山形県": {
+      "pref": "山形県",
+      "self": {
+        "name": "山形県",
+        "url": "https://www.pref.yamagata.jp/020071/kenfuku/doubutsuaigo/eisei/seikatsueisei/minpaku/minpaku.html",
+        "hasOrdinance": true,
+        "dept": "防災くらし安心部食品安全衛生課 ※実際の届出先は県内各保健所",
+        "address": "〒990-8570 山形県山形市松波二丁目8番1号",
+        "tel": "023-630-2329"
+      },
+      "municipalities": []
+    },
+    "福島県": {
+      "pref": "福島県",
+      "self": {
+        "name": "福島県",
+        "url": "https://www.pref.fukushima.lg.jp/sec/32031a/minpaku-01.html",
+        "hasOrdinance": true,
+        "dept": "観光交流局観光交流課",
+        "address": "〒960-8670 福島県福島市杉妻町2番16号",
+        "tel": "024-521-7286"
+      },
+      "municipalities": []
+    },
+    "茨城県": {
+      "pref": "茨城県",
+      "self": {
+        "name": "茨城県",
+        "url": "https://www.pref.ibaraki.jp/hokenfukushi/seiei/kankyo/seiei/minpaku/minpaku-top.html",
+        "hasOrdinance": false,
+        "dept": "保健福祉部生活衛生課",
+        "address": "〒310-8555 茨城県水戸市笠原町978番6",
+        "tel": "029-301-3414"
+      },
+      "municipalities": []
+    },
+    "栃木県": {
+      "pref": "栃木県",
+      "self": {
+        "name": "栃木県",
+        "url": "http://www.pref.tochigi.lg.jp/e07/201803minpaku.html",
+        "hasOrdinance": false,
+        "dept": "保健福祉部医薬・生活衛生課 ※実際の届出先は県内各保健所",
+        "address": "〒320-8501 栃木県宇都宮市塙田1丁目1番20号",
+        "tel": "028-623-3110"
+      },
+      "municipalities": []
+    },
+    "群馬県": {
+      "pref": "群馬県",
+      "self": {
+        "name": "群馬県",
+        "url": "http://www.pref.gunma.jp/05/by01_00087.html",
+        "hasOrdinance": true,
+        "dept": "健康福祉部食品･生活衛生課",
+        "address": "〒371-8570 群馬県前橋市大手町一丁目1番1号",
+        "tel": "027-226-2445"
+      },
+      "municipalities": []
+    },
+    "埼玉県": {
+      "pref": "埼玉県",
+      "self": {
+        "name": "埼玉県",
+        "url": "http://www.pref.saitama.lg.jp/a0806/minpaku/jutaku-shukuhaku00.html",
+        "hasOrdinance": false,
+        "dept": "産業労働部観光課",
+        "address": "〒330-9301 埼玉県さいたま市浦和区高砂3丁目15番1号",
+        "tel": "048-830-3959"
+      },
+      "municipalities": [
+        {
+          "name": "川口市",
+          "url": "https://www.city.kawaguchi.lg.jp/soshiki/01110/030/minpaku/index.html",
+          "hasOrdinance": true,
+          "dept": "経済部産業振興課",
+          "address": "〒332-8601 埼玉県川口市青木2-1-1",
+          "tel": "048-259-9018"
+        }
+      ]
+    },
+    "千葉県": {
+      "pref": "千葉県",
+      "self": {
+        "name": "千葉県",
+        "url": "http://www.pref.chiba.lg.jp/eishi/tetsuzuki/minpaku.html",
+        "hasOrdinance": false,
+        "dept": "健康福祉部衛生指導課【届出窓口】 商工労働部観光企画課",
+        "address": "〒260-8667 千葉県千葉市中央区市場町1番1号 衛生指導課:043-223-2627【届出窓口】 観光企画課:043-223-2415",
+        "tel": "043-223-2627"
+      },
+      "municipalities": []
+    },
+    "東京都": {
+      "pref": "東京都",
+      "self": {
+        "name": "東京都",
+        "url": "https://www.sangyo-rodo.metro.tokyo.lg.jp/sinsei/tourism/minpaku/",
+        "hasOrdinance": false,
+        "dept": "産業労働局観光部振興課住宅宿泊事業担当",
+        "address": "〒163-8001 東京都新宿区西新宿2-8-1都庁第一本庁舎19階中央",
+        "tel": "03-5320-4732"
+      },
+      "municipalities": [
+        {
+          "name": "千代田区",
+          "url": "https://www.city.chiyoda.lg.jp/koho/kurashi/jutakushukuhakujigyo/index.html",
+          "hasOrdinance": true,
+          "dept": "千代田保健所生活衛生課環境衛生係",
+          "address": "〒102-0074 千代田区九段南1-6-17千代田会館8階",
+          "tel": "03-5211-8166"
+        },
+        {
+          "name": "中央区",
+          "url": "https://www.city.chuo.lg.jp/kenko/hokenzyo/zyutakusyukuhakuzigyo/index.html",
+          "hasOrdinance": true,
+          "dept": "中央区保健所生活衛生課",
+          "address": "〒104-0044 中央区明石町12-1",
+          "tel": "03-3541-5936"
+        },
+        {
+          "name": "港区",
+          "url": "http://www.city.minato.tokyo.jp/kankyoueiseishidou/minpaku2.html",
+          "hasOrdinance": true,
+          "dept": "みなと保健所生活衛生課住宅宿泊事業担当 みなと保健所生活衛生課環境衛生指導係",
+          "address": "〒108-8315 東京都港区三田1-4-10 住宅宿泊事業担当：03-6400-0088",
+          "tel": "03-6400-0088"
+        },
+        {
+          "name": "新宿区",
+          "url": "http://www.city.shinjuku.lg.jp/seikatsu/kurashi00_100032_00002.html",
+          "hasOrdinance": true,
+          "dept": "健康部衛生課環境衛生係",
+          "address": "〒160-0022 東京都新宿区新宿五丁目18番21号 第二分庁舎 3階",
+          "tel": "03-5273-3870"
+        },
+        {
+          "name": "文京区",
+          "url": "https://www.city.bunkyo.lg.jp/hoken/seikatsueisei/jutakusyukuhaku.html",
+          "hasOrdinance": true,
+          "dept": "アカデミー推進部アカデミー推進課観光担当",
+          "address": "〒112-8555 東京都文京区春日1-16-21",
+          "tel": "03-5803-1174"
+        },
+        {
+          "name": "台東区",
+          "url": "https://www.city.taito.lg.jp/index/kurashi/jutaku/jutakulaw/index.html",
+          "hasOrdinance": true,
+          "dept": "健康部生活衛生課住宅宿泊事業担当",
+          "address": "〒110-0015 東京都台東区東上野4-22-8",
+          "tel": "03-3847-9403"
+        },
+        {
+          "name": "墨田区",
+          "url": "https://www.city.sumida.lg.jp/kenko_fukushi/eisei/juutaku_syukuhaku/minnpakujigyou.html\r\n",
+          "hasOrdinance": false,
+          "dept": "福祉保健部保健衛生担当生活衛生課生活環境係",
+          "address": "〒130-8640 東京都墨田区吾妻橋1-23-20",
+          "tel": "03-5608-6939"
+        },
+        {
+          "name": "江東区",
+          "url": "https://www.city.koto.lg.jp/260403/fukushi/ese/kankyo/minpaku_index.html",
+          "hasOrdinance": true,
+          "dept": "健康部生活衛生課環境衛生係",
+          "address": "〒135-0016 東京都江東区東陽二丁目1番1号",
+          "tel": "03-3647-5862"
+        },
+        {
+          "name": "品川区",
+          "url": "http://www.city.shinagawa.tokyo.jp/hp/menu000033300/hpg000033251.htm",
+          "hasOrdinance": true,
+          "dept": "品川区保健所生活衛生課 環境衛生担当",
+          "address": "〒140-8715 東京都品川区広町二丁目1番36号",
+          "tel": "03-5742-9138"
+        },
+        {
+          "name": "目黒区",
+          "url": "http://www.city.meguro.tokyo.jp/kurashi/hoken_eisei/eisei/minpaku/minpakujissi/minpaku.html",
+          "hasOrdinance": true,
+          "dept": "健康推進部生活衛生課",
+          "address": "〒153-8573 東京都目黒区上目黒2-19-15",
+          "tel": "03-5722-9502"
+        },
+        {
+          "name": "大田区",
+          "url": "http://www.city.ota.tokyo.jp/seikatsu/hoken/minpaku/minpaku.html",
+          "hasOrdinance": true,
+          "dept": "健康政策部生活衛生課",
+          "address": "〒143-0015 東京都大田区大森西一丁目12番1号大森地域庁舎",
+          "tel": "03-5764-0693"
+        },
+        {
+          "name": "世田谷区",
+          "url": "https://www.city.setagaya.lg.jp/mokuji/fukushi/003/007/004/d00158869.html",
+          "hasOrdinance": true,
+          "dept": "世田谷保健所生活保健課環境衛生施設係",
+          "address": "〒154-8504 世田谷区世田谷四丁目22番35号",
+          "tel": "03-5432-2904"
+        },
+        {
+          "name": "渋谷区",
+          "url": "https://www.city.shibuya.tokyo.jp/kenko/eisei/kankyo/minpaku.html",
+          "hasOrdinance": true,
+          "dept": "健康推進部生活衛生課内コールセンター 健康推進部生活衛生課環境衛生係",
+          "address": "〒150-8010 東京都渋谷区宇田川町1-1 コールセンター:03-3463-1211 (8時30分から19時まで) (土曜日・日曜日・祝日 9時～17時)",
+          "tel": "03-3463-1211"
+        },
+        {
+          "name": "中野区",
+          "url": "https://www.city.tokyo-nakano.lg.jp/kenko_hukushi/pet-eisei/kankyoueisei/jyutakusyukuhaku.html",
+          "hasOrdinance": true,
+          "dept": "環境部 生活環境分野 (中野区保健所)",
+          "address": "〒164-0001 中野区中野2-17-4",
+          "tel": "03-3382-6663"
+        },
+        {
+          "name": "杉並区",
+          "url": "http://www.city.suginami.tokyo.jp/guide/kenko/eigyo/1039898.html",
+          "hasOrdinance": true,
+          "dept": "杉並保健所生活衛生課",
+          "address": "〒167-0051 東京都杉並区荻窪5-20-1",
+          "tel": "03-3391-1991"
+        },
+        {
+          "name": "豊島区",
+          "url": "http://www.city.toshima.lg.jp/214/kurashi/ese/kankyoese/minpaku.html",
+          "hasOrdinance": true,
+          "dept": "保健福祉部生活衛生課",
+          "address": "〒170-0013 豊島区東池袋4－42－16",
+          "tel": "03-3987-4176"
+        },
+        {
+          "name": "北区",
+          "url": "http://www.city.kita.tokyo.jp/seikatsueisei/kenko/ese/kankyo.html",
+          "hasOrdinance": false,
+          "dept": "北区保健所 生活衛生課 (環境衛生)",
+          "address": "〒114-0001 北区東十条2-7-3",
+          "tel": "03-3919-0720"
+        },
+        {
+          "name": "荒川区",
+          "url": "https://www.city.arakawa.tokyo.jp/a032/jigyousha/toroku/kekka.html",
+          "hasOrdinance": true,
+          "dept": "荒川区健康部(保健所)生活衛生課環境衛生係",
+          "address": "〒116-8502 東京都荒川区荒川2-11-1 03(3802)3111 内線426",
+          "tel": null
+        },
+        {
+          "name": "板橋区",
+          "url": "https://www.city.itabashi.tokyo.jp/kenko/eisei/kankyo/ryokan/1003882.html",
+          "hasOrdinance": true,
+          "dept": "板橋区保健所生活衛生課",
+          "address": "〒173-0014 東京都板橋区大山東町32番15号",
+          "tel": "03-3579-2335"
+        },
+        {
+          "name": "練馬区",
+          "url": "https://www.city.nerima.tokyo.jp/hokenfukushi/eisei/minpaku/minnpaku.html",
+          "hasOrdinance": true,
+          "dept": "健康部生活衛生課環境衛生監視担当係",
+          "address": "176-8501 東京都練馬区豊玉北6-12-1",
+          "tel": "03-5984-2485"
+        },
+        {
+          "name": "足立区",
+          "url": "https://www.city.adachi.tokyo.jp/machi/jutaku/minpaku/index.html",
+          "hasOrdinance": true,
+          "dept": "衛生部足立保健所生活衛生課",
+          "address": "〒120-0011 東京都足立区中央本町一丁目5番3号",
+          "tel": "03-3880-5374"
+        },
+        {
+          "name": "葛飾区",
+          "url": "https://www.city.katsushika.lg.jp/online/1007359/1030292/1007374/1007411/1039684.html",
+          "hasOrdinance": true,
+          "dept": "健康部生活衛生課",
+          "address": "〒125-0062 東京都葛飾区青戸四丁目15番14号",
+          "tel": "03-3602-1242"
+        },
+        {
+          "name": "江戸川区",
+          "url": "https://www.city.edogawa.tokyo.jp/kenko/eisei/kankyo/syukuhakujigyoho/index.html",
+          "hasOrdinance": false,
+          "dept": "健康部生活衛生課環境衛生係",
+          "address": "〒133-0052 東京都江戸川区東小岩3丁目23番3号 小岩健康サポートセンター内 41~43(内線)",
+          "tel": "03-3658-3177"
+        },
+        {
+          "name": "八王子市",
+          "url": "http://www.city.hachioji.tokyo.jp/kurashi/hoken/007/018/001/p022969.html",
+          "hasOrdinance": true,
+          "dept": "健康部(保健所)生活衛生課環境衛生担当",
+          "address": "〒192-0083 東京都八王子市旭町13番18号",
+          "tel": "042-645-5142"
+        },
+        {
+          "name": "町田市",
+          "url": "https://www.city.machida.tokyo.jp/iryo/hokenjo/kankyou/jyutaku_syukuhaku/index.html",
+          "hasOrdinance": false,
+          "dept": "保健所生活衛生課環境衛生係",
+          "address": "〒194-0021 東京都町田市中町二丁目13番3号",
+          "tel": "042-722-7354"
+        }
+      ]
+    },
+    "神奈川県": {
+      "pref": "神奈川県",
+      "self": {
+        "name": "神奈川県",
+        "url": "http://www.pref.kanagawa.jp/cnt/f762/p1195197.html",
+        "hasOrdinance": true,
+        "dept": "健康医療局生活衛生部生活衛生課 ※実際の届出先は県内各保健所",
+        "address": "〒231-8588 神奈川県横浜市中区日本大通1",
+        "tel": "045-210-4950"
+      },
+      "municipalities": [
+        {
+          "name": "横浜市",
+          "url": "https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/seikatsu/kaiteki/20180222105955.html",
+          "hasOrdinance": true,
+          "dept": "【届出受付】 健康福祉局健康安全部生活衛生課 【条例】 文化観光局観光振興課",
+          "address": "〒231-0005 神奈川県横浜市中区本町6-50-10 健康福祉局健康安全部生活衛生課 045ｰ671ｰ2447 文化観光局観光振興課 045ｰ671ｰ2596",
+          "tel": null
+        },
+        {
+          "name": "川崎市",
+          "url": "http://www.city.kawasaki.jp/280/page/0000094113.html",
+          "hasOrdinance": false,
+          "dept": "経済労働局観光・地域活力推進部 観光プロモーション推進担当",
+          "address": "〒210-8577 神奈川県川崎市川崎区宮本町１番地 本庁舎９階",
+          "tel": "044-200-3714"
+        },
+        {
+          "name": "相模原市",
+          "url": "https://www.city.sagamihara.kanagawa.jp/kurashi/1026489/sumai/1026515/1013506.html",
+          "hasOrdinance": false,
+          "dept": "保健所 生活衛生課",
+          "address": "〒252-5277 相模原市中央区中央2-11-15",
+          "tel": "042-769-8347"
+        },
+        {
+          "name": "横須賀市",
+          "url": "https://www.city.yokosuka.kanagawa.jp/3180/minpaku3.html",
+          "hasOrdinance": false,
+          "dept": "保健所生活衛生課環境衛生係",
+          "address": "〒238-0046 神奈川県横須賀市西逸見町1-38-11 ウェルシティ市民プラザ3階",
+          "tel": "046-824-9861"
+        },
+        {
+          "name": "藤沢市",
+          "url": "http://www.city.fujisawa.kanagawa.jp/seiei/kenko/kenko/kankyo/jyuutakusyukuhaku.html",
+          "hasOrdinance": false,
+          "dept": "保健所生活衛生課",
+          "address": "〒251-0022 神奈川県藤沢市鵠沼2131-1",
+          "tel": "0466-50-3594"
+        },
+        {
+          "name": "茅ヶ崎市",
+          "url": "http://www.city.chigasaki.kanagawa.jp/kenko/1023054/1029092.html",
+          "hasOrdinance": false,
+          "dept": "保健所衛生課",
+          "address": "〒253-8660 茅ヶ崎市茅ヶ崎1-8-7",
+          "tel": "0467-38-3317"
+        }
+      ]
+    },
+    "新潟県": {
+      "pref": "新潟県",
+      "self": {
+        "name": "新潟県",
+        "url": "http://www.pref.niigata.lg.jp/seikatueisei/1356887762670.html",
+        "hasOrdinance": true,
+        "dept": "福祉保健部生活衛生課",
+        "address": "〒950-8570 新潟県新潟市中央区新光町4番地1",
+        "tel": "025-280-5208"
+      },
+      "municipalities": [
+        {
+          "name": "新潟市",
+          "url": "https://www.city.niigata.lg.jp/kurashi/kankyo/kankyoeisei/kankyoeisei/juutaku_todokede.html",
+          "hasOrdinance": false,
+          "dept": "新潟市保健所環境衛生課",
+          "address": "〒950-0914 新潟市中央区紫竹山3丁目3番11号",
+          "tel": "025-212-8266"
+        }
+      ]
+    },
+    "富山県": {
+      "pref": "富山県",
+      "self": {
+        "name": "富山県",
+        "url": "http://www.pref.toyama.jp/cms_sec/1207/kj00018701.html",
+        "hasOrdinance": false,
+        "dept": "【法第7条以外に関する事項】 厚生部生活衛生課 【法第7条に関する事項】 観光・交通・地域振興局観光振興室",
+        "address": "〒930-8501 富山市新総曲輪1番7号 生活衛生課 076-444-3229（直通） 観光振興室 076-444-3500（直通）",
+        "tel": "076-444-3229"
+      },
+      "municipalities": []
+    },
+    "石川県": {
+      "pref": "石川県",
+      "self": {
+        "name": "石川県",
+        "url": "http://www.pref.ishikawa.lg.jp/yakuji/seikatu/ryokan/juutakushukuhakujigyou.html",
+        "hasOrdinance": false,
+        "dept": "健康福祉部薬事衛生課 ※実際の届出先は県内各保健所",
+        "address": "〒920-8580 石川県金沢市鞍月1-1",
+        "tel": "076-225-1441"
+      },
+      "municipalities": [
+        {
+          "name": "金沢市",
+          "url": "https://www4.city.kanazawa.lg.jp/soshikikarasagasu/eiseishidoka/1/4/6786.html",
+          "hasOrdinance": true,
+          "dept": "金沢市保健所衛生指導課",
+          "address": "〒920-8533 石川県金沢市西念3丁目4番25号",
+          "tel": "076-234-5114"
+        }
+      ]
+    },
+    "福井県": {
+      "pref": "福井県",
+      "self": {
+        "name": "福井県",
+        "url": "https://www.pref.fukui.lg.jp/doc/iei/seikatsueisei/minpaku.html",
+        "hasOrdinance": false,
+        "dept": "【民泊の振興･利活用に関すること】 交流文化部観光誘客課 【届出、報告、手続き等に関すること】 健康福祉部医薬食品･衛生課 ※実際の届出先は県内各保健所",
+        "address": "交流文化部観光誘客課 〒910-0004 福井県福井市宝永2丁目4－10 (電話番号)0776-20-0380 健康福祉部医薬食品・衛生課 〒910-8580 福井県福井市大手3丁目17-1 (代表電話)0776-21-1111 (内線)医薬食品･衛生課:2646",
+        "tel": "0776-20-0380"
+      },
+      "municipalities": []
+    },
+    "山梨県": {
+      "pref": "山梨県",
+      "self": {
+        "name": "山梨県",
+        "url": "http://www.pref.yamanashi.jp/kankou-k/eiyaku/minpaku.html",
+        "hasOrdinance": false,
+        "dept": "[1]観光文化・スポーツ部観光文化・スポーツ総務課 [2]福祉保健部衛生薬務課(届出に関すること)",
+        "address": "〒400-8501 山梨県甲府市丸の内1丁目6番1号 [1]055-223-1556(観光文化・スポーツ部観光文化・スポーツ総務課) [2]055-223-1488(福祉保健部衛生薬務課)",
+        "tel": "055-223-1556"
+      },
+      "municipalities": []
+    },
+    "長野県": {
+      "pref": "長野県",
+      "self": {
+        "name": "長野県",
+        "url": "http://www.pref.nagano.lg.jp/shokusei/seikatsu/minpaku-tetsuzuki.html",
+        "hasOrdinance": true,
+        "dept": "健康福祉部食品･生活衛生課 ※実際の届出先は県内各保健所",
+        "address": "〒380-8570 長野県長野市大字南長野字幅下692-2",
+        "tel": "026-235-7153"
+      },
+      "municipalities": [
+        {
+          "name": "長野市",
+          "url": "https://www.city.nagano.nagano.jp/n107000/contents/p002283.html",
+          "hasOrdinance": false,
+          "dept": "保健福祉部長野市保健所食品生活衛生課",
+          "address": "〒380-0928 長野県長野市若里6丁目6番1号",
+          "tel": "026-226-9970"
+        }
+      ]
+    },
+    "岐阜県": {
+      "pref": "岐阜県",
+      "self": {
+        "name": "岐阜県",
+        "url": "https://www.pref.gifu.lg.jp/page/17639.html",
+        "hasOrdinance": true,
+        "dept": "健康福祉部生活衛生課 ※実際の届出先は県内各保健所",
+        "address": "〒500-8570 岐阜県岐阜市藪田南2-1-1",
+        "tel": "058-272-1111"
+      },
+      "municipalities": []
+    },
+    "静岡県": {
+      "pref": "静岡県",
+      "self": {
+        "name": "静岡県",
+        "url": "https://www.pref.shizuoka.jp/kenkofukushi/eiseiyakuji/eiseionsen/1040424/1025059.html",
+        "hasOrdinance": true,
+        "dept": "【届出、監督･指導】 健康福祉部生活衛生局衛生課 ※実際の届出先は県内各保健所 【条例】 スポーツ・文化観光部観光交流局観光政策課",
+        "address": "〒420-8601 静岡市葵区追手町9-6 衛生課:054-221-3281 観光政策課:054-221-3638",
+        "tel": "054-221-3281"
+      },
+      "municipalities": []
+    },
+    "愛知県": {
+      "pref": "愛知県",
+      "self": {
+        "name": "愛知県",
+        "url": "http://www.pref.aichi.jp/soshiki/eisei/minpaku-todokede.html",
+        "hasOrdinance": false,
+        "dept": "保健医療局生活衛生部生活衛生課環境衛生グループ ※実際の届出先は県内各保健所",
+        "address": "〒460-8501 愛知県名古屋市中区三の丸三丁目1番2号",
+        "tel": "052-954-6299"
+      },
+      "municipalities": [
+        {
+          "name": "名古屋市",
+          "url": "http://www.city.nagoya.jp/kurashi/category/24-2-12-30-1-0-0-0-0-0.html",
+          "hasOrdinance": true,
+          "dept": "健康福祉局健康部環境薬務課 ※実際の届出先は市内各保健センター環境薬務室",
+          "address": "〒460-8508 愛知県名古屋市中区三の丸三丁目1番1号",
+          "tel": "052-972-2643"
+        },
+        {
+          "name": "豊橋市",
+          "url": "https://www.city.toyohashi.lg.jp/26201.htm",
+          "hasOrdinance": false,
+          "dept": "健康部保健所生活衛生課",
+          "address": "〒441-8539 愛知県豊橋市中野町字中原100番地",
+          "tel": "0532-39-9124"
+        },
+        {
+          "name": "一宮市",
+          "url": "https://www.city.ichinomiya.aichi.jp/hokenjo/hokenyobou/1044114/1039870/1039892.html",
+          "hasOrdinance": false,
+          "dept": "一宮市保健所保健予防課",
+          "address": "〒491-0867 愛知県一宮市古金町1丁目3番地",
+          "tel": "0586-52-3855"
+        }
+      ]
+    },
+    "三重県": {
+      "pref": "三重県",
+      "self": {
+        "name": "三重県",
+        "url": "http://www.pref.mie.lg.jp/SHOKUSEI/HP/m0067100023.htm",
+        "hasOrdinance": true,
+        "dept": "医療保健部食品安全課",
+        "address": "〒514-8570 三重県津市広明町13番地",
+        "tel": "059-224-2359"
+      },
+      "municipalities": []
+    },
+    "滋賀県": {
+      "pref": "滋賀県",
+      "self": {
+        "name": "滋賀県",
+        "url": "https://www.pref.shiga.lg.jp/ippan/shigotosangyou/kanko/300808.html",
+        "hasOrdinance": true,
+        "dept": "商工観光労働部観光交流局観光政策室",
+        "address": "〒520-8577 滋賀県大津市京町四丁目1番1号 滋賀県庁東館4階",
+        "tel": "077-528-3741"
+      },
+      "municipalities": []
+    },
+    "京都府": {
+      "pref": "京都府",
+      "self": {
+        "name": "京都府",
+        "url": "http://www.pref.kyoto.jp/seikatsu/news/juutakushukuhaku.html",
+        "hasOrdinance": true,
+        "dept": "健康福祉部生活衛生課 ※実際の届出先は府内各保健所",
+        "address": "〒602-8570 京都市上京区下立売通新町西入薮ノ内町",
+        "tel": "075-414-4757"
+      },
+      "municipalities": [
+        {
+          "name": "京都市",
+          "url": "http://www.city.kyoto.lg.jp/menu3/category/40-12-0-0-0-0-0-0-0-0.html",
+          "hasOrdinance": true,
+          "dept": "保健福祉局医療衛生推進室医療衛生センター 住宅宿泊事業受付窓口 開設時間 毎週月曜日～金曜日（土・日・祝日，年末年始を除く） 午前：９時～正午，午後：１時～５時 ※事前に来庁時間を御連絡のうえ,お越しくださいますよう,皆様の御理解と御協力をお願いします。",
+          "address": "〒604-0835 京都市中京区御池通高倉西入高宮町200番地 千代田生命京都御池ビル2階 TEL：075-748-1313 FAX：075-251-7235",
+          "tel": "075-748-1313"
+        }
+      ]
+    },
+    "大阪府": {
+      "pref": "大阪府",
+      "self": {
+        "name": "大阪府",
+        "url": "http://www.pref.osaka.lg.jp/kankyoeisei/minpaku-service/index.html",
+        "hasOrdinance": false,
+        "dept": "[1]健康医療部生活衛生室環境衛生課 [2]府民文化部都市魅力創造局企画･観光課",
+        "address": "[1]〒540-0008 大阪府大阪市中央区大手前3丁目2-12 大阪府庁別館2階 [2]〒559-8555 大阪府大阪市住之江区南港北1-14-16 06-6210-9301",
+        "tel": "06-6944-9910"
+      },
+      "municipalities": [
+        {
+          "name": "大阪市",
+          "url": "http://www.city.osaka.lg.jp/kenko/page/0000422269.html",
+          "hasOrdinance": true,
+          "dept": "[1]届出等 保健所 環境衛生監視課 [2]条例 経済戦略局観光部観光課",
+          "address": "[1] 〒541-0055 大阪市中央区船場中央１－２ 船場センタービル１号館 地下１階 B１１９ [2] 〒553-0005 大阪市福島区野田1-1-86 (大阪市中央卸売市場本場業務管理棟12階) 06-6469-5163",
+          "tel": "06-6647-0692"
+        },
+        {
+          "name": "堺市",
+          "url": "https://www.city.sakai.lg.jp/kenko/kankyoeisei/shinsei/jyuutakusyukuhakujigyou.html",
+          "hasOrdinance": true,
+          "dept": "【届出等】 健康福祉局保健所生活衛生課 【条例】 文化観光局観光部観光推進課",
+          "address": "〒590-0078 大阪府堺市堺区南瓦町3番1号 生活衛生課:072-222-9940 観光推進課:072-228-7493",
+          "tel": "072-222-9940"
+        },
+        {
+          "name": "吹田市",
+          "url": "https://www.city.suita.osaka.jp/kenko/1018645/1018646/1018648/1015389.html",
+          "hasOrdinance": false,
+          "dept": "健康医療部衛生管理課",
+          "address": "〒564-0072 大阪府吹田市出口町19-3",
+          "tel": "06-6339-2226"
+        },
+        {
+          "name": "枚方市",
+          "url": "https://www.city.hirakata.osaka.jp/0000017548.html",
+          "hasOrdinance": false,
+          "dept": "健康福祉部保健所保健衛生課",
+          "address": "〒573-8666 大阪府枚方市大垣内町2丁目1番20号",
+          "tel": "072-841-1221"
+        },
+        {
+          "name": "八尾市",
+          "url": "https://www.city.yao.osaka.jp/kenkou_fukushi/shokuhinneisei/1008560/1008584/1008597.html",
+          "hasOrdinance": false,
+          "dept": "八尾市保健所保健衛生課",
+          "address": "〒 581-0006 大阪府八尾市清水町1-2-5",
+          "tel": "072-994-6643"
+        },
+        {
+          "name": "寝屋川市",
+          "url": "https://www.city.neyagawa.osaka.jp/organization_list/kenkou/hokeneisei/kankyou/kankyo01/sinnpouminnpaku.html",
+          "hasOrdinance": true,
+          "dept": "健康部 保健衛生課",
+          "address": "〒572－8533 大阪府寝屋川市池田西町28番22号（保健福祉センター2階）",
+          "tel": "072-829-7721"
+        },
+        {
+          "name": "高槻市",
+          "url": "https://www.city.takatsuki.osaka.jp/soshiki/59/169693.html",
+          "hasOrdinance": true,
+          "dept": "[1]届出等 健康福祉部保健所保健衛生課 [2]条例 歴史にぎわい部観光シティセールス課",
+          "address": "[1] 〒569-0052 大阪府高槻市城東町5番7号 [2] 〒569-0067 大阪府高槻市桃園町2番1号 072-674-7830",
+          "tel": "072-661-9331"
+        }
+      ]
+    },
+    "兵庫県": {
+      "pref": "兵庫県",
+      "self": {
+        "name": "兵庫県",
+        "url": "https://web.pref.hyogo.lg.jp/kf14/juutakusyukuhaku.html",
+        "hasOrdinance": true,
+        "dept": "健康福祉部健康局生活衛生課 ※実際の届出先は県内各保健所",
+        "address": "〒650-8567 兵庫県神戸市中央区下山手通5-10-1",
+        "tel": "078-362-3254"
+      },
+      "municipalities": [
+        {
+          "name": "神戸市",
+          "url": "https://www.city.kobe.lg.jp/a84140/business/todokede/hokenfukushikyoku/minpaku/index.html",
+          "hasOrdinance": true,
+          "dept": "健康局環境衛生課",
+          "address": "〒650-8570 神戸市中央区加納町6丁目5-1",
+          "tel": "078-322-6576"
+        },
+        {
+          "name": "姫路市",
+          "url": "https://www.city.himeji.lg.jp/kurashi/0000007634.html",
+          "hasOrdinance": true,
+          "dept": "保健所衛生課",
+          "address": "〒670-8530 兵庫県姫路市坂田町3",
+          "tel": "079-289-1633"
+        },
+        {
+          "name": "尼崎市",
+          "url": "http://www.city.amagasaki.hyogo.jp/sangyo/zigyousya/kkyeisei/1009304.html",
+          "hasOrdinance": true,
+          "dept": "健康福祉局保健部生活衛生課",
+          "address": "〒660-0052 兵庫県尼崎市七松町1丁目3番1-502号",
+          "tel": "06-4869-3017"
+        },
+        {
+          "name": "西宮市",
+          "url": "https://www.nishi.or.jp/jigyoshajoho/seikatsueisei/shinsei/minpaku.html",
+          "hasOrdinance": true,
+          "dept": "健康福祉局保健所生活環境課",
+          "address": "〒662-8567 兵庫県西宮市六湛寺町１０－３",
+          "tel": "0798-26-3692"
+        },
+        {
+          "name": "明石市",
+          "url": "https://www.city.akashi.lg.jp/hokensyo/h-eisei/seikatueisei/minpaku.html",
+          "hasOrdinance": true,
+          "dept": "福祉局あかし保健所生活衛生課",
+          "address": "〒674-0068 兵庫県明石市大久保町ゆりのき通1丁目4-7",
+          "tel": "078-918-5425"
+        }
+      ]
+    },
+    "奈良県": {
+      "pref": "奈良県",
+      "self": {
+        "name": "奈良県",
+        "url": "http://www.pref.nara.jp/49371.htm",
+        "hasOrdinance": true,
+        "dept": "観光局ならの観光力向上課 ※実際の届出先は県内各保健所",
+        "address": "〒630-8501 奈良県奈良市登大路町30",
+        "tel": "0742-27-8435"
+      },
+      "municipalities": [
+        {
+          "name": "奈良市",
+          "url": "http://www.city.nara.lg.jp/www/contents/1519294472009/index.html",
+          "hasOrdinance": true,
+          "dept": "健康医療部保健所保健衛生課",
+          "address": "〒630-8122 奈良県奈良市三条本町１３－１ はぐくみセンター",
+          "tel": "0742-93-8395"
+        }
+      ]
+    },
+    "和歌山県": {
+      "pref": "和歌山県",
+      "self": {
+        "name": "和歌山県",
+        "url": "http://www.pref.wakayama.lg.jp/prefg/031600/74_minpaku/",
+        "hasOrdinance": true,
+        "dept": "環境生活部県民局食品･生活衛生課 ※実際の届出先は県内各保健所",
+        "address": "〒640-8585 和歌山県和歌山市小松原通1-1",
+        "tel": "073-441-2620"
+      },
+      "municipalities": []
+    },
+    "鳥取県": {
+      "pref": "鳥取県",
+      "self": {
+        "name": "鳥取県",
+        "url": "https://www.pref.tottori.lg.jp/273820.htm",
+        "hasOrdinance": false,
+        "dept": "[1]中部総合事務所環境建築局 環境・循環推進課 [2]西部総合事務所環境建築局 環境・循環推進課 [3]生活環境部くらしの安心局くらしの安心推進課",
+        "address": "[1]〒682-0802 倉吉市東巌城町2 [2]〒683-0054 米子市糀町一丁目160 0859-31-9350 [3]〒680-8570 鳥取市東町一丁目220 0857-26-7185",
+        "tel": "0858-23-3279"
+      },
+      "municipalities": [
+        {
+          "name": "鳥取市",
+          "url": "https://www.city.tottori.lg.jp/page/4018.html",
+          "hasOrdinance": false,
+          "dept": "市民生活部環境局 生活環境課",
+          "address": "〒680-8571 鳥取市幸町71番地 鳥取市役所本庁舎２階",
+          "tel": "0857-30-8083"
+        }
+      ]
+    },
+    "島根県": {
+      "pref": "島根県",
+      "self": {
+        "name": "島根県",
+        "url": "http://www.pref.shimane.lg.jp/medical/yakuji/eisei/minpaku/",
+        "hasOrdinance": true,
+        "dept": "健康福祉部薬事衛生課 ※実際の届出先は県内各保健所",
+        "address": "〒690-8501 島根県松江市殿町1",
+        "tel": "0852-22-6529"
+      },
+      "municipalities": []
+    },
+    "岡山県": {
+      "pref": "岡山県",
+      "self": {
+        "name": "岡山県",
+        "url": "http://www.pref.okayama.jp/page/548436.html",
+        "hasOrdinance": false,
+        "dept": "【届出関係】 保健福祉部生活衛生課 ※実際の届出先は県内各保健所 【条例関係】 産業労働部観光課",
+        "address": "〒700-8570 岡山県岡山市北区内山下2丁目4番6号 生活衛生課:086-226-7335 観光課:086-226-7383",
+        "tel": "086-226-7335"
+      },
+      "municipalities": [
+        {
+          "name": "岡山市",
+          "url": "https://www.city.okayama.jp/jigyosha/0000007802.html",
+          "hasOrdinance": false,
+          "dept": "【届出関係】 保健福祉局保健福祉部保健管理課生活衛生係 【条例関係】 産業観光局プロモーション・MICE推進課",
+          "address": "保健管理課生活衛生係： 〒700-8546 岡山市北区鹿田町一丁目１番１号 保健福祉会館７階 プロモーション・MICE推進課： 〒700-8544 岡山市北区大供一丁目１番１号 086-803-1333",
+          "tel": "086-803-1276"
+        },
+        {
+          "name": "倉敷市",
+          "url": "https://www.city.kurashiki.okayama.jp/business/health-safety/1004933/1004945.html",
+          "hasOrdinance": true,
+          "dept": "保健所生活衛生課",
+          "address": "〒710-0834 岡山県倉敷市笹沖170番地",
+          "tel": "086-434-9830"
+        }
+      ]
+    },
+    "広島県": {
+      "pref": "広島県",
+      "self": {
+        "name": "広島県",
+        "url": "http://www.pref.hiroshima.lg.jp/soshiki/58/juutaku-todokede.html",
+        "hasOrdinance": false,
+        "dept": "健康福祉局食品生活衛生課",
+        "address": "〒730-8511 広島市中区基町10-52",
+        "tel": "082-513-4389"
+      },
+      "municipalities": [
+        {
+          "name": "広島市",
+          "url": "https://www.city.hiroshima.lg.jp/site/seikatsueisei/1030.html",
+          "hasOrdinance": false,
+          "dept": "健康福祉局保健部環境衛生課",
+          "address": "〒730-0043 広島県広島市中区富士見町11番27号",
+          "tel": "082-241-7408"
+        }
+      ]
+    },
+    "山口県": {
+      "pref": "山口県",
+      "self": {
+        "name": "山口県",
+        "url": "http://www.pref.yamaguchi.lg.jp/cms/a15300/jutaku/jutaku.html",
+        "hasOrdinance": false,
+        "dept": "環境生活部生活衛生課 ※実際の届出先は県内各保健所",
+        "address": "〒753-8501 山口県山口市滝町1番1号",
+        "tel": "083-933-2970"
+      },
+      "municipalities": []
+    },
+    "徳島県": {
+      "pref": "徳島県",
+      "self": {
+        "name": "徳島県",
+        "url": "https://www.pref.tokushima.lg.jp/ippannokata/kurashi/shokunoanzen/7216373/",
+        "hasOrdinance": false,
+        "dept": "[1]東部保健福祉局【徳島保健所】 [2]東部保健福祉局【吉野川保健所】 [3]南部総合県民局【阿南保健所】 [4]南部総合県民局【美波保健所】 [5]西部総合県民局【美馬保健所】 [6]西部総合県民局【三好保健所】",
+        "address": "[1]〒770-0855 徳島市新蔵町3丁目80 [2]〒776-0010 吉野川市鴨島町字鴨島106の2 0883-36-9017 [3]〒774-0011 阿南市領家町野神319 0884-28-9872 [4]〒779-2305 海部郡美波町奥河内字弁才天17番地1 0884-74-7342 [5]〒777-0005 美馬市穴吹町穴吹字明連23 0883-52-1011 [6]〒778-0002 三好市池田町マチ2542番地4 0883-72-1121",
+        "tel": "088-652-5155"
+      },
+      "municipalities": []
+    },
+    "香川県": {
+      "pref": "香川県",
+      "self": {
+        "name": "香川県",
+        "url": "https://www.pref.kagawa.lg.jp/content/dir1/dir1_9/dir1_9_1/wvi6y8180209101914.shtml",
+        "hasOrdinance": false,
+        "dept": "健康福祉部生活衛生課",
+        "address": "〒760-8570 香川県高松市番町四丁目1番10号",
+        "tel": "087-832-3211"
+      },
+      "municipalities": []
+    },
+    "愛媛県": {
+      "pref": "愛媛県",
+      "self": {
+        "name": "愛媛県",
+        "url": "https://www.pref.ehime.jp/page/57100.html",
+        "hasOrdinance": false,
+        "dept": "観光スポーツ文化部観光交流局観光国際課",
+        "address": "〒790-8570 愛媛県松山市一番町四丁目4番地2",
+        "tel": "089-912-2491"
+      },
+      "municipalities": []
+    },
+    "高知県": {
+      "pref": "高知県",
+      "self": {
+        "name": "高知県",
+        "url": "http://www.pref.kochi.lg.jp/soshiki/131901/2018030200428.html",
+        "hasOrdinance": true,
+        "dept": "【届出受付窓口】健康政策部 薬務衛生課 【条例関係】観光振興部 おもてなし課",
+        "address": "〒780-8570 高知県高知市丸ノ内1丁目2番20号 【届出受付窓口】088-823-9671 【条例関係】088-823-9609",
+        "tel": "088-823-9671"
+      },
+      "municipalities": [
+        {
+          "name": "高知市",
+          "url": "http://www.city.kochi.kochi.jp/soshiki/36/minpaku.html",
+          "hasOrdinance": true,
+          "dept": "【届出受付窓口】健康福祉部生活食品課 【条例関係】商工観光部観光振興課",
+          "address": "〒780-0870 高知県高知市本町５丁目１番45号 【届出受付窓口】088-822-0588 【条例関係】088-823-9457",
+          "tel": "088-822-0588"
+        }
+      ]
+    },
+    "福岡県": {
+      "pref": "福岡県",
+      "self": {
+        "name": "福岡県",
+        "url": "http://www.pref.fukuoka.lg.jp/contents/juutakusyukuhakujigyouhou.html",
+        "hasOrdinance": true,
+        "dept": "保健医療介護部生活衛生課",
+        "address": "〒812-8577 福岡県福岡市博多区東公園7番7号",
+        "tel": "092-643-3279"
+      },
+      "municipalities": []
+    },
+    "佐賀県": {
+      "pref": "佐賀県",
+      "self": {
+        "name": "佐賀県",
+        "url": "https://www.pref.saga.lg.jp/kiji00360009/index.html",
+        "hasOrdinance": false,
+        "dept": "健康福祉部生活衛生課",
+        "address": "〒840-8570 佐賀県佐賀市城内一丁目1番59号",
+        "tel": "0952-25-7077"
+      },
+      "municipalities": []
+    },
+    "長崎県": {
+      "pref": "長崎県",
+      "self": {
+        "name": "長崎県",
+        "url": "https://www.pref.nagasaki.jp/doc/page-335245.html",
+        "hasOrdinance": false,
+        "dept": "県民生活部生活衛生課",
+        "address": "〒850-8570 長崎県長崎市尾上町3-1",
+        "tel": "095-895-2363"
+      },
+      "municipalities": []
+    },
+    "熊本県": {
+      "pref": "熊本県",
+      "self": {
+        "name": "熊本県",
+        "url": "https://www.pref.kumamoto.jp/kiji_22815.html",
+        "hasOrdinance": false,
+        "dept": "【制度の推進】 観光戦略部観光企画課 【届出受理、監視指導】 健康福祉部健康局薬務衛生課",
+        "address": "〒862-8570 熊本県熊本市中央区水前寺6丁目18番1号 観光企画課:096-333-2332 薬務衛生課:096-333-2245",
+        "tel": "096-333-2332"
+      },
+      "municipalities": []
+    },
+    "大分県": {
+      "pref": "大分県",
+      "self": {
+        "name": "大分県",
+        "url": "http://www.pref.oita.jp/soshiki/13900/juutakusyukuhaku.html",
+        "hasOrdinance": false,
+        "dept": "生活環境部食品･生活衛生課",
+        "address": "〒870-8501 大分県大分市大手町3丁目1番1号",
+        "tel": "097-506-3055"
+      },
+      "municipalities": []
+    },
+    "宮崎県": {
+      "pref": "宮崎県",
+      "self": {
+        "name": "宮崎県",
+        "url": "https://www.pref.miyazaki.lg.jp/kanko-suishin/kanko/miryoku/20180202131018.html",
+        "hasOrdinance": false,
+        "dept": "【制度全般・条例関係】 観光推進課 【届出・指導監督関係】 衛生管理課",
+        "address": "〒880-8501 宮崎県宮崎市橘通東2丁目10番1号 観光推進課：0985-26-7104 衛生管理課：0985-44-2628",
+        "tel": "0985-26-7104"
+      },
+      "municipalities": []
+    },
+    "鹿児島県": {
+      "pref": "鹿児島県",
+      "self": {
+        "name": "鹿児島県",
+        "url": "https://www.pref.kagoshima.jp/ae09/juutakusyukuhaku.html",
+        "hasOrdinance": false,
+        "dept": "観光・文化スポーツ部観光課 【届出受付・指導監督】 くらし保健福祉部生活衛生課",
+        "address": "〒890-8577 鹿児島県鹿児島市鴨池新町10番１号 観光・文化スポーツ部観光課：099-286-2994 くらし保健福祉部生活衛生課：099-286-2784",
+        "tel": "099-286-2994"
+      },
+      "municipalities": []
+    },
+    "沖縄県": {
+      "pref": "沖縄県",
+      "self": {
+        "name": "沖縄県",
+        "url": "http://www.pref.okinawa.jp/site/hoken/seikatsueisei/juutakushukuhakujigyouhou.html",
+        "hasOrdinance": true,
+        "dept": "保健医療部衛生薬務課 ※実際の届出先は県内各保健所",
+        "address": "〒900-8570 沖縄県那覇市泉崎1丁目2番2号",
+        "tel": "098-866-2055"
+      },
+      "municipalities": [
+        {
+          "name": "那覇市",
+          "url": "https://www.city.naha.okinawa.jp/nahahokenjyo/0003/juutakusyukuhaku/minpakusoudan.html",
+          "hasOrdinance": true,
+          "dept": "健康部保健所生活衛生課",
+          "address": "〒902-0076 沖縄県那覇市与儀1-3-21",
+          "tel": "098-853-7963"
+        }
+      ]
+    }
+  }
+}
