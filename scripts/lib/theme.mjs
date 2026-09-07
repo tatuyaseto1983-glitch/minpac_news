@@ -167,7 +167,7 @@ a.tag:hover{border-color:var(--green);color:var(--green-ink);text-decoration:non
 /* 中央寄せのページ見出し（一覧ページ） */
 .maghead{text-align:center;padding:22px 0 28px}
 .maghead h1{font-size:clamp(22px,2.4vw,29px);letter-spacing:.06em;margin-bottom:9px}
-.maghead p{max-width:52ch;margin:0 auto;color:var(--ink-2);font-size:14px}
+.maghead p{max-width:62ch;margin:0 auto;color:var(--ink-2);font-size:14px;text-wrap:pretty}
 .maghead .meta{display:block;margin-top:8px}
 
 /* 注目の2枚 */
