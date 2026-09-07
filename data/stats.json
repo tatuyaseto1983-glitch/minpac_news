@@ -1,0 +1,27 @@
+{
+  "updatedAt": "2026-09-07",
+  "minpaku": {
+    "asOf": "令和8年7月15日",
+    "filed": 65837,
+    "closed": 23767,
+    "active": 42070,
+    "managers": 4529,
+    "brokers": 66,
+    "source": "民泊制度ポータルサイト 施行状況",
+    "sourceUrl": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+    "fetchedAt": "2026-09-07"
+  },
+  "history": [
+    {
+      "asOf": "令和8年7月15日",
+      "filed": 65837,
+      "closed": 23767,
+      "active": 42070,
+      "managers": 4529,
+      "brokers": 66,
+      "source": "民泊制度ポータルサイト 施行状況",
+      "sourceUrl": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "fetchedAt": "2026-09-07"
+    }
+  ]
+}

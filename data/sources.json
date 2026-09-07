@@ -1,0 +1,43 @@
+[
+  {
+    "id": "jta-news",
+    "name": "観光庁 報道発表",
+    "type": "jta-index",
+    "url": "https://www.mlit.go.jp/kankocho/news.html",
+    "primary": true,
+    "note": "年別ページのリンクを辿って直近2年ぶんの一覧を取得します",
+    "years": 2
+  },
+  {
+    "id": "minpaku-news",
+    "name": "民泊制度ポータルサイト 新着情報",
+    "type": "minpaku-news",
+    "url": "https://www.mlit.go.jp/kankocho/minpaku/",
+    "primary": true,
+    "forceScore": 3,
+    "note": "民泊制度そのものの告知。全件を取り込みます"
+  },
+  {
+    "id": "mlit-press",
+    "name": "国土交通省 プレスリリース",
+    "type": "rss",
+    "url": "https://www.mlit.go.jp/pressrelease.rdf",
+    "encoding": "shift_jis",
+    "primary": true
+  },
+  {
+    "id": "mlit-new",
+    "name": "国土交通省 新着情報",
+    "type": "rss",
+    "url": "https://www.mlit.go.jp/index.rdf",
+    "encoding": "shift_jis",
+    "primary": true
+  },
+  {
+    "id": "minpaku-situation",
+    "name": "民泊制度ポータルサイト 施行状況",
+    "type": "minpaku-situation",
+    "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+    "primary": true
+  }
+]

@@ -1,0 +1,1555 @@
+{
+  "updatedAt": "2026-09-07",
+  "count": 68,
+  "items": [
+    {
+      "id": "3sgiib",
+      "title": "宿泊旅行統計調査（2026年7月・第1次速報、2026年6月・第2次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00098.html",
+      "publishedAt": "2026-08-31",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "15kv0yd",
+      "title": "【お知らせ】民泊制度運営システムはメンテナンスのため、8月21日(金) 22:00 ～ 8月22日(土) 9:00の間、ユーザーのログインを停止 いたします。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/",
+      "publishedAt": "2026-08-06",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "system",
+        "name": "システム・お知らせ"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1uk3bk",
+      "title": "宿泊旅行統計調査（2026年（令和8年）5月・第2次速報、2026年（令和8年）6月・第1次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00095.html",
+      "publishedAt": "2026-07-31",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1idwu4q",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和8年7月15日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2026-07-31",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1sfd9hv",
+      "title": "地方公共団体に対して民泊に関する通知を行いました ～「住宅宿泊事業法に規定する届出住宅に係る ゼロ日規制等について（技術的助言）」の発出について～",
+      "url": "https://www.mlit.go.jp/kankocho/news06_00067.html",
+      "publishedAt": "2026-07-15",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "law",
+        "name": "法制度・法改正"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [
+        "民泊",
+        "住宅宿泊事業"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "179a9b",
+      "title": "インバウンド消費動向調査2026年４-６月期（１次速報）の結果について",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00094.html",
+      "publishedAt": "2026-07-15",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 1,
+      "matchedKeywords": [
+        "インバウンド"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1xn63zf",
+      "title": "宿泊旅行統計調査（2026年（令和8年）4月・第2次速報、2026年（令和8年）5月・第1次速報及び2025年（令和7年）年間値（確定値））",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00090.html",
+      "publishedAt": "2026-07-06",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "ke83x",
+      "title": "【お知らせ】令和 9年 4月 1日より、宿泊税の対象施設が拡大されます。宿泊税の手続きをお願いします。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/content/002009650.pdf",
+      "publishedAt": "2026-07-01",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "practice",
+        "name": "開業実務"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "bmaouq",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和8年5月15日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2026-05-29",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1hgnxf6",
+      "title": "宿泊旅行統計調査（2026年（令和8年）3月・第2次速報、2026年（令和8年）4月・第1次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00088.html",
+      "publishedAt": "2026-05-29",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1evgp66",
+      "title": "宿泊旅行統計調査（2026年（令和8年）2月・第2次速報、2026年（令和8年）3月・第1次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00084.html",
+      "publishedAt": "2026-04-30",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "st5o2c",
+      "title": "訪日外国人旅行者の受入環境に関する調査を実施しました ～前回調査に引き続き、旅行中の困りごとは「ごみ箱の少なさ」が最多～",
+      "url": "https://www.mlit.go.jp/kankocho/news08_00039.html",
+      "publishedAt": "2026-04-28",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 1,
+      "matchedKeywords": [
+        "訪日外国人"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1dkv31o",
+      "title": "インバウンド消費動向調査2026年１-３月期（１次速報）の結果について",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00082.html",
+      "publishedAt": "2026-04-15",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 1,
+      "matchedKeywords": [
+        "インバウンド"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "zwpsem",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和8年3月13日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2026-03-31",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1cxk9zf",
+      "title": "宿泊旅行統計調査（2026年（令和8年）1月・第2次速報、2026年（令和8年）2月・第1次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00081.html",
+      "publishedAt": "2026-03-31",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "u5uv66",
+      "title": "宿泊旅行統計調査（2025年（令和7年）12月・第2次速報、2026年（令和8年）1月・第1次速報）及び（2025年（令和7年）・年間値（速報値））",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00075.html",
+      "publishedAt": "2026-02-27",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "twepdi",
+      "title": "【お知らせ】民泊制度運営システム内で、アップロードしたデータのダウンロードができない不具合が発生しています。届出等の申請内 容確認に時間が要する場合がございますので、予めご了承ください。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/",
+      "publishedAt": "2026-02-25",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "system",
+        "name": "システム・お知らせ"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "2sn0ni",
+      "title": "「地方における高付加価値なインバウンド観光地づくり」事業 令和７年度年次報告会を開催します",
+      "url": "https://www.mlit.go.jp/kankocho/news04_00019.html",
+      "publishedAt": "2026-02-12",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 1,
+      "matchedKeywords": [
+        "インバウンド"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "5m6y0r",
+      "title": "【お知らせ】2026年2月5日にSalesforce社のルート証明書の更新が行われます。古い環境をお使いの場合は民泊制度運営システムに安 全にアクセスできなくなる場合がありますので、こちらから詳細の確認をお願いいたします。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/content/001979712.pdf",
+      "publishedAt": "2026-02-02",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "system",
+        "name": "システム・お知らせ"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "sv991o",
+      "title": "宿泊旅行統計調査（2025年（令和７年）11月・第２次速報、2025年（令和７年）12月・第１次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00073.html",
+      "publishedAt": "2026-01-30",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "17hu98u",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和8年1月15日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2026-01-30",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "rknmx6",
+      "title": "インバウンド消費動向調査2025年暦年（速報）及び10-12月期（1次速報）の結果について",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00071.html",
+      "publishedAt": "2026-01-21",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 1,
+      "matchedKeywords": [
+        "インバウンド"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "be5gcx",
+      "title": "宿泊旅行統計調査（2025年（令和７年）10月・第２次速報、2025年（令和７年）11月・第１次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00069.html",
+      "publishedAt": "2025-12-25",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "7g9103",
+      "title": "クマ対策の「観光ピクトグラム」を新たに作成しました～インバウンドを含めた登山客等への多言語による情報発信に向けて～",
+      "url": "https://www.mlit.go.jp/kankocho/news08_00029.html",
+      "publishedAt": "2025-12-19",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 1,
+      "matchedKeywords": [
+        "インバウンド"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "nze725",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和7年11月14日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2025-11-28",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "aqunao",
+      "title": "宿泊旅行統計調査（2025年（令和７年）９月・第２次速報、2025年（令和７年）10月・第１次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00068.html",
+      "publishedAt": "2025-11-28",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1o7dofh",
+      "title": "【注意喚起】パスワードリセット画面で「パスワードをお忘れですか？」リンクを押下した際、「メールアドレスを使用」という新し いリセットオプションが表示されるようになりましたが、本機能は住宅宿泊事業者様のアカウントではご利用いただけま…",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/",
+      "publishedAt": "2025-11-28",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "system",
+        "name": "システム・お知らせ"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "9g9166",
+      "title": "宿泊旅行統計調査（2025年（令和７年）８月・第２次速報、2025年（令和７年）９月・第１次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00066.html",
+      "publishedAt": "2025-10-31",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "6v1sx6",
+      "title": "インバウンド消費動向調査2025年７-９月期（１次速報）の結果について",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00062.html",
+      "publishedAt": "2025-10-15",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 1,
+      "matchedKeywords": [
+        "インバウンド"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1i1ej0",
+      "title": "「地方における高付加価値なインバウンド観光地づくり」事業 令和７年中間報告会を開催します",
+      "url": "https://www.mlit.go.jp/kankocho/news04_00017.html",
+      "publishedAt": "2025-10-06",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 1,
+      "matchedKeywords": [
+        "インバウンド"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "gsmopg",
+      "title": "【お知らせ】電子宿泊者名簿がWindows11サポート対象になりました。ご利用の方はこちらよりご確認の上、ダウンロードください。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/system/regular_report.html",
+      "publishedAt": "2025-10-03",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "system",
+        "name": "システム・お知らせ"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "nlyrhy",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和7年9月16日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2025-09-30",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "ig1ys8",
+      "title": "【お知らせ】民泊制度運営システム内でのデータ処理遅延が発生しています。申請内容確認に時間が要する場合がございますので、 予めご了承ください。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/",
+      "publishedAt": "2025-09-30",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "system",
+        "name": "システム・お知らせ"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "67qzux",
+      "title": "宿泊旅行統計調査（2025年（令和７年）７月・第２次速報、2025年（令和７年）８月・第１次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00061.html",
+      "publishedAt": "2025-09-30",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1of227j",
+      "title": "宿泊旅行統計調査（2025年（令和７年）６月・第２次速報、2025年（令和７年）７月・第１次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00058.html",
+      "publishedAt": "2025-08-29",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1ltutyj",
+      "title": "【報道発表資料の一部訂正】宿泊旅行統計調査",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00054.html",
+      "publishedAt": "2025-08-26",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1phc7v7",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和7年7月15日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2025-07-31",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1n4gg31",
+      "title": "【報道発表資料の一部訂正】宿泊旅行統計調査（2025年（令和７年）５月・第２次速報、2025年（令和７年）６月・第１次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00056.html",
+      "publishedAt": "2025-07-31",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1kj97u1",
+      "title": "インバウンド消費動向調査2025年４-６月期（１次速報）の結果について",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00052.html",
+      "publishedAt": "2025-07-16",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 1,
+      "matchedKeywords": [
+        "インバウンド"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1jvyers",
+      "title": "【報道発表資料の一部訂正】宿泊旅行統計調査（2025年（令和７年）４月・第２次速報、2025年（令和７年）５月・第１次速報）及び2024年（令和６年）・年間値（確定値））",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00051.html",
+      "publishedAt": "2025-06-27",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1wsk618",
+      "title": "「宿泊業及び自衛隊における人材確保の取組に係る申合せ」を締結 ～国土交通省、防衛省、宿泊事業者団体が連携します～",
+      "url": "https://www.mlit.go.jp/kankocho/news06_00033.html",
+      "publishedAt": "2025-06-06",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊事業"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "15wjz2p",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和7年5月15日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2025-05-30",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "13pg87j",
+      "title": "宿泊旅行統計調査（2025年（令和７年）３月・第２次速報、2025年（令和７年）４月・第１次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00049.html",
+      "publishedAt": "2025-05-30",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "h1xz0s",
+      "title": "宿泊旅行統計調査（2025年（令和７年）２月・第２次速報、2025年（令和７年）３月・第１次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00037.html",
+      "publishedAt": "2025-04-30",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "2x5dkc",
+      "title": "訪日外国人旅行者の受入環境に関する調査を実施しました ～旅行中「困ったことは無かった」と回答した割合が大幅増～",
+      "url": "https://www.mlit.go.jp/kankocho/news08_00022.html",
+      "publishedAt": "2025-04-18",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 1,
+      "matchedKeywords": [
+        "訪日外国人"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "f41ju1",
+      "title": "インバウンド消費動向調査2025年１-３月期（１次速報）の結果について",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00034.html",
+      "publishedAt": "2025-04-16",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 1,
+      "matchedKeywords": [
+        "インバウンド"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "egqqrs",
+      "title": "宿泊旅行統計調査（2025年（令和７年）１月・第２次速報、2025年（令和７年）２月・第１次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00033.html",
+      "publishedAt": "2025-03-31",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "8qtdgu",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和7年3月14日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2025-03-28",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "dtfxpj",
+      "title": "【報道発表資料の一部訂正】宿泊旅行統計調査（2024年（令和6年）12月・第2次速報、2025年（令和7年）1月・第1次速報）及び（2024年（令和6年）・年間値（速報値））",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00032.html",
+      "publishedAt": "2025-02-28",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1ftjmi4",
+      "title": "「地方における高付加価値なインバウンド観光地づくり」事業 令和6年度年次報告会を開催します",
+      "url": "https://www.mlit.go.jp/kankocho/news04_00008.html",
+      "publishedAt": "2025-02-10",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 1,
+      "matchedKeywords": [
+        "インバウンド"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "ciubl1",
+      "title": "宿泊旅行統計調査（2024年（令和６年）11月・第２次速報、2024年（令和６年）12月・第１次速報）",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00030.html",
+      "publishedAt": "2025-01-31",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 2,
+      "matchedKeywords": [
+        "宿泊旅行統計"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "2qzhhp",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和7年1月15日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2025-01-31",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1ss8yqw",
+      "title": "インバウンド消費動向調査2024年暦年（速報）及び10-12月期（1次速報）の結果について",
+      "url": "https://www.mlit.go.jp/kankocho/news02_00024.html",
+      "publishedAt": "2025-01-15",
+      "sourceId": "jta-news",
+      "sourceName": "観光庁 報道発表",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 1,
+      "matchedKeywords": [
+        "インバウンド"
+      ],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1ylixma",
+      "title": "【関連法令】住宅宿泊事業法施行要領（ガイドライン）が改正されました。こちらよりご確認ください。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/regulation.html",
+      "publishedAt": "2024-12-24",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "law",
+        "name": "法制度・法改正"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "c91600",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和6年11月18日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2024-11-29",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "d5cz9u",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和6年9月13日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2024-09-30",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1f0qfn3",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和6年7月12日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2024-07-30",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "15p7bk",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和6年5月15日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2024-05-30",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1cf17ee",
+      "title": "【関連法令】非常用照明器具の設置方法及び火災その他の災害が発生した場合における宿泊者の安全の確保を図るために 必要な措置を定める件が改正されました。こちらよりご確認ください",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/regulation.html",
+      "publishedAt": "2024-04-19",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "law",
+        "name": "法制度・法改正"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1gm10i6",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和6年3月15日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2024-03-29",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "x18rpo",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和6年1月15日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2024-01-31",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1bi7r6k",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和5年11月15日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2023-11-30",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1yliz4j",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和5年9月15日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2023-09-29",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "11fsdio",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和5年7月14日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2023-07-28",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "175ms9q",
+      "title": "【関連法令】国土交通省関係住宅宿泊事業法施行規則及びガイドラインが改正されました。こちらよりご確認ください。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/regulation.html",
+      "publishedAt": "2023-07-19",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "law",
+        "name": "法制度・法改正"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "vfyhjj",
+      "title": "【施行状況】住宅宿泊事業法に基づく届出及び登録の状況一覧を、令和5年5月15日時点に更新しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
+      "publishedAt": "2023-05-29",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "stats",
+        "name": "統計・マーケット"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1ip6uyj",
+      "title": "【お知らせ】電子宿泊者名簿が2023年度に対応されましたので、ご利用される方はこちらよりご確認のうえ、ダウンロードください。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/business/system/regular_report.html",
+      "publishedAt": "2023-04-28",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "system",
+        "name": "システム・お知らせ"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "18x1cxr",
+      "title": "【お知らせ】「個人データ漏えいに係る対応について（住宅宿泊管理業者）」を掲載しました。",
+      "url": "https://www.mlit.go.jp/kankocho/minpaku/content/001598944.pdf",
+      "publishedAt": "2023-04-03",
+      "sourceId": "minpaku-news",
+      "sourceName": "民泊制度ポータルサイト 新着情報",
+      "isPrimary": true,
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "areas": [
+        "全国"
+      ],
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    }
+  ]
+}

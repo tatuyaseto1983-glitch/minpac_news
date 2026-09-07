@@ -1,0 +1,15 @@
+{
+  "_readme": "自治体ごとのルールを手で入れるファイルです。status は 未整備 / 確認済 のいずれか。確認済にするときは verifiedAt（確認日）と sources（根拠URL）を必ず埋めてください。空のままでもサイトは動きます（該当ページに『準備中』と表示されます）。",
+  "_schema": {
+    "pref": "都道府県名",
+    "city": "市区町村名（都道府県全体なら省略）",
+    "status": "未整備 | 確認済",
+    "verifiedAt": "YYYY-MM-DD",
+    "verifiedBy": "確認した人／確認方法",
+    "systems": [
+      { "type": "住宅宿泊事業 | 簡易宿所 | 特区民泊", "availability": "できる | 条件つき | 対象外 | 未確認", "conditions": "主な条件", "contact": "窓口" }
+    ],
+    "sources": [{ "title": "条例名など", "url": "https://..." }]
+  },
+  "entries": []
+}

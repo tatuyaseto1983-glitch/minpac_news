@@ -1,0 +1,14 @@
+{
+  "name": "minpaku-news",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "民泊・簡易宿所・旅館業法のニュースを行政の一次情報からあつめる静的サイト",
+  "scripts": {
+    "fetch": "node scripts/fetch.mjs",
+    "build": "node scripts/build.mjs",
+    "update": "npm run fetch && npm run build",
+    "serve": "node scripts/serve.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

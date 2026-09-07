@@ -1,0 +1,60 @@
+name: サイト更新（毎日）
+
+on:
+  schedule:
+    - cron: '20 20 * * *' # 毎日 05:20 JST
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 行政サイトから収集
+        run: npm run fetch
+
+      - name: 収集結果をコミット
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/articles.json data/stats.json
+          git diff --staged --quiet || git commit -m "データ更新: $(date -u +%Y-%m-%d)"
+          git push
+        continue-on-error: true
+
+      - uses: actions/configure-pages@v5
+        id: pages
+
+      - name: サイトを生成
+        run: npm run build
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
