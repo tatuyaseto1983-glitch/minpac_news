@@ -9,6 +9,7 @@
 npm run fetch    # 行政サイトから収集して data/*.json を更新
 npm run build    # dist/ に静的サイトを生成
 npm run serve    # http://localhost:8080 で確認
+npm run preview  # 全ページを1枚にまとめた dist/preview.html を作る（共有用）
 ```
 
 まとめて実行するなら `npm run update`。Node.js 20 以上が必要です（インストールするものはありません）。

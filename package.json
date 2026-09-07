@@ -8,6 +8,7 @@
     "fetch": "node scripts/fetch.mjs",
     "build": "node scripts/build.mjs",
     "update": "npm run fetch && npm run build",
+    "preview": "npm run build && node scripts/preview.mjs",
     "serve": "node scripts/serve.mjs"
   },
   "engines": { "node": ">=20" }
