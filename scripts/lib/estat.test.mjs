@@ -1,6 +1,6 @@
 // e-Stat の応答の形を再現したデータで、取り出し処理を確かめます。
 //   node scripts/lib/estat.test.mjs
-import { extractIndicator, toNumber, classNames } from './estat.mjs';
+import { extractIndicator, toNumber, classNames, resolveAxes } from './estat.mjs';
 
 let ng = 0;
 const ok = (cond, name, extra = '') => {
@@ -75,6 +75,52 @@ try { extractIndicator(sample, { ...ind, areaClass: 'cat01' }); ok(false, '分�
 catch (e) { ok(/分類/.test(e.message), '分類IDが違えば分かるように失敗する', `→ ${e.message}`); }
 try { extractIndicator({ DATA_INF: { VALUE: [] } }, ind); ok(false, '数値が空なら失敗する'); }
 catch (e) { ok(/空/.test(e.message), '数値が空なら失敗する', `→ ${e.message}`); }
+
+// e-Stat の表は「従業者数」「宿泊目的割合」などの内訳軸を持つので、総数だけを拾えるかを確かめる
+const multi = {
+  TABLE_INF: { TITLE: { $: '第2表 従業者数、宿泊目的割合別 延べ宿泊者数' } },
+  CLASS_INF: { CLASS_OBJ: [
+    { '@id': 'tab', '@name': '表章項目', CLASS: { '@code': '001', '@name': '延べ宿泊者数' } },
+    { '@id': 'cat01', '@name': '従業者数', CLASS: [
+      { '@code': '000', '@name': '総数' }, { '@code': '001', '@name': '0〜9人' }, { '@code': '002', '@name': '10〜29人' } ] },
+    { '@id': 'cat02', '@name': '宿泊目的割合', CLASS: [
+      { '@code': '00', '@name': '合計' }, { '@code': '01', '@name': '観光目的50%以上' } ] },
+    { '@id': 'area', '@name': '施設所在地', CLASS: [
+      { '@code': '00000', '@name': '全国' }, { '@code': '13000', '@name': '東京都' } ] },
+    { '@id': 'time', '@name': '時間軸', CLASS: [{ '@code': '2026000707', '@name': '2026年7月' }] },
+  ] },
+  DATA_INF: { VALUE: [
+    { '@tab': '001', '@cat01': '000', '@cat02': '00', '@area': '00000', '@time': '2026000707', $: '59,820,000' },
+    { '@tab': '001', '@cat01': '000', '@cat02': '00', '@area': '13000', '@time': '2026000707', $: '11,200,000' },
+    { '@tab': '001', '@cat01': '001', '@cat02': '00', '@area': '00000', '@time': '2026000707', $: '12,000,000' },
+    { '@tab': '001', '@cat01': '000', '@cat02': '01', '@area': '00000', '@time': '2026000707', $: '30,000,000' },
+  ] },
+};
+
+console.log('\n内訳の軸がある表');
+const axes = resolveAxes(multi, ind);
+ok(axes.cat01.name === '総数' && axes.cat02.name === '合計', '「総数」「合計」を自動で選ぶ',
+  `→ ${Object.values(axes).map((a) => a.name).join('、')}`);
+const m = extractIndicator(multi, ind);
+ok(m.nationwide === 59820000, '総数の行だけを拾う（内訳が混ざらない）', `→ ${m.nationwide.toLocaleString('ja-JP')}`);
+ok(m.byArea.length === 1 && m.byArea[0].value === 11200000, '都道府県も総数の1行だけ');
+
+const noTotal = JSON.parse(JSON.stringify(multi));
+noTotal.CLASS_INF.CLASS_OBJ[1].CLASS = [{ '@code': '001', '@name': '0〜9人' }, { '@code': '002', '@name': '10〜29人' }];
+try { resolveAxes(noTotal, ind); ok(false, '総数が無ければ、黙って一部を集計せず失敗する'); }
+catch (e) { ok(/決められません/.test(e.message), '総数が無ければ、黙って一部を集計せず失敗する',
+  `→ ${e.message.slice(0, 60)}…`); }
+ok(resolveAxes(noTotal, { ...ind, filters: { cat01: '002' } }).cat01.name === '10〜29人',
+  'filters で明示指定できる');
+
+// 「施設所在地」には運輸局なども入っているので、都道府県だけに絞れるか
+const withBureau = JSON.parse(JSON.stringify(sample));
+withBureau.CLASS_INF.CLASS_OBJ[1].CLASS.push({ '@code': '90001', '@name': '北海道運輸局' });
+withBureau.DATA_INF.VALUE.push(
+  { '@tab': '001', '@area': '90001', '@time': '2026000707', $: '4,500,000' });
+const b = extractIndicator(withBureau, ind);
+ok(!b.byArea.some((x) => x.area.endsWith('運輸局')), '運輸局は都道府県別に混ざらない',
+  `→ ${b.byArea.map((x) => x.area).join('、')}`);
 
 console.log(ng ? `\n${ng}件 失敗` : '\nすべて通りました');
 process.exit(ng ? 1 : 0);

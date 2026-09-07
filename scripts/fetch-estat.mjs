@@ -105,7 +105,10 @@ for (const ind of targets) {
       sourceUrl: `https://www.e-stat.go.jp/dbview?sid=${ind.statsDataId}`,
       fetchedAt: today,
     };
-    console.log(`  ✓ ${ind.label}：${r.period}　全国 ${r.nationwide == null ? '—' : r.nationwide.toLocaleString('ja-JP')}　地域別 ${r.byArea.length}件`);
+    console.log(`  ✓ ${ind.label}：${r.period}　全国 ${r.nationwide == null ? '—' : r.nationwide.toLocaleString('ja-JP')}${r.unit}　都道府県別 ${r.byArea.length}件`);
+    console.log(`      表：${r.tableTitle.slice(0, 70)}`);
+    console.log(`      絞り込み：${Object.entries(r.filters ?? {}).map(([k, v]) => `${k}=${v}`).join(' / ') || 'なし'}`);
+    console.log(`      上位：${r.byArea.slice(0, 3).map((a) => `${a.area} ${a.value.toLocaleString('ja-JP')}`).join('、')}`);
   } catch (err) {
     console.log(`  ✗ ${ind.label}：${err.message}`);
   }
