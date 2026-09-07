@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-09-07",
-  "count": 413,
+  "count": 414,
   "items": [
     {
       "id": "zqsvat",
@@ -2356,6 +2356,28 @@
       "publishedAt": "2026-07-22",
       "sourceId": "google-news",
       "sourceName": "jimin.jp",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "全国"
+      ],
+      "category": {
+        "id": "local",
+        "name": "自治体ルール"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "zyetln",
+      "title": "民泊の実質禁止、条例で可能に",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1iRnRJYURFbU1GZ0lmTTNKVHZZQk9wQkpnWkVZWEZwVHEzQVFINEY2N1BDR1liUEFjQzVHUUQtdEpXVmFtYmF1RjhZX0lYQ2do?oc=5",
+      "publishedAt": "2026-07-16",
+      "sourceId": "google-news",
+      "sourceName": "Housing Tribune Online",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -8002,6 +8024,28 @@
       "lastSeenAt": "2026-09-07"
     },
     {
+      "id": "tm307w",
+      "title": "日雇い労働者向けからバックパッカーの宿へ 「先駆け」が語る20年 [大阪府]",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9Sb3lYd2Z3WXU2NWg1N1ZmYlJmMTFiQVk3em5HVXljYlZ3LWtWVlNHc2ZSZ3lyYmYwWExJcEd5ZHFvbENsYXlWTzRQZzVfZ2RodlpLbXBrQ1UwcF8zU1VnczNyNGVkR2c?oc=5",
+      "publishedAt": "2024-05-27",
+      "sourceId": "google-news",
+      "sourceName": "朝日新聞",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "大阪府"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
       "id": "1cf17ee",
       "title": "【関連法令】非常用照明器具の設置方法及び火災その他の災害が発生した場合における宿泊者の安全の確保を図るために 必要な措置を定める件が改正されました。こちらよりご確認ください",
       "url": "https://www.mlit.go.jp/kankocho/minpaku/regulation.html",
@@ -9138,30 +9182,6 @@
       "isPrimary": false,
       "areas": [
         "全国"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [
-        "簡易宿所"
-      ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
-      "id": "x4b6q2",
-      "title": "京都でゲストハウスなど簡易宿所の廃業急増 半年で98施設、価格競争激化",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBjMUlPeHNyVnJpcXlLNE1lNVctNTdBdDU3QkNxMkhOaGlKVVMxeHE3NG1CUk10MTFmNFNIWmdLZ3NjYlpkLXVBdEQ4S2JXdG1JcWo3WXhtSk4?oc=5",
-      "publishedAt": "2019-11-16",
-      "sourceId": "google-news",
-      "sourceName": "京都新聞デジタル",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "京都府"
       ],
       "category": {
         "id": "industry",
