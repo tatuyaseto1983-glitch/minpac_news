@@ -61,6 +61,22 @@ if (has('--list')) {
   process.exit(0);
 }
 
+// ---------- 統計コードをまたいで探す ----------
+const searchWord = arg('--search');
+if (searchWord) {
+  const json = await api('getStatsList', { searchWord, limit: 500 });
+  const inf = json.GET_STATS_LIST?.DATALIST_INF;
+  const tables = list(inf?.TABLE_INF);
+  console.log(`「${searchWord}」の検索結果　該当 ${inf?.NUMBER ?? tables.length}件 / 取得 ${tables.length}件\n`);
+  const sorted = tables.slice().sort((a, b) => String(b.SURVEY_DATE ?? '').localeCompare(String(a.SURVEY_DATE ?? '')));
+  for (const t of sorted.slice(0, 60)) {
+    const title = String(t.TITLE?.$ ?? t.TITLE ?? '');
+    const stat = `${t.STAT_NAME?.['@code'] ?? '-'} ${t.STAT_NAME?.$ ?? ''}`;
+    console.log(`  ${t['@id']}  [${t.SURVEY_DATE ?? '-'}] [${stat}] ${title.slice(0, 70)}`);
+  }
+  process.exit(0);
+}
+
 // ---------- 表の分類項目を見る ----------
 const metaId = arg('--meta');
 if (metaId) {

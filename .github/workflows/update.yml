@@ -9,7 +9,7 @@ on:
         description: 'e-Stat の動作'
         type: choice
         default: '取り込む'
-        options: ['取り込む', '表の一覧を出す']
+        options: ['取り込む', '表の一覧を出す', '宿泊旅行統計を横断検索する']
   push:
     # 既定のブランチが main ではないため、実際のブランチ名も入れておく
     branches: [main, claude/minpaku-news-site-requirements-sh1pfo]
@@ -37,11 +37,11 @@ jobs:
 
       - name: e-Stat から統計を取り込む
         run: |
-          if [ "${{ inputs.estat_mode }}" = "表の一覧を出す" ]; then
-            npm run estat -- --list
-          else
-            npm run estat
-          fi
+          case "${{ inputs.estat_mode }}" in
+            "表の一覧を出す")           npm run estat -- --list ;;
+            "宿泊旅行統計を横断検索する") npm run estat -- --search 宿泊旅行統計 ;;
+            *)                          npm run estat ;;
+          esac
         env:
           # リポジトリの Settings → Secrets and variables → Actions に登録してください
           ESTAT_APP_ID: ${{ secrets.ESTAT_APP_ID }}
