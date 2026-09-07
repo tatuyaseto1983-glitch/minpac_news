@@ -402,6 +402,28 @@
       "lastSeenAt": "2026-09-07"
     },
     {
+      "id": "1lszi4s",
+      "title": "民泊が全国最多の新宿区、住宅地や学校周辺の営業禁止へ…既存施設も・半数以上営業できなくなる可能性",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBjRXFfaVhKQ0RRTkVuWmNONzU4b1BrWmZFdHhJWF9kZ28wbjBlZ1ZYZEJVaklPa1NuM2YwZkZRa2thVjQ2TlZmRFNPN1ZULUQz?oc=5",
+      "publishedAt": "2026-09-07",
+      "sourceId": "google-news",
+      "sourceName": "Yahoo!ニュース",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "東京都"
+      ],
+      "category": {
+        "id": "local",
+        "name": "自治体ルール"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
       "id": "1lqhzvs",
       "title": "民泊で非対面での鍵受け渡しや駐在義務違反 運営する５者に過料などの行政処分 京都市",
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBjMGxNZ0xrWWZkOXBOZVRuVjRsaGtpcDVLalQ1NTVWdW5KQ2pTN2taVFlEYUlpU3pzazRKYzlsYmUtMnlhUlRxYnBMNGxKM0JCdzNfeUVvdkJ0ZXZJcFhGNGV5Sjcxd3hEMG1udF9RMlNtR2JMV3c?oc=5",
@@ -495,7 +517,7 @@
       "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE52RUlQaWp2eEowRmlubi1UZHM2T29iYWtyczg3b1hkZE0ybjRqVW5LOERtcVRyLWhia3VHZFFCTjZBTU9UQm5QcjQ3bjBHRVhpWnFXQQ?oc=5",
       "publishedAt": "2026-09-07",
       "sourceId": "google-news",
-      "sourceName": "ABEMA TIMES",
+      "sourceName": "times.abema.tv",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -658,28 +680,6 @@
       "category": {
         "id": "industry",
         "name": "業界動向"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
-      "id": "1235i09",
-      "title": "民泊が全国最多の新宿区、住宅地や学校周辺の営業禁止へ…既存施設も・半数以上営業できなくなる可能性",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9Ya0R4ZmJtbEVCdFZGUk9vREt0RjR4V0VERW5HcUJ5bzdrcEhTMnlHSGk3VDNqdUViTFVLS3lvdlpVX0Jkdkw3cm9sQXBOWjFoRUdNVkFTOURFTTRtTVB2cHI1VFBvUVRtZTZXbUlrZ3o2X3RNYndMOU9wQW03blk?oc=5",
-      "publishedAt": "2026-09-06",
-      "sourceId": "google-news",
-      "sourceName": "Yahoo!ニュース",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "東京都"
-      ],
-      "category": {
-        "id": "local",
-        "name": "自治体ルール"
       },
       "businessTypes": [],
       "score": 3,
@@ -6342,7 +6342,7 @@
       "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE01RmhTSnpKQnp3VThNSEJyV0dvZlptVGxUTlJmellyLTljNk5QaVhWeC0tTUd0amMzV1hjbmFZRk9DZ29mOW1lc3p1a3gzREU4THBHZA?oc=5",
       "publishedAt": "2025-12-19",
       "sourceId": "google-news",
-      "sourceName": "ABEMA TIMES",
+      "sourceName": "times.abema.tv",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [

@@ -446,6 +446,212 @@
       "source": "観光庁 宿泊旅行統計調査（e-Stat）",
       "sourceUrl": "https://www.e-stat.go.jp/dbview?sid=0003313520",
       "fetchedAt": "2026-09-07"
+    },
+    "occupancy": {
+      "label": "客室稼働率",
+      "unit": "%",
+      "period": "2016年12月",
+      "nationwide": 56.8,
+      "byArea": [
+        {
+          "area": "大阪府",
+          "value": 83.2
+        },
+        {
+          "area": "東京都",
+          "value": 79.9
+        },
+        {
+          "area": "福岡県",
+          "value": 71.2
+        },
+        {
+          "area": "愛知県",
+          "value": 68.1
+        },
+        {
+          "area": "神奈川県",
+          "value": 67.3
+        },
+        {
+          "area": "埼玉県",
+          "value": 66.5
+        },
+        {
+          "area": "京都府",
+          "value": 64.8
+        },
+        {
+          "area": "千葉県",
+          "value": 64.3
+        },
+        {
+          "area": "熊本県",
+          "value": 59.7
+        },
+        {
+          "area": "石川県",
+          "value": 57.5
+        },
+        {
+          "area": "大分県",
+          "value": 57.3
+        },
+        {
+          "area": "兵庫県",
+          "value": 57.2
+        },
+        {
+          "area": "広島県",
+          "value": 57
+        },
+        {
+          "area": "北海道",
+          "value": 56.5
+        },
+        {
+          "area": "宮城県",
+          "value": 55.6
+        },
+        {
+          "area": "三重県",
+          "value": 55.3
+        },
+        {
+          "area": "佐賀県",
+          "value": 55.1
+        },
+        {
+          "area": "山口県",
+          "value": 54.5
+        },
+        {
+          "area": "沖縄県",
+          "value": 54.3
+        },
+        {
+          "area": "滋賀県",
+          "value": 52.9
+        },
+        {
+          "area": "宮崎県",
+          "value": 52.9
+        },
+        {
+          "area": "群馬県",
+          "value": 52.4
+        },
+        {
+          "area": "静岡県",
+          "value": 52.1
+        },
+        {
+          "area": "長崎県",
+          "value": 51.8
+        },
+        {
+          "area": "茨城県",
+          "value": 51.6
+        },
+        {
+          "area": "岡山県",
+          "value": 51.4
+        },
+        {
+          "area": "鹿児島県",
+          "value": 51.2
+        },
+        {
+          "area": "栃木県",
+          "value": 50.1
+        },
+        {
+          "area": "香川県",
+          "value": 48.6
+        },
+        {
+          "area": "島根県",
+          "value": 47.7
+        },
+        {
+          "area": "福島県",
+          "value": 47.3
+        },
+        {
+          "area": "岩手県",
+          "value": 45.7
+        },
+        {
+          "area": "鳥取県",
+          "value": 45.6
+        },
+        {
+          "area": "岐阜県",
+          "value": 45
+        },
+        {
+          "area": "徳島県",
+          "value": 44.2
+        },
+        {
+          "area": "愛媛県",
+          "value": 44
+        },
+        {
+          "area": "青森県",
+          "value": 43.3
+        },
+        {
+          "area": "富山県",
+          "value": 42.4
+        },
+        {
+          "area": "和歌山県",
+          "value": 42.1
+        },
+        {
+          "area": "山形県",
+          "value": 41.6
+        },
+        {
+          "area": "高知県",
+          "value": 40.2
+        },
+        {
+          "area": "奈良県",
+          "value": 39.4
+        },
+        {
+          "area": "秋田県",
+          "value": 37.8
+        },
+        {
+          "area": "福井県",
+          "value": 37.7
+        },
+        {
+          "area": "新潟県",
+          "value": 37.4
+        },
+        {
+          "area": "山梨県",
+          "value": 35
+        },
+        {
+          "area": "長野県",
+          "value": 29.7
+        }
+      ],
+      "tableTitle": "第８表　年、月（12区分）、施設所在地(47区分及び運輸局等)、従業者数(4区分)、宿泊目的割合(2区分)別客室稼働率",
+      "statsDataId": "0003313903",
+      "filters": {
+        "tab": "客室稼働率",
+        "cat01": "客室稼働率",
+        "cat02": "客室稼働率"
+      },
+      "source": "観光庁 宿泊旅行統計調査（e-Stat）",
+      "sourceUrl": "https://www.e-stat.go.jp/dbview?sid=0003313903",
+      "fetchedAt": "2026-09-07"
     }
   }
 }
