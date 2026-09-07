@@ -3,7 +3,7 @@
 // 記事本文は保存しません（見出し・日付・出典・リンクのみ）。
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { getText } from './lib/http.mjs';
-import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs, parseGoogleNews } from './lib/parse.mjs';
+import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs, parseGoogleNews, parseRyokanStats } from './lib/parse.mjs';
 import { screen, categorize, detectAreas, detectBusinessTypes, isBlockedOutlet, isBlockedTitle, normalizeOutlet } from './lib/classify.mjs';
 
 const root = new URL('../', import.meta.url);
@@ -26,6 +26,14 @@ const report = [];
 
 for (const src of sources) {
   try {
+    if (src.type === 'ryokan-stats') {
+      const r = parseRyokanStats(await getText(src.url));
+      if (!r.total) throw new Error('施設数を読み取れませんでした（ページ構成の変更かもしれません）');
+      statsStore.ryokan = { ...r, source: src.name, sourceUrl: src.url, fetchedAt: today };
+      report.push({ source: src.id, found: 1, added: 0, note: `旅館業${r.total}施設 / ${r.asOfLabel}` });
+      continue;
+    }
+
     if (src.type === 'mhlw-docs') {
       const sections = parseMhlwDocs(await getText(src.url), src.url, src.sections ?? []);
       const total = sections.reduce((a, sec) => a + sec.groups.reduce((b, g) => b + g.items.length, 0), 0);

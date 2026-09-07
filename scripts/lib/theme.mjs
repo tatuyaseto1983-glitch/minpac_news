@@ -7,8 +7,9 @@ export const css = `
   --amber:#E0A45C; --amber-deep:#8A5A18; --amber-soft:#FAEBD8;
   --alert:#BF5245; --alert-soft:#FAE6E3;
   --on-hue:#FFFFFF;
-  --c-law:#2EA89E; --c-local:#C4623E; --c-stats:#4F7FBF; --c-subsidy:#C9862F;
-  --c-practice:#4F9160; --c-industry:#7C7FA8; --c-system:#6F827F;
+  --c-law:#2EA89E; --c-local:#B5713C; --c-practice:#3E8B84; --c-subsidy:#C99440;
+  --c-stats:#5C7E96; --c-industry:#7C8791; --c-system:#8A9693;
+  --k1:#2EA89E; --k2:#C99440; --k1-pale:#AFDBD5;
   --display:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
   --body:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -21,8 +22,9 @@ export const css = `
   --amber:#E9B67A; --amber-deep:#F0CB9C; --amber-soft:#33260F;
   --alert:#E0796B; --alert-soft:#38201C;
   --on-hue:#0D1514;
-  --c-law:#48C4B9; --c-local:#E08A63; --c-stats:#7BA9E0; --c-subsidy:#E9B67A;
-  --c-practice:#78BC8B; --c-industry:#A5A8CE; --c-system:#9AAEAB;
+  --c-law:#48C4B9; --c-local:#DB9A63; --c-practice:#63B5AD; --c-subsidy:#E4B978;
+  --c-stats:#8FAEC4; --c-industry:#A3AEB8; --c-system:#A8B4B1;
+  --k1:#2FA398; --k2:#BB8942; --k1-pale:#28524D;
 }}
 :root[data-theme=dark]{
   --ink:#E7EEEC; --ink-2:#A6B5B2; --ink-3:#768784;
@@ -32,8 +34,9 @@ export const css = `
   --amber:#E9B67A; --amber-deep:#F0CB9C; --amber-soft:#33260F;
   --alert:#E0796B; --alert-soft:#38201C;
   --on-hue:#0D1514;
-  --c-law:#48C4B9; --c-local:#E08A63; --c-stats:#7BA9E0; --c-subsidy:#E9B67A;
-  --c-practice:#78BC8B; --c-industry:#A5A8CE; --c-system:#9AAEAB;
+  --c-law:#48C4B9; --c-local:#DB9A63; --c-practice:#63B5AD; --c-subsidy:#E4B978;
+  --c-stats:#8FAEC4; --c-industry:#A3AEB8; --c-system:#A8B4B1;
+  --k1:#2FA398; --k2:#BB8942; --k1-pale:#28524D;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -48,11 +51,19 @@ a:hover{color:var(--teal-deep)}
 .scroller{overflow-x:auto}
 
 /* header */
-.site-header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.site-header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;
+  box-shadow:inset 0 3px 0 var(--teal)}
 .site-header .wrap{display:flex;align-items:center;gap:20px;min-height:58px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
 .brand{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:900;font-size:17px;
   color:var(--ink);text-decoration:none;letter-spacing:-.01em}
-.brand .mk{width:18px;height:18px;border-radius:4px;background:linear-gradient(135deg,var(--teal) 55%,var(--amber) 55%)}
+.brand .mk{width:26px;height:15px;flex:none;background:
+  radial-gradient(circle 6.5px at 6.5px 7.5px, var(--teal) 0 6.5px, transparent 6.5px),
+  radial-gradient(circle 6.5px at 19.5px 7.5px, var(--teal) 0 6.5px, transparent 6.5px),
+  linear-gradient(var(--teal),var(--teal)) 6.5px 5.5px/13px 4px no-repeat;
+  background-repeat:no-repeat}
+.brand .mk::after{content:"";display:block;width:26px;height:15px;background:
+  radial-gradient(circle 2.6px at 6.5px 7.5px, var(--surface) 0 2.6px, transparent 2.6px),
+  radial-gradient(circle 2.6px at 19.5px 7.5px, var(--surface) 0 2.6px, transparent 2.6px)}
 .site-nav{display:flex;gap:16px;font-size:13px;flex-wrap:wrap}
 .site-nav a{color:var(--ink-2);text-decoration:none}
 .site-nav a:hover,.site-nav a[aria-current=page]{color:var(--teal-deep)}
@@ -70,7 +81,7 @@ a.chip:hover{border-color:var(--teal);color:var(--teal-deep)}
 .chip.gov{background:var(--amber-soft);border-color:transparent;color:var(--amber-deep);font-weight:700}
 .chip.hot{background:var(--alert-soft);border-color:transparent;color:var(--alert);font-weight:700}
 .blockhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
-  border-bottom:2px solid var(--ink);padding-bottom:7px;margin-bottom:4px}
+  border-bottom:2px solid var(--teal);padding-bottom:7px;margin-bottom:4px}
 .blockhead h2{font-size:15px;font-weight:800;letter-spacing:.02em}
 .blockhead .stamp{white-space:nowrap}
 
@@ -177,8 +188,34 @@ a.chip:hover{border-color:var(--teal);color:var(--teal-deep)}
 /* section heading with count */
 .sectionhead{display:flex;align-items:center;gap:12px;margin-top:46px}
 .sectionhead h2{font-size:19px;font-weight:900;letter-spacing:-.01em;white-space:nowrap}
-.sectionhead .rule{flex:1;height:1px;background:var(--line)}
+.sectionhead .rule{flex:1;height:2px;background:linear-gradient(90deg,var(--teal),var(--line) 34%)}
 .sectionhead .stamp{white-space:nowrap}
+
+/* charts */
+.chartcard{background:var(--surface);border:1px solid var(--line);padding:20px 22px;margin-top:16px}
+.chartcard h3{font-size:15px;font-weight:800}
+.chartcard>.stamp{display:block;margin-top:4px}
+.chartcard .lead{font-size:13.5px;color:var(--ink-2);margin-top:10px;line-height:1.8}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:var(--ink-2)}
+.legend i{width:11px;height:11px;border-radius:2px;display:inline-block;margin-right:6px;vertical-align:-1px}
+.hbars{display:flex;flex-direction:column;gap:11px;margin-top:14px}
+.hbar{display:grid;grid-template-columns:minmax(84px,26%) 1fr minmax(62px,auto);gap:12px;align-items:center;
+  font-size:13px}
+.hbar__name{color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hbar__track{height:14px;background:var(--surface-2);border-radius:2px;overflow:hidden}
+.hbar__fill{height:100%;border-radius:0 4px 4px 0;background:var(--k,var(--k1));min-width:3px}
+.hbar__val{font-family:var(--mono);font-weight:700;font-variant-numeric:tabular-nums;text-align:right;
+  font-size:12.5px}
+.propbar{display:flex;height:30px;gap:2px;margin-top:16px;border-radius:3px;overflow:hidden}
+.propbar i{display:block;height:100%}
+.proplegend{display:flex;flex-wrap:wrap;gap:18px;margin-top:11px;font-size:12.5px;color:var(--ink-2)}
+.proplegend b{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink)}
+.caveat{background:var(--surface-2);border-left:3px solid var(--line-strong);padding:13px 16px;margin-top:16px;
+  font-size:12.5px;color:var(--ink-2);line-height:1.8}
+.srctable{border-collapse:collapse;width:100%;font-size:13px;margin-top:14px}
+.srctable th,.srctable td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+.srctable th{background:var(--surface-2);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+  color:var(--ink-3);font-weight:400}
 
 /* footer */
 .site-footer{border-top:1px solid var(--line);background:var(--surface);margin-top:40px}

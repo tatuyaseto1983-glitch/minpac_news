@@ -89,5 +89,13 @@
     "primary": false,
     "forceScore": 3,
     "note": "見出し・媒体名・リンクのみ。本文は保存しません"
+  },
+  {
+    "id": "mhlw-ryokan-stats",
+    "name": "厚生労働省 旅館業の概要",
+    "type": "ryokan-stats",
+    "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/seikatsu-eisei/seikatsu-eisei03/03.html",
+    "primary": true,
+    "note": "旅館業の営業許可施設数（旅館・ホテル／簡易宿所）"
   }
 ]

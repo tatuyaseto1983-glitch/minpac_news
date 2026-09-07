@@ -89,6 +89,30 @@ export function parseMinpakuNews(html, baseUrl) {
   return out;
 }
 
+/** 「９万3,475」「4万1,909」「2,725」のような表記を数値にする */
+function jpNumber(raw) {
+  const han = raw.replace(/[０-９]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0)).replace(/,/g, '');
+  const man = han.match(/^(\d+)万(\d*)$/);
+  if (man) return Number(man[1]) * 10000 + Number(man[2] || 0);
+  return Number(han);
+}
+
+/** 厚労省「旅館業の概要」から営業許可施設数を取り出す */
+export function parseRyokanStats(html) {
+  const text = strip(html);
+  const n = (re) => {
+    const m = text.match(re);
+    return m ? jpNumber(m[1]) : null;
+  };
+  return {
+    asOfLabel: text.match(/(令和[０-９0-9元]+年[０-９0-9]+月末)現在の旅館業の営業許可施設数/)?.[1] ?? null,
+    total: n(/営業許可施設数は、?([０-９0-9万,]+)施設/),
+    delta: n(/前年度より([０-９0-9万,]+)施設/),
+    hotels: n(/旅館・ホテル営業数は([０-９0-9万,]+)施設/),
+    kani: n(/簡易宿所数は([０-９0-9万,]+)施設/),
+  };
+}
+
 /** 民泊制度ポータル「施行状況」ページから件数を取り出す */
 export function parseMinpakuSituation(html) {
   const text = strip(html);

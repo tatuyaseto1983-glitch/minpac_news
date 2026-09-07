@@ -6,6 +6,7 @@ import { renderMarkdown, parseFrontMatter, esc } from './lib/md.mjs';
 import { css } from './lib/theme.mjs';
 import { categoryList, prefectures } from './lib/classify.mjs';
 import { CATEGORY, clusterNews, impactFor } from './lib/cards.mjs';
+import { hbars, proportionBar, legend } from './lib/charts.mjs';
 
 const root = new URL('../', import.meta.url);
 const p = (rel) => new URL(rel, root);
@@ -153,6 +154,7 @@ function statFigures() {
     <div><dt>うち事業廃止</dt><dd>${num(m.closed)}<span class="unit">件</span></dd></div>
     <div><dt>現存する届出</dt><dd>${num(m.active)}<span class="unit">件</span></dd></div>
     <div><dt>住宅宿泊管理業の登録</dt><dd>${num(m.managers)}<span class="unit">件</span></dd></div>
+    <div><dt>住宅宿泊仲介業の登録</dt><dd>${num(m.brokers)}<span class="unit">件</span></dd></div>
   </dl>
   <p class="stamp" style="margin-top:8px">${esc(m.asOf ?? '')}時点　／　出典：<a href="${esc(m.sourceUrl)}" rel="noopener" target="_blank">${esc(m.source)}</a>（取得日 ${m.fetchedAt}）</p>`;
 }
@@ -295,27 +297,105 @@ ${feed.length > LIMIT ? `<p class="stamp" style="margin:26px 0 40px">新しい�
 
 function pageStats() {
   const base = '../';
+  const m = stats.minpaku;
+  const r = stats.ryokan;
   const h = stats.history ?? [];
+
+  // 直近90日で、どこが話題になっているか
+  const since = new Date(Date.now() - 90 * 86400000).toISOString().slice(0, 10);
+  const recent = news.filter((n) => (n.publishedAt ?? '') >= since);
+  const countBy = (pick) => {
+    const t = {};
+    for (const n of recent) for (const v of [].concat(pick(n))) t[v] = (t[v] ?? 0) + 1;
+    return Object.entries(t).sort((x, y) => y[1] - x[1]);
+  };
+  const areaRank = countBy((n) => n.areas).filter(([a]) => a !== '全国').slice(0, 10);
+  const catRank = countBy((n) => n.category.name);
+
   const body = `
-<section style="padding:36px 0 0">
+<section style="padding:34px 0 0">
   <p class="eyebrow">数字で見る</p>
   <h1 class="page-title">民泊のいまを数字で見る</h1>
-  <p class="lede">観光庁の民泊制度ポータルサイトが公表している届出・登録の状況を、自動で読み取って表示しています。数字はすべて出典元へのリンク付きです。</p>
+  <p class="lede">行政が公表している数字を自動で読み取って並べています。すべて出典と時点をつけています。グラフは棒の横に数字を直接書いてあるので、色が見分けにくい環境でも読めます。</p>
 </section>
 
-<div style="margin:26px 0 0">${statFigures() || '<p class="empty">データ取得中です。</p>'}</div>
+${m && r ? `
+<div class="chartcard">
+  <h3>宿泊の受け皿はどれくらいあるか</h3>
+  <span class="stamp">住宅宿泊事業は${esc(m.asOf ?? '')}時点、旅館業は${esc(r.asOfLabel ?? '')}現在</span>
+  ${hbars([
+    { name: '旅館・ホテル営業', value: r.hotels, key: 'k2' },
+    { name: '住宅宿泊事業（現存）', value: m.active, key: 'k1' },
+    { name: '簡易宿所', value: r.kani, key: 'k2' },
+  ], { unit: '件' })}
+  ${legend([{ name: '住宅宿泊事業法（民泊）', key: 'k1' }, { name: '旅館業法', key: 'k2' }])}
+  <p class="lead"><b>簡易宿所と民泊は、ほぼ同じ数です。</b>「民泊をやる」と決める前に、この2つのどちらで行くかを選ぶ場面が必ず来ます。数の上でも実際にどちらも選ばれています。</p>
+  <div class="caveat">2つは調査の時点が違います（住宅宿泊事業は${esc(m.asOf ?? '')}、旅館業は${esc(r.asOfLabel ?? '')}）。厳密な同時点の比較ではなく、規模感の目安としてご覧ください。</div>
+</div>` : ''}
 
-${h.length > 1 ? `<div style="margin-top:40px">
-  <div class="blockhead"><h2>届出件数の推移</h2><span class="stamp">このサイトで取得できた時点のみ</span></div>
+${m ? `
+<div class="chartcard">
+  <h3>届出のうち、およそ3件に1件はすでにやめている</h3>
+  <span class="stamp">住宅宿泊事業の届出 累計${m.filed.toLocaleString('ja-JP')}件の内訳　／　${esc(m.asOf ?? '')}時点</span>
+  ${proportionBar([
+    { name: 'いま届出が生きている', value: m.active, key: 'k1' },
+    { name: 'すでに事業をやめた', value: m.closed, key: 'k1-pale' },
+  ], { unit: '件' })}
+  <p class="lead">制度が始まってからの累計に対して、廃止がこれだけ出ています。参入しやすい制度である一方、続けるのは別の話だということが数字に出ています。<b>始める前に、やめた人がなぜやめたのかを調べておく価値があります。</b></p>
+</div>` : ''}
+
+${m ? `
+<div class="chartcard">
+  <h3>いまの登録数</h3>
+  <span class="stamp">${esc(m.asOf ?? '')}時点</span>
+  ${statFigures()}
+</div>` : ''}
+
+${h.length > 1 ? `
+<div class="chartcard">
+  <h3>届出件数の推移</h3>
+  <span class="stamp">このサイトが取得できた時点のみ</span>
   <div class="scroller" style="margin-top:14px">${historyChart(h)}</div>
-</div>` : `<p class="stamp" style="margin-top:24px">推移のグラフは、時点の異なるデータが2件以上たまると表示されます（現在 ${h.length} 件）。</p>`}
+</div>` : `
+<div class="chartcard">
+  <h3>届出件数の推移</h3>
+  <p class="lead">時点の違うデータが2件以上たまると、ここに推移のグラフが出ます（現在 ${h.length} 件）。観光庁は年6回ほど更新しているため、半年ほどで形が見えてきます。</p>
+</div>`}
 
-<div class="panel" style="margin:36px 0 56px">
-  <h2>この数字の読み方</h2>
-  <p>「届出件数」は制度が始まってからの累計です。すでにやめた事業者ぶん（事業廃止件数）を差し引いた「現存する届出」が、いま動いている民泊のおおよその数にあたります。<br>
-  なお、この数字には旅館業法の簡易宿所や特区民泊は含まれません。</p>
+${areaRank.length ? `
+<div class="chartcard">
+  <h3>いま話題になっている場所</h3>
+  <span class="stamp">直近90日にこのサイトが集めた記事の本数（${recent.length}件が対象）</span>
+  ${hbars(areaRank.map(([name, value]) => ({ name, value, key: 'k1' })), { unit: '件' })}
+  <p class="lead">条例の見直しが動いている地域ほど、記事が集まります。<b>施設の数ではなく、話題の多さです。</b></p>
+</div>` : ''}
+
+${catRank.length ? `
+<div class="chartcard">
+  <h3>何が話題になっているか</h3>
+  <span class="stamp">直近90日 ／ カテゴリ別の記事本数</span>
+  ${hbars(catRank.map(([name, value]) => ({ name, value, key: 'k1' })), { unit: '件' })}
+  <div class="caveat">この2つのグラフは、このサイトが集めた記事の本数です。世の中の出来事の総数ではありません。集め方の都合で、古い時期ほど取りこぼしが多くなるため、月ごとの推移は出していません。</div>
+</div>` : ''}
+
+<div class="chartcard" style="margin-bottom:56px">
+  <h3>このページの数字の出どころ</h3>
+  <div class="scroller"><table class="srctable">
+    <thead><tr><th>数字</th><th>出典</th><th>時点</th><th>取得日</th></tr></thead>
+    <tbody>
+      ${m ? `<tr><td>住宅宿泊事業の届出・廃止・登録件数</td>
+        <td><a href="${esc(m.sourceUrl)}" rel="noopener" target="_blank">${esc(m.source)}</a></td>
+        <td>${esc(m.asOf ?? '—')}</td><td>${esc(m.fetchedAt)}</td></tr>` : ''}
+      ${r ? `<tr><td>旅館業の営業許可施設数（旅館・ホテル／簡易宿所）</td>
+        <td><a href="${esc(r.sourceUrl)}" rel="noopener" target="_blank">${esc(r.source)}</a></td>
+        <td>${esc(r.asOfLabel ?? '—')}</td><td>${esc(r.fetchedAt)}</td></tr>` : ''}
+      <tr><td>話題の本数（エリア別・カテゴリ別）</td><td>このサイトが集めた記事</td>
+        <td>直近90日</td><td>${esc(articles.updatedAt)}</td></tr>
+    </tbody>
+  </table></div>
+  <p class="lead">数字は自動で読み取っています。出典元のページ構成が変わると読み取れなくなることがあるため、おかしな値に見えたら出典のリンク先をご確認ください。</p>
 </div>`;
-  return layout(base, { title: '数字で見る', description: '住宅宿泊事業の届出件数など、民泊に関する公的な数字をまとめています。', current: 'stats', body });
+  return layout(base, { title: '数字で見る', description: '住宅宿泊事業の届出件数、旅館業の営業許可施設数など、民泊に関する公的な数字をまとめています。', current: 'stats', body });
 }
 
 function historyChart(h) {
