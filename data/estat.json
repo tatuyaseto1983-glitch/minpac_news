@@ -1,5 +1,5 @@
 {
-  "_readme": "e-Stat から取る統計の設定です。appId は環境変数 ESTAT_APP_ID から読みます（このファイルには書きません）。statsDataId は `npm run estat -- --list` で探して、`--meta <ID>` で中身を確かめてから入れてください。",
+  "_readme": "e-Stat から取る統計の設定です。appId は環境変数 ESTAT_APP_ID から読みます（このファイルには書きません）。statsDataId は `npm run estat -- --list` で探して、`--meta <ID>` で中身を確かめてから入れてください。 filters は「どの内訳を使うか」の指定です。e-Statでは総数が内訳と同じ軸に入っていることがあり、その場合は明示が必要です。",
   "statsCode": "00601020",
   "statsName": "宿泊旅行統計調査",
   "provider": "観光庁",
@@ -9,27 +9,36 @@
       "label": "延べ宿泊者数",
       "unit": "人泊",
       "statsDataId": "0003313520",
-      "note": "第2表 年、月、施設所在地、従業者数、宿泊目的割合別 延べ宿泊者数",
+      "note": "第2表。cat02=110（延べ宿泊者数の総数）。従業者数の内訳と同じ軸に入っている",
       "areaClass": "area",
-      "nationwideCode": "00000"
+      "nationwideCode": "00000",
+      "filters": {
+        "cat02": "110"
+      }
     },
     {
       "key": "overnightForeign",
       "label": "外国人延べ宿泊者数",
       "unit": "人泊",
-      "statsDataId": "0003317699",
-      "note": "参考第1表 年、月、施設所在地、国籍(21区分)別 外国人延べ宿泊者数（従業者数10人以上の施設）",
+      "statsDataId": "0003313520",
+      "note": "第2表。cat02=200（うち外国人延べ宿泊者数）。延べ宿泊者数と同じ表なので施設の範囲がそろう",
       "areaClass": "area",
-      "nationwideCode": "00000"
+      "nationwideCode": "00000",
+      "filters": {
+        "cat02": "200"
+      }
     },
     {
       "key": "occupancy",
       "label": "客室稼働率",
       "unit": "%",
       "statsDataId": "0003313903",
-      "note": "第8表 年、月、施設所在地、従業者数、宿泊目的割合別 客室稼働率",
+      "note": "第8表。cat01=130（客室稼働率の総数）",
       "areaClass": "area",
-      "nationwideCode": "00000"
+      "nationwideCode": "00000",
+      "filters": {
+        "cat01": "130"
+      }
     }
   ]
 }
