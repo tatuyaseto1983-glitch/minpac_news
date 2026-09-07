@@ -26,7 +26,21 @@ ANTHROPIC_API_KEY=sk-... npm run summarize -- --limit 20
 2. `data/articles.json` と `data/stats.json` の差分をコミット
 3. サイトを生成して GitHub Pages に公開
 
-という流れで更新します。**リポジトリの Settings → Pages で、Source を「GitHub Actions」に設定してください。**
+という流れで更新します。
+
+### 公開のしかた（初回だけ）
+
+1. GitHub のリポジトリ → **Settings → Pages** を開く
+2. **Source** を「**GitHub Actions**」に変更して保存
+3. **Actions** タブ →「サイト更新（毎日）」→ **Run workflow** を1回実行
+
+数分後、次のURLで誰でも見られるようになります。
+
+```
+https://tatuyaseto1983-glitch.github.io/minpac_news/
+```
+
+以降は毎朝5時20分（日本時間）に自動で更新されます。
 
 ## いま取得しているもの
 

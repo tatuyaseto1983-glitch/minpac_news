@@ -5,7 +5,8 @@ on:
     - cron: '20 20 * * *' # 毎日 05:20 JST
   workflow_dispatch:
   push:
-    branches: [main]
+    # 既定のブランチが main ではないため、実際のブランチ名も入れておく
+    branches: [main, claude/minpaku-news-site-requirements-sh1pfo]
 
 permissions:
   contents: write
