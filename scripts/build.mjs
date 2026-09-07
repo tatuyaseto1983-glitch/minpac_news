@@ -229,19 +229,6 @@ function pageHome() {
     </section>
 
     <section>
-      <h2>数字で見る民泊</h2>
-      <dl class="tiles" style="grid-template-columns:1fr">
-        ${m ? `<div class="tile"><dt>住宅宿泊事業の届出（現存）</dt><dd>${num(m.active)}<span class="u">件</span></dd>
-          <span class="d">${esc(m.asOf ?? '')}時点／累計${num(m.filed)}件のうち</span></div>` : ''}
-        ${r ? `<div class="tile"><dt>簡易宿所（旅館業）</dt><dd>${num(r.kani)}<span class="u">件</span></dd>
-          <span class="d">${esc(r.asOfLabel ?? '')}現在</span></div>` : ''}
-        <div class="tile tile--soft"><dt>宿泊者数・稼働率・ADR</dt><dd>準備中</dd>
-          <span class="d">e-Stat の利用登録後に掲載します</span></div>
-      </dl>
-      <a class="sec__more" href="${base}stats/">数字のページへ →</a>
-    </section>
-
-    <section>
       <h2>全国の民泊動向</h2>
       <div class="pills">
         ${topAreas.map((a) => `<a class="pill" href="${base}area/${slugs[a]}.html">${a}</a>`).join('')}
