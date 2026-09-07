@@ -131,48 +131,48 @@ a.chip:hover{border-color:var(--teal);color:var(--teal-deep)}
 .count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin:10px 0}
 .empty{padding:28px 0;color:var(--ink-3);font-size:14px}
 
-/* cards */
-.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:18px;margin-top:18px}
-.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);
-  text-decoration:none;color:inherit;overflow:hidden;
-  transition:border-color .16s ease, transform .16s ease, box-shadow .16s ease}
-.card:hover,.card:focus-visible{border-color:var(--cat);transform:translateY(-3px);
-  box-shadow:0 14px 30px -20px rgba(10,40,38,.55)}
-.thumb{position:relative;background:var(--cat);overflow:hidden;display:flex;align-items:center;
-  justify-content:center;flex:none}
-.thumb::before{content:"";position:absolute;inset:0;
-  background:radial-gradient(circle at var(--x1) var(--y1),rgba(255,255,255,.16),transparent 46%),
-             radial-gradient(circle at var(--x2) var(--y2),rgba(255,255,255,.11),transparent 42%)}
-.thumb b{position:relative;font-family:var(--display);font-weight:900;color:#fff;opacity:.3;
-  font-size:56px;line-height:1;letter-spacing:0}
-.thumb--tall b{font-size:88px}
-.card .thumb{width:100%;height:112px}
-.card__body{padding:13px 15px 15px;display:flex;flex-direction:column;gap:7px;flex:1}
+/* 記事の行（左：見出しとタグ／右：どんな影響がありそうか） */
+.cardgrid{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.card{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);
+  background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--cat);
+  text-decoration:none;color:inherit;
+  transition:box-shadow .16s ease, transform .16s ease, border-color .16s ease}
+.card:hover,.card:focus-visible{box-shadow:0 12px 26px -20px rgba(10,40,38,.5);transform:translateX(2px);
+  border-color:var(--line-strong);border-left-color:var(--cat)}
+.card__main{padding:15px 20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card__side{padding:15px 20px;border-left:1px dashed var(--line);background:var(--surface-2);
+  display:flex;flex-direction:column;gap:5px;justify-content:center;min-width:0}
 .card__meta{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;color:var(--ink-3);
   font-variant-numeric:tabular-nums}
 .card__meta .src{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.card__title{font-family:var(--display);font-size:14.5px;font-weight:700;line-height:1.55;letter-spacing:-.005em;
+.card__title{font-family:var(--display);font-size:16px;font-weight:800;line-height:1.55;letter-spacing:-.005em;
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .card:hover .card__title{color:var(--cat)}
-.card__blurb{font-size:12.5px;color:var(--ink-2);line-height:1.7;
-  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.card__foot{margin-top:auto;padding-top:9px;display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.card__label{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--cat);font-weight:700}
+.card__text{font-size:12.5px;color:var(--ink-2);line-height:1.8;
+  display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.card__foot{margin-top:auto;padding-top:6px;display:flex;gap:5px;flex-wrap:wrap;align-items:center}
 .card__more{font-family:var(--mono);font-size:10px;color:var(--cat);font-weight:700}
 .chip.cat{background:var(--cat,var(--teal));border-color:transparent;color:var(--on-hue);font-weight:700}
 .chip.gov{background:var(--amber-soft);border-color:transparent;color:var(--amber-deep);font-weight:700}
 .chip.press{background:transparent;border-color:var(--line-strong);color:var(--ink-3)}
 
-/* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:0;background:var(--surface);
-  border:1px solid var(--line);overflow:hidden;margin-top:18px;text-decoration:none;color:inherit;
-  transition:border-color .16s ease, box-shadow .16s ease}
-.hero:hover{border-color:var(--cat);box-shadow:0 18px 40px -26px rgba(10,40,38,.55)}
-.hero .thumb{min-height:216px;height:100%}
-.hero__body{padding:24px 26px;display:flex;flex-direction:column;gap:11px;justify-content:center}
-.hero__title{font-family:var(--display);font-size:clamp(19px,2.2vw,25px);font-weight:900;line-height:1.45;
-  letter-spacing:-.015em}
-.hero:hover .hero__title{color:var(--cat)}
-.hero__blurb{font-size:13.5px;color:var(--ink-2);line-height:1.8}
+/* いちばん上の1本 */
+.herowrap{margin-top:20px}
+.herowrap>.eyebrow{display:block;margin-bottom:7px;color:var(--ink-2)}
+.hero{border-left-width:6px;margin-top:0}
+.hero .card__side{background:color-mix(in srgb,var(--cat) 9%,var(--surface))}
+.hero .card__main{padding:24px 26px;gap:11px}
+.hero .card__side{padding:24px 26px}
+.hero .card__title{font-size:clamp(19px,2.1vw,24px);font-weight:900;line-height:1.45;letter-spacing:-.015em;
+  -webkit-line-clamp:4}
+.hero .card__text{font-size:13.5px;-webkit-line-clamp:6}
+
+@media(max-width:720px){
+  .card{grid-template-columns:1fr}
+  .card__side{border-left:none;border-top:1px dashed var(--line)}
+  .hero .card__main,.hero .card__side{padding:18px 20px}
+}
 
 /* section heading with count */
 .sectionhead{display:flex;align-items:center;gap:12px;margin-top:46px}
@@ -189,12 +189,6 @@ a.chip:hover{border-color:var(--teal);color:var(--teal-deep)}
 .brandbar i:first-child{background:var(--teal);width:68%}
 .brandbar i:last-child{background:var(--amber);width:32%}
 
-@media(max-width:720px){
-  .hero{grid-template-columns:1fr}
-  .hero .thumb{min-height:150px}
-  .hero--tall b,.thumb--tall b{font-size:64px}
-  .hero__body{padding:18px 20px}
-}
 @media(max-width:860px){
   .cols{grid-template-columns:1fr;gap:30px}
   .side{position:static}

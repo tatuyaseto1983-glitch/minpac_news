@@ -15,24 +15,69 @@ export const CATEGORY = {
 };
 const meta = (id) => CATEGORY[id] ?? CATEGORY.industry;
 
-// 記事ごとに同じ絵にならないよう、URLから決まる数を作る
-const seedOf = (s) => {
-  let h = 2166136261;
-  for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
-  return Math.abs(h);
+// ---------- 「どんな影響がありそうか」 ----------
+// 記事の中身を推測して書くことはしません。
+// AI要約があればそれを、なければ こちらの分類（カテゴリ・エリア・事業形態）から
+// 「誰に関係しそうか」を組み立てて出します。
+
+const TYPE_LABEL = {
+  住宅宿泊事業: '住宅宿泊事業（年180日まで）',
+  簡易宿所: '簡易宿所（旅館業）',
+  特区民泊: '特区民泊',
 };
 
-/**
- * サムネイル。外部サイトの画像は借りず、CSSで描きます。
- * 1枚あたり約90バイト。1000枚並べても100KBに届きません。
- */
-export function thumb(item, { tall = false } = {}) {
-  const m = meta(item.category.id);
-  const seed = seedOf(item.url + item.title);
-  const v = (i, min, max) => min + ((seed >> (i * 4)) % (max - min));
-  return `<div class="thumb${tall ? ' thumb--tall' : ''}"
-    style="--x1:${v(0, 8, 46)}%;--y1:${v(1, 12, 60)}%;--x2:${v(2, 58, 94)}%;--y2:${v(3, 30, 88)}%"
-    aria-hidden="true"><b>${m.glyph}</b></div>`;
+// 見出しに出てくる「動き」から、影響の一言を組み立てる
+const SIGNALS = [
+  { m: ['原則禁止', '営業禁止', '禁止へ'], t: '開業できる場所が狭まる可能性があります。すでにある施設が対象になることもあります。' },
+  { m: ['受付停止', '受付終了', '新規停止'], t: '新しい申請ができなくなる可能性があります。別の制度への切り替えを考える場面です。' },
+  { m: ['規制強化', '上乗せ', '厳格化', '義務'], t: '営業の条件が厳しくなる方向の動きです。追加の設備や人手が必要になることがあります。' },
+  { m: ['緩和', '見直し', '簡素化', '効率化'], t: '条件がゆるくなる可能性があります。これまで難しかった物件が使えるようになることもあります。' },
+  { m: ['改正', '施行', '新設'], t: '決まりそのものが変わります。届出の書類や手順に影響することがあります。' },
+  { m: ['取締', '違法', '無許可', '摘発', '行政指導'], t: '許可を取らない営業への取り締まりの話です。手続きを飛ばした運営は避けてください。' },
+  { m: ['トラブル', '騒音', 'ごみ', '苦情', '住民'], t: '近隣とのトラブルに関する話です。運営ルールや連絡体制を見直す材料になります。' },
+  { m: ['補助', '助成', '交付', '公募'], t: '費用の一部を補える可能性があります。申請には期限があり、着工前に限られることが多い制度です。' },
+  { m: ['検討', '案を', '方針', '素案', 'パブリックコメント'], t: 'まだ決まる前の段階です。いま動きを追っておくと、決まってから慌てずに済みます。' },
+  { m: ['過去最多', '最多', '増加', '急増'], t: '数が増えている局面です。競合が増えるという意味でもあるので、立地の選び方に効いてきます。' },
+];
+
+const signalFor = (title) => SIGNALS.find((s) => s.m.some((w) => title.includes(w)))?.t ?? null;
+
+const IMPACT = {
+  local: (where, what) =>
+    `${where}で${what}を営む方・検討中の方に関係します。自治体のルールが変わると、営業できる区域・日数・事前に必要な手続きが変わることがあります。`,
+  law: (where, what) =>
+    `${what}に関わる国のルールの話です。届出や許可の手順、必要な書類が変わることがあります。`,
+  practice: (where, what) =>
+    `これから${what}を始める方に関係します。手続きの順番や、建物・消防の条件にかかわる内容です。`,
+  stats: () =>
+    '市場の動きを見るための数字です。物件を選ぶときや、稼働の見込みを立てるときの材料になります。',
+  subsidy: (where) =>
+    `${where}で改修費などの負担を減らせる可能性があります。申請には期限があり、着工前に限られることが多い点にご注意ください。`,
+  industry: (where, what) =>
+    `${where}の${what}をめぐる動きです。すぐに手続きが変わるものではありませんが、流れをつかむ材料になります。`,
+  system: () =>
+    '届出の手続きに使う「民泊制度運営システム」からのお知らせです。運営中の方はご確認ください。',
+};
+
+export function impactFor(item) {
+  if (item.summary) {
+    return { label: item.summarySource === 'ai' ? 'AIによる要約（下書き）' : '要約', text: item.summary };
+  }
+  const blurb = blurbFor(item);
+  if (blurb) return { label: 'どんな話か', text: blurb };
+
+  const areas = item.areas.filter((a) => a !== '全国');
+  const where = areas.length ? areas.slice(0, 2).join('・') : '全国';
+  const types = item.businessTypes.map((t) => TYPE_LABEL[t] ?? t);
+  const what = types.length ? types.join('・') : '民泊・簡易宿所';
+
+  const signal = signalFor(item.title);
+  if (signal) {
+    const who = areas.length ? `${where}で${what}を営む方・検討中の方へ。` : `${what}に関わる方へ。`;
+    return { label: 'どう効きそうか', text: `${who}${signal}` };
+  }
+  const fn = IMPACT[item.category.id] ?? IMPACT.industry;
+  return { label: '関係しそうな方', text: fn(where, what) };
 }
 
 // ---------- 同じ話題をまとめる ----------

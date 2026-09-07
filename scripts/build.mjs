@@ -5,7 +5,7 @@ import { dirname } from 'node:path';
 import { renderMarkdown, parseFrontMatter, esc } from './lib/md.mjs';
 import { css } from './lib/theme.mjs';
 import { categoryList, prefectures } from './lib/classify.mjs';
-import { CATEGORY, thumb, clusterNews, blurbFor } from './lib/cards.mjs';
+import { CATEGORY, clusterNews, impactFor } from './lib/cards.mjs';
 
 const root = new URL('../', import.meta.url);
 const p = (rel) => new URL(rel, root);
@@ -107,42 +107,28 @@ const sourceChip = (n) =>
 const areaChips = (n) =>
   n.areas.filter((a) => a !== '全国').slice(0, 2).map((a) => `<span class="chip">${esc(a)}</span>`).join('');
 
-/** ニュース1件をカードで出す。others は同じ話題を報じた他媒体。 */
-function card(n, others = [], attrs = '') {
-  const blurb = blurbFor(n);
-  return `<a class="card" style="--cat:${hue(n)}" href="${esc(n.url)}"
+/** ニュース1件を1行で出す。左に見出しとタグ、右にどんな影響がありそうか。 */
+function card(n, others = [], attrs = '', hero = false) {
+  const im = impactFor(n);
+  return `<a class="card${hero ? ' hero' : ''}" style="--cat:${hue(n)}" href="${esc(n.url)}"
     target="_blank" rel="noopener nofollow"${attrs}>
-  ${thumb(n)}
-  <div class="card__body">
+  <div class="card__main">
     <p class="card__meta"><span>${fmt(n.publishedAt)}</span><span>・</span><span class="src">${esc(n.sourceName)}</span></p>
     <h3 class="card__title">${esc(n.title)}</h3>
-    ${blurb ? `<p class="card__blurb">${esc(blurb)}</p>` : ''}
     <div class="card__foot">
       <span class="chip cat">${esc(n.category.name)}</span>
       ${areaChips(n)}
       ${sourceChip(n)}
-      ${n.summarySource === 'ai' ? '<span class="chip">AI要約</span>' : ''}
-      ${others.length ? `<span class="card__more">ほか${others.length}媒体</span>` : ''}
+      ${others.length ? `<span class="card__more">ほか${others.length}媒体${hero ? 'が報じています' : ''}</span>` : ''}
     </div>
+  </div>
+  <div class="card__side">
+    <p class="card__label">${esc(im.label)}</p>
+    <p class="card__text">${esc(im.text)}</p>
   </div></a>`;
 }
 
-function heroCard(n, others = []) {
-  const blurb = blurbFor(n);
-  return `<a class="hero" style="--cat:${hue(n)}" href="${esc(n.url)}" target="_blank" rel="noopener nofollow">
-  ${thumb(n, { tall: true })}
-  <div class="hero__body">
-    <p class="card__meta"><span>${fmt(n.publishedAt)}</span><span>・</span><span class="src">${esc(n.sourceName)}</span></p>
-    <h3 class="hero__title">${esc(n.title)}</h3>
-    ${blurb ? `<p class="hero__blurb">${esc(blurb)}</p>` : ''}
-    <div class="card__foot">
-      <span class="chip cat">${esc(n.category.name)}</span>
-      ${areaChips(n)}
-      ${sourceChip(n)}
-      ${others.length ? `<span class="card__more">ほか${others.length}媒体が報じています</span>` : ''}
-    </div>
-  </div></a>`;
-}
+const heroCard = (n, others = []) => card(n, others, '', true);
 
 const cardGrid = (entries, emptyText = '該当する記事はまだありません。') =>
   entries.length
@@ -185,7 +171,7 @@ function pageHome() {
   <p class="lede">観光庁・厚生労働省の発表と、報道各社のニュースを毎日自動で集めています。見出しをクリックすると、発表元や報道元のページがそのまま開きます。</p>
 </section>
 
-${top ? heroCard(top.lead, top.others) : ''}
+${top ? `<div class="herowrap"><span class="eyebrow">いま押さえておきたい</span>${heroCard(top.lead, top.others)}</div>` : ''}
 
 ${sectionHead('新着', `${feed.length}話題`)}
 ${cardGrid(rest)}

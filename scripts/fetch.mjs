@@ -4,7 +4,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { getText } from './lib/http.mjs';
 import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs, parseGoogleNews } from './lib/parse.mjs';
-import { screen, categorize, detectAreas, detectBusinessTypes, isBlockedOutlet, normalizeOutlet } from './lib/classify.mjs';
+import { screen, categorize, detectAreas, detectBusinessTypes, isBlockedOutlet, isBlockedTitle, normalizeOutlet } from './lib/classify.mjs';
 
 const root = new URL('../', import.meta.url);
 const p = (rel) => new URL(rel, root);
@@ -61,6 +61,7 @@ for (const src of sources) {
         for (const item of parseGoogleNews(await getText(src.url + encodeURIComponent(q)))) {
           if (seenTitle.has(item.title)) continue; // 同じ記事が複数の検索語で出てくる
           if (isBlockedOutlet(item.outlet)) continue; // プレスリリース配信サービスなどは外す
+          if (isBlockedTitle(item.title)) continue;   // 読者の意見まとめ、広告企画などは外す
           seenTitle.add(item.title);
           raw.push({ ...item, outlet: normalizeOutlet(item.outlet) });
         }

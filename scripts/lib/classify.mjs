@@ -45,6 +45,11 @@ export function detectAreas(title) {
   return found.size ? [...found] : ['全国'];
 }
 
+/** 中身の薄い見出しかどうか（読者の意見まとめ、広告企画など） */
+export function isBlockedTitle(title) {
+  return (rules.titleBlocklist ?? []).some((w) => title.includes(w));
+}
+
 /** 中身の薄い配信元かどうか */
 export function isBlockedOutlet(name) {
   if (!name) return false;
