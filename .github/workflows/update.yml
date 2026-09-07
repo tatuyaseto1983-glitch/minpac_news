@@ -41,8 +41,10 @@ jobs:
 
       - name: e-Stat から統計を取り込む
         env:
+          # リポジトリの Settings → Secrets and variables → Actions に登録してください
+          ESTAT_APP_ID: ${{ secrets.ESTAT_APP_ID }}
           # 入力は環境変数に受けてから使う（コマンドに直接埋め込まない）。
-          # inputs は手動実行のときしか存在しないため、常に参照できる
+          # inputs は手動実行のときにしか存在しないため、常に参照できる
           # github.event.inputs を使う（プッシュや定期実行では空になる）
           ESTAT_MODE: ${{ github.event.inputs.estat_mode }}
           ESTAT_WORD: ${{ github.event.inputs.estat_word }}
@@ -52,9 +54,6 @@ jobs:
             "キーワード検索") npm run estat -- --search "$ESTAT_WORD" ;;
             *)                npm run estat ;;
           esac
-        env:
-          # リポジトリの Settings → Secrets and variables → Actions に登録してください
-          ESTAT_APP_ID: ${{ secrets.ESTAT_APP_ID }}
 
       - name: 収集結果をコミット
         run: |
