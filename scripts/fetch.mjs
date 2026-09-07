@@ -3,7 +3,7 @@
 // 記事本文は保存しません（見出し・日付・出典・リンクのみ）。
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { getText } from './lib/http.mjs';
-import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs, parseGoogleNews, parseRyokanStats } from './lib/parse.mjs';
+import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs, parseGoogleNews, parseRyokanStats, parseLodgingStats } from './lib/parse.mjs';
 import { screen, categorize, detectAreas, detectBusinessTypes, isBlockedOutlet, isBlockedTitle, normalizeOutlet } from './lib/classify.mjs';
 
 const root = new URL('../', import.meta.url);
@@ -137,6 +137,30 @@ for (const src of sources) {
   } catch (err) {
     report.push({ source: src.id, error: err.message });
   }
+}
+
+// 宿泊旅行統計の最新の数字は、観光庁の報道発表ページ本文に書かれている。
+// 集めた記事のうち、いちばん新しいものから読み取る。
+try {
+  const latest = [...byUrl.values()]
+    .filter((n) => n.sourceId === 'jta-news' && n.title.includes('宿泊旅行統計調査'))
+    .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''))[0];
+  if (latest) {
+    const r = parseLodgingStats(await getText(latest.url));
+    if (!r) throw new Error('本文から数字を読み取れませんでした（書き方が変わった可能性）');
+    statsStore.lodging = {
+      ...r,
+      source: '観光庁 宿泊旅行統計調査',
+      sourceUrl: latest.url,
+      articleTitle: latest.title,
+      publishedAt: latest.publishedAt,
+      fetchedAt: today,
+    };
+    report.push({ source: 'jta-lodging', found: 1, added: 0,
+      note: `${r.period} 延べ${(r.overnight.value / 10000).toLocaleString('ja-JP')}万人泊 / 稼働率${r.occupancy ?? '—'}%` });
+  }
+} catch (err) {
+  report.push({ source: 'jta-lodging', error: err.message });
 }
 
 const items = [...byUrl.values()].sort(

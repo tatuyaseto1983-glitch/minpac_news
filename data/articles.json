@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-09-07",
-  "count": 415,
+  "count": 412,
   "items": [
     {
       "id": "zqsvat",
@@ -275,7 +275,7 @@
       "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1kN2J2b19hZlJnbE9IcDRmMmJPSTd5bktDTlpKaEVhYUxvVXQ4RlVhNURzZEZqYkE3b1FqQWFFck8xMnNzNUV3TmVXNHBQMW5BRV9wdlZtc19tSnJteFhrcmU5d2ZMN05Q?oc=5",
       "publishedAt": "2026-09-07",
       "sourceId": "google-news",
-      "sourceName": "南日本新聞",
+      "sourceName": "373news.com",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -517,7 +517,7 @@
       "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE52RUlQaWp2eEowRmlubi1UZHM2T29iYWtyczg3b1hkZE0ybjRqVW5LOERtcVRyLWhia3VHZFFCTjZBTU9UQm5QcjQ3bjBHRVhpWnFXQQ?oc=5",
       "publishedAt": "2026-09-07",
       "sourceId": "google-news",
-      "sourceName": "ABEMA TIMES",
+      "sourceName": "times.abema.tv",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -1130,7 +1130,7 @@
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQMnRkbmg0ZTBYdDVZa1ZObHI1am9DcmJuNHVoU3lKdnVCanpBT3Z0T0ZOTk04WFRXTWdfZFkyc21lWHk2djFqZ1p1bllMLWtmcVpWWXpHa0QtblpyRE14N3ZleS1tbXpoNTFxY3VRdzNPTUcwdEFMb0UtNlZhWU1CSQ?oc=5",
       "publishedAt": "2026-09-03",
       "sourceId": "google-news",
-      "sourceName": "UQライフ",
+      "sourceName": "portal.uqmobile.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -1197,50 +1197,6 @@
       "lastSeenAt": "2026-09-07"
     },
     {
-      "id": "5cbw8b",
-      "title": "「地方創生、切り札は観光」 全国ほんもの体験ネット全国教育民泊協会総会 藤澤会長が講演【標津町】",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9DMUtRUmR1Sk9WUEpteDVFQkc2aHpWdW9DYmpJbkhzYnVYelU3QXFJZVNTdFRaRDdxLW11NFJ5SVVlc0ZrN3NKNWZhb3BCaWVJVDJR?oc=5",
-      "publishedAt": "2026-09-03",
-      "sourceId": "google-news",
-      "sourceName": "釧路新聞電子版",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
-      "id": "1wajo46",
-      "title": "苦情増加、民泊に独自規制",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBhRzZxbjF4UHl3bHRXUGhoRVR1bmhvTkVVcXdSOExwRkdUdHE3ejdRamMtQ0pVa1VOeEZSbWEzTWJlbkFYaTRjYnRENA?oc=5",
-      "publishedAt": "2026-09-03",
-      "sourceId": "google-news",
-      "sourceName": "北日本新聞webunプラス",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
       "id": "1uby7vv",
       "title": "大阪市が独自の民泊規制 木造など開業認めず 条例改正案提出へ（2026年9月2日掲載）｜YTV NEWS NNN",
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNd3ZuUjFVNjA0Nnk5bGJGalpsS3h1RER0NEstaU43Y0R0cEJhc0drRW5leUpLZ3lVOTIzNWVNTHNqWXVzOTVhbGkxWWl2Z2NnZFJseWRaalNoLUVvc1BOa1B0Z1R4bVJERzlHMFNhbFlWU3FvcktoTnBjd2w1bW5wVG9xZXM1a1E?oc=5",
@@ -1277,6 +1233,28 @@
       "category": {
         "id": "local",
         "name": "自治体ルール"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1lrzmgc",
+      "title": "苦情増加、民泊に独自規制",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1QQndteTBXVXZLdThCY0huZUVUY2x1Njk0NVBJeEJlOTgxakhoVExaQ0RySXhXMVAwWFd3OE1qNlFHRFhxYUM3TURQSlc3V1ZTNlB6ZENsNWRCVF9fTlVjZFZFcXJXN2o1azVxaFpXQnBGNjg?oc=5",
+      "publishedAt": "2026-09-03",
+      "sourceId": "google-news",
+      "sourceName": "埼玉新聞",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "全国"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
       },
       "businessTypes": [],
       "score": 3,
@@ -1707,6 +1685,28 @@
       "lastSeenAt": "2026-09-07"
     },
     {
+      "id": "uv3mk5",
+      "title": "潜伏先の大阪の民泊を捜索 中野2億円窃盗事件 チリ国籍2人逮捕",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1NTDA2ZEFWcE9xSjY2a0prMWJPck50cnVaNk1Wb1E2WFlaMmVUOGVJY3Q1ZC1CQnYyekNUR3RwV1Ewd2VGX0pMWWlSVDBuLTRWREhxQWs5QkhYNU9yczFVc2c3aGhPU3RoZ0ZDSUIxQ0oyZw?oc=5",
+      "publishedAt": "2026-08-28",
+      "sourceId": "google-news",
+      "sourceName": "テレ朝NEWS",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "大阪府"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
       "id": "dvbi5j",
       "title": "Emposy、「民泊規制マップ」を無料公開",
       "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5CWUU1eHl4bHBIRjZnT0w1WjN3QmI2ekthLVctTkw0Q0hzMnoxVlFORGJUUjdpX0JEdC1RbktJZHc5MjV4dHZacjZSQno2UQ?oc=5",
@@ -1914,7 +1914,7 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9qUExKQlJQMDFkYm5jMnBON0E0TDNDdU5BcmxuUzJ1NmRXRlA3bDFFMXZtejJfb1BjTDR4X3FWTmJJdG1BNkl2cTV2S3c1Qk5NSlFwWWtKQVJjdw?oc=5",
       "publishedAt": "2026-08-18",
       "sourceId": "google-news",
-      "sourceName": "枚方つーしん",
+      "sourceName": "hira2.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -1949,28 +1949,6 @@
       "businessTypes": [
         "特区民泊"
       ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
-      "id": "5xgj0e",
-      "title": "家の隣で“民泊トラブル”…大田区で苦情5倍超、騒音・ゴミ被害にどう対処？ 弁護士が教える、「受忍限度」超えた時に“住民”がとれる方法",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBLUlNzRnc3cmk3ZVRFcGk0NjMyWTFSaVFLdF9BLWJvb2RlYzRGamtieUlxNkFwRk5IUjZSTHUwZ3lUSzZNVGh0d3RHM1dmUzFRUU5VdFhYSlg4NTNaSGFacU5nOF9qVmM0RFpseUhHQTVpVmtnZ0ZkcmMwS0dzejg?oc=5",
-      "publishedAt": "2026-08-14",
-      "sourceId": "google-news",
-      "sourceName": "Yahoo!ニュース",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "東京都"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [],
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
@@ -2216,7 +2194,7 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB0ZWwybV9vdkd2VnZJckZuVFZiSjlWTXhJRmJaUUE1TmF5andEZzVWdnp5Q0VmQnY3UGV6M3JpdDBZTEhVblRhbVVsYnFBZFVzTDdFWm9n?oc=5",
       "publishedAt": "2026-07-30",
       "sourceId": "google-news",
-      "sourceName": "foods-ch.infomart.co.jp",
+      "sourceName": "フーズチャネル",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -2264,7 +2242,7 @@
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9wNWtjUVQwbmVScGI5WnczeTg2cEdIdUJ6N29ZcnBKeTZEU3d6NWxuMHdQdHVtU1Z5Vl83ejdZQzVfMWxLVWhfY0QxTDI1czRoSGc?oc=5",
       "publishedAt": "2026-07-29",
       "sourceId": "google-news",
-      "sourceName": "ゴールドオンライン",
+      "sourceName": "gentosha-go.com",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -3064,7 +3042,7 @@
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9MSnptWjFPQmRNcW1yM2N2M1NOWm9hNzF6eDBBU21rU3pGV1BpTzNTd0xqSHNBWTFXVFRrekhEeVdySERYQm5VWkEzV2RiWmVaQk5TQWlrclVLVjJfTFhOSTZzYkdpVmJ6eUNicVhOOA?oc=5",
       "publishedAt": "2026-06-18",
       "sourceId": "google-news",
-      "sourceName": "ゴールドオンライン",
+      "sourceName": "gentosha-go.com",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -3165,6 +3143,30 @@
         "name": "自治体ルール"
       },
       "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1kcxxjc",
+      "title": "特別区長会の有志の区長が連名で、国に 「住宅宿泊事業の適正化に関する要望書」を提出",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE56b1Z5aHAyLUFFQzctRnl2WTBhSjBxUHVrRGVmdlZPMlFoenE0aVVldDFfaTJHQnlWbjdzUVQ3aFlsZXkyMnJzaUJhOWVZQjg?oc=5",
+      "publishedAt": "2026-06-18",
+      "sourceId": "google-news",
+      "sourceName": "atpress.ne.jp",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "全国"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
@@ -3332,7 +3334,7 @@
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1iS1dnek1nSkd1SVZROXJHcHVhOExtRjl0V2pzd01TSDUzeXpvdkYyMnZmSkx4bE1vWGdveF9IYW5YVDl2bUFYRGtRU2M0TlNudUE?oc=5",
       "publishedAt": "2026-06-09",
       "sourceId": "google-news",
-      "sourceName": "ゴールドオンライン",
+      "sourceName": "gentosha-go.com",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -3750,36 +3752,12 @@
       "lastSeenAt": "2026-09-07"
     },
     {
-      "id": "1x3m8gv",
-      "title": "大阪市が特区民泊の新規受け付け停止 5月最多の千件超申請 既存の4900施設調査へ（写真・画像 1/1）",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNWFh2UGU1SzhnQnVJdXhhNkhPZzdIX2NDLU5SZWtERUlhRVJXZG5WbDN1MWxZcUM1LXNwQ0tYel95Ti1raFN1Q0V6Qk1sdDdtWVBRZjM0cXoxcVBmUXNuQTF0cUxreXZrUTlfNTdnWkQxVmtEZnNhUkFJUmNBaWZtWG4zUWw4V2VCd3ZwbzVPbTViRzE4UnMwc2R3V0xSX3drLXc?oc=5",
-      "publishedAt": "2026-05-29",
-      "sourceId": "google-news",
-      "sourceName": "産経ニュース",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "大阪府"
-      ],
-      "category": {
-        "id": "market",
-        "name": "市場データ"
-      },
-      "businessTypes": [
-        "特区民泊"
-      ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
-      "id": "1qes9wj",
+      "id": "1f3bhn7",
       "title": "特区民泊、千件超駆け込み 大阪市、新規申請停止",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQcVIxdEZSZXZTV0d4cHVTR0dCMGdUOUNZRW9KNFZVVExEWDV0eG5CTnhpVU54VGdXTVV2ZHhlWnd0NkllSUY1ek1GTlJiMFZxNFpkSWZVUFRwUXVzMzB4NUpWckFfSENBLURxY0E2N2JsWVlncUVWdm5nR2ZFbng1LVZINHJMcWE3SFE?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9ZazA2UlZwUmlBWnhWcU9tazh3Y3dnOXVzNVA1RFFfUV8wQy14eXd4YUtFSkNuanU2S1N4dEp0YUo0enF5em13RjRwYw?oc=5",
       "publishedAt": "2026-05-29",
       "sourceId": "google-news",
-      "sourceName": "山陽新聞",
+      "sourceName": "47NEWS",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -3804,30 +3782,6 @@
       "publishedAt": "2026-05-29",
       "sourceId": "google-news",
       "sourceName": "東奥日報社",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "大阪府"
-      ],
-      "category": {
-        "id": "start",
-        "name": "開業"
-      },
-      "businessTypes": [
-        "特区民泊"
-      ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
-      "id": "1bhraoq",
-      "title": "特区民泊、千件超駆け込み 大阪市、新規申請停止（共同通信）",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFA1UTlWNDhYRDJKd1pWSFFDMm81R0hSYXFuWWkwVFlsQmc2MGx0OHhhYzFLVHMtTGNhMFJuSHlEbUZ6SmYzYUlWeVlLT0UyNkdZUU82elZLWlBqdkNMWVhJbF9jQmpxUUpUcW14U3Nhd0kyT29IQUdHS09jWkNsNTg?oc=5",
-      "publishedAt": "2026-05-29",
-      "sourceId": "google-news",
-      "sourceName": "Yahoo!ニュース",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -4202,7 +4156,7 @@
       "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE95Nm9VT29hRU9uMkl1Ry1jRnJRY2cwM25Hc3dUcEt3QkNBT052dy1oeTlFeGdhbGN0VHB0azk0UDlPMUZJR3ZFNlo2ejZVNzV5M1pPR0gtRQ?oc=5",
       "publishedAt": "2026-05-21",
       "sourceId": "google-news",
-      "sourceName": "南日本新聞",
+      "sourceName": "373news.com",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -4303,6 +4257,28 @@
       "category": {
         "id": "industry",
         "name": "業界動向"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1y0wqma",
+      "title": "令和8年度 民泊事業を含む観光事業者支援事業",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9pbUtXRTVpMHQ4OE1KUkQ0VU9kVTR2dE9nMm4yUHpxLURHUlJhVkF6bWEyaGhWazFJN1h2YlowR3hwT1ZZTXRQUElZczhFZThDWTFyWW5mN2tMdjlCLVpTUXk1UGR1VkhvMjFyUWJjbXRPbGE2ZWJr?oc=5",
+      "publishedAt": "2026-05-01",
+      "sourceId": "google-news",
+      "sourceName": "city.mine.lg.jp",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "全国"
+      ],
+      "category": {
+        "id": "subsidy",
+        "name": "補助金"
       },
       "businessTypes": [],
       "score": 3,
@@ -4986,7 +4962,7 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9SYTFoN3YwSG1OeFY4cENhTVVBWU53UHloX21WYWRjQ1dWN0I3LVF3RmRwbmhvVUNUTVNzWTI3Umx2dUhmcndxX3YtcmM3cXVyTFI2UlZNOFdzQQ?oc=5",
       "publishedAt": "2026-03-25",
       "sourceId": "google-news",
-      "sourceName": "dot.asahi.com",
+      "sourceName": "AERA DIGITAL",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -5192,7 +5168,7 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1rdDRfVlVtSGJkMUxCRFdCeTZnRWZYQ2ZTeFJ5WEZlazk2ZnZjZzhnMFk0anJ5YjZ6Mno0TDU5S2xqZV9hSjBVOXFKR3VPa2dpWE10Yjdn0gFPQVVfeXFMUHZCbF8tS1hNYmlyR2VVb25TMmNWWGFWRGJsTjhGV0V1SzJDeHlZTDNOMHhXQjk5MmpZZ01WZFAwQl9aRmZiN2h5TDczQmlZQQ?oc=5",
       "publishedAt": "2026-02-20",
       "sourceId": "google-news",
-      "sourceName": "ダイヤモンド・オンライン",
+      "sourceName": "diamond.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -5227,28 +5203,6 @@
       "businessTypes": [
         "簡易宿所"
       ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
-      "id": "s7invs",
-      "title": "「迷惑民泊」が地域社会のストレスに…騒音、ポイ捨て、さらには覚醒剤密売、詐欺電話の拠点に使われて",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9hOUdrMU85SmJkano0cFIzdzVkVThiREVmTjZiUnp0SW5xYllPczZKSzktLWZwVlpid1UyV1Q5WTR0RkhoamdGLXA0MlhUdlRvM25J?oc=5",
-      "publishedAt": "2026-02-17",
-      "sourceId": "google-news",
-      "sourceName": "東京新聞",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [],
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
@@ -5904,7 +5858,7 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9iUjhTb042Y09hd0ZOOU1OMkRxdFNva2xNSk9LdnBSX2VpN3ppT3hyeFZmTEZfODRyZDBRQkN2a3dQWUxjSGdMZE1LZkFzbnZvbEtueDQ5dDBkWEpnMllV?oc=5",
       "publishedAt": "2025-12-26",
       "sourceId": "google-news",
-      "sourceName": "JBpress",
+      "sourceName": "jbpress.ismedia.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -6045,7 +5999,7 @@
       "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE01RmhTSnpKQnp3VThNSEJyV0dvZlptVGxUTlJmellyLTljNk5QaVhWeC0tTUd0amMzV1hjbmFZRk9DZ29mOW1lc3p1a3gzREU4THBHZA?oc=5",
       "publishedAt": "2025-12-19",
       "sourceId": "google-news",
-      "sourceName": "ABEMA TIMES",
+      "sourceName": "times.abema.tv",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -6805,30 +6759,6 @@
       "lastSeenAt": "2026-09-07"
     },
     {
-      "id": "ykdh4d",
-      "title": "特区民泊の新規申請、来年5月29日で終了 全国の9割集中の大阪市 [大阪府]",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9IQUhWT2Q3ZGl1TkJOQzZCalQ0VUROOTFONlhsVFNuWUw0ank4M3pCQzF6UHlVSTJLOElMWjZBeHdnM3VIbU1jc3B3T3plcVdXOXNZMXNUekFKZXVEb2lfS3NPTEd2Q1U?oc=5",
-      "publishedAt": "2025-10-27",
-      "sourceId": "google-news",
-      "sourceName": "朝日新聞",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "大阪府"
-      ],
-      "category": {
-        "id": "start",
-        "name": "開業"
-      },
-      "businessTypes": [
-        "特区民泊"
-      ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
       "id": "1wa2p2l",
       "title": "大阪市「特区民泊」、来年５月２９日で新規申請終了…市長「今は再開・廃止を議論できる段階ではない」",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE45eFh5UUxUWUxuNlFuVElZdGJwcXd5YnFRbW5ZaWxFNk00Tl80MDRBSmRZZFdrYkh6aF93emQ2M3ROTnduRE5mTl80dDlpY3pmZTViVG9DNG9tRXRQM0hLd2VYNzdGUQ?oc=5",
@@ -7000,7 +6930,7 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9kNVBLel9qX1VuMXZEeWV6LWh2bTItajU4ZVhpTjJMQ2FNOEo1U2diSXJ4b1VoMVhYZEJPaFY4U19BSjlXdHU1eVN6VmhQejltQnlvZ1ptUGlGZGZVcnAw?oc=5",
       "publishedAt": "2025-10-07",
       "sourceId": "google-news",
-      "sourceName": "JBpress",
+      "sourceName": "jbpress.ismedia.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -8405,7 +8335,7 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1yNG5GdURIQnlqY1VpLUc2VWh5MXFuRmx1SzBzc3ZmLVpzV3VBbDREUWpJd0psU0Fxb2tWNEw3RUtycXh4VE56azlkR2NNRERhd2lRYWxjeTBuRjhNSDVr?oc=5",
       "publishedAt": "2023-11-23",
       "sourceId": "google-news",
-      "sourceName": "JBpress",
+      "sourceName": "jbpress.ismedia.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -8429,7 +8359,7 @@
       "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBlNFZKM2hOdE50bkFSNE55VnFjUVZoZ1c4LWMyTDBWcWFMS3FCa09fWEtvUVFHSlZtTDJJREtncDVpTVNEM2xqdE9qeGRMcV85dWlWZG1IU090aHcwVXprdTZWUkxGVzAzdUxF?oc=5",
       "publishedAt": "2023-11-21",
       "sourceId": "google-news",
-      "sourceName": "政府広報オンライン",
+      "sourceName": "gov-online.go.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -9199,7 +9129,7 @@
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFA3NXlsOEczcXFJNHc4aGZxa0dHSWdNOG8wV09EZDZZSThNTVkwSzhnaWZuYk94bWgzZFduUFhaZ2ZpZUxQWmFHRVlnZGo3M2xCNy1ZOGdmdjNhRkdt?oc=5",
       "publishedAt": "2019-12-24",
       "sourceId": "google-news",
-      "sourceName": "産業タイムズ社",
+      "sourceName": "sangyo-times.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [

@@ -506,6 +506,29 @@ ${catRank.length ? `<div class="panel">
 </div>` : ''}
 
 ${(() => {
+  const L = stats.lodging;
+  if (!L) return '';
+  const man = (n) => `${Math.round(n / 10000).toLocaleString('ja-JP')}<span class="u">万人泊</span>`;
+  const yoy = (v) => (v == null ? '' : `<span class="d">前年同月比 ${v > 0 ? '+' : ''}${v}%</span>`);
+  const foreignShare = L.overnightForeign
+    ? Math.round((L.overnightForeign.value / L.overnight.value) * 1000) / 10 : null;
+  return `<div class="panel">
+    <h3>宿泊の実績（${esc(L.period)}）</h3>
+    <span class="meta">出典：<a href="${esc(L.sourceUrl)}" rel="noopener" target="_blank">${esc(L.source)}</a>（${esc(L.publishedAt)} 発表・取得日 ${esc(L.fetchedAt)}）</span>
+    <dl class="tiles" style="margin-top:16px">
+      <div class="tile"><dt>延べ宿泊者数</dt><dd>${man(L.overnight.value)}</dd>${yoy(L.overnight.yoy)}</div>
+      ${L.overnightForeign ? `<div class="tile"><dt>うち外国人</dt><dd>${man(L.overnightForeign.value)}</dd>${yoy(L.overnightForeign.yoy)}</div>` : ''}
+      ${foreignShare != null ? `<div class="tile"><dt>外国人の割合</dt><dd>${foreignShare}<span class="u">%</span></dd>
+        <span class="d">延べ宿泊者数に占める</span></div>` : ''}
+      ${L.occupancy != null ? `<div class="tile"><dt>客室稼働率</dt><dd>${L.occupancy}<span class="u">%</span></dd>
+        <span class="d">全体</span></div>` : ''}
+    </dl>
+    <p class="lead-t">全国の宿泊需要の大きさと、そのうちどれくらいが外国人かが分かります。<strong>稼働率は、民泊の稼働の見込みを立てるときの目安になります。</strong></p>
+    ${L.caution ? `<div class="notice" style="margin-top:14px">${esc(L.caution)}</div>` : ''}
+  </div>`;
+})()}
+
+${(() => {
   const e = stats.estat ?? {};
   const keys = Object.keys(e).filter((k) => e[k]?.nationwide != null || (e[k]?.byArea ?? []).length);
   if (!keys.length) return '';
@@ -535,7 +558,8 @@ ${(() => {
   <div class="scroller"><table class="srctable">
     <thead><tr><th>数字</th><th>状況</th></tr></thead>
     <tbody>
-      ${Object.keys(stats.estat ?? {}).length ? '' : '<tr><td>延べ宿泊者数・客室稼働率・外国人比率</td><td>e-Stat API の無料の利用登録（appId）と、統計表IDの設定が必要です</td></tr>'}
+      ${stats.lodging ? '' : '<tr><td>延べ宿泊者数・客室稼働率</td><td>観光庁の報道発表ページから読み取ります</td></tr>'}
+      <tr><td>都道府県別の延べ宿泊者数</td><td>e-Stat のデータベースは2016年分で更新が止まっており、最新分はファイル提供のみのため未取得です</td></tr>
       <tr><td>都道府県別の届出件数</td><td>出典がPDFのみで、いまの仕組みでは読み取れません</td></tr>
       <tr><td>ADR（平均客室単価）・掲載件数</td><td>公的な無料の出典が見つかっていません</td></tr>
     </tbody>
@@ -553,6 +577,9 @@ ${(() => {
       ${r ? `<tr><td>旅館業の営業許可施設数</td>
         <td><a href="${esc(r.sourceUrl)}" rel="noopener" target="_blank">${esc(r.source)}</a></td>
         <td>${esc(r.asOfLabel ?? '—')}</td><td>${esc(r.fetchedAt)}</td></tr>` : ''}
+      ${stats.lodging ? `<tr><td>延べ宿泊者数・客室稼働率</td>
+        <td><a href="${esc(stats.lodging.sourceUrl)}" rel="noopener" target="_blank">${esc(stats.lodging.source)}</a></td>
+        <td>${esc(stats.lodging.period)}</td><td>${esc(stats.lodging.fetchedAt)}</td></tr>` : ''}
       ${Object.values(stats.estat ?? {}).map((d) => `<tr><td>${esc(d.label)}</td>
         <td><a href="${esc(d.sourceUrl)}" rel="noopener" target="_blank">観光庁 宿泊旅行統計調査（e-Stat）</a></td>
         <td>${esc(d.period ?? '—')}</td><td>${esc(d.fetchedAt ?? '—')}</td></tr>`).join('')}

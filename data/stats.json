@@ -653,5 +653,27 @@
       "sourceUrl": "https://www.e-stat.go.jp/dbview?sid=0003313903",
       "fetchedAt": "2026-09-07"
     }
+  },
+  "lodging": {
+    "period": "2026年7月",
+    "overnight": {
+      "value": 54670000,
+      "yoy": -3.5
+    },
+    "overnightJapanese": {
+      "value": 41100000,
+      "yoy": -3.1
+    },
+    "overnightForeign": {
+      "value": 13580000,
+      "yoy": -4.6
+    },
+    "occupancy": 60.8,
+    "caution": "統計精度の更なる向上を図るために見直しを行い、令和８年1月分調査から、層化基準を「従業者数」から「客室数」へと変更。そのため、対前年（同月）比、対前年（同月）差については、見直しの影響が含まれている可能性がある点に留意。",
+    "source": "観光庁 宿泊旅行統計調査",
+    "sourceUrl": "https://www.mlit.go.jp/kankocho/news02_00098.html",
+    "articleTitle": "宿泊旅行統計調査（2026年7月・第1次速報、2026年6月・第2次速報）",
+    "publishedAt": "2026-08-31",
+    "fetchedAt": "2026-09-07"
   }
 }

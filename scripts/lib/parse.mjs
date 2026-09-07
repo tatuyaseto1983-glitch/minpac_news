@@ -113,6 +113,32 @@ export function parseRyokanStats(html) {
   };
 }
 
+/** 観光庁の「宿泊旅行統計調査」報道発表ページから、最新月の数字を取り出す */
+export function parseLodgingStats(html) {
+  const t = strip(html);
+  const man = (v) => Math.round(Number(String(v).replace(/,/g, '')) * 10000); // 「5,467万人泊」→ 54,670,000
+  const pct = (v) => Number(String(v).replace(/[△▲]/, '-'));
+
+  // 最初に出てくる月がいちばん新しい（第1次速報）
+  const total = t.match(/(\d{4})年(\d{1,2})月の延べ宿泊者数（全体）は、?\s*([\d,]+)万人泊\s*[（(]前年同月比\s*([-+△▲\d.]+)\s*[%％]/);
+  if (!total) return null;
+  const jp = t.match(/うち日本人延べ宿泊者数は、?\s*([\d,]+)万人泊\s*[（(]前年同月比\s*([-+△▲\d.]+)\s*[%％]/);
+  const fg = t.match(/外国人延べ宿泊者数は、?\s*([\d,]+)万人泊\s*[（(]前年同月比\s*([-+△▲\d.]+)\s*[%％]/);
+  const occ = t.match(new RegExp(`${total[1]}年${total[2]}月の客室稼働率は全体で\\s*([\\d.]+)\\s*[%％]`));
+
+  // 集計方法の変更など、読むときの注意書きを拾っておく
+  const caution = t.match(/(統計精度の[\s\S]{0,180}?留意。)/)?.[1] ?? null;
+
+  return {
+    period: `${total[1]}年${total[2]}月`,
+    overnight: { value: man(total[3]), yoy: pct(total[4]) },
+    overnightJapanese: jp ? { value: man(jp[1]), yoy: pct(jp[2]) } : null,
+    overnightForeign: fg ? { value: man(fg[1]), yoy: pct(fg[2]) } : null,
+    occupancy: occ ? Number(occ[1]) : null,
+    caution,
+  };
+}
+
 /** 民泊制度ポータル「施行状況」ページから件数を取り出す */
 export function parseMinpakuSituation(html) {
   const text = strip(html);
