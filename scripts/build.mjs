@@ -175,80 +175,96 @@ function pageHome() {
   const m = stats.minpaku, r = stats.ryokan;
   const topAreas = prefectures
     .map((a) => [a, news.filter((n) => n.areas.includes(a)).length])
-    .filter(([, c]) => c > 0).sort((x, y) => y[1] - x[1]).slice(0, 12).map(([a]) => a);
+    .filter(([, c]) => c > 0).sort((x, y) => y[1] - x[1]).slice(0, 10).map(([a]) => a);
   const themes = ['規制強化', '条例', '旅館業', '住宅宿泊事業', '特区民泊', '補助金', 'インバウンド', '宿泊税'];
+  const localFeed = feed.filter((e) => catOf(e.lead) === 'local');
 
   const body = `
-<section class="hero">
+<div class="maghead">
   <h1>${site.tagline}</h1>
   <p>${site.lede}</p>
-  <form class="sbox sbox--big" action="${base}news/" method="get" role="search">
-    <input type="search" name="q" placeholder="民泊ニュースを検索（例：新宿区、条例、補助金）" aria-label="キーワード">
-    <button type="submit">検索</button>
-  </form>
-</section>
+  <span class="meta">${articles.updatedAt} 更新　／　${feed.length}件を掲載中</span>
+</div>
 
-<section class="sec">
-  ${secHead('注目ニュース', `${articles.updatedAt} 更新`)}
-  ${feed[0] ? leadItem(feed[0].lead, feed[0].others) : ''}
-  <div class="feed" style="margin-top:10px">${feed.slice(1, 4).map((e) => item(e.lead, e.others)).join('')}</div>
-  <a class="sec__more" href="${base}news/">すべてのニュースを見る →</a>
-</section>
+<div class="two">
+  <div>
+    ${feed[0] ? `<span class="eyebrow" style="display:block;margin-bottom:8px">いま押さえておきたい</span>
+    ${leadItem(feed[0].lead, feed[0].others)}` : ''}
 
-<section class="sec">
-  ${secHead('数字で見る民泊', m ? `${esc(m.asOf ?? '')}時点` : '')}
-  <dl class="tiles">
-    ${m ? `<div class="tile"><dt>住宅宿泊事業の届出（現存）</dt><dd>${num(m.active)}<span class="u">件</span></dd>
-      <span class="d">累計${num(m.filed)}件のうち</span></div>` : ''}
-    ${r ? `<div class="tile"><dt>簡易宿所（旅館業）</dt><dd>${num(r.kani)}<span class="u">件</span></dd>
-      <span class="d">${esc(r.asOfLabel ?? '')}現在</span></div>
-    <div class="tile"><dt>旅館・ホテル営業</dt><dd>${num(r.hotels)}<span class="u">件</span></dd>
-      <span class="d">${esc(r.asOfLabel ?? '')}現在</span></div>` : ''}
-    <div class="tile tile--soft"><dt>宿泊者数・稼働率・ADR</dt><dd>準備中</dd>
-      <span class="d">e-Stat の利用登録後に掲載します</span></div>
-  </dl>
-  <a class="sec__more" href="${base}stats/">数字のページへ →</a>
-</section>
+    <section class="sec">
+      ${secHead('新着', `${feed.length}件`)}
+      ${feedList(feed.slice(1, 7))}
+      <a class="sec__more" href="${base}news/">すべてのニュースを見る →</a>
+    </section>
 
-<section class="sec">
-  ${secHead('全国の民泊動向', '都道府県から探す')}
-  <div class="pills">
-    ${topAreas.map((a) => `<a class="pill" href="${base}area/${slugs[a]}.html">${a}</a>`).join('')}
-    <a class="pill" href="${base}area/">47都道府県すべて</a>
+    ${localFeed.length ? `<section class="sec">
+      ${secHead('自治体のルール変更', '条例・規制の動き')}
+      ${feedList(localFeed.slice(0, 4))}
+    </section>` : ''}
+
+    <section class="sec">
+      ${secHead('行政発表', '観光庁・厚労省・民泊制度ポータル')}
+      ${feedList(govFeed.slice(0, 4))}
+    </section>
+
+    <section class="sec">
+      ${secHead('民泊を始める', '開業までの流れ')}
+      <div class="steps">
+        ${guide.steps.slice(0, 4).map((s) => `<a class="step" href="${base}start/#step-${s.n}">
+          <span class="step__n">STEP ${s.n}</span>
+          <span class="step__t">${esc(s.title)}</span>
+          <span class="step__d">${esc(s.lead.slice(0, 40))}…</span></a>`).join('')}
+      </div>
+      <a class="sec__more" href="${base}start/">開業ガイドを見る（全7ステップ） →</a>
+    </section>
   </div>
-</section>
 
-<section class="sec">
-  ${secHead('いま注目のテーマ', '')}
-  <div class="pills">
-    ${themes.map((t) => `<a class="pill" href="${base}news/?q=${encodeURIComponent(t)}">${t}</a>`).join('')}
-  </div>
-</section>
+  <aside class="rail">
+    <section>
+      <h2>ニュースを検索</h2>
+      <form class="sbox" action="${base}news/" method="get" role="search">
+        <input type="search" name="q" placeholder="例：新宿区、条例" aria-label="キーワード">
+        <button type="submit">検索</button>
+      </form>
+    </section>
 
-<section class="sec">
-  ${secHead('民泊を始める', '開業までの流れ')}
-  <div class="steps">
-    ${guide.steps.slice(0, 4).map((s) => `<a class="step" href="${base}start/#step-${s.n}">
-      <span class="step__n">STEP ${s.n}</span>
-      <span class="step__t">${esc(s.title)}</span>
-      <span class="step__d">${esc(s.lead.slice(0, 42))}…</span></a>`).join('')}
-  </div>
-  <a class="sec__more" href="${base}start/">開業ガイドを見る（全7ステップ） →</a>
-</section>
+    <section>
+      <h2>数字で見る民泊</h2>
+      <dl class="tiles" style="grid-template-columns:1fr">
+        ${m ? `<div class="tile"><dt>住宅宿泊事業の届出（現存）</dt><dd>${num(m.active)}<span class="u">件</span></dd>
+          <span class="d">${esc(m.asOf ?? '')}時点／累計${num(m.filed)}件のうち</span></div>` : ''}
+        ${r ? `<div class="tile"><dt>簡易宿所（旅館業）</dt><dd>${num(r.kani)}<span class="u">件</span></dd>
+          <span class="d">${esc(r.asOfLabel ?? '')}現在</span></div>` : ''}
+        <div class="tile tile--soft"><dt>宿泊者数・稼働率・ADR</dt><dd>準備中</dd>
+          <span class="d">e-Stat の利用登録後に掲載します</span></div>
+      </dl>
+      <a class="sec__more" href="${base}stats/">数字のページへ →</a>
+    </section>
 
-<section class="sec">
-  ${secHead('行政発表', '観光庁・厚生労働省・民泊制度ポータル')}
-  ${feedList(govFeed.slice(0, 4))}
-</section>
+    <section>
+      <h2>全国の民泊動向</h2>
+      <div class="pills">
+        ${topAreas.map((a) => `<a class="pill" href="${base}area/${slugs[a]}.html">${a}</a>`).join('')}
+        <a class="pill" href="${base}area/">47都道府県</a>
+      </div>
+    </section>
 
-<section class="sec" style="padding-bottom:20px">
-  ${secHead('法令から調べる', '')}
-  <div class="cards3">
-    ${guide.laws.slice(0, 3).map((l) => `<a class="mini" href="${base}laws/">
-      <h3>${esc(l.key)}</h3><p>${esc(l.one)}</p></a>`).join('')}
-  </div>
-  <a class="sec__more" href="${base}laws/">法令・条例の一覧へ →</a>
-</section>`;
+    <section>
+      <h2>いま注目のテーマ</h2>
+      <div class="pills">
+        ${themes.map((t) => `<a class="pill" href="${base}news/?q=${encodeURIComponent(t)}">${t}</a>`).join('')}
+      </div>
+    </section>
+
+    <section>
+      <h2>法令から調べる</h2>
+      <div class="linklist">
+        ${guide.laws.slice(0, 4).map((l) => `<a href="${base}laws/">${esc(l.key)}</a>`).join('')}
+        <a href="${base}laws/">すべての法令・通知</a>
+      </div>
+    </section>
+  </aside>
+</div>`;
   return layout(base, { title: 'ホーム', description: `${site.tagline} ${site.lede}`, current: 'home', body });
 }
 
@@ -256,7 +272,10 @@ function pageHome() {
 function pageNews() {
   const base = '../';
   const PER = 20;
-  const rows = feed.map((e) => {
+  const featured = feed.slice(0, 2);
+  // 注目の2枚は下の一覧から外す（同じものがすぐ下に並ばないように）
+  const rest = feed.slice(2);
+  const rows = rest.map((e) => {
     const n = e.lead;
     const attrs = ` data-cat="${esc(n.category.name)}" data-area="${esc(n.areas.join('|'))}"` +
       ` data-src="${n.isPrimary ? '行政発表' : '報道'}" data-title="${esc(n.title)}"`;
@@ -270,16 +289,21 @@ function pageNews() {
 
   const body = `
 <p class="crumb"><a href="${base}">ホーム</a> ＞ ニュース</p>
-<div class="phead">
-  <h1 class="h-page">ニュース</h1>
-  <p class="sub">民泊に関する行政発表・報道を、実務目線で整理。</p>
+<div class="maghead">
+  <h1>ニュース</h1>
+  <p>民泊に関する行政発表・報道を、実務目線で整理。</p>
   <span class="meta">最終更新 ${articles.updatedAt}　／　${feed.length}件</span>
 </div>
 
 <div class="two">
   <div>
-    <div class="sec__head" style="margin-bottom:12px">
-      <h2 id="count-h">すべて</h2><span class="meta" id="count"></span>
+    ${featured.length ? `<section class="sec" style="margin-top:0">
+      ${secHead('注目の話題', '')}
+      <div class="feature2">${featured.map((e) => item(e.lead, e.others)).join('')}</div>
+    </section>` : ''}
+
+    <div class="sec__head" style="margin-top:34px;margin-bottom:12px">
+      <h2 id="count-h">新着</h2><span class="meta" id="count"></span>
     </div>
     <div class="feed" id="list">${rows}</div>
     <p class="empty" id="empty" hidden>条件に合う記事が見つかりませんでした。キーワードを短くするか、絞り込みを解除してください。</p>
@@ -345,7 +369,7 @@ function pageNews() {
   function label() {
     var parts = [active.area, active.cat, active.src, active.word].filter(Boolean);
     if (q.value.trim()) parts.push('「' + q.value.trim() + '」');
-    return parts.length ? parts.join(' × ') : 'すべて';
+    return parts.length ? parts.join(' × ') : '新着';
   }
 
   function render() {

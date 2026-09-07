@@ -164,6 +164,17 @@ a.tag:hover{border-color:var(--green);color:var(--green-ink);text-decoration:non
 @media(max-width:640px){.sec__head .meta{margin-left:0;white-space:normal;width:100%}}
 .sec__more{font-size:13px;font-weight:500;margin-top:14px;display:inline-block}
 
+/* 中央寄せのページ見出し（一覧ページ） */
+.maghead{text-align:center;padding:22px 0 28px}
+.maghead h1{font-size:clamp(22px,2.4vw,29px);letter-spacing:.06em;margin-bottom:9px}
+.maghead p{max-width:52ch;margin:0 auto;color:var(--ink-2);font-size:14px}
+.maghead .meta{display:block;margin-top:8px}
+
+/* 注目の2枚 */
+.feature2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.feature2 .item__title{font-size:16px}
+@media(max-width:640px){.feature2{grid-template-columns:1fr}}
+
 /* ---------------- ページ頭 ---------------- */
 .phead{padding:26px 0 22px}
 .phead h1{margin-bottom:6px}
