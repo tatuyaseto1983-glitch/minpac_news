@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-09-07",
-  "count": 411,
+  "count": 414,
   "items": [
     {
       "id": "zqsvat",
@@ -118,7 +118,7 @@
       "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1KemJXTjhrZmM5dUxSbGlRbzNYY1JqdUpHb0l6QjJOcTJLaVAtXzQyR2pxV0dyYUVQUjZNc2FaZWpNWlh6TTVIS1FEdVVZaGF0R1RBODRuNW5JQVE?oc=5",
       "publishedAt": "2026-09-07",
       "sourceId": "google-news",
-      "sourceName": "山陰中央新報デジタル",
+      "sourceName": "sanin-chuo.co.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -193,28 +193,6 @@
       "category": {
         "id": "local",
         "name": "自治体ルール"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
-      "id": "6cpby",
-      "title": "陸前高田の「教育旅行民泊」に、大学時代から通い続けた23歳が地域おこし協力隊として着任！",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNVldhZWxmY2xvY01DRUtIbFFWMzJWd1lpMlpRZHkycU5IbEE5ZHlRYkFlUUo1b3p4dEJpcC00dmhYMnRkYnEzNFNLLXdlTE9TeWFfclhyaVkzQ3NPa3VBZ092SVJDenV3TEVLR2JDTXVrZ0J6RFJ1WWY0NXduU3Q1cDZkVGQ2ZmtVcjZXVFFfWXg?oc=5",
-      "publishedAt": "2026-09-07",
-      "sourceId": "google-news",
-      "sourceName": "socialbusiness.aishas.co.jp",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
       },
       "businessTypes": [],
       "score": 3,
@@ -446,6 +424,31 @@
       "lastSeenAt": "2026-09-07"
     },
     {
+      "id": "1hz21dy",
+      "title": "マンションの一室で「旅館業」 トラブル相次ぎ「特区民泊」新規受付停止も民泊開業の“抜け道”か 旅館業申請が急増 大阪市は規制強化へ [写真ギャラリー3/7]",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBMTmtFYW9YTk9fczkxNHdieEY4NTczUTB2ZHU2UWJRQlpoS284Mmp3ZWVydG9LOWJfY1RVbmlyVnZaRjRSdTI1UGIxekx3eXJQSWg3WHUyRE5jc2R6TzNCMDRRSmpjSHZEVnd5WUYyMA?oc=5",
+      "publishedAt": "2026-09-07",
+      "sourceId": "google-news",
+      "sourceName": "関西テレビ",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "大阪府"
+      ],
+      "category": {
+        "id": "local",
+        "name": "自治体ルール"
+      },
+      "businessTypes": [
+        "簡易宿所",
+        "特区民泊"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
       "id": "1hnu7oo",
       "title": "東京･新宿区が民泊営業を原則禁止へ 【アベマ厳選】注目の最新&独自ニュースをチェック! | 厳選",
       "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPOWJ1ZVdjRlB6LTBjZUs5OEJjUzBKa3dISjFocDhSQ0tvRW5nbncyakJZYTU3dzVNd0R6eVVPeTdBb3haUjFfSjlZTU5ieXdHcTNsTXZ2TkxlYUF1R0VyTGRRTFltS1doRTc1YjRPOURCdWgwMlBFSGc1OW5qbjRDR1BDakJOcUJsVE9jelVPMjJhMXhtbHBWQmlqX3QtbEhIZGozd18xLTlRd21OeDFCcHdIMG5la0Y2V1A5aWVYY2x2cDFmUk1iRDRVRjJBZUJqd2tvNTg4b1Y3eFlQeHdSc2swNFBfVF9I?oc=5",
@@ -544,6 +547,28 @@
       "isPrimary": false,
       "areas": [
         "京都府"
+      ],
+      "category": {
+        "id": "local",
+        "name": "自治体ルール"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "12wrzjy",
+      "title": "民泊最多の新宿区、住宅地や学校周辺での営業禁止へ 約半数に影響か (朝日新聞)",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOUkkyYVRaV05qY21nRklqdExMUEpIbG83eW13Y1BxVWVMcFlIeUVuekxuekVPWHk3YVd0ZHVpdTl4Mk9tYXc3aEJ5aDVMczNCQW1mYnp1SVFlT1pJRUJlUHpwM3BQdXpYcDdIbmFlaDlHclJYUU9ZS2x4ZF9vQ2M2UW1Ec0hMYjV4UTgxb1Z3?oc=5",
+      "publishedAt": "2026-09-07",
+      "sourceId": "google-news",
+      "sourceName": "Yahoo!ニュース",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "東京都"
       ],
       "category": {
         "id": "local",
@@ -907,7 +932,7 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBCNDd5ZjBUbVdtcGZFTVdBZnk0elg4TFBFNFBCZ2Y2X2h6cVYtLXpSZDNrdDVmcjZGRzNoZFFYcmRuWlJ1VEpTN2VZTkZlX3lUSm9lMWhpRVh6dw?oc=5",
       "publishedAt": "2026-09-04",
       "sourceId": "google-news",
-      "sourceName": "北海道新聞デジタル",
+      "sourceName": "北海道新聞",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -973,7 +998,7 @@
       "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE01SHdJS0lSel9QWGlWbWx1YzBLNi1xSndzSnJLOXAzUXd1WjlZd3V2djFDU1pHSzVTcVRTUEE2UlFPanRYSXV0RGdjQ2FPLTBjTHpHRXNxQUJYYWl3cUM4RFBkbHRNbElfa0F5QTduTXJHWTZGQVhZ0gF8QVVfeXFMTzlyOGJucGNCMkNHbjBGazBpbWNSbHRIZ0VGRjdjSDZtNWttRVV3VVdKQWdCNzd2cUpJMDItU1JqckZ4OUpVdEs0Z3hCdGdVRVRqUkVvZ3BKNHZKMEM1YlI4OEhpNi1oak1CUnVYNFc4M3lVbVhIZ1BqNnBxQg?oc=5",
       "publishedAt": "2026-09-04",
       "sourceId": "google-news",
-      "sourceName": "shikoku-np.co.jp",
+      "sourceName": "四国新聞",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -1197,34 +1222,12 @@
       "lastSeenAt": "2026-09-07"
     },
     {
-      "id": "1wajo46",
-      "title": "苦情増加、民泊に独自規制",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBhRzZxbjF4UHl3bHRXUGhoRVR1bmhvTkVVcXdSOExwRkdUdHE3ejdRamMtQ0pVa1VOeEZSbWEzTWJlbkFYaTRjYnRENA?oc=5",
-      "publishedAt": "2026-09-03",
-      "sourceId": "google-news",
-      "sourceName": "北日本新聞webunプラス",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
       "id": "1uby7vv",
       "title": "大阪市が独自の民泊規制 木造など開業認めず 条例改正案提出へ（2026年9月2日掲載）｜YTV NEWS NNN",
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNd3ZuUjFVNjA0Nnk5bGJGalpsS3h1RER0NEstaU43Y0R0cEJhc0drRW5leUpLZ3lVOTIzNWVNTHNqWXVzOTVhbGkxWWl2Z2NnZFJseWRaalNoLUVvc1BOa1B0Z1R4bVJERzlHMFNhbFlWU3FvcktoTnBjd2w1bW5wVG9xZXM1a1E?oc=5",
       "publishedAt": "2026-09-03",
       "sourceId": "google-news",
-      "sourceName": "news.ntv.co.jp",
+      "sourceName": "日テレNEWS NNN",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -1255,6 +1258,28 @@
       "category": {
         "id": "local",
         "name": "自治体ルール"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "1lrzmgc",
+      "title": "苦情増加、民泊に独自規制",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1QQndteTBXVXZLdThCY0huZUVUY2x1Njk0NVBJeEJlOTgxakhoVExaQ0RySXhXMVAwWFd3OE1qNlFHRFhxYUM3TURQSlc3V1ZTNlB6ZENsNWRCVF9fTlVjZFZFcXJXN2o1azVxaFpXQnBGNjg?oc=5",
+      "publishedAt": "2026-09-03",
+      "sourceId": "google-news",
+      "sourceName": "埼玉新聞",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "全国"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
       },
       "businessTypes": [],
       "score": 3,
@@ -1729,12 +1754,34 @@
       "lastSeenAt": "2026-09-07"
     },
     {
+      "id": "5v285b",
+      "title": "チリ国籍2人を民泊で逮捕 中野ブロードウェイで高級時計窃盗事件 “2億円”被害（テレビ朝日系（ANN））",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBGOW9MVWd6bHdHc01WQ1ZYbTNlV3RWNC1QbnFqNlYxN0JCeFFSZHdrT0F4RzlwUkZKTWxmQ1JHVUVYWkJ3T050ZktYT19sdjFTQmNlc1ZyM2Z4cHFEejYxdjJRVm1jR3VlUUpxSTQ5UGxnT1pwRE5PaF82MXRCbFk?oc=5",
+      "publishedAt": "2026-08-28",
+      "sourceId": "google-news",
+      "sourceName": "Yahoo!ニュース",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "全国"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
       "id": "rcbr20",
       "title": "「大阪府宿泊施設等の環境整備促進事業補助金」の申請サポートを開始します！【助成金なう】",
       "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5RU1VHV0R4ZFpWNEdSSk1Yc0ozZURLbHJvRXZKOHRuY0Rlek8wLVc5UkRPUW12YnpRWGlER3NJYXRQT3A5QnJDV25tcjFUbm5TVG1aRQ?oc=5",
       "publishedAt": "2026-08-27",
       "sourceId": "google-news",
-      "sourceName": "news.nicovideo.jp",
+      "sourceName": "ニコニコニュース",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -1756,7 +1803,7 @@
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNamdMel95VEpkTUZsVEhQOU1sSTQ1X3dKOUFOa1lWWUx5TEJhZmpfTTIzVFY4UXJRTnBwX29nV0VkMDVnSG9KdlBPenF0dE04T3BELW1ZcklSakV2QnV3blJLYXZuQThDNkhUbTZUSnNpVnhwSGJxaWFyejl1amRMUnB2V0ZSbEpP?oc=5",
       "publishedAt": "2026-08-26",
       "sourceId": "google-news",
-      "sourceName": "mantan-web.jp",
+      "sourceName": "Mantan Web",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -1847,28 +1894,6 @@
       "publishedAt": "2026-08-21",
       "sourceId": "google-news",
       "sourceName": "Yahoo!ニュース",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "local",
-        "name": "自治体ルール"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
-      "id": "o5te4z",
-      "title": "【プレビュー】都内で広がる民泊トラブル…深夜の騒音や敷地への侵入に悩む住民の悲鳴。自治体の対応は",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9MTDJFYVh3WVU4dExaR3RwN2VORFRvbk5EVEFXemlrZTQ0VGU5U2hCaWdGOW0wTzdYT2NfRVh6Rm9rOWhWMUJLbXVEOVJxa3JRZ25Yc0czZHN5RzhKY3BIbVViQlA?oc=5",
-      "publishedAt": "2026-08-21",
-      "sourceId": "google-news",
-      "sourceName": "TOKYO MX",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -2100,7 +2125,7 @@
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNR3dEWkgxZWdST3E0aV85VXZLdWFPVmZtaVVCUkNhZmVINmo5QXQ1TUdlR0t1NUJOanliRkZsUXc2bmgxd2NxcUR5TjJCWHczdDJCWk9jMTJaMzduOE15c09XR3daMEZ3S1JNT3NqRDA5OUVuODMteU5hQnVFYjNrdl9JWlBMZHZKc2RVZQ?oc=5",
       "publishedAt": "2026-08-02",
       "sourceId": "google-news",
-      "sourceName": "news.ntv.co.jp",
+      "sourceName": "日テレNEWS NNN",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -2194,7 +2219,7 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB0ZWwybV9vdkd2VnZJckZuVFZiSjlWTXhJRmJaUUE1TmF5andEZzVWdnp5Q0VmQnY3UGV6M3JpdDBZTEhVblRhbVVsYnFBZFVzTDdFWm9n?oc=5",
       "publishedAt": "2026-07-30",
       "sourceId": "google-news",
-      "sourceName": "フーズチャネル",
+      "sourceName": "foods-ch.infomart.co.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -2854,7 +2879,7 @@
       "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1mZlhtWGJTT2k0cXhpbFIzZWRoa3V3SDJmRkxOaEhwN1FpUktURlJwblBXd0x3LXQ2eEkyQWZEWGpxWDVVVjlVRGkyaV9nSHhCV3Itd3FNS3FLQkk?oc=5",
       "publishedAt": "2026-07-01",
       "sourceId": "google-news",
-      "sourceName": "山陰中央新報デジタル",
+      "sourceName": "sanin-chuo.co.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -3471,7 +3496,7 @@
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1uSlhkS2JVdHk4MldXLS1tZXBlOTBoVjJIYXY4TDlYUm85WUN3dDZzQU5BbHFyemd5SzM5QzRfMlZzS0hWNkxQWkdXd2VtRGI3MHpiS2VScTJsNmNzNkFYLW13?oc=5",
       "publishedAt": "2026-06-01",
       "sourceId": "google-news",
-      "sourceName": "朝日放送",
+      "sourceName": "asahi.co.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -4156,7 +4181,7 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nMDZvUUJjTms2T3R1eW51bmNuZ1RCdWpJcmZfd2RjTV8zcFA1ZmlfNDR6dUl5OFNXb2tubUp5d3N0ZnplWGpHTFZzNmFfSzlaOGtJbF82ZlYtdw?oc=5",
       "publishedAt": "2026-05-19",
       "sourceId": "google-news",
-      "sourceName": "北海道新聞デジタル",
+      "sourceName": "北海道新聞",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -4202,7 +4227,7 @@
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNNjF0WmlFN3kwOVB6eFZ2d1YyWmJjTzZBZFpRNHI4ZkJISThuSkRPRnctS0NUUldpbnBZOFBqS1R5U0hOT3o3dG91WE13eThOQ2lvNkMxZ2p6VWtwaG5sRHl4cXNyZUlKbFNYMmtTQVBPekdnZ25rTkdvNzlPWXRES1FlMzlESmc?oc=5",
       "publishedAt": "2026-05-07",
       "sourceId": "google-news",
-      "sourceName": "news.ntv.co.jp",
+      "sourceName": "日テレNEWS NNN",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -5166,7 +5191,7 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE92Q2R5YU9SeTMyMGhfOHpiVUxqZURDWHZ0bnY4VXp3WXQwSTJIM0lUQzRoNTJyY254UFhQNHBRMlhGa0FpQkZIaUpMNXRWUU96U3dfMXdWTWd2QQ?oc=5",
       "publishedAt": "2026-02-18",
       "sourceId": "google-news",
-      "sourceName": "北海道新聞デジタル",
+      "sourceName": "北海道新聞",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -5308,7 +5333,7 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1MaVFhX0NHTWV5Um5iQUdYYzJDMGRNWG9GLU9lXzJOckJLWlM5eDV5N2hHNDNoRTVqd2sxYjVEQXRNeEkwWUx1eWplOG9qR1k?oc=5",
       "publishedAt": "2026-02-11",
       "sourceId": "google-news",
-      "sourceName": "matsudo-tsushin.com",
+      "sourceName": "松戸つうしん",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -5584,7 +5609,7 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5wdHRZM1RjWi01c0xWakdXQUdZSy0wTFRlX1hoTmFTLWhlMk4zd2dSaDdwUnNJTTRsanFTVXVocHFjbk54V1lfUkkxVFh6Zm1KU0hTNGh5NVk1QQ?oc=5",
       "publishedAt": "2026-01-23",
       "sourceId": "google-news",
-      "sourceName": "北海道新聞デジタル",
+      "sourceName": "北海道新聞",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -5927,7 +5952,7 @@
       "url": "https://news.google.com/rss/articles/CBMiREFVX3lxTFBMYkJEaDNiSUZqUDVVY3Z6NlJ2NmU2MWw1TzZmbFB1b0RXSmFKQ1UzQWw5VzZqbE1hckhtVElmZEN1aWdM?oc=5",
       "publishedAt": "2025-12-20",
       "sourceId": "google-news",
-      "sourceName": "ben54.jp",
+      "sourceName": "弁護士JP",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -7283,7 +7308,7 @@
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPbU9wX3J6ZkNRaHozeGx0TUZvZVpBcmVmUkROMGVUaHo5X2pvWVdSYklNb1dRdFZSVmpoT19IZ0Z5NGRBcGgtV0taUks2ZDdXNnRlbFhwY2NTOGRjazJNT2FBY0k5aFNfYTMycWZUSkZKRmNmMk1CUzRObHRTM2pQOUFaU0h3eHdF?oc=5",
       "publishedAt": "2025-08-27",
       "sourceId": "google-news",
-      "sourceName": "shikoku-np.co.jp",
+      "sourceName": "四国新聞",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -7691,7 +7716,7 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFB4SWI0cU1WQXUxTjFkcVpfUmZ5TEtVQkt2Ry1QOWJpY0dpYTdVX3F2Yy01ZTE0VU82WVBnSER2Rjlkc3Mxd0RJaHFaRDFFOThtdlBGUHkweVRnUQ?oc=5",
       "publishedAt": "2025-02-13",
       "sourceId": "google-news",
-      "sourceName": "北海道新聞デジタル",
+      "sourceName": "北海道新聞",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -8261,7 +8286,7 @@
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE4yeWJOa2ZiSjhIRV9hQ01XNzdDR25zQ2U2Yl9yYjd5RXdFLVB2LVRnZk1TQmhlTXNIbjB4SGZuMXN5RFhOUVBVZFM5OUJfcnJrMTBlT2xUUGljRGNsQ1VMMExCdjctRGRLWFZoZlVLY2lwaFMtRUdLRDlGRHM?oc=5",
       "publishedAt": "2023-12-14",
       "sourceId": "google-news",
-      "sourceName": "news.ntv.co.jp",
+      "sourceName": "日テレNEWS NNN",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -8608,6 +8633,30 @@
       "lastSeenAt": "2026-09-07"
     },
     {
+      "id": "jh6k04",
+      "title": "感染対策、宿泊客に要請可能に 改正旅館業法成立",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE11LU5KOHFKSEwxMW0yTTRJMDBGRVVEMVZGYi1HUUNGcEZ0cVNoMEwtTnU5Nlk3cFNDMUlNN0RMXzFuSVcxblZlTG13NmpzNHNEdUY1LUYtTnR4eWtmWml1SFhGTTA2M0t5ZHJHVA?oc=5",
+      "publishedAt": "2023-06-07",
+      "sourceId": "google-news",
+      "sourceName": "日本経済新聞",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "全国"
+      ],
+      "category": {
+        "id": "law",
+        "name": "法改正"
+      },
+      "businessTypes": [
+        "簡易宿所"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
       "id": "ukai2j",
       "title": "「宿泊拒否」箇所を削除/旅館業法改正案 修正案を可決/衆院厚労委",
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9MQTZUeXVvMmlDdGY3U05pTHFKb3dFSVBfcWFkeXVnZlpUeExTdUpQU3gzUThJcnc3Y1k5TV8zTkVObEJGUHV3dXhYRjEwZ1RUU1NLZ21iT0pBV0ZvQ3ROODF2Y2JoeXN0RXdhSldxLVpRZDhXQUNUcjdB?oc=5",
@@ -8788,6 +8837,28 @@
       "businessTypes": [
         "簡易宿所"
       ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "bnyvs2",
+      "title": "地方創生に期待、分散型ホテル",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1Td21LejdOel9iaFMxQlF4MXJUZDlCaWI5aVVjMmxLNS04UjhOb0FSZXVHdWxocmZqSncyOGsxakl6Q0RSdnc2bTBKMDNFTWpmZksxUFJuWGZjbk9uejAw0gFkQVVfeXFMUExOYkFKSkFrUDFFZ2lwRGZpajlzZmxmRWdTVjM0R1FoMG56Njc1NzBmdXJZWHlpNmdqM191N0VjZ01aUF92NFd0Z0FHamRyV0k3aUE2R0RwYmlONFJUNjFfNlY0aA?oc=5",
+      "publishedAt": "2022-11-11",
+      "sourceId": "google-news",
+      "sourceName": "最新不動産ニュースサイト「R.E.port」",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "全国"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [],
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
@@ -9035,7 +9106,7 @@
       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBQdHdHZnFSMHh0VmZyQkxHa0J5NEFrQVRzOExkUUc3eTFjb2JhUWNIeFZDdHZZZDA1Q1paSWNNTTdib3VFOVBaUld2bVphdjk5cHBGQmd0MUZ1VVpzaU55SmwtaGFFZ05nRm1WZkFWc3k4UkJH?oc=5",
       "publishedAt": "2020-05-11",
       "sourceId": "google-news",
-      "sourceName": "大分県ホームページ",
+      "sourceName": "pref.oita.jp",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -9105,7 +9176,7 @@
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFA3NXlsOEczcXFJNHc4aGZxa0dHSWdNOG8wV09EZDZZSThNTVkwSzhnaWZuYk94bWgzZFduUFhaZ2ZpZUxQWmFHRVlnZGo3M2xCNy1ZOGdmdjNhRkdt?oc=5",
       "publishedAt": "2019-12-24",
       "sourceId": "google-news",
-      "sourceName": "sangyo-times.jp",
+      "sourceName": "産業タイムズ社",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
