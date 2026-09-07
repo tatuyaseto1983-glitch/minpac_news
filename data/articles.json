@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-09-07",
-  "count": 412,
+  "count": 410,
   "items": [
     {
       "id": "zqsvat",
@@ -336,28 +336,6 @@
       "lastSeenAt": "2026-09-07"
     },
     {
-      "id": "1ujw3pd",
-      "title": "東京都新宿区、住宅地や学校周辺で民泊営業を禁止へ 既存施設も対象",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBBdWdmZjYtUFA3Ynl0QkdoV3Utb1ItT042Z0EzaUV2QjRWNGZDWWZXTnpqQzVCU3duMVNBbzBDZ3lrT0ZUb1MwbTlTVFYwbm9hZi1xUnlvckxET0NEekF3QjRoZUwxSElEQlE2Tw?oc=5",
-      "publishedAt": "2026-09-07",
-      "sourceId": "google-news",
-      "sourceName": "日本経済新聞",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "東京都"
-      ],
-      "category": {
-        "id": "local",
-        "name": "自治体ルール"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
       "id": "1to218m",
       "title": "新宿区、住宅地や学校周辺で民泊を原則禁止する方針",
       "url": "https://news.google.com/rss/articles/CBMiiwNBVV95cUxQZDhfb09GdjJ4VU9xbGxxa0JBVEpyeDM1Tzg0dUEwdkJjbmx2SGx5WTk3QnVwMzdQU0pHOGpXdGFESk1sN0p4MExZOFBaQzRQdWNHYkg5SDhwYURHbXVneHAzNTNNSDZEV3dBYkpRa2Y3eU1Vam1YUFlGMkJrQ3VGNGE3cUtoNzF4Z0RNUDVidVQ3bmJQVGtQa2c4T2VmQlpqcmFKN2J2UnRwallvcHYzWHo2dC10dVBkRWRYb0thUmJ0Y3F4UUJncWtjejQzXzZtNzdEOE9fcmlGQ2VHZ0FLWE5icHNRbWU5dHdoZGVDV2lxcWgybDF5S1U1VGJudHhDZzV5bi12bXdCVXZnQ3Jid1pPbmJIUkN4YS1zOUoyV2w2X2theTBBYklCM0lMMHVtcTR1VkdyVnNzTWJGNTN5cVMtb1R4V0FGYXZQYVFmUDRMM3Bpajh4ZDU3MVh3a3g2NVBidzNEMHQtcTZaRF9TTExkN0hCMUY3VndIUDFOeEhHVzgwYzR1VzItUQ?oc=5",
@@ -632,6 +610,28 @@
       "isPrimary": false,
       "areas": [
         "京都府"
+      ],
+      "category": {
+        "id": "local",
+        "name": "自治体ルール"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-09-07",
+      "lastSeenAt": "2026-09-07"
+    },
+    {
+      "id": "14l6rxh",
+      "title": "住宅地や学校周辺で民泊禁止へ 既存施設も対象に―東京都新宿区",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1TbW1vMFFOLVFEMDAxVmsteXg3dlRaeHJGWUl4WWFDd3FET1pfNHdzUG1TYXVmU2pTNmxMZzZDWWQ0ZHpwdTdyR2dwR3RudGUtREJ3MTR5Ym5CSDEyZDNONFoyWQ?oc=5",
+      "publishedAt": "2026-09-07",
+      "sourceId": "google-news",
+      "sourceName": "時事ドットコム",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "東京都"
       ],
       "category": {
         "id": "local",
@@ -8584,30 +8584,6 @@
       "lastSeenAt": "2026-09-07"
     },
     {
-      "id": "jh6k04",
-      "title": "感染対策、宿泊客に要請可能に 改正旅館業法成立",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE11LU5KOHFKSEwxMW0yTTRJMDBGRVVEMVZGYi1HUUNGcEZ0cVNoMEwtTnU5Nlk3cFNDMUlNN0RMXzFuSVcxblZlTG13NmpzNHNEdUY1LUYtTnR4eWtmWml1SFhGTTA2M0t5ZHJHVA?oc=5",
-      "publishedAt": "2023-06-07",
-      "sourceId": "google-news",
-      "sourceName": "日本経済新聞",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "law",
-        "name": "法改正"
-      },
-      "businessTypes": [
-        "簡易宿所"
-      ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
       "id": "ukai2j",
       "title": "「宿泊拒否」箇所を削除/旅館業法改正案 修正案を可決/衆院厚労委",
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9MQTZUeXVvMmlDdGY3U05pTHFKb3dFSVBfcWFkeXVnZlpUeExTdUpQU3gzUThJcnc3Y1k5TV8zTkVObEJGUHV3dXhYRjEwZ1RUU1NLZ21iT0pBV0ZvQ3ROODF2Y2JoeXN0RXdhSldxLVpRZDhXQUNUcjdB?oc=5",
@@ -8788,28 +8764,6 @@
       "businessTypes": [
         "簡易宿所"
       ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-09-07"
-    },
-    {
-      "id": "bnyvs2",
-      "title": "地方創生に期待、分散型ホテル",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1Td21LejdOel9iaFMxQlF4MXJUZDlCaWI5aVVjMmxLNS04UjhOb0FSZXVHdWxocmZqSncyOGsxakl6Q0RSdnc2bTBKMDNFTWpmZksxUFJuWGZjbk9uejAw0gFkQVVfeXFMUExOYkFKSkFrUDFFZ2lwRGZpajlzZmxmRWdTVjM0R1FoMG56Njc1NzBmdXJZWHlpNmdqM191N0VjZ01aUF92NFd0Z0FHamRyV0k3aUE2R0RwYmlONFJUNjFfNlY0aA?oc=5",
-      "publishedAt": "2022-11-11",
-      "sourceId": "google-news",
-      "sourceName": "最新不動産ニュースサイト「R.E.port」",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [],
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
