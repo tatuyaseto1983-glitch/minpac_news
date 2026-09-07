@@ -41,9 +41,11 @@ jobs:
 
       - name: e-Stat から統計を取り込む
         env:
-          # 入力は環境変数に受けてから使う（コマンドに直接埋め込まない）
-          ESTAT_MODE: ${{ inputs.estat_mode }}
-          ESTAT_WORD: ${{ inputs.estat_word }}
+          # 入力は環境変数に受けてから使う（コマンドに直接埋め込まない）。
+          # inputs は手動実行のときしか存在しないため、常に参照できる
+          # github.event.inputs を使う（プッシュや定期実行では空になる）
+          ESTAT_MODE: ${{ github.event.inputs.estat_mode }}
+          ESTAT_WORD: ${{ github.event.inputs.estat_word }}
         run: |
           case "$ESTAT_MODE" in
             "表の一覧を出す") npm run estat -- --list ;;
