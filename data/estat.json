@@ -33,11 +33,12 @@
       "label": "客室稼働率",
       "unit": "%",
       "statsDataId": "0003313903",
-      "note": "第8表。cat01=130（客室稼働率の総数）",
+      "note": "第8表。cat01=130（宿泊目的割合の総数）、cat02=150（客室稼働率の総数）",
       "areaClass": "area",
       "nationwideCode": "00000",
       "filters": {
-        "cat01": "130"
+        "cat01": "130",
+        "cat02": "150"
       }
     }
   ]

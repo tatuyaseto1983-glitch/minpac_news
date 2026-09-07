@@ -46,14 +46,16 @@ if (has('--list')) {
   const json = await api('getStatsList', {
     statsCode: conf.statsCode,
     searchWord: word && !word.startsWith('--') ? word : undefined,
-    limit: 100,
+    limit: 500,
   });
-  const tables = list(json.GET_STATS_LIST?.DATALIST_INF?.TABLE_INF);
-  console.log(`${conf.statsName}（統計コード ${conf.statsCode}）の表 ${tables.length}件\n`);
-  for (const t of tables) {
-    const title = [t.STAT_NAME?.$, t.TITLE?.$ ?? t.TITLE, t.CYCLE, t.SURVEY_DATE]
-      .filter(Boolean).join(' ／ ');
-    console.log(`  ${t['@id']}  ${String(title).slice(0, 110)}`);
+  const inf = json.GET_STATS_LIST?.DATALIST_INF;
+  const tables = list(inf?.TABLE_INF);
+  console.log(`${conf.statsName}（統計コード ${conf.statsCode}）　該当 ${inf?.NUMBER ?? tables.length}件 / 取得 ${tables.length}件\n`);
+  // 新しい調査時期のものから見たいので、SURVEY_DATE の降順に並べる
+  const sorted = tables.slice().sort((a, b) => String(b.SURVEY_DATE ?? '').localeCompare(String(a.SURVEY_DATE ?? '')));
+  for (const t of sorted) {
+    const title = String(t.TITLE?.$ ?? t.TITLE ?? '');
+    console.log(`  ${t['@id']}  [${t.SURVEY_DATE ?? '-'}] [更新 ${t.UPDATED_DATE ?? '-'}] ${title.slice(0, 92)}`);
   }
   console.log('\n使えそうなIDを data/estat.json の statsDataId に入れてください。');
   process.exit(0);
