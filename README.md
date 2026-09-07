@@ -70,6 +70,28 @@ https://tatuyaseto1983-glitch.github.io/minpac_news/
 あるものを使います。後ろの2つは記事の中身ではなくこちらの分類から作った文なので、
 ラベルを「どう効きそうか」「関係しそうな方」と分けて、記事の要約と混ざらないようにしています。
 
+## e-Stat（宿泊の統計）をつなぐ
+
+延べ宿泊者数・客室稼働率・外国人比率は、e-Stat の API から取り込みます。無料ですが、**アプリケーションIDの取得だけ人の手が必要**です。
+
+1. https://www.e-stat.go.jp/api/ で利用登録（メールアドレスのみ、無料）
+2. ログイン後、マイページで **アプリケーションIDを発行**（URL欄は `http://localhost/` などで構いません）
+3. GitHub のリポジトリ → **Settings → Secrets and variables → Actions → New repository secret**
+   - Name: `ESTAT_APP_ID`
+   - Secret: 発行されたID
+
+登録すると、次の自動更新のときに統計表の候補一覧が Actions のログに出ます。そこから使う表を選んで `data/estat.json` の `statsDataId` に入れると、データページに数字が並びます。
+
+手元で試す場合：
+
+```bash
+ESTAT_APP_ID=xxxx npm run estat -- --list            # 表を探す
+ESTAT_APP_ID=xxxx npm run estat -- --meta 0003314402 # 表の中身を見る
+ESTAT_APP_ID=xxxx npm run estat                       # 設定にしたがって取り込む
+```
+
+IDが未設定でも何もせず終了するので、自動更新は止まりません。
+
 ## 手で育てるところ
 
 | ファイル | 内容 |
@@ -78,6 +100,7 @@ https://tatuyaseto1983-glitch.github.io/minpac_news/
 | `data/keywords.json` | 拾う記事のルール、カテゴリ分類 |
 | `data/areas.json` | 自治体ごとの民泊ルール（空のうちは各エリアページに「準備中」と表示） |
 | `content/articles/*.md` | 解説記事 |
+| `data/estat.json` | e-Stat から取る統計表の指定 |
 | `scripts/lib/cards.mjs` の `SIGNALS` | 「どう効きそうか」の言い回し |
 
 生成されるページは、トップ／ニュース一覧／エリア別（47都道府県）／数字で見る／**法令・通知**／解説記事／このサイトについて。

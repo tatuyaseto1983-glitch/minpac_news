@@ -505,13 +505,37 @@ ${catRank.length ? `<div class="panel">
   <div class="notice" style="margin-top:14px">この2つは、このサイトが集めた記事の本数です。世の中の出来事の総数ではありません。集め方の都合で古い時期ほど取りこぼすため、月ごとの推移は出していません。</div>
 </div>` : ''}
 
+${(() => {
+  const e = stats.estat ?? {};
+  const keys = Object.keys(e).filter((k) => e[k]?.nationwide != null || (e[k]?.byArea ?? []).length);
+  if (!keys.length) return '';
+  const tiles = keys.map((k) => {
+    const d = e[k];
+    return `<div class="tile"><dt>${esc(d.label)}</dt>
+      <dd>${num(d.nationwide)}<span class="u">${esc(d.unit ?? '')}</span></dd>
+      <span class="d">${esc(d.period ?? '')}　全国</span></div>`;
+  }).join('');
+  const withAreas = keys.map((k) => e[k]).filter((d) => (d.byArea ?? []).length >= 5)[0];
+  return `<div class="panel">
+    <h3>宿泊の実績（宿泊旅行統計調査）</h3>
+    <span class="meta">出典：観光庁 宿泊旅行統計調査（e-Stat API）　／　取得日 ${esc(e[keys[0]].fetchedAt ?? '')}</span>
+    <dl class="tiles" style="margin-top:16px">${tiles}</dl>
+    ${withAreas ? `<h3 style="margin-top:26px">${esc(withAreas.label)}　都道府県別 上位10</h3>
+      <span class="meta">${esc(withAreas.period ?? '')}</span>
+      ${hbars(withAreas.byArea.slice(0, 10).map((r) => ({ name: r.area, value: r.value, key: 'k1' })),
+        { unit: withAreas.unit ?? '' })}` : ''}
+    <p class="lead-t">数字は e-Stat の API から自動で取り込んでいます。表そのものは
+      <a href="${esc(e[keys[0]].sourceUrl ?? 'https://www.e-stat.go.jp/')}" rel="noopener" target="_blank">e-Stat</a> で確認できます。</p>
+  </div>`;
+})()}
+
 <div class="panel">
   <h3>これから足したい数字</h3>
   <p class="lead-t">次の数字は、公開されている一次情報の形式の都合で、まだ取り込めていません。</p>
   <div class="scroller"><table class="srctable">
     <thead><tr><th>数字</th><th>状況</th></tr></thead>
     <tbody>
-      <tr><td>延べ宿泊者数・客室稼働率・外国人比率</td><td>e-Stat API の無料の利用登録（appId）が必要です</td></tr>
+      ${Object.keys(stats.estat ?? {}).length ? '' : '<tr><td>延べ宿泊者数・客室稼働率・外国人比率</td><td>e-Stat API の無料の利用登録（appId）と、統計表IDの設定が必要です</td></tr>'}
       <tr><td>都道府県別の届出件数</td><td>出典がPDFのみで、いまの仕組みでは読み取れません</td></tr>
       <tr><td>ADR（平均客室単価）・掲載件数</td><td>公的な無料の出典が見つかっていません</td></tr>
     </tbody>
@@ -529,6 +553,9 @@ ${catRank.length ? `<div class="panel">
       ${r ? `<tr><td>旅館業の営業許可施設数</td>
         <td><a href="${esc(r.sourceUrl)}" rel="noopener" target="_blank">${esc(r.source)}</a></td>
         <td>${esc(r.asOfLabel ?? '—')}</td><td>${esc(r.fetchedAt)}</td></tr>` : ''}
+      ${Object.values(stats.estat ?? {}).map((d) => `<tr><td>${esc(d.label)}</td>
+        <td><a href="${esc(d.sourceUrl)}" rel="noopener" target="_blank">観光庁 宿泊旅行統計調査（e-Stat）</a></td>
+        <td>${esc(d.period ?? '—')}</td><td>${esc(d.fetchedAt ?? '—')}</td></tr>`).join('')}
       <tr><td>話題の本数</td><td>このサイトが集めた記事</td><td>直近90日</td><td>${esc(articles.updatedAt)}</td></tr>
     </tbody>
   </table></div>

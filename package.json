@@ -7,10 +7,11 @@
   "scripts": {
     "fetch": "node scripts/fetch.mjs",
     "build": "node scripts/build.mjs",
-    "update": "npm run fetch && npm run build",
+    "update": "npm run fetch && npm run estat && npm run build",
     "preview": "npm run build && node scripts/preview.mjs",
     "serve": "node scripts/serve.mjs",
-    "summarize": "node scripts/summarize.mjs"
+    "summarize": "node scripts/summarize.mjs",
+    "estat": "node scripts/fetch-estat.mjs"
   },
   "engines": {
     "node": ">=20"

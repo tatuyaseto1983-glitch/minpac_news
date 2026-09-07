@@ -1,0 +1,39 @@
+{
+  "_readme": "e-Stat から取る統計の設定です。appId は環境変数 ESTAT_APP_ID から読みます（このファイルには書きません）。statsDataId は `npm run estat -- --list` で探して、`--meta <ID>` で中身を確かめてから入れてください。",
+  "statsCode": "00601020",
+  "statsName": "宿泊旅行統計調査",
+  "provider": "観光庁",
+  "indicators": [
+    {
+      "key": "overnight",
+      "label": "延べ宿泊者数",
+      "unit": "人泊",
+      "statsDataId": "",
+      "note": "全国と都道府県別。第1表〜第2表のうち月次のものを想定",
+      "areaClass": "area",
+      "nationwideCode": "00000"
+    },
+    {
+      "key": "overnightForeign",
+      "label": "外国人延べ宿泊者数",
+      "unit": "人泊",
+      "statsDataId": "",
+      "note": "参考第1表など。国籍別の内訳を持つ表",
+      "areaClass": "area",
+      "nationwideCode": "00000"
+    },
+    {
+      "key": "occupancy",
+      "label": "客室稼働率",
+      "unit": "%",
+      "statsDataId": "",
+      "note": "客室稼働率の表",
+      "areaClass": "area",
+      "nationwideCode": "00000"
+    }
+  ],
+  "_candidates": [
+    { "statsDataId": "0003314402", "title": "第10表 年、月、施設所在地(47区分)、宿泊施設タイプ、居住地別 延べ宿泊者数（年次）" },
+    { "statsDataId": "0003317699", "title": "参考第1表 年、月、施設所在地(47区分)、国籍(21区分)別 外国人延べ宿泊者数" }
+  ]
+}
