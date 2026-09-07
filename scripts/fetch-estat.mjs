@@ -94,6 +94,21 @@ if (metaId) {
 
 // ---------- 設定にしたがって取り込む ----------
 const targets = conf.indicators.filter((i) => i.statsDataId);
+
+// 設定から外した指標の数字を残しておくと、古い値がサイトに出続けてしまうので消す
+{
+  const store = existsSync(p('data/stats.json'))
+    ? JSON.parse(readFileSync(p('data/stats.json'), 'utf8')) : {};
+  const keep = new Set(targets.map((i) => i.key));
+  const stale = Object.keys(store.estat ?? {}).filter((k) => !keep.has(k));
+  if (stale.length) {
+    for (const k of stale) delete store.estat[k];
+    if (!Object.keys(store.estat).length) delete store.estat;
+    writeFileSync(p('data/stats.json'), JSON.stringify(store, null, 2) + '\n');
+    console.log(`設定から外れた指標の古い数字を消しました：${stale.join('、')}`);
+  }
+}
+
 if (!targets.length) {
   // まだ表を決めていないので、候補をログに出しておく（このログを見て statsDataId を決めます）
   console.log('data/estat.json の statsDataId がまだ空です。候補の表を出します。\n');
