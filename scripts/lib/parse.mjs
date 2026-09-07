@@ -48,6 +48,24 @@ export function parseJtaYearPage(html, baseUrl) {
   return out;
 }
 
+/** Google ニュースの検索RSS。見出し・媒体名・リンクだけを扱う */
+export function parseGoogleNews(xml) {
+  const out = [];
+  for (const m of xml.matchAll(/<item>[\s\S]*?<\/item>/g)) {
+    const block = m[0];
+    const outlet = strip(block.match(/<source[^>]*>([\s\S]*?)<\/source>/)?.[1] ?? '');
+    let title = strip(block.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '');
+    const link = strip(block.match(/<link>([\s\S]*?)<\/link>/)?.[1] ?? '');
+    if (!title || !link) continue;
+    // 「見出し - 媒体名」の末尾を落とす
+    if (outlet && title.endsWith(` - ${outlet}`)) title = title.slice(0, -(outlet.length + 3)).trim();
+    else title = title.replace(/\s-\s[^-]{2,30}$/, '').trim();
+    const date = block.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1] ?? '';
+    out.push({ title, url: link, publishedAt: toIsoDate(date), outlet: outlet || '報道' });
+  }
+  return out;
+}
+
 /** 民泊制度ポータルの「新着情報」リスト（日付＋区分＋本文） */
 export function parseMinpakuNews(html, baseUrl) {
   const out = [];

@@ -3,8 +3,8 @@
 // 記事本文は保存しません（見出し・日付・出典・リンクのみ）。
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { getText } from './lib/http.mjs';
-import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs } from './lib/parse.mjs';
-import { screen, categorize, detectAreas, detectBusinessTypes } from './lib/classify.mjs';
+import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs, parseGoogleNews } from './lib/parse.mjs';
+import { screen, categorize, detectAreas, detectBusinessTypes, isBlockedOutlet, normalizeOutlet } from './lib/classify.mjs';
 
 const root = new URL('../', import.meta.url);
 const p = (rel) => new URL(rel, root);
@@ -55,6 +55,16 @@ for (const src of sources) {
       const years = findYearPages(index, src.url).slice(0, src.years ?? 2);
       if (!years.length) throw new Error('年別ページのリンクが見つかりません');
       for (const y of years) raw.push(...parseJtaYearPage(await getText(y.url), y.url));
+    } else if (src.type === 'google-news') {
+      const seenTitle = new Set();
+      for (const q of src.queries ?? []) {
+        for (const item of parseGoogleNews(await getText(src.url + encodeURIComponent(q)))) {
+          if (seenTitle.has(item.title)) continue; // 同じ記事が複数の検索語で出てくる
+          if (isBlockedOutlet(item.outlet)) continue; // プレスリリース配信サービスなどは外す
+          seenTitle.add(item.title);
+          raw.push({ ...item, outlet: normalizeOutlet(item.outlet) });
+        }
+      }
     } else if (src.type === 'minpaku-news') {
       raw = parseMinpakuNews(await getText(src.url), src.url);
     }
@@ -75,8 +85,9 @@ for (const src of sources) {
         Object.assign(byUrl.get(key), {
           lastSeenAt: today,
           score: verdict.score,
-          category: categorize(item.title),
+          sourceName: item.outlet ?? src.name,
           areas: detectAreas(item.title),
+          category: categorize(item.title, detectAreas(item.title)),
           businessTypes: detectBusinessTypes(item.title),
           matchedKeywords: verdict.hits,
         });
@@ -88,10 +99,11 @@ for (const src of sources) {
         url: item.url,
         publishedAt: item.publishedAt ?? today,
         sourceId: src.id,
-        sourceName: src.name,
+        sourceName: item.outlet ?? src.name,
+        via: item.outlet ? src.name : null,
         isPrimary: Boolean(src.primary),
-        category: categorize(item.title),
         areas: detectAreas(item.title),
+        category: categorize(item.title, detectAreas(item.title)),
         businessTypes: detectBusinessTypes(item.title),
         score: verdict.score,
         matchedKeywords: verdict.hits,

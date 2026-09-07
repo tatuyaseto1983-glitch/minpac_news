@@ -73,5 +73,21 @@
       }
     ],
     "note": "ニュースではなく資料集。data/documents.json に書き出します"
+  },
+  {
+    "id": "google-news",
+    "name": "報道各社（Google ニュース経由）",
+    "type": "google-news",
+    "url": "https://news.google.com/rss/search?hl=ja&gl=JP&ceid=JP:ja&q=",
+    "queries": [
+      "民泊",
+      "簡易宿所",
+      "旅館業法",
+      "特区民泊",
+      "住宅宿泊事業"
+    ],
+    "primary": false,
+    "forceScore": 3,
+    "note": "見出し・媒体名・リンクのみ。本文は保存しません"
   }
 ]

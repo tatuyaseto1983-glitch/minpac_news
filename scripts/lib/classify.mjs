@@ -14,7 +14,13 @@ export function screen(title) {
   return { keep: false, reason: 'キーワードなし', hits: [] };
 }
 
-export function categorize(title) {
+export function categorize(title, areas = []) {
+  // 地域が特定できていて規制の話なら「自治体ルール」に寄せる
+  const local = rules.categories.find((c) => c.id === 'local');
+  const areaSpecific = areas.some((a) => a !== '全国');
+  if (areaSpecific && rules.localSignals.some((w) => title.includes(w))) {
+    return { id: local.id, name: local.name };
+  }
   for (const c of rules.categories) {
     if (c.match.some((w) => title.includes(w))) return { id: c.id, name: c.name };
   }
@@ -23,8 +29,32 @@ export function categorize(title) {
 }
 
 export function detectAreas(title) {
-  const found = rules.prefectures.filter((p) => title.includes(p) || title.includes(p.replace(/[都道府県]$/, '')));
-  return found.length ? found : ['全国'];
+  const found = new Set();
+  // まず都道府県名をそのまま探し、当たった分は本文から取り除く
+  // （「東京都新宿区」の中の「京都」を京都府と誤読しないため）
+  let rest = title;
+  for (const p of rules.prefectures) {
+    if (rest.includes(p)) {
+      found.add(p);
+      rest = rest.split(p).join('　');
+    }
+  }
+  for (const [city, pref] of Object.entries(rules.cityToPref ?? {})) {
+    if (rest.includes(city)) found.add(pref);
+  }
+  return found.size ? [...found] : ['全国'];
+}
+
+/** 中身の薄い配信元かどうか */
+export function isBlockedOutlet(name) {
+  if (!name) return false;
+  return (rules.outletBlocklist ?? []).some((b) => name.includes(b));
+}
+
+/** ドメインしか返ってこない配信元に読める名前を当てる */
+export function normalizeOutlet(name) {
+  if (!name) return name;
+  return (rules.outletNames ?? {})[name] ?? name;
 }
 
 export function detectBusinessTypes(title) {

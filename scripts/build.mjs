@@ -5,6 +5,7 @@ import { dirname } from 'node:path';
 import { renderMarkdown, parseFrontMatter, esc } from './lib/md.mjs';
 import { css } from './lib/theme.mjs';
 import { categoryList, prefectures } from './lib/classify.mjs';
+import { CATEGORY, thumb, clusterNews, blurbFor } from './lib/cards.mjs';
 
 const root = new URL('../', import.meta.url);
 const p = (rel) => new URL(rel, root);
@@ -26,10 +27,21 @@ const slugs = JSON.parse(readFileSync(p('data/keywords.json'), 'utf8')).prefectu
 
 const news = articles.items;
 const catOf = (n) => n.category.id;
-const system = news.filter((n) => catOf(n) === 'system');                        // 運営システムの告知
-const statsFeed = news.filter((n) => catOf(n) === 'stats');                      // 統計・施行状況の更新
-const core = news.filter((n) => n.score === 3 && !['system', 'stats'].includes(catOf(n))); // 制度・実務
-const around = news.filter((n) => n.score < 3 && !['system', 'stats'].includes(catOf(n))); // 観光まわり
+const isPress = (n) => !n.isPrimary;
+
+// 報道は同じ出来事がいくつもの媒体から来るので、話題ごとにまとめる
+const pressTopics = clusterNews(news.filter(isPress));
+const govNews = news.filter((n) => n.isPrimary);
+
+const system = govNews.filter((n) => catOf(n) === 'system');
+const statsFeed = govNews.filter((n) => catOf(n) === 'stats');
+const govCore = govNews.filter((n) => n.score === 3 && !['system', 'stats'].includes(catOf(n)));
+const around = govNews.filter((n) => n.score < 3 && !['system', 'stats'].includes(catOf(n)));
+// 一覧に出す単位（行政は1件ずつ、報道は話題ごと）
+const feed = [
+  ...govNews.map((n) => ({ lead: n, others: [] })),
+  ...pressTopics,
+].sort((a, b) => (b.lead.publishedAt ?? '').localeCompare(a.lead.publishedAt ?? ''));
 
 // ---------- 編集部の解説記事 ----------
 const guideDir = p('content/articles/');
@@ -87,29 +99,65 @@ ${body}
 </html>`;
 }
 
-const tagChips = (base, n) =>
-  [
-    `<span class="chip cat">${esc(n.category.name)}</span>`,
-    ...n.areas.map((a) =>
-      slugs[a] ? `<a class="chip" href="${base}area/${slugs[a]}.html">${esc(a)}</a>` : `<span class="chip">${esc(a)}</span>`
-    ),
-    ...n.businessTypes.map((b) => `<span class="chip">${esc(b)}</span>`),
-    n.isPrimary ? '<span class="chip gov">一次情報</span>' : '',
-  ].join('');
+const hue = (n) => (CATEGORY[n.category.id] ?? CATEGORY.industry).hue;
 
-const newsItem = (base, n) => `<li>
-  <span class="d">${fmt(n.publishedAt)}</span>
-  <div>
-    <h3><a class="ext" href="${esc(n.url)}" rel="noopener nofollow" target="_blank">${esc(n.title)}</a></h3>
-    <p class="src">出典：${esc(n.sourceName)}</p>
-    <div class="tags">${tagChips(base, n)}</div>
-  </div>
-</li>`;
+const sourceChip = (n) =>
+  n.isPrimary ? '<span class="chip gov">一次情報</span>' : '<span class="chip press">報道</span>';
 
-const newsList = (base, items, emptyText = '該当する記事はまだありません。') =>
-  items.length
-    ? `<ul class="newslist">${items.map((n) => newsItem(base, n)).join('')}</ul>`
+const areaChips = (n) =>
+  n.areas.filter((a) => a !== '全国').slice(0, 2).map((a) => `<span class="chip">${esc(a)}</span>`).join('');
+
+/** ニュース1件をカードで出す。others は同じ話題を報じた他媒体。 */
+function card(n, others = [], attrs = '') {
+  const blurb = blurbFor(n);
+  return `<a class="card" style="--cat:${hue(n)}" href="${esc(n.url)}"
+    target="_blank" rel="noopener nofollow"${attrs}>
+  ${thumb(n)}
+  <div class="card__body">
+    <p class="card__meta"><span>${fmt(n.publishedAt)}</span><span>・</span><span class="src">${esc(n.sourceName)}</span></p>
+    <h3 class="card__title">${esc(n.title)}</h3>
+    ${blurb ? `<p class="card__blurb">${esc(blurb)}</p>` : ''}
+    <div class="card__foot">
+      <span class="chip cat">${esc(n.category.name)}</span>
+      ${areaChips(n)}
+      ${sourceChip(n)}
+      ${n.summarySource === 'ai' ? '<span class="chip">AI要約</span>' : ''}
+      ${others.length ? `<span class="card__more">ほか${others.length}媒体</span>` : ''}
+    </div>
+  </div></a>`;
+}
+
+function heroCard(n, others = []) {
+  const blurb = blurbFor(n);
+  return `<a class="hero" style="--cat:${hue(n)}" href="${esc(n.url)}" target="_blank" rel="noopener nofollow">
+  ${thumb(n, { tall: true })}
+  <div class="hero__body">
+    <p class="card__meta"><span>${fmt(n.publishedAt)}</span><span>・</span><span class="src">${esc(n.sourceName)}</span></p>
+    <h3 class="hero__title">${esc(n.title)}</h3>
+    ${blurb ? `<p class="hero__blurb">${esc(blurb)}</p>` : ''}
+    <div class="card__foot">
+      <span class="chip cat">${esc(n.category.name)}</span>
+      ${areaChips(n)}
+      ${sourceChip(n)}
+      ${others.length ? `<span class="card__more">ほか${others.length}媒体が報じています</span>` : ''}
+    </div>
+  </div></a>`;
+}
+
+const cardGrid = (entries, emptyText = '該当する記事はまだありません。') =>
+  entries.length
+    ? `<div class="cardgrid">${entries.map((e) => card(e.lead ?? e, e.others ?? [])).join('')}</div>`
     : `<p class="empty">${emptyText}</p>`;
+
+const sectionHead = (title, note) =>
+  `<div class="sectionhead"><h2>${title}</h2><span class="rule"></span><span class="stamp">${note}</span></div>`;
+
+/** サイドバー用の細いリスト */
+const miniList = (items) => `<ul style="list-style:none;padding:0;margin:10px 0 0;font-size:13px">
+  ${items.map((n) => `<li style="padding:8px 0;border-top:1px solid var(--line)">
+    <span class="stamp">${fmt(n.publishedAt)}</span><br>
+    <a href="${esc(n.url)}" rel="noopener nofollow" target="_blank">${esc(n.title.slice(0, 44))}${n.title.length > 44 ? '…' : ''}</a>
+  </li>`).join('')}</ul>`;
 
 function statFigures() {
   const m = stats.minpaku;
@@ -126,26 +174,34 @@ function statFigures() {
 // ---------- 各ページ ----------
 function pageHome() {
   const base = '';
+  const top = feed[0];
+  const rest = feed.slice(1, 13);
+  const localNews = feed.filter((e) => e.lead.category.id === 'local').slice(0, 6);
+
   const body = `
-<section style="padding:36px 0 0">
-  <p class="eyebrow">${articles.updatedAt} 更新</p>
+<section style="padding:34px 0 0">
+  <p class="eyebrow">${articles.updatedAt} 更新　／　${feed.length}話題を掲載中</p>
   <h1 class="page-title">${site.tagline}</h1>
-  <p class="lede">観光庁の民泊制度ポータルと報道発表を毎日自動でチェックし、民泊・宿泊事業に関わるものだけを抜き出しています。見出しをクリックすると、発表元のページがそのまま開きます。</p>
+  <p class="lede">観光庁・厚生労働省の発表と、報道各社のニュースを毎日自動で集めています。見出しをクリックすると、発表元や報道元のページがそのまま開きます。</p>
 </section>
 
-<div class="cols">
+${top ? heroCard(top.lead, top.others) : ''}
+
+${sectionHead('新着', `${feed.length}話題`)}
+${cardGrid(rest)}
+<p style="margin-top:16px"><a href="${base}news/">すべての新着を見る →</a></p>
+
+${localNews.length ? `${sectionHead('自治体のルール変更', '条例・規制の動き')}
+${cardGrid(localNews)}` : ''}
+
+${sectionHead('国の発表', '観光庁・厚生労働省・民泊制度ポータル')}
+${cardGrid([...govCore, ...statsFeed].sort((x, y) => (y.publishedAt ?? '').localeCompare(x.publishedAt ?? '')).slice(0, 6))}
+
+<div class="cols" style="margin-top:46px">
   <div>
-    <div class="blockhead"><h2>民泊制度に関わる発表</h2><span class="stamp">${core.length}件</span></div>
-    ${newsList(base, core.slice(0, 10))}
-    <p style="margin-top:14px"><a href="${base}news/">すべて見る →</a></p>
-
-    <div class="blockhead" style="margin-top:44px"><h2>統計・施行状況の更新</h2><span class="stamp">${statsFeed.length}件</span></div>
-    ${newsList(base, statsFeed.slice(0, 6))}
-
-    <div class="blockhead" style="margin-top:44px"><h2>観光・インバウンドの周辺情報</h2><span class="stamp">${around.length}件</span></div>
-    ${newsList(base, around.slice(0, 5))}
+    ${around.length ? `${sectionHead('観光・インバウンドの周辺情報', `${around.length}件`)}
+    ${cardGrid(around.slice(0, 3))}` : ''}
   </div>
-
   <aside class="side">
     <div class="panel">
       <h2>民泊のいまの数字</h2>
@@ -164,20 +220,17 @@ function pageHome() {
     </div>` : ''}
     ${system.length ? `<div class="panel">
       <h2>民泊制度運営システムの告知</h2>
-      <ul style="list-style:none;padding:0;margin:10px 0 0;font-size:13px">
-        ${system.slice(0, 4).map((n) => `<li style="padding:7px 0;border-top:1px solid var(--line)">
-          <span class="stamp">${fmt(n.publishedAt)}</span><br>
-          <a href="${esc(n.url)}" rel="noopener nofollow" target="_blank">${esc(n.title.slice(0, 46))}${n.title.length > 46 ? '…' : ''}</a></li>`).join('')}
-      </ul>
+      ${miniList(system.slice(0, 4))}
     </div>` : ''}
     <div class="panel">
       <h2>エリアから探す</h2>
       <div class="chipgrid" style="margin-top:10px">
         ${(() => {
-          const withNews = prefectures.filter((a) => news.some((n) => n.areas.includes(a)));
-          const major = ['北海道', '東京都', '神奈川県', '千葉県', '群馬県', '長野県', '静岡県', '京都府', '大阪府', '福岡県', '沖縄県'];
-          const shown = [...new Set([...withNews, ...major])].slice(0, 12);
-          return shown.map((a) => `<a class="chip" href="${base}area/${slugs[a]}.html">${a}</a>`).join('');
+          const counts = Object.fromEntries(prefectures.map((a) => [a, news.filter((n) => n.areas.includes(a)).length]));
+          const withNews = prefectures.filter((a) => counts[a] > 0).sort((x, y) => counts[y] - counts[x]);
+          const major = ['東京都', '大阪府', '京都府', '北海道', '沖縄県', '福岡県'];
+          return [...new Set([...withNews, ...major])].slice(0, 14)
+            .map((a) => `<a class="chip" href="${base}area/${slugs[a]}.html">${a}${counts[a] ? ` <span style="color:var(--teal-deep);margin-left:4px">${counts[a]}</span>` : ''}</a>`).join('');
         })()}
         <a class="chip" href="${base}area/">すべての都道府県</a>
       </div>
@@ -189,68 +242,69 @@ function pageHome() {
 
 function pageNews() {
   const base = '../';
-  const payload = news.map((n) => ({
-    t: n.title, u: n.url, d: n.publishedAt, s: n.sourceName, p: n.isPrimary,
-    c: n.category.name, a: n.areas, b: n.businessTypes,
-  }));
+  const LIMIT = 240;
+  const shown = feed.slice(0, LIMIT);
+  const cards = shown.map((e) => {
+    const n = e.lead;
+    const attrs = ` data-cat="${esc(n.category.name)}" data-area="${esc(n.areas.join('|'))}"` +
+      ` data-type="${esc(n.businessTypes.join('|'))}" data-src="${n.isPrimary ? 'gov' : 'press'}"` +
+      ` data-title="${esc(n.title)}"`;
+    return card(n, e.others, attrs);
+  }).join('');
+
   const body = `
-<section style="padding:36px 0 0">
+<section style="padding:34px 0 0">
   <p class="eyebrow">ニュース一覧</p>
-  <h1 class="page-title">行政発表からの新着</h1>
-  <p class="lede">観光庁・国土交通省の発表から、民泊・宿泊事業に関わるものを抜き出した一覧です。カテゴリ・エリア・キーワードで絞り込めます。</p>
+  <h1 class="page-title">新着をまとめて見る</h1>
+  <p class="lede">行政の発表と報道を合わせた一覧です。同じ出来事を複数の媒体が報じている場合は、1枚にまとめて「ほか◯媒体」と表示しています。</p>
 </section>
 
 <div class="filters">
+  <div><label for="f-src">情報の種類</label>
+    <select id="f-src"><option value="">すべて</option><option value="gov">行政の発表</option><option value="press">報道</option></select></div>
   <div><label for="f-cat">カテゴリ</label>
     <select id="f-cat"><option value="">すべて</option>${categoryList.map((c) => `<option>${c.name}</option>`).join('')}</select></div>
   <div><label for="f-area">エリア</label>
     <select id="f-area"><option value="">すべて</option><option>全国</option>${prefectures.map((a) => `<option>${a}</option>`).join('')}</select></div>
-  <div><label for="f-type">事業形態</label>
-    <select id="f-type"><option value="">すべて</option><option>住宅宿泊事業</option><option>簡易宿所</option><option>特区民泊</option></select></div>
-  <div><label for="f-q">キーワード</label><input id="f-q" type="search" placeholder="例：条例、統計、届出"></div>
+  <div><label for="f-q">キーワード</label><input id="f-q" type="search" placeholder="例：条例、新宿、統計"></div>
 </div>
 <p class="count" id="count"></p>
-<div id="list"></div>
+<div class="cardgrid" id="list">${cards}</div>
+<p class="empty" id="empty" hidden>条件に合う記事が見つかりませんでした。条件をゆるめてお試しください。</p>
+${feed.length > LIMIT ? `<p class="stamp" style="margin:26px 0 40px">新しい順に${LIMIT}話題を表示しています（全${feed.length}話題）。</p>` : ''}
 
-<script id="news-data" type="application/json">${JSON.stringify(payload).replace(/</g, '\\u003c')}</script>
 <script>
-(function(){
-  var data = JSON.parse(document.getElementById('news-data').textContent);
-  var els = { cat:document.getElementById('f-cat'), area:document.getElementById('f-area'),
-              type:document.getElementById('f-type'), q:document.getElementById('f-q') };
-  var list = document.getElementById('list'), count = document.getElementById('count');
-  var esc = function(s){ return String(s).replace(/[&<>"]/g, function(c){
-    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+(function () {
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#list .card'));
+  var f = { src: 'f-src', cat: 'f-cat', area: 'f-area', q: 'f-q' };
+  var el = {};
+  Object.keys(f).forEach(function (k) { el[k] = document.getElementById(f[k]); });
+  var count = document.getElementById('count');
+  var empty = document.getElementById('empty');
 
-  function render(){
-    var q = els.q.value.trim();
-    var rows = data.filter(function(n){
-      if (els.cat.value && n.c !== els.cat.value) return false;
-      if (els.area.value && n.a.indexOf(els.area.value) < 0) return false;
-      if (els.type.value && n.b.indexOf(els.type.value) < 0) return false;
-      if (q && n.t.indexOf(q) < 0) return false;
-      return true;
+  function render() {
+    var q = el.q.value.trim();
+    var n = 0;
+    cards.forEach(function (c) {
+      var ok = true;
+      if (el.src.value && c.dataset.src !== el.src.value) ok = false;
+      if (ok && el.cat.value && c.dataset.cat !== el.cat.value) ok = false;
+      if (ok && el.area.value && c.dataset.area.split('|').indexOf(el.area.value) < 0) ok = false;
+      if (ok && q && c.dataset.title.indexOf(q) < 0) ok = false;
+      c.hidden = !ok;
+      if (ok) n++;
     });
-    count.textContent = rows.length + ' 件';
-    list.innerHTML = rows.length ? '<ul class="newslist">' + rows.map(function(n){
-      return '<li><span class="d">' + esc(n.d ? n.d.replace(/-/g,'.').slice(2) : '—') + '</span><div>'
-        + '<h3><a class="ext" target="_blank" rel="noopener nofollow" href="' + esc(n.u) + '">' + esc(n.t) + '</a></h3>'
-        + '<p class="src">出典：' + esc(n.s) + '</p>'
-        + '<div class="tags"><span class="chip cat">' + esc(n.c) + '</span>'
-        + n.a.map(function(a){ return '<span class="chip">' + esc(a) + '</span>'; }).join('')
-        + n.b.map(function(b){ return '<span class="chip">' + esc(b) + '</span>'; }).join('')
-        + (n.p ? '<span class="chip gov">一次情報</span>' : '')
-        + '</div></div></li>';
-    }).join('') + '</ul>' : '<p class="empty">条件に合う記事が見つかりませんでした。条件をゆるめてお試しください。</p>';
+    count.textContent = n + ' 件';
+    empty.hidden = n > 0;
   }
-  Object.keys(els).forEach(function(k){ els[k].addEventListener('input', render); });
+  Object.keys(el).forEach(function (k) { el[k].addEventListener('input', render); });
   var params = new URLSearchParams(location.search);
-  if (params.get('area')) els.area.value = params.get('area');
-  if (params.get('cat')) els.cat.value = params.get('cat');
+  if (params.get('area')) el.area.value = params.get('area');
+  if (params.get('cat')) el.cat.value = params.get('cat');
   render();
 })();
 </script>`;
-  return layout(base, { title: 'ニュース一覧', description: '民泊・宿泊事業に関わる行政発表の一覧。カテゴリ・エリアで絞り込めます。', current: 'news', body });
+  return layout(base, { title: 'ニュース一覧', description: '民泊・宿泊事業に関わる行政発表と報道の一覧。カテゴリ・エリアで絞り込めます。', current: 'news', body });
 }
 
 function pageStats() {
@@ -342,7 +396,8 @@ function pageArea(pref) {
 <div class="cols">
   <div>
     <div class="blockhead"><h2>${esc(pref)}に関わる発表</h2><span class="stamp">${items.length}件</span></div>
-    ${newsList(base, items, `${esc(pref)}を名指しした発表はまだ取得できていません。全国向けの発表は<a href="${base}news/">ニュース一覧</a>をご覧ください。`)}
+
+    ${cardGrid(items.slice(0, 24), `${esc(pref)}を名指しした発表はまだ取得できていません。全国向けの発表は<a href="${base}news/">ニュース一覧</a>をご覧ください。`)}
   </div>
   <aside class="side">
     <div class="panel">
@@ -490,4 +545,4 @@ ${pages.map((u) => `<url><loc>${site.url}/${u}</loc><lastmod>${articles.updatedA
 }
 
 console.log(`生成 ${pages.length + 2} ページ → dist/`);
-console.log(`  ニュース ${news.length}件（うち制度に直結 ${core.length}件） / 解説記事 ${guides.length}本 / エリア ${prefectures.length}件`);
+console.log(`  ニュース ${news.length}件 → ${feed.length}話題（行政 ${govNews.length}件 / 報道 ${pressTopics.length}話題） / 解説記事 ${guides.length}本 / エリア ${prefectures.length}件`);
