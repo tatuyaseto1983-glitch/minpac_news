@@ -31,8 +31,12 @@ ANTHROPIC_API_KEY=sk-... npm run summarize -- --limit 20
 ### 公開のしかた（初回だけ）
 
 1. GitHub のリポジトリ → **Settings → Pages** を開く
-2. **Source** を「**GitHub Actions**」に変更して保存
+2. **Build and deployment** の **Source** を「**GitHub Actions**」に変更
 3. **Actions** タブ →「サイト更新（毎日）」→ **Run workflow** を1回実行
+
+> **この1と2は人の手でやる必要があります。** ワークフローの権限では Pages を新規作成できず、
+> `Create Pages site failed. Error: Resource not accessible by integration` で失敗します。
+> 一度有効にすれば、以降はワークフローだけで更新・公開されます。
 
 数分後、次のURLで誰でも見られるようになります。
 

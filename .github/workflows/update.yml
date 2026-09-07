@@ -38,11 +38,10 @@ jobs:
           git push
         continue-on-error: true
 
+      # Pages の初回の有効化だけは、リポジトリの Settings → Pages で
+      # Source を「GitHub Actions」にする必要があります（ワークフローの権限では作成できません）
       - uses: actions/configure-pages@v5
         id: pages
-        with:
-          # Pages が未設定でも、このワークフローから有効にする
-          enablement: true
 
       - name: サイトを生成
         run: npm run build
