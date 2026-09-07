@@ -1,0 +1,664 @@
+<title>民泊コンパス 画面設計</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --ink:#16211F; --ink-2:#4B5C59; --ink-3:#7F8F8C;
+  --paper:#F1F5F4; --surface:#FFFFFF; --surface-2:#F8FAF9;
+  --line:#D9E3E1; --line-strong:#B9C8C5;
+  --teal:#2EA89E; --teal-deep:#14514C; --teal-soft:#E1F0EE;
+  --amber:#E0A45C; --amber-deep:#8A5A18; --amber-soft:#FAEBD8;
+  --alert:#BF5245; --alert-soft:#FAE6E3;
+  --display:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --body:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:4px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#E7EEEC; --ink-2:#A6B5B2; --ink-3:#768784;
+    --paper:#0D1514; --surface:#161F1E; --surface-2:#1C2726;
+    --line:#2A3634; --line-strong:#3D4D4A;
+    --teal:#48C4B9; --teal-deep:#A6E1DA; --teal-soft:#123330;
+    --amber:#E9B67A; --amber-deep:#F0CB9C; --amber-soft:#33260F;
+    --alert:#E0796B; --alert-soft:#38201C;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E7EEEC; --ink-2:#A6B5B2; --ink-3:#768784;
+  --paper:#0D1514; --surface:#161F1E; --surface-2:#1C2726;
+  --line:#2A3634; --line-strong:#3D4D4A;
+  --teal:#48C4B9; --teal-deep:#A6E1DA; --teal-soft:#123330;
+  --amber:#E9B67A; --amber-deep:#F0CB9C; --amber-soft:#33260F;
+  --alert:#E0796B; --alert-soft:#38201C;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.75;
+  -webkit-font-smoothing:antialiased;font-size:15px}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.35}
+p{margin:0}
+a{color:var(--teal);text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ---------- doc header ---------- */
+.masthead{background:var(--surface);border-bottom:1px solid var(--line)}
+.masthead .wrap{padding-top:56px;padding-bottom:44px;display:flex;flex-direction:column;gap:20px}
+.brandbar{display:flex;height:5px;width:132px;border-radius:99px;overflow:hidden}
+.brandbar i{display:block;height:100%}
+.brandbar i:nth-child(1){background:var(--teal);width:68%}
+.brandbar i:nth-child(2){background:var(--amber);width:32%}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+.masthead h1{font-size:clamp(30px,4.6vw,46px);font-weight:900;letter-spacing:-.01em}
+.masthead .lede{max-width:62ch;color:var(--ink-2);font-size:16px}
+.metagrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:8px}
+.metagrid div{background:var(--surface);padding:12px 14px}
+.metagrid dt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase}
+.metagrid dd{margin:2px 0 0;font-size:14px;font-weight:700;font-family:var(--display)}
+
+/* ---------- doc nav ---------- */
+.docnav{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--surface) 90%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.docnav .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+.docnav a{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);text-decoration:none;white-space:nowrap;
+  padding:5px 10px;border-radius:99px}
+.docnav a:hover{background:var(--teal-soft);color:var(--teal-deep)}
+
+/* ---------- sections ---------- */
+section{padding:60px 0 8px}
+.sechead{display:flex;gap:16px;align-items:flex-start;margin-bottom:8px}
+.snum{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--paper);background:var(--teal-deep);
+  padding:3px 9px;border-radius:99px;flex:none;margin-top:6px}
+.sechead h2{font-size:26px;font-weight:800}
+.sechead .sub{color:var(--ink-3);font-family:var(--mono);font-size:11px;letter-spacing:.1em}
+.note{max-width:66ch;color:var(--ink-2);margin:10px 0 26px}
+
+/* ---------- mock frame ---------- */
+.frame{border:1px solid var(--line-strong);background:var(--surface);border-radius:var(--r);overflow:hidden;
+  box-shadow:0 18px 44px -28px rgba(10,40,38,.5)}
+.chrome{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--surface-2);
+  border-bottom:1px solid var(--line)}
+.dot{width:9px;height:9px;border-radius:99px;background:var(--line-strong)}
+.url{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);background:var(--surface);border:1px solid var(--line);
+  padding:2px 10px;border-radius:99px;margin-left:6px}
+.mock{font-size:13px;line-height:1.7}
+.mock .pad{padding:20px 22px}
+
+/* site chrome inside mock */
+.sitebar{display:flex;align-items:center;gap:18px;padding:12px 22px;border-bottom:1px solid var(--line)}
+.logo{font-family:var(--display);font-weight:900;font-size:16px;letter-spacing:-.01em;display:flex;align-items:center;gap:7px}
+.logo .mk{width:16px;height:16px;border-radius:3px;background:linear-gradient(135deg,var(--teal) 55%,var(--amber) 55%)}
+.sitenav{display:flex;gap:14px;font-size:12px;color:var(--ink-2);flex-wrap:wrap}
+.sitenav b{color:var(--teal-deep);border-bottom:2px solid var(--teal);padding-bottom:2px}
+.searchbox{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--ink-3);border:1px solid var(--line);
+  border-radius:99px;padding:4px 12px}
+.cta-sm{background:var(--teal);color:#fff;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:3px;
+  font-family:var(--display)}
+
+/* labels & chips */
+.chip{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;
+  padding:2px 7px;border-radius:2px;border:1px solid var(--line-strong);color:var(--ink-2);white-space:nowrap}
+.chip.cat{background:var(--teal-soft);border-color:transparent;color:var(--teal-deep);font-weight:700}
+.chip.area{background:transparent}
+.chip.new{background:var(--alert-soft);border-color:transparent;color:var(--alert);font-weight:700}
+.chip.gov{background:var(--amber-soft);border-color:transparent;color:var(--amber-deep);font-weight:700}
+
+/* lead story */
+.lead{display:grid;grid-template-columns:1.35fr 1fr;gap:26px;align-items:start}
+.lead .thumb{aspect-ratio:24/9;background:
+   repeating-linear-gradient(135deg,var(--teal-soft) 0 12px,transparent 12px 24px),var(--surface-2);
+  border:1px solid var(--line);display:flex;align-items:flex-end;justify-content:space-between;padding:10px;gap:8px}
+.lead .thumb .ph{font-family:var(--mono);font-size:10px;color:var(--ink-3)}
+.lead h3{font-size:21px;font-weight:800;letter-spacing:-.01em;margin:10px 0 6px}
+.summary{border-left:3px solid var(--amber);padding:2px 0 2px 12px;color:var(--ink-2);font-size:12.5px;line-height:1.85}
+.byline{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+
+/* list */
+.stack{display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:76px 1fr;gap:14px;padding:13px 0;border-top:1px solid var(--line)}
+.row .d{font-family:var(--mono);font-size:11px;color:var(--ink-3);padding-top:2px;font-variant-numeric:tabular-nums}
+.row h4{font-size:14px;font-weight:700;margin-bottom:4px}
+.row .tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.blockhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--ink);
+  padding-bottom:7px;margin-bottom:2px}
+.blockhead h3{font-size:14px;font-weight:800;letter-spacing:.02em}
+.blockhead span{font-family:var(--mono);font-size:10px;color:var(--ink-3)}
+
+/* numbers */
+.figs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.figs div{background:var(--surface);padding:12px 14px}
+.figs dt{font-size:10.5px;color:var(--ink-3);font-family:var(--mono);letter-spacing:.06em}
+.figs dd{margin:3px 0 0;font-family:var(--display);font-weight:900;font-size:22px;font-variant-numeric:tabular-nums;
+  letter-spacing:-.02em}
+.figs .delta{font-family:var(--mono);font-size:10.5px;color:var(--teal);font-weight:700}
+
+/* annotation */
+.anno{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.anno li{list-style:none;border-top:2px solid var(--teal);padding-top:10px}
+.anno .k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--teal-deep);display:block;margin-bottom:3px}
+.anno p{font-size:13px;color:var(--ink-2);line-height:1.7}
+ul.anno{padding:0;margin:18px 0 0}
+
+.callout{background:var(--amber-soft);border-left:3px solid var(--amber);padding:12px 16px;margin-top:20px;
+  font-size:13.5px;color:var(--ink)}
+.callout b{font-family:var(--display)}
+.samplenote{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-top:8px}
+.scroller{overflow-x:auto}
+@media(max-width:820px){
+  .lead{grid-template-columns:1fr}
+  .figs{grid-template-columns:repeat(2,1fr)}
+  .searchbox{display:none}
+}
+</style>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="brandbar"><i></i><i></i></div>
+    <div>
+      <p class="eyebrow">SUMUS ／ 新規事業支援　画面設計案 v1.0</p>
+      <h1>民泊コンパス 画面設計</h1>
+    </div>
+    <p class="lede">民泊・簡易宿所・旅館業法の情報をあつめたニュースサイトの画面イメージです。「これから民泊を始める人が、自分の地域のルールと最新の制度変更に3クリックで届く」ことを設計の軸にしています。</p>
+    <dl class="metagrid">
+      <div><dt>Site</dt><dd>民泊コンパス（仮）</dd></div>
+      <div><dt>Primary user</dt><dd>これから始める人</dd></div>
+      <div><dt>Screens</dt><dd>6画面（第1段階）</dd></div>
+      <div><dt>Palette</dt><dd>Teal / Amber</dd></div>
+    </dl>
+  </div>
+</header>
+
+<nav class="docnav"><div class="wrap">
+  <a href="#p">設計の3つの決めごと</a>
+  <a href="#s1">01 トップ</a>
+  <a href="#s2">02 記事一覧</a>
+  <a href="#s3">03 記事詳細</a>
+  <a href="#s4">04 エリア別</a>
+  <a href="#s5">05 データ</a>
+  <a href="#s6">06 スマホ</a>
+  <a href="#tk">配色とフォント</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="p">
+  <div class="sechead"><span class="snum">00</span><div>
+    <p class="sub">DESIGN PRINCIPLES</p><h2>設計の3つの決めごと</h2></div></div>
+  <p class="note">見た目より先に、この3つを守ることを決めています。ニュースサイトは「きれいさ」より「あとから困らないこと」が価値になるためです。</p>
+  <ul class="anno">
+    <li><span class="k">01 SOURCE</span><p><b>出典は必ず1クリック先に置く。</b>「観光庁が○月○日に出した資料」まで読者が自分で確認できる状態にします。伝聞で終わらせません。</p></li>
+    <li><span class="k">02 DATE</span><p><b>最終確認日を全ページに出す。</b>制度の情報は古いと事故になります。食品の賞味期限と同じ扱いにします。</p></li>
+    <li><span class="k">03 AREA</span><p><b>地域で絞れる。</b>民泊のルールは市区町村で変わります。「自分の市はどうか」に最短で着地させます。</p></li>
+  </ul>
+</section>
+
+<section id="s1">
+  <div class="sechead"><span class="snum">01</span><div>
+    <p class="sub">HOME</p><h2>トップページ</h2></div></div>
+  <p class="note">上から順に「いま一番大事な1本」→「国の発表（一次情報）」→「数字」→「地域から探す」。トップは読ませる場所ではなく、行き先を選ばせる場所として設計します。</p>
+
+  <div class="frame">
+    <div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i>
+      <span class="url">minpaku-compass.jp</span></div>
+    <div class="mock">
+      <div class="sitebar">
+        <div class="logo"><span class="mk"></span>民泊コンパス</div>
+        <div class="sitenav"><b>ホーム</b><span>法制度</span><span>自治体ルール</span><span>統計データ</span><span>開業実務</span><span>補助金</span><span>用語集</span></div>
+        <span class="searchbox">キーワードで探す</span>
+      </div>
+
+      <div class="pad" style="display:flex;flex-direction:column;gap:26px">
+
+        <div class="lead">
+          <div>
+            <div class="thumb"><span class="chip gov">一次情報</span><span class="ph">記事メイン画像（自社撮影／提供素材）</span></div>
+            <div style="display:flex;gap:6px;margin-top:10px"><span class="chip cat">法制度・法改正</span><span class="chip new">速報</span></div>
+            <h3>住宅宿泊事業の届出手続きが一部見直しへ　消防関係書類の提出方法が変わります</h3>
+            <div class="summary">
+              ・変更されるのは「消防法令適合通知書」の提出タイミングです。<br>
+              ・すでに届出済みの住宅は、今回の対象外です。<br>
+              ・これから届け出る方は、消防への事前相談を早めに始めるのが安全です。
+            </div>
+            <div class="byline"><span>2026.09.05</span><span>出典：観光庁 報道発表</span><span>最終確認 2026.09.06</span></div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <div>
+              <div class="blockhead"><h3>国・自治体の発表</h3><span>自動取得 ／ 毎日更新</span></div>
+              <div class="stack">
+                <div class="row"><span class="d">09.05</span><div><h4>宿泊旅行統計調査（2026年7月・第2次速報）</h4><div class="tags"><span class="chip gov">観光庁</span><span class="chip">統計</span></div></div></div>
+                <div class="row"><span class="d">09.03</span><div><h4>旅館業法の運用に関する通知の改正について</h4><div class="tags"><span class="chip gov">厚生労働省</span></div></div></div>
+                <div class="row"><span class="d">09.01</span><div><h4>住宅宿泊事業法の施行状況（届出住宅数）を更新</h4><div class="tags"><span class="chip gov">民泊制度ポータル</span></div></div></div>
+              </div>
+            </div>
+            <div style="background:var(--teal-soft);padding:14px 16px">
+              <p style="font-family:var(--display);font-weight:800;font-size:14px;color:var(--teal-deep)">はじめての方へ</p>
+              <p style="font-size:12.5px;color:var(--ink-2);margin-top:4px">「住宅宿泊事業」「簡易宿所」「特区民泊」の違いを、図で3分で。</p>
+              <p style="margin-top:10px"><span class="cta-sm">ちがいを見る</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="blockhead"><h3>いまの数字</h3><span>出典：観光庁／e-Stat　最終更新 2026.09.01</span></div>
+          <dl class="figs" style="margin-top:14px">
+            <div><dt>全国 届出住宅数</dt><dd>28,410</dd><span class="delta">前月比 +312</span></div>
+            <div><dt>簡易宿所 営業許可</dt><dd>41,205</dd><span class="delta">前年比 +4.1%</span></div>
+            <div><dt>延べ宿泊者数（7月）</dt><dd>5,982万</dd><span class="delta">前年比 +6.8%</span></div>
+            <div><dt>うち外国人</dt><dd>1,431万</dd><span class="delta">前年比 +12.4%</span></div>
+          </dl>
+          <p class="samplenote">※ 本画面の数値はレイアウト確認用のサンプルです。実装時は取得したデータに置き換わります。</p>
+        </div>
+
+        <div>
+          <div class="blockhead"><h3>地域から探す</h3><span>47都道府県 ／ 主要市区町村</span></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">
+            <span class="chip area">北海道</span><span class="chip area">東京都</span><span class="chip area">神奈川県</span>
+            <span class="chip area">千葉県</span><span class="chip area">群馬県</span><span class="chip area">長野県</span>
+            <span class="chip area">京都府</span><span class="chip area">大阪府</span><span class="chip area">福岡県</span>
+            <span class="chip area">沖縄県</span><span class="chip area">…すべて見る</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <ul class="anno">
+    <li><span class="k">一番上の1本</span><p>編集部が選んだ「今週これだけは」を固定。速報のときだけ赤いラベルが付きます。</p></li>
+    <li><span class="k">3行要約</span><p>本文を読まなくても判断できるように、必ず箇条書き3行。山吹色の縦線が要約の目印です。</p></li>
+    <li><span class="k">一次情報の列</span><p>自動で取り込んだ行政発表をそのまま時系列で。編集の手が入っていないことが分かる置き方にします。</p></li>
+    <li><span class="k">数字ブロック</span><p>更新日を必ず添える。数字だけが独り歩きしないようにします。</p></li>
+  </ul>
+</section>
+
+<section id="s2">
+  <div class="sechead"><span class="snum">02</span><div>
+    <p class="sub">ARTICLE LIST</p><h2>記事一覧（絞り込み）</h2></div></div>
+  <p class="note">絞り込みは「どこで（エリア）」「どの制度で（事業形態）」「何を知りたいか（カテゴリ）」の3軸だけ。項目を増やすと誰も使わなくなるため、あえて絞ります。</p>
+
+  <div class="frame">
+    <div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i>
+      <span class="url">minpaku-compass.jp/articles?area=gunma&type=minpaku</span></div>
+    <div class="mock">
+      <div class="sitebar">
+        <div class="logo"><span class="mk"></span>民泊コンパス</div>
+        <div class="sitenav"><span>ホーム</span><b>記事一覧</b><span>自治体ルール</span><span>統計データ</span></div>
+      </div>
+      <div class="pad">
+        <p class="eyebrow" style="margin-bottom:6px">記事一覧</p>
+        <h3 style="font-size:20px;font-weight:800">群馬県 ×　住宅宿泊事業　の記事　<span style="font-family:var(--mono);font-size:13px;color:var(--ink-3)">18件</span></h3>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:16px">
+          <div style="background:var(--surface);padding:10px 13px">
+            <dt style="font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:.12em">エリア</dt>
+            <p style="font-weight:700;font-family:var(--display);font-size:14px">群馬県 ／ すべての市町村 ▾</p></div>
+          <div style="background:var(--surface);padding:10px 13px">
+            <dt style="font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:.12em">事業形態</dt>
+            <p style="font-weight:700;font-family:var(--display);font-size:14px">住宅宿泊事業（民泊） ▾</p></div>
+          <div style="background:var(--surface);padding:10px 13px">
+            <dt style="font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:.12em">カテゴリ</dt>
+            <p style="font-weight:700;font-family:var(--display);font-size:14px">指定なし ▾</p></div>
+          <div style="background:var(--surface);padding:10px 13px">
+            <dt style="font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:.12em">並び順</dt>
+            <p style="font-weight:700;font-family:var(--display);font-size:14px">新しい順 ▾</p></div>
+        </div>
+
+        <div class="stack" style="margin-top:22px">
+          <div class="row"><span class="d">09.04</span><div>
+            <h4>群馬県が住宅宿泊事業の届出手引きを改訂　事前相談の窓口が変わりました</h4>
+            <p style="font-size:12.5px;color:var(--ink-2)">届出前の相談先が保健福祉事務所に一本化されます。すでに相談中の案件は引き継がれます。</p>
+            <div class="tags"><span class="chip cat">自治体ルール</span><span class="chip">群馬県</span><span class="chip">住宅宿泊事業</span><span class="chip gov">一次情報あり</span></div></div></div>
+          <div class="row"><span class="d">08.28</span><div>
+            <h4>温泉地での一棟貸し、消防設備で見落としやすい3点</h4>
+            <p style="font-size:12.5px;color:var(--ink-2)">延べ面積と就寝人数で必要な設備が変わります。着工前の確認が結果的に一番安く済みます。</p>
+            <div class="tags"><span class="chip cat">開業実務</span><span class="chip">全国</span><span class="chip">簡易宿所</span></div></div></div>
+          <div class="row"><span class="d">08.21</span><div>
+            <h4>空き家を活用した宿泊施設への補助金（2026年度・第2次募集）</h4>
+            <p style="font-size:12.5px;color:var(--ink-2)">改修費の一部が対象。申請は着工前に限られるため、スケジュールに注意が必要です。</p>
+            <div class="tags"><span class="chip cat">補助金・支援制度</span><span class="chip">群馬県</span><span class="chip new">締切近い</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="anno">
+    <li><span class="k">絞り込みは3軸＋並び順</span><p>選んだ条件はURLに残るので、そのまま顧客に送れます。営業現場で使える形にします。</p></li>
+    <li><span class="k">一次情報あり</span><p>行政の元資料へのリンクを持つ記事だけに付くラベル。信頼度の目印になります。</p></li>
+    <li><span class="k">締切近い</span><p>補助金など期限のある記事は、締切30日前から自動でラベルが付きます。</p></li>
+  </ul>
+</section>
+
+<section id="s3">
+  <div class="sechead"><span class="snum">03</span><div>
+    <p class="sub">ARTICLE DETAIL</p><h2>記事詳細</h2></div></div>
+  <p class="note">記事の入り口は必ず「つまりどうなるか」。読み終えたところに、次の行き先（自分の地域のルール／無料相談）を置きます。</p>
+
+  <div class="frame">
+    <div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i>
+      <span class="url">minpaku-compass.jp/articles/2026-09-05-shobo-tsuchi</span></div>
+    <div class="mock"><div class="pad" style="max-width:760px">
+      <div style="display:flex;gap:6px"><span class="chip cat">法制度・法改正</span><span class="chip">全国</span><span class="chip">住宅宿泊事業</span></div>
+      <h3 style="font-size:24px;font-weight:900;margin:12px 0 10px;letter-spacing:-.01em">住宅宿泊事業の届出手続きが一部見直しへ<br>消防関係書類の提出方法が変わります</h3>
+      <div class="byline" style="border-bottom:1px solid var(--line);padding-bottom:14px">
+        <span>公開 2026.09.05</span><span>最終確認 2026.09.06</span><span>編集部</span></div>
+
+      <div style="background:var(--surface-2);border-left:3px solid var(--amber);padding:14px 18px;margin:20px 0">
+        <p style="font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.06em;color:var(--amber-deep)">つまり、どうなる？</p>
+        <p style="font-size:13.5px;margin-top:8px;color:var(--ink)">
+          1. 消防法令適合通知書の提出タイミングが早まります。<br>
+          2. すでに届出が済んでいる住宅は対象外です。<br>
+          3. これから始める方は、物件を決めた直後に消防へ相談するのが安全です。</p>
+      </div>
+
+      <p style="font-size:14px;color:var(--ink-2)">観光庁は9月5日、住宅宿泊事業の届出手続きに関する運用の見直しを公表しました。これまでは届出と前後して提出していた消防関係の書類を、届出の受理前にそろえる運用に統一する内容です。</p>
+      <p style="font-size:14px;color:var(--ink-2);margin-top:14px">たとえるなら、車の登録に必要な車検証を「登録と同時」ではなく「登録の前」に用意しておく、という変更です。やることは増えませんが、順番が変わります。</p>
+
+      <div style="border:1px solid var(--line);margin-top:24px">
+        <p style="background:var(--surface-2);border-bottom:1px solid var(--line);padding:8px 14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--ink-3)">SOURCES ／ 出典</p>
+        <div class="stack" style="padding:4px 14px 12px">
+          <div class="row" style="grid-template-columns:64px 1fr;border-top:none"><span class="d">一次</span>
+            <div><h4>観光庁 報道発表「住宅宿泊事業の届出手続の運用について」（2026.09.05）</h4>
+            <p style="font-size:12px;color:var(--teal)">https://www.mlit.go.jp/kankocho/…</p></div></div>
+          <div class="row" style="grid-template-columns:64px 1fr"><span class="d">参考</span>
+            <div><h4>民泊制度ポータルサイト「minpaku」／ 届出の流れ</h4>
+            <p style="font-size:12px;color:var(--teal)">https://www.mlit.go.jp/kankocho/minpaku/</p></div></div>
+        </div>
+      </div>
+
+      <div style="background:var(--alert-soft);padding:11px 15px;margin-top:16px;font-size:12.5px;color:var(--ink-2)">
+        最終的な判断は、必ず物件所在地の管轄窓口（保健所・消防署・建築指導課）へご確認ください。本記事は一般的な情報提供です。</div>
+
+      <div style="border:1px solid var(--teal);margin-top:26px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:18px 20px">
+        <div><p style="font-family:var(--display);font-weight:800;font-size:15px">この物件で開業できるか、無料で確認できます</p>
+        <p style="font-size:12.5px;color:var(--ink-2);margin-top:4px">住所と建物の情報から、想定される制度と必要な手続きをお伝えします。</p></div>
+        <span class="cta-sm" style="padding:9px 18px;font-size:13px">無料で相談する</span>
+      </div>
+
+      <div style="margin-top:28px">
+        <div class="blockhead"><h3>あわせて読む</h3><span>同じエリア・同じ制度</span></div>
+        <div class="stack">
+          <div class="row"><span class="d">08.19</span><div><h4>届出前にそろえる書類チェックリスト（住宅宿泊事業）</h4></div></div>
+          <div class="row"><span class="d">07.30</span><div><h4>用語集：消防法令適合通知書とは</h4></div></div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <ul class="anno">
+    <li><span class="k">つまり、どうなる？</span><p>全記事の共通パーツ。ここだけ読めば行動が決まる粒度で書きます。</p></li>
+    <li><span class="k">出典ブロック</span><p>「一次／参考」を分けて表示。行政の元資料があるかが一目で分かります。</p></li>
+    <li><span class="k">免責の常設</span><p>最終判断は管轄窓口へ、を全記事に固定。メディアと個別相談の線引きを明確にします。</p></li>
+    <li><span class="k">CTA の位置</span><p>読み終えた直後にだけ置く。記事の途中には挟みません（信頼を優先）。</p></li>
+  </ul>
+</section>
+
+<section id="s4">
+  <div class="sechead"><span class="snum">04</span><div>
+    <p class="sub">AREA PAGE</p><h2>エリア別ページ（自治体ルール）</h2></div></div>
+  <p class="note">このサイトの中心になる画面です。「群馬県 民泊 条例」と検索した人が最初に着地する場所を想定しています。<br>制度ごとに「できる／条件つき／できない」を並べ、根拠と担当課までひとまとめにします。</p>
+
+  <div class="frame">
+    <div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i>
+      <span class="url">minpaku-compass.jp/area/gunma/kusatsu</span></div>
+    <div class="mock">
+      <div class="sitebar">
+        <div class="logo"><span class="mk"></span>民泊コンパス</div>
+        <div class="sitenav"><span>ホーム</span><span>記事一覧</span><b>自治体ルール</b><span>統計データ</span></div>
+      </div>
+      <div class="pad">
+        <p class="eyebrow">群馬県 ＞ 吾妻郡草津町</p>
+        <h3 style="font-size:24px;font-weight:900;margin:6px 0 4px">草津町で民泊はできる？</h3>
+        <p style="font-family:var(--mono);font-size:11px;color:var(--ink-3)">最終確認 2026.08.28　／　確認方法：町公式サイト＋担当課への電話確認</p>
+
+        <div class="scroller" style="margin-top:20px">
+        <table style="border-collapse:collapse;width:100%;min-width:620px;font-size:13px">
+          <thead><tr style="background:var(--surface-2)">
+            <th style="text-align:left;padding:9px 12px;border:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-3);font-weight:400">制度</th>
+            <th style="text-align:left;padding:9px 12px;border:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-3);font-weight:400">可否</th>
+            <th style="text-align:left;padding:9px 12px;border:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-3);font-weight:400">主な条件</th>
+            <th style="text-align:left;padding:9px 12px;border:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-3);font-weight:400">窓口</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:11px 12px;border:1px solid var(--line);font-weight:700;font-family:var(--display)">住宅宿泊事業<br><span style="font-weight:400;font-size:11px;color:var(--ink-3)">年180日まで</span></td>
+              <td style="padding:11px 12px;border:1px solid var(--line)"><span class="chip" style="background:var(--amber-soft);border-color:transparent;color:var(--amber-deep);font-weight:700">条件つき</span></td>
+              <td style="padding:11px 12px;border:1px solid var(--line);color:var(--ink-2)">区域・期間の上乗せ規制の有無を要確認。届出前に事前相談が必要。</td>
+              <td style="padding:11px 12px;border:1px solid var(--line);color:var(--ink-2)">県 保健福祉事務所</td></tr>
+            <tr><td style="padding:11px 12px;border:1px solid var(--line);font-weight:700;font-family:var(--display)">簡易宿所<br><span style="font-weight:400;font-size:11px;color:var(--ink-3)">日数制限なし</span></td>
+              <td style="padding:11px 12px;border:1px solid var(--line)"><span class="chip cat">できる</span></td>
+              <td style="padding:11px 12px;border:1px solid var(--line);color:var(--ink-2)">旅館業の営業許可が必要。用途地域・消防・建築の3点セットを事前に確認。</td>
+              <td style="padding:11px 12px;border:1px solid var(--line);color:var(--ink-2)">県 保健福祉事務所</td></tr>
+            <tr><td style="padding:11px 12px;border:1px solid var(--line);font-weight:700;font-family:var(--display)">特区民泊</td>
+              <td style="padding:11px 12px;border:1px solid var(--line)"><span class="chip" style="color:var(--ink-3)">対象外</span></td>
+              <td style="padding:11px 12px;border:1px solid var(--line);color:var(--ink-2)">当該地域は国家戦略特区の対象ではありません。</td>
+              <td style="padding:11px 12px;border:1px solid var(--line);color:var(--ink-3)">—</td></tr>
+          </tbody>
+        </table></div>
+        <p class="samplenote">※ 表の内容はレイアウト確認用のサンプルです。実際の運用では、条例・要綱の原文リンクと確認日を必ず添えます。</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:26px">
+          <div>
+            <div class="blockhead"><h3>根拠となる資料</h3><span>原文リンク</span></div>
+            <div class="stack">
+              <div class="row" style="grid-template-columns:1fr"><div><h4>群馬県住宅宿泊事業の適正な実施の確保に関する条例</h4><p style="font-size:12px;color:var(--teal)">pref.gunma.jp/…</p></div></div>
+              <div class="row" style="grid-template-columns:1fr"><div><h4>草津町 旅館業に関する指導要綱</h4><p style="font-size:12px;color:var(--teal)">town.kusatsu.gunma.jp/…</p></div></div>
+            </div>
+          </div>
+          <div>
+            <div class="blockhead"><h3>この地域の関連記事</h3><span>4件</span></div>
+            <div class="stack">
+              <div class="row"><span class="d">09.04</span><div><h4>群馬県が届出の手引きを改訂</h4></div></div>
+              <div class="row"><span class="d">06.12</span><div><h4>温泉地の一棟貸しで必要になる消防設備</h4></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="anno">
+    <li><span class="k">3制度の横並び</span><p>「民泊ができるか」ではなく「どの制度なら成り立つか」を見せる。ここが他メディアとの差になります。</p></li>
+    <li><span class="k">確認日と確認方法</span><p>誰がいつどうやって確認したかを明記。電話確認まで書くのが信頼につながります。</p></li>
+    <li><span class="k">検索の受け皿</span><p>市区町村ごとにページを持つことで、「○○市 民泊 条例」の検索流入を面で取ります。</p></li>
+  </ul>
+</section>
+
+<section id="s5">
+  <div class="sechead"><span class="snum">05</span><div>
+    <p class="sub">DATA</p><h2>データページ</h2></div></div>
+  <p class="note">グラフは1画面に2つまで。「全国の推移」と「地域の比較」だけに絞り、それ以上は個別ページへ送ります。</p>
+
+  <div class="frame">
+    <div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i>
+      <span class="url">minpaku-compass.jp/data</span></div>
+    <div class="mock"><div class="pad">
+      <p class="eyebrow">統計データ</p>
+      <h3 style="font-size:22px;font-weight:900;margin:6px 0 2px">民泊のいまを数字で見る</h3>
+      <p style="font-family:var(--mono);font-size:11px;color:var(--ink-3)">出典：観光庁 民泊制度ポータルサイト／e-Stat 宿泊旅行統計調査　最終更新 2026.09.01</p>
+
+      <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:26px;margin-top:22px">
+        <div>
+          <div class="blockhead"><h3>全国の届出住宅数の推移</h3><span>月次 ／ 直近12か月</span></div>
+          <div class="scroller" style="margin-top:14px">
+          <svg viewBox="0 0 640 210" width="100%" style="min-width:420px;display:block" role="img" aria-label="全国の届出住宅数の推移（2025年10月〜2026年9月、サンプル値）">
+            <g stroke="var(--line)" stroke-width="1">
+              <line x1="44" y1="176" x2="620" y2="176"></line>
+              <line x1="44" y1="112" x2="620" y2="112"></line>
+              <line x1="44" y1="48" x2="620" y2="48"></line>
+            </g>
+            <g fill="var(--ink-3)" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="end">
+              <text x="38" y="180">24,000</text>
+              <text x="38" y="116">26,000</text>
+              <text x="38" y="52">28,000</text>
+            </g>
+            <path fill="var(--teal)" fill-opacity="0.13" stroke="none"
+              d="M44,150.4 L94.2,140.8 L144.4,131.2 L194.5,115.2 L244.7,102.4 L294.9,92.8 L345.1,80 L395.3,70.4 L445.5,60.8 L495.6,49.6 L545.8,44.8 L596,34.9 L596,176 L44,176 Z"></path>
+            <path fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"
+              d="M44,150.4 L94.2,140.8 L144.4,131.2 L194.5,115.2 L244.7,102.4 L294.9,92.8 L345.1,80 L395.3,70.4 L445.5,60.8 L495.6,49.6 L545.8,44.8 L596,34.9"></path>
+            <circle cx="596" cy="34.9" r="4.5" fill="var(--amber)" stroke="var(--surface)" stroke-width="2"></circle>
+            <text x="590" y="24" fill="var(--ink)" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" text-anchor="end">28,410</text>
+            <g fill="var(--ink-3)" font-family="JetBrains Mono, monospace" font-size="10">
+              <text x="44" y="198" text-anchor="start">2025/10</text>
+              <text x="194.5" y="198" text-anchor="middle">2026/01</text>
+              <text x="345.1" y="198" text-anchor="middle">2026/04</text>
+              <text x="495.6" y="198" text-anchor="middle">2026/07</text>
+              <text x="620" y="198" text-anchor="end">2026/09</text>
+            </g>
+          </svg></div>
+        </div>
+
+        <div>
+          <div class="blockhead"><h3>都道府県別 上位</h3><span>届出住宅数</span></div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:14px;font-size:12px">
+            <div><div style="display:flex;justify-content:space-between"><span>東京都</span><b style="font-family:var(--mono);font-variant-numeric:tabular-nums">8,140</b></div>
+              <div style="height:6px;background:var(--line)"><i style="display:block;height:100%;width:100%;background:var(--teal)"></i></div></div>
+            <div><div style="display:flex;justify-content:space-between"><span>大阪府</span><b style="font-family:var(--mono);font-variant-numeric:tabular-nums">5,020</b></div>
+              <div style="height:6px;background:var(--line)"><i style="display:block;height:100%;width:62%;background:var(--teal)"></i></div></div>
+            <div><div style="display:flex;justify-content:space-between"><span>北海道</span><b style="font-family:var(--mono);font-variant-numeric:tabular-nums">3,410</b></div>
+              <div style="height:6px;background:var(--line)"><i style="display:block;height:100%;width:42%;background:var(--teal)"></i></div></div>
+            <div><div style="display:flex;justify-content:space-between"><span>京都府</span><b style="font-family:var(--mono);font-variant-numeric:tabular-nums">1,880</b></div>
+              <div style="height:6px;background:var(--line)"><i style="display:block;height:100%;width:23%;background:var(--teal)"></i></div></div>
+            <div><div style="display:flex;justify-content:space-between"><span>沖縄県</span><b style="font-family:var(--mono);font-variant-numeric:tabular-nums">1,520</b></div>
+              <div style="height:6px;background:var(--line)"><i style="display:block;height:100%;width:19%;background:var(--teal)"></i></div></div>
+          </div>
+          <p style="margin-top:14px"><span class="chip">CSVをダウンロード</span></p>
+        </div>
+      </div>
+      <p class="samplenote">※ グラフの数値はレイアウト確認用のサンプルです。</p>
+    </div></div>
+  </div>
+
+  <ul class="anno">
+    <li><span class="k">出典と更新日を上部に</span><p>グラフより先に出典が目に入る配置。データメディアとしての姿勢を示します。</p></li>
+    <li><span class="k">直近値を強調</span><p>線の終点だけ山吹色。「いまいくつか」が一瞬で読めます。</p></li>
+    <li><span class="k">CSV配布</span><p>士業・金融機関の利用を想定。引用されることで被リンクが増えます。</p></li>
+  </ul>
+</section>
+
+<section id="s6">
+  <div class="sechead"><span class="snum">06</span><div>
+    <p class="sub">MOBILE</p><h2>スマホ表示</h2></div></div>
+  <p class="note">閲覧の7割前後はスマホの想定です。上から「速報」「今日の一次情報」「地域を選ぶ」の順に積み、画面下に相談ボタンを固定します。</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;max-width:760px">
+    <div class="frame" style="border-radius:14px">
+      <div class="chrome" style="justify-content:center"><span class="url">minpaku-compass.jp</span></div>
+      <div class="mock" style="font-size:12px">
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line)">
+          <div class="logo" style="font-size:14px"><span class="mk"></span>民泊コンパス</div>
+          <span style="margin-left:auto;font-family:var(--mono);font-size:14px;color:var(--ink-2)">☰</span></div>
+        <div style="padding:14px;display:flex;flex-direction:column;gap:16px">
+          <div>
+            <span class="chip new">速報</span>
+            <h4 style="font-size:15px;font-weight:800;margin:8px 0 6px;line-height:1.5">届出手続きが一部見直しへ　消防書類の提出が前倒しに</h4>
+            <div class="summary" style="font-size:11.5px">・対象はこれから届け出る住宅<br>・すでに届出済みは対象外</div>
+            <p style="font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-top:8px">2026.09.05 ／ 観光庁</p>
+          </div>
+          <div>
+            <div class="blockhead" style="border-bottom-width:1px"><h3 style="font-size:12px">今日の一次情報</h3></div>
+            <div class="stack">
+              <div class="row" style="grid-template-columns:52px 1fr;padding:9px 0"><span class="d" style="font-size:10px">09.05</span><div><h4 style="font-size:12px">宿泊旅行統計（7月・第2次速報）</h4></div></div>
+              <div class="row" style="grid-template-columns:52px 1fr;padding:9px 0"><span class="d" style="font-size:10px">09.03</span><div><h4 style="font-size:12px">旅館業法の通知改正について</h4></div></div>
+            </div>
+          </div>
+          <div style="background:var(--teal-soft);padding:12px">
+            <p style="font-family:var(--display);font-weight:800;font-size:12.5px;color:var(--teal-deep)">地域を選ぶ</p>
+            <p style="font-size:11.5px;color:var(--ink-2);margin-top:3px">お住まいの市区町村のルールを見る</p>
+          </div>
+        </div>
+        <div style="border-top:1px solid var(--line);padding:9px 14px;display:flex;gap:8px;align-items:center;background:var(--surface-2)">
+          <span style="font-size:11px;color:var(--ink-2)">開業できるか無料診断</span>
+          <span class="cta-sm" style="margin-left:auto">相談する</span></div>
+      </div>
+    </div>
+
+    <div class="frame" style="border-radius:14px">
+      <div class="chrome" style="justify-content:center"><span class="url">…/area/gunma/kusatsu</span></div>
+      <div class="mock" style="font-size:12px">
+        <div style="padding:14px">
+          <p class="eyebrow" style="font-size:10px">群馬県 ＞ 草津町</p>
+          <h4 style="font-size:16px;font-weight:900;margin:5px 0 3px">草津町で民泊はできる？</h4>
+          <p style="font-family:var(--mono);font-size:10px;color:var(--ink-3)">最終確認 2026.08.28</p>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:14px">
+            <div style="border:1px solid var(--line);padding:10px 12px">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <b style="font-family:var(--display);font-size:12.5px">住宅宿泊事業</b>
+                <span class="chip" style="background:var(--amber-soft);border-color:transparent;color:var(--amber-deep);font-weight:700">条件つき</span></div>
+              <p style="font-size:11.5px;color:var(--ink-2);margin-top:5px">上乗せ規制の有無を要確認。届出前に事前相談。</p></div>
+            <div style="border:1px solid var(--line);padding:10px 12px">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <b style="font-family:var(--display);font-size:12.5px">簡易宿所</b><span class="chip cat">できる</span></div>
+              <p style="font-size:11.5px;color:var(--ink-2);margin-top:5px">旅館業の営業許可が必要。用途地域を確認。</p></div>
+            <div style="border:1px solid var(--line);padding:10px 12px;opacity:.7">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <b style="font-family:var(--display);font-size:12.5px">特区民泊</b><span class="chip">対象外</span></div></div>
+          </div>
+        </div>
+        <div style="border-top:1px solid var(--line);padding:9px 14px;display:flex;gap:8px;align-items:center;background:var(--surface-2)">
+          <span style="font-size:11px;color:var(--ink-2)">この地域で相談する</span>
+          <span class="cta-sm" style="margin-left:auto">無料相談</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout"><b>スマホで削るもの：</b>絞り込みの多段メニュー、大きな画像、記事途中の広告枠。残すのは「速報・一次情報・地域選択・相談ボタン」の4つだけにします。</div>
+</section>
+
+<section id="tk">
+  <div class="sechead"><span class="snum">07</span><div>
+    <p class="sub">DESIGN TOKENS</p><h2>配色とフォント</h2></div></div>
+  <p class="note">SUMUSのブランドカラーをそのまま使います。ティールを「制度・信頼」、アンバーを「注意・要点」に役割分けし、色で意味が伝わる状態を作ります。</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)">
+    <div style="background:var(--surface);padding:0">
+      <div style="height:56px;background:#2EA89E"></div>
+      <div style="padding:10px 13px"><p style="font-family:var(--mono);font-size:11px">#2EA89E</p>
+      <p style="font-size:12px;color:var(--ink-2)">ティール／主役。見出し・リンク・グラフ</p></div></div>
+    <div style="background:var(--surface)">
+      <div style="height:56px;background:#14514C"></div>
+      <div style="padding:10px 13px"><p style="font-family:var(--mono);font-size:11px">#14514C</p>
+      <p style="font-size:12px;color:var(--ink-2)">濃ティール／文字が乗る面</p></div></div>
+    <div style="background:var(--surface)">
+      <div style="height:56px;background:#E0A45C"></div>
+      <div style="padding:10px 13px"><p style="font-family:var(--mono);font-size:11px">#E0A45C</p>
+      <p style="font-size:12px;color:var(--ink-2)">アンバー／要約・注意・直近値</p></div></div>
+    <div style="background:var(--surface)">
+      <div style="height:56px;background:#BF5245"></div>
+      <div style="padding:10px 13px"><p style="font-family:var(--mono);font-size:11px">#BF5245</p>
+      <p style="font-size:12px;color:var(--ink-2)">速報・締切など時間の制約</p></div></div>
+    <div style="background:var(--surface)">
+      <div style="height:56px;background:#16211F"></div>
+      <div style="padding:10px 13px"><p style="font-family:var(--mono);font-size:11px">#16211F</p>
+      <p style="font-size:12px;color:var(--ink-2)">本文（緑寄りの黒）</p></div></div>
+    <div style="background:var(--surface)">
+      <div style="height:56px;background:#F1F5F4"></div>
+      <div style="padding:10px 13px"><p style="font-family:var(--mono);font-size:11px">#F1F5F4</p>
+      <p style="font-size:12px;color:var(--ink-2)">背景（わずかに青緑寄りの白）</p></div></div>
+  </div>
+
+  <div class="anno" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:22px">
+    <div style="border-top:2px solid var(--teal);padding-top:10px">
+      <span class="k" style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--teal-deep);display:block;margin-bottom:5px">見出し</span>
+      <p style="font-family:var(--display);font-weight:900;font-size:19px">Zen Kaku Gothic New</p>
+      <p style="font-size:12.5px;color:var(--ink-2);margin-top:4px">硬すぎず、行政資料の引用にも耐える太さ。</p></div>
+    <div style="border-top:2px solid var(--teal);padding-top:10px">
+      <span class="k" style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--teal-deep);display:block;margin-bottom:5px">本文</span>
+      <p style="font-family:var(--body);font-weight:500;font-size:19px">Noto Sans JP</p>
+      <p style="font-size:12.5px;color:var(--ink-2);margin-top:4px">長文でも読み疲れしない標準的な書体。</p></div>
+    <div style="border-top:2px solid var(--teal);padding-top:10px">
+      <span class="k" style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--teal-deep);display:block;margin-bottom:5px">日付・数値</span>
+      <p style="font-family:var(--mono);font-weight:700;font-size:19px">JetBrains Mono</p>
+      <p style="font-size:12.5px;color:var(--ink-2);margin-top:4px">桁がそろうため、統計表と相性が良い。</p></div>
+  </div>
+
+  <div class="callout" style="margin-top:24px"><b>次に決めていただきたいこと：</b>サイト名とドメイン、第1段階で整備する自治体20件、記事運用の体制（社内／外注）。この3つが決まれば、詳細設計と見積もりに進めます。</div>
+</section>
+
+<footer style="border-top:1px solid var(--line);margin-top:56px;padding:26px 0 60px">
+  <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+    <div class="brandbar" style="width:80px"><i></i><i></i></div>
+    <p style="font-family:var(--mono);font-size:11px;color:var(--ink-3)">SUMUS コンサル事業部 ／ 民泊コンパス 画面設計案 v1.0 ／ 本資料の画面内の数値・条例内容はすべてレイアウト確認用のサンプルです。</p>
+  </div>
+</footer>
+</main>
