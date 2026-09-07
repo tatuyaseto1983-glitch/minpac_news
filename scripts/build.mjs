@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 // data/*.json と content/articles/*.md から静的サイトを dist/ に書き出します。
-import { readFileSync, writeFileSync, mkdirSync, rmSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync, readdirSync, existsSync, statSync, copyFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { renderMarkdown, parseFrontMatter, esc } from './lib/md.mjs';
 import { css } from './lib/theme.mjs';
-import { categoryList, prefectures } from './lib/classify.mjs';
+import { categoryList, prefectures, detectAreas } from './lib/classify.mjs';
 import { hueOf, clusterNews, summaryFor, impactFor } from './lib/cards.mjs';
 import { hbars, proportionBar, legend } from './lib/charts.mjs';
 
@@ -71,6 +71,36 @@ const feed = [...govNews.map((n) => ({ lead: n, others: [] })), ...pressTopics]
 const important = feed.filter((e) => ['local', 'law'].includes(catOf(e.lead)));
 const govFeed = feed.filter((e) => e.lead.isPrimary);
 
+// ---------- 調査レポート ----------
+// content/reports/ に置いたHTMLを、作ったままの形で公開します（中身は書き換えません）。
+// 同じ名前の .json があれば表題や要約をそこから、無ければHTMLの中から読みます。
+// _private/ に置いたものは公開しません。
+const reportDir = p('content/reports/');
+const reports = (existsSync(reportDir) ? readdirSync(reportDir).filter((f) => f.endsWith('.html')) : [])
+  .map((file) => {
+    const html = readFileSync(new URL(file, reportDir), 'utf8');
+    const side = file.replace(/\.html$/, '.json');
+    const meta = existsSync(new URL(side, reportDir))
+      ? JSON.parse(readFileSync(new URL(side, reportDir), 'utf8')) : {};
+    const text = html.replace(/<(script|style)[\s\S]*?<\/\1>/gi, ' ').replace(/<[^>]+>/g, ' ');
+    const pdf = file.replace(/\.html$/, '.pdf');
+    return {
+      file,
+      title: meta.title ?? html.match(/<title>([\s\S]*?)<\/title>/i)?.[1].trim().split(/[｜|]/)[0].trim()
+        ?? file.replace(/\.html$/, ''),
+      summary: meta.summary ?? html.match(/<meta\s+name="description"\s+content="([^"]*)"/i)?.[1] ?? '',
+      kind: meta.kind ?? 'エリア分析',
+      date: meta.date ?? file.match(/^(\d{4}-\d{2}-\d{2})/)?.[1]
+        ?? statSync(new URL(file, reportDir)).mtime.toISOString().slice(0, 10),
+      areas: meta.areas ?? detectAreas(text).filter((a) => a !== '全国'),
+      pdf: existsSync(new URL(pdf, reportDir)) ? pdf : null,
+      note: meta.note ?? null,
+    };
+  })
+  .sort((a, b) => String(b.date).localeCompare(String(a.date)));
+
+const reportHref = (base, r) => `${base}reports/${encodeURIComponent(r.file)}`;
+
 // ---------- 編集部の解説記事 ----------
 const guideDir = p('content/articles/');
 const guides = (existsSync(guideDir) ? readdirSync(guideDir).filter((f) => f.endsWith('.md')) : []).map((f) => {
@@ -88,6 +118,7 @@ const NAV = [
   ['stats/', 'データ', 'stats'],
   ['laws/', '法令・条例', 'laws'],
   ['guides/', '解説', 'guides'],
+  ...(reports.length ? [['reports/', 'レポート', 'reports']] : []),
 ];
 
 const SEARCH_ICON =
@@ -124,7 +155,7 @@ ${body}
   <nav class="footnav">
     <a href="${base}news/">ニュース</a><a href="${base}area/">エリア</a><a href="${base}stats/">データ</a>
     <a href="${base}laws/">法令・条例</a><a href="${base}start/">民泊を始める</a>
-    <a href="${base}guides/">解説</a><a href="${base}about.html">このサイトについて</a>
+    <a href="${base}guides/">解説</a>${reports.length ? `<a href="${base}reports/">レポート</a>` : ''}<a href="${base}about.html">このサイトについて</a>
   </nav>
   <p class="micro">掲載しているのは各行政機関の発表と報道各社の見出し・リンクです。記事本文は転載していません。制度の適用可否など最終的な判断は、必ず物件所在地の管轄窓口（保健所・消防署・建築指導課）へご確認ください。</p>
   <p class="micro">${site.name}　／　データ更新日 ${articles.updatedAt}</p>
@@ -251,6 +282,13 @@ function pageHome() {
   </div>
 
   <aside class="rail">
+    ${reports.length ? `<section>
+      <h2>調査レポート</h2>
+      <div class="linklist">
+        ${reports.slice(0, 4).map((r) => `<a href="${reportHref(base, r)}">${esc(r.title)}</a>`).join('')}
+        ${reports.length > 4 ? `<a href="${base}reports/">レポート一覧（${reports.length}本）</a>` : ''}
+      </div>
+    </section>` : ''}
     <section>
       <h2>ニュースを検索</h2>
       <form class="sbox" action="${base}news/" method="get" role="search">
@@ -833,6 +871,15 @@ function pageArea(pref) {
     </section>
   </div>
   <aside class="rail">
+    ${(() => {
+      const rs = reports.filter((r) => r.areas.includes(pref));
+      return rs.length ? `<section>
+        <h2>${esc(pref)}の調査レポート</h2>
+        <div class="linklist">
+          ${rs.map((r) => `<a href="${reportHref(base, r)}">${esc(r.title)}</a>`).join('')}
+        </div>
+      </section>` : '';
+    })()}
     <section>
       <h2>開業までの流れ</h2>
       <div class="linklist">
@@ -984,6 +1031,41 @@ function pageGuide(g) {
   return layout(base, { title: g.title, description: g.summary[0] ?? g.title, current: 'guides', body });
 }
 
+// ---------- 調査レポート ----------
+function pageReportIndex() {
+  const base = '../';
+  const body = `
+<p class="crumb"><a href="${base}">ホーム</a> ＞ レポート</p>
+<div class="phead">
+  <h1 class="h-page">調査レポート</h1>
+  <p class="sub">エリアごとの宿泊需要や競合の状況を、独自にまとめた資料です。</p>
+</div>
+<div class="feed" style="padding-bottom:24px">
+  ${reports.map((r) => `<a class="item" href="${reportHref(base, r)}">
+    <div class="item__top"><span class="cat" style="--cat:var(--c-market)">${esc(r.kind)}</span>
+      <span class="meta">${fmt(r.date)}</span>${r.pdf ? '<span class="tag">PDFあり</span>' : ''}</div>
+    <h2 class="item__title">${esc(r.title)}</h2>
+    ${r.summary ? `<p class="item__sum">${esc(r.summary)}</p>` : ''}
+    ${r.areas.length ? `<div class="item__tags">${r.areas.slice(0, 5).map((a) => `<span class="tag">${esc(a)}</span>`).join('')}</div>` : ''}
+  </a>`).join('')}
+</div>
+<div class="notice" style="margin-bottom:60px">レポートは別のページとして開きます。行政の発表そのものではなく、公表データをもとにこちらでまとめた分析です。判断の材料としてお使いください。</div>`;
+  return layout(base, { title: 'レポート', description: 'エリアごとの宿泊需要と競合状況をまとめた調査レポートの一覧。', current: 'reports', body });
+}
+
+/** レポートのHTMLは書き換えず、サイトに戻れる細い帯だけを先頭に足す */
+function wrapReport(r) {
+  const html = readFileSync(new URL(r.file, reportDir), 'utf8');
+  const bar = `<div style="position:sticky;top:0;z-index:99999;display:flex;align-items:center;gap:14px;
+  padding:9px 18px;background:#12312F;color:#fff;font-size:13px;line-height:1.5;
+  font-family:system-ui,-apple-system,'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif">
+  <a href="../reports/" style="color:#fff;text-decoration:none;font-weight:600">← ${esc(site.name)} のレポート一覧</a>
+  <span style="opacity:.6">${esc(r.kind)}　${esc(fmt(r.date))}</span>
+  ${r.pdf ? `<a href="./${encodeURIComponent(r.pdf)}" style="color:#fff;margin-left:auto;text-decoration:underline">PDF版</a>` : ''}
+</div>`;
+  return /<body[^>]*>/i.test(html) ? html.replace(/<body[^>]*>/i, (m) => m + bar) : bar + html;
+}
+
 // ---------- このサイトについて ----------
 function pageAbout() {
   const base = '';
@@ -1041,11 +1123,22 @@ write('about.html', pageAbout());
 if (docs.sources.length) write('laws/index.html', pageLaws());
 for (const g of guides) write(`guides/${g.slug}.html`, pageGuide(g));
 for (const pref of prefectures) write(`area/${slugs[pref]}.html`, pageArea(pref));
+if (reports.length) {
+  write('reports/index.html', pageReportIndex());
+  for (const r of reports) {
+    write(`reports/${r.file}`, wrapReport(r));
+    if (r.pdf) {
+      mkdirSync(new URL('reports/', OUT).pathname, { recursive: true });
+      copyFileSync(new URL(r.pdf, reportDir), new URL(`reports/${r.pdf}`, OUT));
+    }
+  }
+}
 write('robots.txt', `User-agent: *\nAllow: /\n${site.url ? `Sitemap: ${site.url}/sitemap.xml\n` : ''}`);
 write('.nojekyll', '');
 
 const pages = ['', 'news/', 'stats/', 'area/', 'start/', 'guides/', 'about.html',
   ...(docs.sources.length ? ['laws/'] : []),
+  ...(reports.length ? ['reports/', ...reports.map((r) => `reports/${encodeURIComponent(r.file)}`)] : []),
   ...guides.map((g) => `guides/${g.slug}.html`), ...prefectures.map((a) => `area/${slugs[a]}.html`)];
 if (site.url) {
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
@@ -1055,4 +1148,4 @@ ${pages.map((u) => `<url><loc>${site.url}/${u}</loc><lastmod>${articles.updatedA
 }
 
 console.log(`生成 ${pages.length + 1} ページ → dist/`);
-console.log(`  ニュース ${news.length}件 → ${feed.length}話題（うち規制の動き ${important.length}件） / 解説 ${guides.length}本`);
+console.log(`  ニュース ${news.length}件 → ${feed.length}話題（うち規制の動き ${important.length}件） / 解説 ${guides.length}本 / レポート ${reports.length}本`);
