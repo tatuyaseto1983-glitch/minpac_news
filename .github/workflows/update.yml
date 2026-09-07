@@ -9,7 +9,11 @@ on:
         description: 'e-Stat の動作'
         type: choice
         default: '取り込む'
-        options: ['取り込む', '表の一覧を出す', '宿泊旅行統計を横断検索する']
+        options: ['取り込む', '表の一覧を出す', 'キーワード検索']
+      estat_word:
+        description: 'キーワード検索のことば'
+        type: string
+        default: '延べ宿泊者数'
   push:
     # 既定のブランチが main ではないため、実際のブランチ名も入れておく
     branches: [main, claude/minpaku-news-site-requirements-sh1pfo]
@@ -36,11 +40,15 @@ jobs:
         run: npm run fetch
 
       - name: e-Stat から統計を取り込む
+        env:
+          # 入力は環境変数に受けてから使う（コマンドに直接埋め込まない）
+          ESTAT_MODE: ${{ inputs.estat_mode }}
+          ESTAT_WORD: ${{ inputs.estat_word }}
         run: |
-          case "${{ inputs.estat_mode }}" in
-            "表の一覧を出す")           npm run estat -- --list ;;
-            "宿泊旅行統計を横断検索する") npm run estat -- --search 宿泊旅行統計 ;;
-            *)                          npm run estat ;;
+          case "$ESTAT_MODE" in
+            "表の一覧を出す") npm run estat -- --list ;;
+            "キーワード検索") npm run estat -- --search "$ESTAT_WORD" ;;
+            *)                npm run estat ;;
           esac
         env:
           # リポジトリの Settings → Secrets and variables → Actions に登録してください
