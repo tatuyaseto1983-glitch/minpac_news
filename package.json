@@ -11,7 +11,8 @@
     "preview": "npm run build && node scripts/preview.mjs",
     "serve": "node scripts/serve.mjs",
     "summarize": "node scripts/summarize.mjs",
-    "estat": "node scripts/fetch-estat.mjs"
+    "estat": "node scripts/fetch-estat.mjs",
+    "test": "node scripts/lib/estat.test.mjs"
   },
   "engines": {
     "node": ">=20"

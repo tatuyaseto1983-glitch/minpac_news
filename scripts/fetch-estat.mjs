@@ -7,6 +7,7 @@
 //
 // appId が無ければ何もせず終了します（自動更新を止めないため）。
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { list, extractIndicator } from './lib/estat.mjs';
 
 const root = new URL('../', import.meta.url);
 const p = (rel) => new URL(rel, root);
@@ -38,8 +39,6 @@ async function api(path, params) {
   if (head && Number(head.STATUS) !== 0) throw new Error(`e-Stat エラー ${head.STATUS}: ${head.ERROR_MSG}`);
   return json;
 }
-
-const list = (v) => (v == null ? [] : Array.isArray(v) ? v : [v]);
 
 // ---------- 表を探す ----------
 if (has('--list')) {
@@ -99,47 +98,14 @@ store.estat ??= {};
 for (const ind of targets) {
   try {
     const json = await api('getStatsData', { statsDataId: ind.statsDataId, limit: 100000 });
-    const data = json.GET_STATS_DATA?.STATISTICAL_DATA;
-    const values = list(data?.DATA_INF?.VALUE);
-    if (!values.length) throw new Error('数値が空でした');
-
-    // 分類コード→名前の対応表を作る
-    const names = {};
-    for (const obj of list(data?.CLASS_INF?.CLASS_OBJ)) {
-      names[obj['@id']] = Object.fromEntries(list(obj.CLASS).map((c) => [c['@code'], c['@name']]));
-    }
-
-    // いちばん新しい時点を選ぶ
-    const latest = values.map((v) => v['@time']).filter(Boolean).sort().at(-1);
-    const rows = values.filter((v) => v['@time'] === latest);
-    const areaKey = `@${ind.areaClass ?? 'area'}`;
-    const numOf = (v) => {
-      const n = Number(String(v.$).replace(/,/g, ''));
-      return Number.isFinite(n) ? n : null;
-    };
-
-    // 全国の値と、都道府県別の内訳
-    const nationwide = rows.find((v) => v[areaKey] === ind.nationwideCode);
-    const byArea = rows
-      .filter((v) => v[areaKey] && v[areaKey] !== ind.nationwideCode)
-      .map((v) => ({ area: names[ind.areaClass ?? 'area']?.[v[areaKey]] ?? v[areaKey], value: numOf(v) }))
-      .filter((r) => r.value != null)
-      .sort((a, b) => b.value - a.value)
-      .slice(0, 47);
-
+    const r = extractIndicator(json.GET_STATS_DATA?.STATISTICAL_DATA, ind);
     store.estat[ind.key] = {
-      label: ind.label,
-      unit: ind.unit ?? data?.TABLE_INF?.MAIN_CATEGORY?.$ ?? '',
-      period: names.time?.[latest] ?? latest,
-      nationwide: nationwide ? numOf(nationwide) : null,
-      byArea,
-      tableTitle: String(data?.TABLE_INF?.TITLE?.$ ?? data?.TABLE_INF?.TITLE ?? ''),
-      statsDataId: ind.statsDataId,
+      ...r,
       source: `${conf.provider} ${conf.statsName}（e-Stat）`,
       sourceUrl: `https://www.e-stat.go.jp/dbview?sid=${ind.statsDataId}`,
       fetchedAt: today,
     };
-    console.log(`  ✓ ${ind.label}：${names.time?.[latest] ?? latest}　全国 ${nationwide ? numOf(nationwide).toLocaleString('ja-JP') : '—'}　地域別 ${byArea.length}件`);
+    console.log(`  ✓ ${ind.label}：${r.period}　全国 ${r.nationwide == null ? '—' : r.nationwide.toLocaleString('ja-JP')}　地域別 ${r.byArea.length}件`);
   } catch (err) {
     console.log(`  ✗ ${ind.label}：${err.message}`);
   }
