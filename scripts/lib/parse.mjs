@@ -396,4 +396,104 @@ export function checkFilings(r, { expect = 47 } = {}) {
   return r;
 }
 
+/**
+ * 観光庁「宿泊旅行統計調査」報道発表のPDFから、都道府県別の3つの表を読み取る。
+ * 表はどれも「施設所在地」が先頭で、全国の行が1行だけ先に来る。
+ * この3表は第2次速報（＝本文の見出しより1か月前）の数字である点に注意。
+ */
+export function parseLodgingPdf(text, { prefectures }) {
+  const n = (v) => Number(String(v).replace(/,/g, ''));
+  // PDFには半角の -+ と全角の －＋ が混ざっている
+  const sign = (v) => Number(String(v).replace(/[－▲△]/g, '-').replace(/[＋]/g, '+'));
+  const prefSet = new Set(prefectures);
+
+  const lines = text.split('\n');
+  // 表の見出し行を探し、そこから下を読む
+  // 同じ文言が節の見出しにも出てくるので、時点が書かれている行のほうを表の見出しとみなす
+  const PERIOD = /（(\d{4}年\d{1,2}月)（(第\d次速報)））/;
+  const tableAt = (caption) => {
+    const hits = lines.map((l, i) => [l, i]).filter(([l]) => l.includes(caption));
+    const [line, i] = hits.find(([l]) => PERIOD.test(l)) ?? hits[0] ?? [];
+    return i == null ? null : { start: i, period: line.match(PERIOD) };
+  };
+
+  // 表ごとに「名前＋数字の並び」を読み、全国と47都道府県が揃った時点で打ち切る
+  const readTable = (caption, row) => {
+    const at = tableAt(caption);
+    if (!at) return null;
+    const out = { national: null, areas: {}, period: at.period?.[1] ?? null, stage: at.period?.[2] ?? null };
+    for (let i = at.start + 1; i < lines.length; i++) {
+      const m = lines[i].trim().match(row);
+      if (!m) continue;
+      const name = m[1];
+      if (name === '全国') { out.national = m; continue; }
+      if (!prefSet.has(name)) continue;
+      out.areas[name] = m;
+      if (Object.keys(out.areas).length === prefSet.size) break;
+    }
+    return out;
+  };
+
+  const NUM = String.raw`([\d,]+)`;
+  const PCT = String.raw`([－＋+-]?[\d.]+)\s*[%％]`;
+  const t1 = readTable('都道府県別延べ宿泊者数及び日本人延べ宿泊者数',
+    new RegExp(String.raw`^(\S+)\s+${NUM}\s+${PCT}\s+${NUM}\s+${PCT}$`));
+  const t2 = readTable('都道府県別外国人延べ宿泊者数',
+    new RegExp(String.raw`^(\S+)\s+${NUM}\s+${PCT}\s+([\d.]+)\s*[%％]$`));
+  // 稼働率の表は「値・順位」が6種類ぶん並ぶ。使うのは全体と、いちばん右の簡易宿所。
+  const t3 = readTable('都道府県別宿泊施設タイプ別客室稼働率',
+    new RegExp(String.raw`^(\S+)\s+([\d.]+)\s+(\d+|-)\s+([－＋+-]?[\d.]+)\s+(?:[\d.]+\s+(?:\d+|-)\s+){4}([\d.]+)\s+(\d+|-)$`));
+
+  const pick = (t, name) => (name === '全国' ? t?.national : t?.areas?.[name]);
+  const build = (name) => {
+    const a = pick(t1, name), b = pick(t2, name), c = pick(t3, name);
+    if (!a) return null;
+    return {
+      overnight: n(a[2]), overnightYoy: sign(a[3]),
+      japanese: n(a[4]), japaneseYoy: sign(a[5]),
+      foreign: b ? n(b[2]) : null, foreignYoy: b ? sign(b[3]) : null,
+      foreignShare: b ? Number(b[4]) : null,
+      occupancy: c ? Number(c[2]) : null,
+      occupancyRank: c && c[3] !== '-' ? Number(c[3]) : null,
+      occupancyYoyDiff: c ? sign(c[4]) : null,
+      kaniOccupancy: c ? Number(c[5]) : null,
+      kaniRank: c && c[6] !== '-' ? Number(c[6]) : null,
+    };
+  };
+
+  const areas = {};
+  for (const pref of prefectures) {
+    const v = build(pref);
+    if (v) areas[pref] = { prefecture: pref, ...v };
+  }
+  return {
+    period: t1?.period ?? null,
+    stage: t1?.stage ?? null,
+    occupancyPeriod: t3?.period ?? null,
+    national: build('全国'),
+    areas,
+    // 稼働率の表に載っていない都道府県があれば、あとで気づけるように残す
+    missingOccupancy: prefectures.filter((x) => !pick(t3, x)),
+    missingForeign: prefectures.filter((x) => !pick(t2, x)),
+  };
+}
+
+/** 読み取った延べ宿泊者数が、表の「全国」の行と合っているかを確かめる */
+export function checkLodging(r) {
+  if (!r.national) throw new Error('「全国」の行を読み取れませんでした');
+  const got = Object.keys(r.areas).length;
+  if (got !== 47) throw new Error(`都道府県が${got}件しか揃いませんでした（表の作りが変わったかもしれません）`);
+  if (r.missingForeign.length) throw new Error(`外国人の表に無い都道府県があります: ${r.missingForeign.join('、')}`);
+  if (r.missingOccupancy.length) throw new Error(`稼働率の表に無い都道府県があります: ${r.missingOccupancy.join('、')}`);
+  for (const key of ['overnight', 'japanese', 'foreign']) {
+    const sum = Object.values(r.areas).reduce((a, x) => a + (x[key] ?? 0), 0);
+    const want = r.national[key];
+    // 四捨五入の都合でぴったり合わないことがあるので、0.5%までは許す
+    if (Math.abs(sum - want) / want > 0.005) {
+      throw new Error(`全国の合計が合いません（${key}：読み取り${sum.toLocaleString('ja-JP')} / 表${want.toLocaleString('ja-JP')}）`);
+    }
+  }
+  return r;
+}
+
 export { strip };

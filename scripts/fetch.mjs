@@ -4,7 +4,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { getText, getBuffer } from './lib/http.mjs';
 import { pdfToText } from './lib/pdf.mjs';
-import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs, parseGoogleNews, parseRyokanStats, parseLodgingStats, parseMunicipalities, findPdfLink, parseFilingsPdf, checkFilings } from './lib/parse.mjs';
+import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs, parseGoogleNews, parseRyokanStats, parseLodgingStats, parseMunicipalities, findPdfLink, parseFilingsPdf, checkFilings, parseLodgingPdf, checkLodging } from './lib/parse.mjs';
 import { screen, categorize, detectAreas, detectBusinessTypes, isBlockedOutlet, isBlockedTitle, normalizeOutlet } from './lib/classify.mjs';
 
 const root = new URL('../', import.meta.url);
@@ -179,7 +179,8 @@ try {
     .filter((n) => n.sourceId === 'jta-news' && n.title.includes('宿泊旅行統計調査'))
     .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''))[0];
   if (latest) {
-    const r = parseLodgingStats(await getText(latest.url));
+    const html = await getText(latest.url);
+    const r = parseLodgingStats(html);
     if (!r) throw new Error('本文から数字を読み取れませんでした（書き方が変わった可能性）');
     statsStore.lodging = {
       ...r,
@@ -191,6 +192,23 @@ try {
     };
     report.push({ source: 'jta-lodging', found: 1, added: 0,
       note: `${r.period} 延べ${(r.overnight.value / 10000).toLocaleString('ja-JP')}万人泊 / 稼働率${r.occupancy ?? '—'}%` });
+
+    // 都道府県別の数字は同じ報道発表の添付PDFにしかない（本文は全国の値だけ）
+    try {
+      const pdfUrl = findPdfLink(html, latest.url, '宿泊旅行統計調査');
+      if (!pdfUrl) throw new Error('添付PDFのリンクが見つかりません');
+      const kw = JSON.parse(readFileSync(p('data/keywords.json'), 'utf8'));
+      const d = checkLodging(parseLodgingPdf(await pdfToText(await getBuffer(pdfUrl)), kw));
+      writeFileSync(p('data/lodging.json'), JSON.stringify({
+        updatedAt: today, source: '観光庁 宿泊旅行統計調査', sourceUrl: latest.url, pdfUrl,
+        articleTitle: latest.title, publishedAt: latest.publishedAt,
+        period: d.period, stage: d.stage, national: d.national, areas: d.areas,
+      }, null, 2) + '\n');
+      report.push({ source: 'jta-lodging-pref', found: Object.keys(d.areas).length, added: 0,
+        note: `${d.period}（${d.stage}）47都道府県` });
+    } catch (err) {
+      report.push({ source: 'jta-lodging-pref', error: err.message });
+    }
   }
 } catch (err) {
   report.push({ source: 'jta-lodging', error: err.message });

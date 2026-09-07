@@ -35,6 +35,27 @@ const filingRank = filings
   ? Object.values(filings.areas).sort((a, b) => b.homes - a.homes).map((a, i) => ({ ...a, rank: i + 1 }))
   : [];
 const filingOf = Object.fromEntries(filingRank.map((a) => [a.prefecture, a]));
+
+const lodging = existsSync(p('data/lodging.json'))
+  ? JSON.parse(readFileSync(p('data/lodging.json'), 'utf8')) : null;
+const lodgingOf = lodging?.areas ?? {};
+
+// 「泊まる人は多いのに民泊が少ない地域」を見るための割り算。
+// 延べ宿泊者数（1か月）を、いま生きている届出住宅数で割った値。
+const demandRank = (lodging && filingRank.length)
+  ? Object.values(lodgingOf)
+      .filter((a) => filingOf[a.prefecture]?.homes)
+      .map((a) => ({
+        prefecture: a.prefecture,
+        overnight: a.overnight,
+        homes: filingOf[a.prefecture].homes,
+        occupancy: a.occupancy,
+        perHome: Math.round(a.overnight / filingOf[a.prefecture].homes),
+      }))
+      .sort((x, y) => y.perHome - x.perHome)
+      .map((a, i) => ({ ...a, rank: i + 1 }))
+  : [];
+const demandOf = Object.fromEntries(demandRank.map((a) => [a.prefecture, a]));
 const slugs = JSON.parse(readFileSync(p('data/keywords.json'), 'utf8')).prefectureSlugs;
 
 const news = articles.items;
@@ -501,6 +522,32 @@ ${m ? `<div class="panel">
     : `<p class="lead-t">時点の違うデータが2件以上たまると、ここに推移のグラフが出ます（現在 ${h.length} 件）。観光庁は年6回ほど更新しているため、半年ほどで形が見えてきます。</p>`}
 </div>
 
+${lodging ? `<div class="panel">
+  <h3>宿泊の需要はどこに大きいか</h3>
+  <span class="meta">延べ宿泊者数　／　${esc(lodging.period)}（${esc(lodging.stage)}）　／　全国${num(Math.round(lodging.national.overnight / 10000))}万人泊</span>
+  ${hbars(Object.values(lodgingOf).sort((a, b) => b.overnight - a.overnight).slice(0, 15)
+    .map((a, i) => ({ name: `${i + 1}. ${a.prefecture}`, value: Math.round(a.overnight / 10000), key: 'k2' })), { unit: '万人泊' })}
+  <p class="lead-t">1か月に何泊されたかの合計です。ホテルも旅館も民泊もすべて含みます。<strong>民泊の数（上のグラフ）とは順番が違います。</strong>そこが次の話につながります。</p>
+</div>` : ''}
+
+${demandRank.length ? `<div class="panel">
+  <h3>泊まる人は多いのに、民泊が少ない地域</h3>
+  <span class="meta">民泊1軒あたりの延べ宿泊者数　／　宿泊は${esc(lodging.period)}、民泊は${esc(filings.asOf)}時点</span>
+  ${hbars(demandRank.slice(0, 12).map((a) => ({ name: `${a.rank}. ${a.prefecture}`, value: a.perHome, key: 'k1' })), { unit: '人泊' })}
+  <p class="lead-t">宿泊の需要を民泊の軒数で割った数字です。<strong>大きいほど「泊まる人はいるのに、民泊はまだ少ない」ことを表します。</strong>この数字がいちばん大きい${esc(demandRank[0].prefecture)}（民泊${num(demandRank[0].homes)}軒）と、いちばん小さい${esc(demandRank.at(-1).prefecture)}（同${num(demandRank.at(-1).homes)}軒）では${Math.round(demandRank[0].perHome / demandRank.at(-1).perHome)}倍の開きがあります。</p>
+  <div class="notice" style="margin-top:14px"><strong>この数字だけで「空いている」とは言えません。</strong>需要の受け皿はホテルや旅館もあるためです。目安として、
+    ${demandRank.slice(0, 5).map((a) => `${esc(a.prefecture)}の客室稼働率は${a.occupancy}%`).join('、')}
+    です。稼働率が低ければ、宿そのものは足りている可能性があります。上位に入った地域を、次に稼働率と季節で確かめる、という順番で見てください。</div>
+</div>` : ''}
+
+${lodging ? `<div class="panel">
+  <h3>外国人の割合が高い都道府県</h3>
+  <span class="meta">延べ宿泊者数に占める外国人の割合　／　${esc(lodging.period)}（${esc(lodging.stage)}）　／　全国${lodging.national.foreignShare}%</span>
+  ${hbars(Object.values(lodgingOf).sort((a, b) => b.foreignShare - a.foreignShare).slice(0, 12)
+    .map((a, i) => ({ name: `${i + 1}. ${a.prefecture}`, value: a.foreignShare, key: 'k2' })), { unit: '%' })}
+  <p class="lead-t">外国人の割合が高い地域は、案内表示や連絡の手段を先に整える必要があります。<strong>同じ「民泊」でも、来る人が違えば準備するものが変わります。</strong></p>
+</div>` : ''}
+
 ${filingRank.length ? `<div class="panel">
   <h3>民泊はどこに多いか</h3>
   <span class="meta">いま生きている届出の件数　／　${esc(filings.asOf)}時点　／　全国${num(filings.totals.all.homes)}件</span>
@@ -596,7 +643,6 @@ ${(() => {
     <thead><tr><th>数字</th><th>状況</th></tr></thead>
     <tbody>
       ${stats.lodging ? '' : '<tr><td>延べ宿泊者数・客室稼働率</td><td>観光庁の報道発表ページから読み取ります</td></tr>'}
-      <tr><td>都道府県別の延べ宿泊者数</td><td>e-Stat のデータベースは2016年分で更新が止まっています。観光庁の報道発表PDFから読み取る形で、次に対応する予定です</td></tr>
       <tr><td>ADR（平均客室単価）・掲載件数</td><td>公的な無料の出典が見つかっていません</td></tr>
     </tbody>
   </table></div>
@@ -613,6 +659,9 @@ ${(() => {
       ${r ? `<tr><td>旅館業の営業許可施設数</td>
         <td><a href="${esc(r.sourceUrl)}" rel="noopener" target="_blank">${esc(r.source)}</a></td>
         <td>${esc(r.asOfLabel ?? '—')}</td><td>${esc(r.fetchedAt)}</td></tr>` : ''}
+      ${lodging ? `<tr><td>都道府県別の延べ宿泊者数・外国人比率・客室稼働率</td>
+        <td><a href="${esc(lodging.pdfUrl)}" rel="noopener" target="_blank">${esc(lodging.source)}</a>（PDF）</td>
+        <td>${esc(lodging.period)}（${esc(lodging.stage)}）</td><td>${esc(lodging.updatedAt)}</td></tr>` : ''}
       ${filings ? `<tr><td>都道府県別の届出件数・特区民泊の認定居室数</td>
         <td><a href="${esc(filings.pdfUrl)}" rel="noopener" target="_blank">${esc(filings.source)}</a>（PDF）</td>
         <td>${esc(filings.asOf)}</td><td>${esc(filings.updatedAt)}</td></tr>` : ''}
@@ -725,6 +774,27 @@ function pageArea(pref) {
       <p class="meta" style="margin-top:12px">出典：<a href="${esc(filings.pdfUrl)}" rel="noopener" target="_blank">${esc(filings.source)}</a>（PDF・取得日 ${esc(filings.updatedAt)}）</p>
     </section>` : '';
 
+  const L = lodgingOf[pref];
+  const dm = demandOf[pref];
+  const yoy = (v) => (v == null ? '' : `<span class="d">前年同月比 ${v > 0 ? '+' : ''}${v}%</span>`);
+  const demand = L ? `<section class="sec">
+      ${secHead('この地域に泊まっている人', `${esc(lodging.period)}（${esc(lodging.stage)}）`)}
+      <dl class="tiles">
+        <div class="tile"><dt>延べ宿泊者数</dt><dd>${num(Math.round(L.overnight / 10000))}<span class="u">万人泊</span></dd>
+          ${yoy(L.overnightYoy)}</div>
+        ${L.foreignShare != null ? `<div class="tile"><dt>うち外国人</dt><dd>${L.foreignShare}<span class="u">%</span></dd>
+          <span class="d">全国は${lodging.national.foreignShare}%</span></div>` : ''}
+        ${L.occupancy != null ? `<div class="tile"><dt>客室稼働率</dt><dd>${L.occupancy}<span class="u">%</span></dd>
+          <span class="d">全国47都道府県中 ${L.occupancyRank}位</span></div>` : ''}
+        ${L.kaniOccupancy != null ? `<div class="tile"><dt>簡易宿所の稼働率</dt><dd>${L.kaniOccupancy}<span class="u">%</span></dd>
+          <span class="d">全国は${lodging.national.kaniOccupancy}%</span></div>` : ''}
+      </dl>
+      ${dm ? `<p class="lead-t" style="margin-top:18px">この地域では、<strong>民泊1軒あたり月${num(dm.perHome)}人泊</strong>の需要があります（宿泊は${esc(lodging.period)}、民泊は${esc(filings.asOf)}時点）。
+        数字が大きいほど「泊まる人はいるのに民泊は少ない」ことを表し、${esc(pref)}は<strong>全国${demandRank.length}都道府県中${dm.rank}位</strong>です。
+        ただし受け皿はホテルや旅館もあるため、この数字だけでは判断できません。${esc(pref)}の客室稼働率${L.occupancy}%と併せてご覧ください。</p>` : ''}
+      <p class="meta" style="margin-top:10px">出典：<a href="${esc(lodging.pdfUrl)}" rel="noopener" target="_blank">${esc(lodging.source)}</a>（PDF・取得日 ${esc(lodging.updatedAt)}）</p>
+    </section>` : '';
+
   const body = `
 <p class="crumb"><a href="${base}">ホーム</a> ＞ <a href="${base}area/">エリア</a> ＞ ${esc(pref)}</p>
 <div class="phead">
@@ -735,6 +805,7 @@ function pageArea(pref) {
 <div class="two">
   <div>
     ${numbers}
+    ${demand}
     ${m ? `<section class="sec"${f ? '' : ' style="margin-top:0"'}>
       ${secHead('届出の窓口', m.municipalities.length ? `${esc(pref)}と、届出を受け付ける${m.municipalities.length}市区` : '')}
       <div class="feed">

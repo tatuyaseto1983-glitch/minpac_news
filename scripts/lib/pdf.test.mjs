@@ -1,6 +1,6 @@
-// 観光庁「都道府県別届出状況一覧」PDFの読み取りを、実物と同じ形の文字列で確かめます。
+// 観光庁のPDF（届出状況一覧・宿泊旅行統計調査）の読み取りを、実物と同じ形の文字列で確かめます。
 //   node scripts/lib/filings.test.mjs
-import { parseFilingsPdf, checkFilings, findPdfLink } from './parse.mjs';
+import { parseFilingsPdf, checkFilings, findPdfLink, parseLodgingPdf, checkLodging } from './parse.mjs';
 
 let ng = 0;
 const ok = (cond, name, extra = '') => {
@@ -82,6 +82,79 @@ ok(findPdfLink(html, 'https://www.mlit.go.jp/x/', '都道府県別届出状況�
   '見出しの文言でPDFのリンクを選び分けられる');
 ok(findPdfLink(html, 'https://www.mlit.go.jp/x/', '存在しない見出し') === null,
   '見つからないときは null を返す');
+
+// ---- 宿泊旅行統計調査のPDF（都道府県別の3つの表）----
+// 節の見出しと表の見出しに同じ文言が出てくること、稼働率の符号が全角なこと、
+// 前年同月差が符号なしの 0.0 になることまで再現しています。
+const lodging = [
+  '１．都道府県別延べ宿泊者数',
+  '   都道府県別延べ宿泊者数及び日本人延べ宿泊者数（2026年6月（第2次速報））',
+  '          全国      45,815,140        -8.4%    33,595,270       -6.3%',
+  '          北海道      3,542,690        -7.6%     2,776,250       -7.8%',
+  '          東京都      7,365,780       -15.9%     3,138,660      -14.2%',
+  '         鹿児島県        569,560        -1.2%       534,530       -0.6%',
+  '',
+  '(１)都道府県別外国人延べ宿泊者数',
+  '            都道府県別外国人延べ宿泊者数（2026年6月（第2次速報））',
+  '                  全国        12,219,870      -14.0%      26.7%',
+  '                 北海道           766,440       -6.8%      21.6%',
+  '                 東京都         4,227,120      -17.0%      57.4%',
+  '                鹿児島県            35,030       -9.6%       6.2%',
+  '',
+  '３．都道府県別宿泊施設タイプ別客室稼働率',
+  '         都道府県別宿泊施設タイプ別客室稼働率（2026年6月（第2次速報））',
+  '  全国      57.2 -    －1.6    36.7     -   50.8        -    71.5    -    69.2    -    26.1    -',
+  '  北海道     63.4 5    －1.3    52.7     1    54.1       11    77.9   5    77.8    1     26.3   10',
+  '  東京都     75.4 1    ＋2.2    52.1     2    60.3        5    79.4   1    76.3    2     47.9    4',
+  '  鹿児島県    45.1 41    0.0     30.7   36    28.5       41    61.8   44    59.9   32    16.3   28',
+].join('\n');
+
+const three = ['北海道', '東京都', '鹿児島県'];
+const L = parseLodgingPdf(lodging, { prefectures: three });
+ok(L.period === '2026年6月' && L.stage === '第2次速報',
+  '表の見出しから時点を読む（節の見出しと取り違えない）', `→ ${L.period}・${L.stage}`);
+ok(L.national.overnight === 45815140 && L.national.foreignShare === 26.7,
+  '全国の行を3つの表から拾える');
+ok(L.areas['東京都'].overnight === 7365780 && L.areas['東京都'].japanese === 3138660,
+  '延べ宿泊者数と日本人の列を取り違えない');
+ok(L.areas['東京都'].foreign === 4227120 && L.areas['東京都'].foreignShare === 57.4,
+  '外国人の数と比率を拾える');
+ok(L.areas['東京都'].occupancy === 75.4 && L.areas['東京都'].occupancyRank === 1,
+  '客室稼働率（全体）と順位を拾える');
+ok(L.areas['東京都'].kaniOccupancy === 47.9 && L.areas['東京都'].kaniRank === 4,
+  '6つ並ぶ列のうち、いちばん右の簡易宿所を拾える');
+ok(L.areas['北海道'].occupancyYoyDiff === -1.3, '全角のマイナス（－）を数値に直せる',
+  `→ ${L.areas['北海道'].occupancyYoyDiff}`);
+ok(L.areas['東京都'].occupancyYoyDiff === 2.2, '全角のプラス（＋）を数値に直せる');
+ok(L.areas['鹿児島県'].occupancyYoyDiff === 0, '符号の付かない 0.0 も読み落とさない');
+
+// 全国の行との突き合わせ
+const okAll = { ...L, missingForeign: [], missingOccupancy: [] };
+try {
+  checkLodging({ ...okAll, areas: { ...L.areas, ダミー: L.areas['北海道'] } });
+  ok(false, '47都道府県そろわなければ取り込まない');
+} catch (e) {
+  ok(/揃いませんでした/.test(e.message), '47都道府県そろわなければ取り込まない',
+    `→ ${e.message.slice(0, 32)}…`);
+}
+
+const full = { ...L, areas: {} };
+// 全国＝各県の合計になるよう、47件ぶんに割り付けた作り物で突き合わせを試す
+for (let i = 0; i < 47; i++) {
+  full.areas[`ダミー${i}`] = {
+    overnight: L.national.overnight / 47, japanese: L.national.japanese / 47, foreign: L.national.foreign / 47,
+  };
+}
+full.missingForeign = []; full.missingOccupancy = [];
+ok(checkLodging(full) === full, '合計が全国と合えば通る');
+full.areas['ダミー0'].overnight *= 2; // 1県だけ倍にすると合計が2%ずれる
+try {
+  checkLodging(full);
+  ok(false, '合計が全国と食い違えば取り込まない');
+} catch (e) {
+  ok(/全国の合計が合いません/.test(e.message), '合計が全国と食い違えば取り込まない',
+    `→ ${e.message.slice(0, 40)}…`);
+}
 
 console.log(ng ? `\n${ng}件 失敗` : '\nすべて通りました');
 process.exit(ng ? 1 : 0);
