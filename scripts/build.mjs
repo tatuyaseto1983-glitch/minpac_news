@@ -61,6 +61,17 @@ const slugs = JSON.parse(readFileSync(p('data/keywords.json'), 'utf8')).prefectu
 const news = articles.items;
 const catOf = (n) => n.category.id;
 
+// 記事の画像。同じ画像が何本にも使われていたら、それは記事の写真ではなく
+// サイト共通のバナーなので出さない。
+const imageUses = news.reduce((t, n) => (n.image ? t.set(n.image, (t.get(n.image) ?? 0) + 1) : t), new Map());
+const imageOf = (n) => (n.image && imageUses.get(n.image) < 3 ? n.image : null);
+const thumb = (n, cls = 'thumb') => {
+  const src = imageOf(n);
+  return src ? `<span class="${cls}"><img src="${esc(src)}" alt="" loading="lazy" decoding="async"
+    referrerpolicy="no-referrer-when-downgrade"
+    onerror="this.closest('.${cls}').remove()"></span>` : '';
+};
+
 // 報道は同じ出来事がいくつもの媒体から来るので、話題ごとにまとめる
 const pressTopics = clusterNews(news.filter((n) => !n.isPrimary));
 const govNews = news.filter((n) => n.isPrimary);
@@ -260,8 +271,12 @@ function pageHome() {
   // いちばん上の1本
   const t = feed[0]?.lead;
   const tSum = t ? summaryFor(t) : null;
+  const tImg = t ? imageOf(t) : null;
   const hero = t ? `<section class="band">${wrap(`
-    <a class="top" href="${esc(t.url)}" target="_blank" rel="noopener nofollow">
+    <a class="top${tImg ? ' top--img' : ''}" href="${esc(t.url)}" target="_blank" rel="noopener nofollow">
+      ${tImg ? `<span class="top__img"><img src="${esc(tImg)}" alt="" decoding="async"
+        referrerpolicy="no-referrer-when-downgrade"
+        onerror="this.closest('.top').classList.remove('top--img');this.closest('.top__img').remove()"></span>` : ''}
       <span class="top__eyebrow">いま押さえておきたい</span>
       <h1 class="top__title">${esc(t.title)}</h1>
       <p class="top__sum">${esc(tSum?.text ?? impactFor(t)?.text ?? site.lede)}</p>
@@ -290,6 +305,7 @@ ${hero}
       if (sum && seen.has(sum.text)) sum = null; else if (sum) seen.add(sum.text);
       return `<a class="mini" href="${esc(n.url)}" target="_blank" rel="noopener nofollow"
         style="background:rgba(255,255,255,.06);box-shadow:none;color:#EAF5F3">
+        ${thumb(n)}
         <span class="cat" style="--cat:#7FD3C9">${esc(n.category.name)}</span>
         <h3 style="color:#fff">${esc(n.title)}</h3>
         ${sum ? `<p style="color:#B9DCD7">${esc(sum.text.slice(0, 84))}${sum.text.length > 84 ? '…' : ''}</p>` : ''}

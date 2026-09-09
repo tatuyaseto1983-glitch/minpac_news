@@ -62,6 +62,12 @@ jobs:
             *)                npm run estat ;;
           esac
 
+      # 各社の記事ページから見出し画像のURLだけを集める（画像は保存しない）。
+      # Google 側の作りが変わると取れなくなるので、失敗しても止めない。
+      - name: 記事の画像を探す
+        run: npm run images
+        continue-on-error: true
+
       - name: 収集結果をコミット
         run: |
           git config user.name  "github-actions[bot]"

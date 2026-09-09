@@ -284,6 +284,30 @@ a.pill:hover{text-decoration:none}
 .top .tag{border-color:rgba(255,255,255,.28);color:#CFE7E3;background:transparent}
 @media(max-width:640px){.top{padding:24px 22px}}
 
+/* 各社の記事画像（保存はせず、相手のサーバーのものを参照する）。
+   読み込めなかったときは onerror でこの枠ごと消す */
+.thumb{display:block;position:relative;overflow:hidden;background:var(--surface-3);
+  border-radius:var(--r-sm);aspect-ratio:16/9;margin:-16px -18px 10px}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.mini .thumb{border-radius:var(--r) var(--r) 0 0}
+
+/* 注目の1本に画像があるとき */
+.top--img{padding-top:0;padding-left:0;padding-right:0}
+.top__img{position:relative;aspect-ratio:21/9;overflow:hidden;background:#0C2B29}
+.top__img img{width:100%;height:100%;object-fit:cover;display:block;opacity:.55}
+.top__img::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,81,76,.25),rgba(20,81,76,.96))}
+.top--img .top__eyebrow,.top--img .top__title,.top--img .top__sum,.top--img .top__meta{
+  padding-left:34px;padding-right:34px}
+.top--img .top__eyebrow{margin-top:-64px}
+.top--img .top__title{max-width:30ch}
+@media(max-width:640px){
+  .top--img .top__eyebrow,.top--img .top__title,.top--img .top__sum,.top--img .top__meta{
+    padding-left:22px;padding-right:22px}
+  .top--img .top__eyebrow{margin-top:-40px}
+  .top__img{aspect-ratio:16/9}
+}
+
 /* 見出しつきの箱（カテゴリ記事） */
 .box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px 22px;
   margin-top:14px}

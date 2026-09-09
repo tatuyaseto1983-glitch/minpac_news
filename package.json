@@ -7,12 +7,13 @@
   "scripts": {
     "fetch": "node scripts/fetch.mjs",
     "build": "node scripts/build.mjs",
-    "update": "npm run fetch && npm run estat && npm run build",
+    "update": "npm run fetch && npm run estat && npm run images && npm run build",
     "preview": "npm run build && node scripts/preview.mjs",
     "serve": "node scripts/serve.mjs",
     "summarize": "node scripts/summarize.mjs",
     "estat": "node scripts/fetch-estat.mjs",
-    "test": "node scripts/lib/estat.test.mjs && node scripts/lib/pdf.test.mjs && node scripts/check-workflow.mjs"
+    "test": "node scripts/lib/estat.test.mjs && node scripts/lib/pdf.test.mjs && node scripts/check-workflow.mjs",
+    "images": "node scripts/fetch-images.mjs --limit 40"
   },
   "engines": {
     "node": ">=20"
