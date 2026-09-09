@@ -145,9 +145,11 @@ function layout(base, { title, description, current, body, wide = false }) {
   <a class="brand" href="${base}"><span class="mk"></span>${site.name}</a>
   <nav class="site-nav">${NAV.map(([href, label, id]) =>
     `<a href="${base}${href}"${id === current ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>
-  <a class="headsearch" href="${base}news/#q">${SEARCH_ICON}<span>検索</span></a>
+  <form class="headsearch" action="${base}news/" method="get" role="search">
+    ${SEARCH_ICON}<input type="search" name="q" placeholder="キーワードで検索" aria-label="キーワードで検索">
+  </form>
 </div></header>
-<main class="wrap"${wide ? '' : ''}>
+<main${wide ? '' : ' class="wrap"'}>
 ${body}
 </main>
 <footer class="site-footer"><div class="wrap">
@@ -187,16 +189,30 @@ const impactBox = (n, mild = false) => {
 };
 
 /** 一覧の1件 */
-function item(n, others = [], attrs = '') {
+function item(n, others = [], attrs = '', { hideImpact = false } = {}) {
   const sum = summaryFor(n);
   return `<a class="item" href="${esc(n.url)}" target="_blank" rel="noopener nofollow"${attrs}>
   <div class="item__top">${catLabel(n)}${metaLine(n)}</div>
   <h3 class="item__title">${esc(n.title)}</h3>
   ${sum ? `<p class="item__sum">${esc(sum.text)}${sum.ai ? '<span class="meta">（AI要約・下書き）</span>' : ''}</p>` : ''}
-  ${impactBox(n)}
+  ${hideImpact ? '' : impactBox(n)}
   <div class="item__tags">${areaTags(n)}${
     others.length ? `<span class="meta">ほか${others.length}媒体</span>` : ''}</div>
 </a>`;
+}
+
+/**
+ * 同じ文が並ぶと読みにくいので、まとまりの中で2回目以降の
+ * 「民泊事業者への影響」は出さない。
+ */
+function itemsNoRepeat(entries) {
+  const seen = new Set();
+  return entries.map((e) => {
+    const t = impactFor(e.lead ?? e)?.text ?? null;
+    const dup = t != null && seen.has(t);
+    if (t != null) seen.add(t);
+    return item(e.lead ?? e, e.others ?? [], '', { hideImpact: dup });
+  }).join('');
 }
 
 /** 最重要の1件 */
@@ -238,90 +254,119 @@ function pageHome() {
   const topAreas = prefectures
     .map((a) => [a, news.filter((n) => n.areas.includes(a)).length])
     .filter(([, c]) => c > 0).sort((x, y) => y[1] - x[1]).slice(0, 10).map(([a]) => a);
-  const themes = ['規制強化', '条例', '旅館業', '住宅宿泊事業', '特区民泊', '補助金', 'インバウンド', '宿泊税'];
   const localFeed = feed.filter((e) => catOf(e.lead) === 'local');
+  const wrap = (inner) => `<div class="wrap">${inner}</div>`;
+
+  // いちばん上の1本
+  const t = feed[0]?.lead;
+  const tSum = t ? summaryFor(t) : null;
+  const hero = t ? `<section class="band">${wrap(`
+    <a class="top" href="${esc(t.url)}" target="_blank" rel="noopener nofollow">
+      <span class="top__eyebrow">いま押さえておきたい</span>
+      <h1 class="top__title">${esc(t.title)}</h1>
+      <p class="top__sum">${esc(tSum?.text ?? impactFor(t)?.text ?? site.lede)}</p>
+      <div class="top__meta">${fmt(t.publishedAt)}<span class="dot">·</span>${esc(t.sourceName)}
+        ${t.areas.filter((a) => a !== '全国').slice(0, 3).map((a) => `<span class="tag">${esc(a)}</span>`).join('')}
+      </div>
+    </a>`)}</section>` : '';
+
+  // 深く知る：解説記事と調査レポートを1本ずつの行で
+  const deep = [
+    ...reports.map((x) => ({ kind: x.kind, title: x.title, sum: x.summary, href: reportHref(base, x), date: x.date })),
+    ...guides.map((g) => ({ kind: g.category ?? '解説', title: g.title, sum: g.summary[0] ?? '',
+      href: `${base}guides/${g.slug}.html`, date: g.updated })),
+  ].slice(0, 4);
 
   const body = `
-<div class="maghead">
-  <h1>${site.tagline}</h1>
-  <p>${site.lede}</p>
-  <span class="meta">${articles.updatedAt} 更新　／　${feed.length}件を掲載中</span>
-</div>
+${hero}
 
-<div class="two">
-  <div>
-    ${feed[0] ? `<span class="eyebrow" style="display:block;margin-bottom:8px">いま押さえておきたい</span>
-    ${leadItem(feed[0].lead, feed[0].others)}` : ''}
+<section class="band band--dark">${wrap(`
+  <div class="sec__head"><h2>新着</h2>
+    <a class="sec__more" href="${base}news/" style="margin-left:auto">記事一覧 →</a></div>
+  <div class="cards3">
+    ${(() => { const seen = new Set(); return feed.slice(1, 7).map((e) => {
+      const n = e.lead;
+      let sum = summaryFor(n) ?? impactFor(n);
+      if (sum && seen.has(sum.text)) sum = null; else if (sum) seen.add(sum.text);
+      return `<a class="mini" href="${esc(n.url)}" target="_blank" rel="noopener nofollow"
+        style="background:rgba(255,255,255,.06);box-shadow:none;color:#EAF5F3">
+        <span class="cat" style="--cat:#7FD3C9">${esc(n.category.name)}</span>
+        <h3 style="color:#fff">${esc(n.title)}</h3>
+        ${sum ? `<p style="color:#B9DCD7">${esc(sum.text.slice(0, 84))}${sum.text.length > 84 ? '…' : ''}</p>` : ''}
+        <span style="font-size:11.5px;color:#8FC3BC;margin-top:auto">${fmt(n.publishedAt)}　${esc(n.sourceName)}</span>
+      </a>`;
+    }).join(''); })()}
+  </div>`)}</section>
 
-    <section class="sec">
-      ${secHead('新着', `${feed.length}件`)}
-      ${feedList(feed.slice(1, 7))}
-      <a class="sec__more" href="${base}news/">すべてのニュースを見る →</a>
-    </section>
+<section class="band band--soft">${wrap(`
+  <div class="sec__head"><h2>数字で見る民泊</h2>
+    <a class="sec__more" href="${base}stats/" style="margin-left:auto">データ一覧 →</a></div>
+  ${statFigures()}
+  ${m && r ? `<div class="panel" style="margin-top:14px">
+    <h3>宿泊の受け皿はどれくらいあるか</h3>
+    <span class="meta">住宅宿泊事業は${esc(m.asOf ?? '')}時点、旅館業は${esc(r.asOfLabel ?? '')}現在</span>
+    ${hbars([
+      { name: '旅館・ホテル営業', value: r.hotels, key: 'k2' },
+      { name: '住宅宿泊事業（現存）', value: m.active, key: 'k1' },
+      { name: '簡易宿所', value: r.kani, key: 'k2' },
+    ], { unit: '件' })}
+    ${legend([{ name: '住宅宿泊事業法（民泊）', key: 'k1' }, { name: '旅館業法', key: 'k2' }])}
+    <p class="lead-t"><strong>簡易宿所と民泊は、ほぼ同じ数です。</strong>始める前に、この2つのどちらで行くかを選ぶ場面が必ず来ます。</p>
+  </div>` : ''}`)}</section>
 
-    ${localFeed.length ? `<section class="sec">
-      ${secHead('自治体のルール変更', '条例・規制の動き')}
-      ${feedList(localFeed.slice(0, 4))}
-    </section>` : ''}
+${deep.length ? `<section class="band">${wrap(`
+  <div class="sec__head"><h2>深く知る</h2>
+    <a class="sec__more" href="${base}guides/" style="margin-left:auto">記事一覧 →</a></div>
+  ${deep.map((d) => `<a class="readrow" href="${esc(d.href)}">
+    <span class="cat" style="--cat:var(--c-law)">${esc(d.kind)}</span>
+    <h3>${esc(d.title)}</h3>
+    ${d.sum ? `<p>${esc(d.sum)}</p>` : ''}
+    <span class="more">詳しく見る →</span></a>`).join('')}`)}</section>` : ''}
 
-    <section class="sec">
-      ${secHead('行政発表', '観光庁・厚労省・民泊制度ポータル')}
-      ${feedList(govFeed.slice(0, 4))}
-    </section>
+<section class="band band--soft">${wrap(`
+  <div class="sec__head"><h2>カテゴリ記事</h2></div>
 
-    <section class="sec">
-      ${secHead('民泊を始める', '開業までの流れ')}
-      <div class="steps">
-        ${guide.steps.slice(0, 4).map((s) => `<a class="step" href="${base}start/#step-${s.n}">
-          <span class="step__n">STEP ${s.n}</span>
-          <span class="step__t">${esc(s.title)}</span>
-          <span class="step__d">${esc(s.lead.slice(0, 40))}…</span></a>`).join('')}
-      </div>
-      <a class="sec__more" href="${base}start/">開業ガイドを見る（全7ステップ） →</a>
-    </section>
+  ${localFeed.length ? `<div class="box">
+    <div class="box__head"><h3>自治体のルール変更</h3>
+      <a href="${base}news/?cat=local">もっと見る →</a></div>
+    <div class="feature2">${itemsNoRepeat(localFeed.slice(0, 4))}</div>
+  </div>` : ''}
+
+  <div class="box">
+    <div class="box__head"><h3>行政発表</h3>
+      <a href="${base}news/?src=gov">もっと見る →</a></div>
+    <div class="feature2">${itemsNoRepeat(govFeed.slice(0, 4))}</div>
   </div>
 
-  <aside class="rail">
-    ${reports.length ? `<section>
-      <h2>調査レポート</h2>
-      <div class="linklist">
-        ${reports.slice(0, 4).map((r) => `<a href="${reportHref(base, r)}">${esc(r.title)}</a>`).join('')}
-        ${reports.length > 4 ? `<a href="${base}reports/">レポート一覧（${reports.length}本）</a>` : ''}
-      </div>
-    </section>` : ''}
-    <section>
-      <h2>ニュースを検索</h2>
-      <form class="sbox" action="${base}news/" method="get" role="search">
-        <input type="search" name="q" placeholder="例：新宿区、条例" aria-label="キーワード">
-        <button type="submit">検索</button>
-      </form>
-    </section>
+  <div class="box">
+    <div class="box__head"><h3>民泊を始める</h3>
+      <a href="${base}start/">全7ステップ →</a></div>
+    <div class="steps">
+      ${guide.steps.slice(0, 4).map((sx) => `<a class="step" href="${base}start/#step-${sx.n}">
+        <span class="step__n">STEP ${String(sx.n).padStart(2, '0')}</span>
+        <span class="step__t">${esc(sx.title)}</span>
+        <span class="step__d">${esc(sx.lead.slice(0, 40))}…</span></a>`).join('')}
+    </div>
+  </div>`)}</section>
 
-    <section>
-      <h2>全国の民泊動向</h2>
-      <div class="pills">
-        ${topAreas.map((a) => `<a class="pill" href="${base}area/${slugs[a]}.html">${a}</a>`).join('')}
-        <a class="pill" href="${base}area/">47都道府県</a>
-      </div>
-    </section>
-
-    <section>
-      <h2>いま注目のテーマ</h2>
-      <div class="pills">
-        ${themes.map((t) => `<a class="pill" href="${base}news/?q=${encodeURIComponent(t)}">${t}</a>`).join('')}
-      </div>
-    </section>
-
-    <section>
-      <h2>法令から調べる</h2>
-      <div class="linklist">
-        ${guide.laws.slice(0, 4).map((l) => `<a href="${base}laws/">${esc(l.key)}</a>`).join('')}
-        <a href="${base}laws/">すべての法令・通知</a>
-      </div>
-    </section>
-  </aside>
-</div>`;
-  return layout(base, { title: 'ホーム', description: `${site.tagline} ${site.lede}`, current: 'home', body });
+<section class="band">${wrap(`
+  <div class="sec__head"><h2>さらに学ぶ</h2></div>
+  <div class="learn">
+    <a href="${base}area/"><strong>エリアから探す</strong>
+      <span>47都道府県の届出の窓口、条例の有無、届出件数、宿泊需要。</span></a>
+    <a href="${base}laws/"><strong>法令・条例を調べる</strong>
+      <span>住宅宿泊事業法、旅館業法、消防法。関係する通知や資料へのリンク。</span></a>
+    <a href="${base}about.html"><strong>このサイトについて</strong>
+      <span>どこから情報を集めているか、どう扱っているか。</span></a>
+  </div>
+  <div class="pills" style="margin-top:22px">
+    ${topAreas.map((a) => `<a class="pill" href="${base}area/${slugs[a]}.html">${a}</a>`).join('')}
+    <a class="pill" href="${base}area/">47都道府県</a>
+  </div>`)}</section>
+`;
+  return layout(base, {
+    title: site.tagline, description: site.lede, current: 'home', body, wide: true,
+  });
 }
 
 // ---------- ニュース一覧 ----------
