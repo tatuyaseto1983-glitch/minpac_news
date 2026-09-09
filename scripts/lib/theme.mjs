@@ -286,10 +286,20 @@ a.pill:hover{text-decoration:none}
 
 /* 各社の記事画像（保存はせず、相手のサーバーのものを参照する）。
    読み込めなかったときは onerror でこの枠ごと消す */
-.thumb{display:block;position:relative;overflow:hidden;background:var(--surface-3);
-  border-radius:var(--r-sm);aspect-ratio:16/9;margin:-16px -18px 10px}
-.thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mini .thumb{border-radius:var(--r) var(--r) 0 0}
+/* 画像の枠。写真が無い記事・読み込めなかった記事は、
+   下に敷いたカテゴリ色の面がそのまま出る（高さが揃い、崩れない） */
+.thumb{display:block;position:relative;overflow:hidden;border-radius:var(--r-sm);
+  aspect-ratio:16/9;margin:-16px -18px 10px;background:var(--surface-3)}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.thumb__ph{position:absolute;inset:0;display:flex;align-items:flex-end;padding:11px 13px;
+  font-size:11.5px;font-weight:700;letter-spacing:.1em;font-style:normal;
+  color:var(--cat,var(--green));
+  background:linear-gradient(135deg,
+    color-mix(in srgb,var(--cat,var(--green)) 24%,transparent),
+    color-mix(in srgb,var(--cat,var(--green)) 6%,transparent))}
+.mini .thumb{border-radius:var(--r) var(--r) 0 0;background:rgba(0,0,0,.22)}
+.mini .thumb__ph{color:#8FC3BC;
+  background:linear-gradient(135deg,rgba(126,211,201,.20),rgba(126,211,201,.03))}
 
 /* 注目の1本に画像があるとき */
 .top--img{padding-top:0;padding-left:0;padding-right:0}

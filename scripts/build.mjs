@@ -65,11 +65,15 @@ const catOf = (n) => n.category.id;
 // サイト共通のバナーなので出さない。
 const imageUses = news.reduce((t, n) => (n.image ? t.set(n.image, (t.get(n.image) ?? 0) + 1) : t), new Map());
 const imageOf = (n) => (n.image && imageUses.get(n.image) < 3 ? n.image : null);
-const thumb = (n, cls = 'thumb') => {
+// 画像は各社のサーバーのものなので、消えたり弾かれたりする。
+// 下にカテゴリ色の面を敷いておき、読み込めなければ img が自分で消えて面が残る。
+const thumb = (n) => {
   const src = imageOf(n);
-  return src ? `<span class="${cls}"><img src="${esc(src)}" alt="" loading="lazy" decoding="async"
-    referrerpolicy="no-referrer-when-downgrade"
-    onerror="this.closest('.${cls}').remove()"></span>` : '';
+  return `<span class="thumb" style="--cat:${hueOf(n)}">
+    <i class="thumb__ph">${esc(n.category.name)}</i>
+    ${src ? `<img src="${esc(src)}" alt="" loading="lazy" decoding="async"
+      referrerpolicy="no-referrer-when-downgrade" onerror="this.remove()">` : ''}
+  </span>`;
 };
 
 // 報道は同じ出来事がいくつもの媒体から来るので、話題ごとにまとめる
