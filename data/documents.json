@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-09",
+  "updatedAt": "2026-09-10",
   "sources": [
     {
       "id": "mhlw-ryokan",
       "name": "厚生労働省 旅館業のページ",
       "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000110603.html",
-      "fetchedAt": "2026-09-09",
+      "fetchedAt": "2026-09-10",
       "sections": [
         {
           "title": "関係法令",
