@@ -989,11 +989,18 @@ function pageLaws() {
   <div class="feed">
     ${guide.laws.map((l) => {
       const url = linkFor(l.key);
+      // 法律ごとの解説記事（content/articles/ の front matter の law で結びつける）
+      const g = guides.find((x) => x.law === l.key);
       return `<div class="item" style="cursor:default">
         <div class="item__top"><span class="cat" style="--cat:var(--c-law)">${esc(l.one)}</span></div>
         <h3 class="item__title">${esc(l.key)}</h3>
         <p class="item__sum">${esc(l.detail)}</p>
+        ${g ? `<div class="impact impact--n">
+          <span class="impact__k">この法律の解説</span>
+          <p style="margin:6px 0 0;font-size:13px;line-height:1.85">${esc(g.summary[0] ?? '')}</p>
+        </div>` : ''}
         <div class="item__tags">
+          ${g ? `<a class="tag tag--gov" href="${base}guides/${g.slug}.html">くわしく読む</a>` : ''}
           ${url ? `<a class="tag" href="${esc(url)}" rel="noopener" target="_blank">条文を読む（e-Gov）</a>` : ''}
           <a class="tag" href="${base}start/">開業の流れで確認する</a>
         </div></div>`;
