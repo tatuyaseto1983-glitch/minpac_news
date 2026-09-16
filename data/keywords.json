@@ -459,7 +459,10 @@
     "TVer",
     "NEWSjp",
     "Infoseek",
-    "インフォシーク"
+    "インフォシーク",
+    "hotelbank.jp",
+    "HotelBank",
+    "HOTEL BANK"
   ],
   "outletNames": {
     "ktv.jp": "関西テレビ",
@@ -493,7 +496,6 @@
     "s.mxtv.jp": "TOKYO MX",
     "mxtv.jp": "TOKYO MX",
     "rakumachi.jp": "楽待",
-    "hotelbank.jp": "HOTEL BANK",
     "373news.com": "南日本新聞",
     "chibanippo.co.jp": "千葉日報",
     "sannichi.co.jp": "山梨日日新聞",
