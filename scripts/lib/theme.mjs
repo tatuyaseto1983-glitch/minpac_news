@@ -3,7 +3,7 @@ export const css = `
 :root{
   /* 面と文字：白〜ごく薄いグレー。枠線は最小限にして、余白と背景で階層をつくる */
   --paper:#F7F9F8; --surface:#FFFFFF; --surface-2:#F1F5F4; --surface-3:#E9EFEE;
-  --ink:#0F1A19; --ink-2:#576866; --ink-3:#869593;
+  --ink:#0F1A19; --ink-2:#576866; --ink-3:#63736F;
   --line:#E5EBEA; --line-2:#D2DCDA;
 
   /* 主色は深いグリーン。ブラウン／アンバーはアクセントだけに使う */
@@ -28,7 +28,7 @@ export const css = `
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){
   --paper:#0B1211; --surface:#141C1B; --surface-2:#1B2423; --surface-3:#232E2C;
-  --ink:#E9F0EE; --ink-2:#A2B1AF; --ink-3:#768683;
+  --ink:#E9F0EE; --ink-2:#A2B1AF; --ink-3:#8A9A97;
   --line:#232E2D; --line-2:#334140;
   --green:#3EBFB3; --green-deep:#9FDED6; --green-ink:#5CCBC0; --green-soft:#122E2B;
   --amber:#D79E5E; --amber-soft:#2E2314;
@@ -41,7 +41,7 @@ export const css = `
 }}
 :root[data-theme=dark]{
   --paper:#0B1211; --surface:#141C1B; --surface-2:#1B2423; --surface-3:#232E2C;
-  --ink:#E9F0EE; --ink-2:#A2B1AF; --ink-3:#768683;
+  --ink:#E9F0EE; --ink-2:#A2B1AF; --ink-3:#8A9A97;
   --line:#232E2D; --line-2:#334140;
   --green:#3EBFB3; --green-deep:#9FDED6; --green-ink:#5CCBC0; --green-soft:#122E2B;
   --amber:#D79E5E; --amber-soft:#2E2314;
@@ -55,6 +55,9 @@ export const css = `
 
 /* ---------------- base ---------------- */
 *{box-sizing:border-box}
+/* display を指定した要素は hidden 属性だけでは消えない。ここで必ず消す。
+   ニュース一覧の絞り込みとページ送りが、これに頼っている。 */
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
   font-size:15px;line-height:1.85;font-weight:400;-webkit-font-smoothing:antialiased;
@@ -118,9 +121,12 @@ button{font-family:inherit}
 
 /* ---------------- ラベル・タグ ---------------- */
 /* カテゴリ＝文字ラベル（色面は使わない）。エリア＝枠線のピル。役割で見た目を分ける */
-.cat{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:var(--cat,var(--green));
+/* カテゴリ名。色そのものを文字に使うと小さい字が読みにくいので、
+   色は先頭の四角が担い、文字は読める濃さにしている */
+.cat{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:var(--ink-2);
   letter-spacing:.02em;white-space:nowrap}
-.cat::before{content:"";width:6px;height:6px;border-radius:2px;background:currentColor;flex:none}
+.cat::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--cat,var(--green));flex:none}
+.band--dark .cat,.top .cat{color:#9FDED6}
 .tag{display:inline-flex;align-items:center;font-size:11.5px;font-weight:500;color:var(--ink-2);
   border:1px solid var(--line-2);border-radius:var(--r-pill);padding:2px 10px;white-space:nowrap;background:var(--surface)}
 a.tag:hover{border-color:var(--green);color:var(--green-ink);text-decoration:none}
@@ -207,7 +213,9 @@ a.tag:hover{border-color:var(--green);color:var(--green-ink);text-decoration:non
 .pill{font-size:12px;font-weight:500;padding:5px 12px;border:1px solid var(--line-2);border-radius:var(--r-pill);
   background:var(--surface);color:var(--ink-2);cursor:pointer;line-height:1.6}
 .pill:hover{border-color:var(--green);color:var(--green-ink)}
-.pill[aria-pressed=true]{background:var(--green);border-color:var(--green);color:#fff}
+/* 選択中のピル。白文字が読めるよう、面は濃いほうの緑を使う */
+.pill[aria-pressed=true]{background:var(--green-ink);border-color:var(--green-ink);color:#fff}
+.pill[aria-pressed=true]:hover{color:#fff}
 a.pill:hover{text-decoration:none}
 .linklist{display:flex;flex-direction:column}
 .linklist a{padding:9px 0;font-size:13.5px;color:var(--ink-2);border-bottom:1px solid var(--line)}
@@ -341,6 +349,15 @@ a.pill:hover{text-decoration:none}
 .learn a:hover{border-color:var(--green);text-decoration:none}
 .learn strong{font-size:14.5px;font-weight:700;letter-spacing:-.01em}
 .learn span{font-size:12.5px;color:var(--ink-2);line-height:1.75}
+
+/* スマホ用の絞り込み（横スクロールの1行）。画面が広いときは出さない */
+.mfilter{display:none}
+@media(max-width:860px){
+  .mfilter{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px;margin-bottom:2px;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .mfilter::-webkit-scrollbar{display:none}
+  .mfilter .pill{flex:none}
+}
 
 .notice{background:var(--surface-2);border-radius:var(--r-sm);padding:13px 16px;font-size:12.5px;
   color:var(--ink-2);line-height:1.8}

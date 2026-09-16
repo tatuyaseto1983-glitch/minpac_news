@@ -348,13 +348,13 @@ ${deep.length ? `<section class="band">${wrap(`
 
   ${localFeed.length ? `<div class="box">
     <div class="box__head"><h3>自治体のルール変更</h3>
-      <a href="${base}news/?cat=local">もっと見る →</a></div>
+      <a href="${base}news/?cat=${encodeURIComponent('自治体ルール')}">もっと見る →</a></div>
     <div class="feature2">${itemsNoRepeat(localFeed.slice(0, 4))}</div>
   </div>` : ''}
 
   <div class="box">
     <div class="box__head"><h3>行政発表</h3>
-      <a href="${base}news/?src=gov">もっと見る →</a></div>
+      <a href="${base}news/?src=${encodeURIComponent('行政発表')}">もっと見る →</a></div>
     <div class="feature2">${itemsNoRepeat(govFeed.slice(0, 4))}</div>
   </div>
 
@@ -425,6 +425,12 @@ function pageNews() {
 
     <div class="sec__head" style="margin-top:34px;margin-bottom:12px">
       <h2 id="count-h">新着</h2><span class="meta" id="count"></span>
+    </div>
+    <!-- スマホでは右側の絞り込みが一覧の下に回ってしまうので、
+         よく使うテーマだけを一覧のすぐ上に出す（画面が広いときは隠す） -->
+    <div class="mfilter">
+      ${categoryList.map((c) => `<button class="pill" type="button" data-kind="cat" data-value="${esc(c.name)}" aria-pressed="false">${c.name}</button>`).join('')}
+      <button class="pill" type="button" data-clear="1" hidden>絞り込みを解除</button>
     </div>
     <div class="feed" id="list">${rows}</div>
     <p class="empty" id="empty" hidden>条件に合う記事が見つかりませんでした。キーワードを短くするか、絞り込みを解除してください。</p>
@@ -501,6 +507,8 @@ function pageNews() {
     cards.forEach(function (c) { c.hidden = true; });
     hits.slice(from, from + PER).forEach(function (c) { c.hidden = false; });
     head.textContent = label();
+    // 解除ボタンは、絞り込んでいるときだけ出す
+    if (clear) clear.hidden = !(Object.keys(active).some(function (k) { return active[k]; }) || q.value.trim());
     count.textContent = hits.length + '件' + (pages > 1 ? '（' + page + '/' + pages + '）' : '');
     empty.hidden = hits.length > 0;
     drawPager(pages);
@@ -539,9 +547,18 @@ function pageNews() {
       var on = active[kind] === value;
       pills.forEach(function (o) { if (o.dataset.kind === kind) o.setAttribute('aria-pressed', 'false'); });
       active[kind] = on ? null : value;
-      if (!on) b.setAttribute('aria-pressed', 'true');
+      // 同じ絞り込みのボタンが一覧の上と右側の両方にあるため、まとめて印を付ける
+      if (!on) pills.forEach(function (o) {
+        if (o.dataset.kind === kind && o.dataset.value === value) o.setAttribute('aria-pressed', 'true');
+      });
       page = 1; render();
     });
+  });
+  var clear = document.querySelector('[data-clear]');
+  if (clear) clear.addEventListener('click', function () {
+    active = {}; q.value = '';
+    pills.forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+    page = 1; render();
   });
   q.addEventListener('input', function () { active.word = null;
     pills.forEach(function (o) { if (o.dataset.kind === 'word') o.setAttribute('aria-pressed', 'false'); });
