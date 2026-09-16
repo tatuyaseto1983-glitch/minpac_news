@@ -59,7 +59,38 @@ export function isBlockedOutlet(name) {
 /** ドメインしか返ってこない配信元に読める名前を当てる */
 export function normalizeOutlet(name) {
   if (!name) return name;
-  return (rules.outletNames ?? {})[name] ?? name;
+  return (rules.outletNames ?? {})[name] ?? officialOutlet(name)?.name ?? name;
+}
+
+/**
+ * 自治体や官公庁の案内かどうか。
+ * 報道ではないので省くのではなく、一次情報として扱います。
+ */
+export function officialOutlet(name) {
+  if (!name) return null;
+  const o = rules.officialOutlets;
+  if (!o) return null;
+  const known = o.names?.[name];
+  if (known) return { name: known };
+  // 「白浜町ホームページ」→「白浜町」
+  const trimmed = name.replace(/ホームページ$/, '').trim();
+  if ((o.domainSuffixes ?? []).some((d) => name.endsWith(d))) return { name: trimmed };
+  // 「千葉市」「白浜町ホームページ」のように名前で分かるもの。
+  // 「◯◯新聞」などが巻き込まれないよう、名前が短いものだけを見ます。
+  if (name.length <= 12 && (o.nameEndings ?? []).some((e) => name.endsWith(e))
+      && !/新聞|放送|テレビ|ニュース|タイムス|通信/.test(name)) return { name: trimmed };
+  return null;
+}
+
+/**
+ * 素性の分からない配信元かどうか（名前がドメインのまま＝こちらで確認できていない）。
+ * data/keywords.json の outletNames に名前を書けば載るようになります。
+ */
+export function isUnknownOutlet(name) {
+  if (!rules.requireKnownOutlet || !name) return false;
+  if (rules.outletNames?.[name]) return false;
+  if (officialOutlet(name)) return false;
+  return /^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9-]+)+$/i.test(name.trim());
 }
 
 export function detectBusinessTypes(title) {

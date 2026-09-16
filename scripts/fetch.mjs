@@ -5,7 +5,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { getText, getBuffer } from './lib/http.mjs';
 import { pdfToText } from './lib/pdf.mjs';
 import { parseRss, parseJtaYearPage, findYearPages, parseMinpakuSituation, parseMinpakuNews, parseMhlwDocs, parseGoogleNews, parseRyokanStats, parseLodgingStats, parseMunicipalities, findPdfLink, parseFilingsPdf, checkFilings, parseLodgingPdf, checkLodging } from './lib/parse.mjs';
-import { screen, categorize, detectAreas, detectBusinessTypes, isBlockedOutlet, isBlockedTitle, normalizeOutlet } from './lib/classify.mjs';
+import { screen, categorize, detectAreas, detectBusinessTypes, isBlockedOutlet, isBlockedTitle, isUnknownOutlet, officialOutlet, normalizeOutlet } from './lib/classify.mjs';
 
 const root = new URL('../', import.meta.url);
 const p = (rel) => new URL(rel, root);
@@ -101,10 +101,12 @@ for (const src of sources) {
       for (const q of src.queries ?? []) {
         for (const item of parseGoogleNews(await getText(src.url + encodeURIComponent(q)))) {
           if (seenTitle.has(item.title)) continue; // 同じ記事が複数の検索語で出てくる
-          if (isBlockedOutlet(item.outlet)) continue; // プレスリリース配信サービスなどは外す
+          if (isBlockedOutlet(item.outlet)) continue; // 政党・個人ブログ・転載ポータルなどは外す
+          if (isUnknownOutlet(item.outlet)) continue; // 名前がドメインのまま＝素性を確認できていない
           if (isBlockedTitle(item.title)) continue;   // 読者の意見まとめ、広告企画などは外す
           seenTitle.add(item.title);
-          raw.push({ ...item, outlet: normalizeOutlet(item.outlet) });
+          // 自治体・官公庁の案内は報道ではないので、一次情報として扱う
+          raw.push({ ...item, outlet: normalizeOutlet(item.outlet), official: Boolean(officialOutlet(item.outlet)) });
         }
       }
     } else if (src.type === 'minpaku-news') {
@@ -128,6 +130,7 @@ for (const src of sources) {
           lastSeenAt: today,
           score: verdict.score,
           sourceName: item.outlet ?? src.name,
+          isPrimary: Boolean(src.primary) || Boolean(item.official),
           areas: detectAreas(item.title),
           category: categorize(item.title, detectAreas(item.title)),
           businessTypes: detectBusinessTypes(item.title),
@@ -143,7 +146,7 @@ for (const src of sources) {
         sourceId: src.id,
         sourceName: item.outlet ?? src.name,
         via: item.outlet ? src.name : null,
-        isPrimary: Boolean(src.primary),
+        isPrimary: Boolean(src.primary) || Boolean(item.official),
         areas: detectAreas(item.title),
         category: categorize(item.title, detectAreas(item.title)),
         businessTypes: detectBusinessTypes(item.title),
@@ -213,6 +216,17 @@ try {
 } catch (err) {
   report.push({ source: 'jta-lodging', error: err.message });
 }
+
+// 配信元の基準を変えたときに、取り込み済みの記事にもさかのぼって適用する
+let dropped = 0;
+for (const [k, v] of byUrl) {
+  if (v.sourceId !== 'google-news') continue;
+  if (!isBlockedOutlet(v.sourceName) && !isUnknownOutlet(v.sourceName) && !isBlockedTitle(v.title)) continue;
+  byUrl.delete(k);
+  dropped++;
+}
+if (dropped) report.push({ source: 'outlet-cleanup', found: dropped, added: 0,
+  note: `配信元の基準に合わなくなった記事を${dropped}件はずしました` });
 
 const items = [...byUrl.values()].sort(
   (a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? '') || b.id.localeCompare(a.id)
