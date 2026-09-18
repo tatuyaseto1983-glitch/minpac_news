@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, readdirSync, existsSync
 import { dirname } from 'node:path';
 import { renderMarkdown, parseFrontMatter, esc } from './lib/md.mjs';
 import { css } from './lib/theme.mjs';
+import { appJs } from './lib/app.mjs';
 import { categoryList, prefectures, detectAreas } from './lib/classify.mjs';
 import { hueOf, clusterNews, summaryFor, impactFor } from './lib/cards.mjs';
 import { hbars, proportionBar, legend } from './lib/charts.mjs';
@@ -163,6 +164,7 @@ function layout(base, { title, description, current, body, wide = false }) {
   <form class="headsearch" action="${base}news/" method="get" role="search">
     ${SEARCH_ICON}<input type="search" name="q" placeholder="キーワードで検索" aria-label="キーワードで検索">
   </form>
+  <a class="headsaved" href="${base}saved/">★ 保存<b data-saved-count hidden>0</b></a>
 </div></header>
 <main${wide ? '' : ' class="wrap"'}>
 ${body}
@@ -172,7 +174,7 @@ ${body}
   <nav class="footnav">
     <a href="${base}news/">ニュース</a><a href="${base}area/">エリア</a><a href="${base}stats/">データ</a>
     <a href="${base}laws/">法令・条例</a><a href="${base}start/">民泊を始める</a>
-    <a href="${base}guides/">解説</a>${reports.length ? `<a href="${base}reports/">レポート</a>` : ''}<a href="${base}about.html">このサイトについて</a>
+    <a href="${base}guides/">解説</a>${reports.length ? `<a href="${base}reports/">レポート</a>` : ''}<a href="${base}saved/">保存した記事</a><a href="${base}about.html">このサイトについて</a>
   </nav>
   <p class="micro">掲載しているのは各行政機関の発表と報道各社の見出し・リンクです。記事本文は転載していません。制度の適用可否など最終的な判断は、必ず物件所在地の管轄窓口（保健所・消防署・建築指導課）へご確認ください。</p>
   <p class="micro">${site.name}　／　データ更新日 ${articles.updatedAt}</p>
@@ -181,20 +183,26 @@ ${body}
 (function(){var h=document.getElementById('hdr');var f=function(){h.classList.toggle('is-small',window.scrollY>60)};
 window.addEventListener('scroll',f,{passive:true});f();})();
 </script>
+<script src="${base}assets/app.js"></script>
 </body>
 </html>`;
 }
 
 // ---------- 記事の部品 ----------
-const catLabel = (n) => `<span class="cat" style="--cat:${hueOf(n)}">${esc(n.category.name)}</span>`;
+const catLabel = (n, base) => `<a class="cat" style="--cat:${hueOf(n)}"
+  href="${base}news/?cat=${encodeURIComponent(n.category.name)}">${esc(n.category.name)}</a>`;
 
 const metaLine = (n) =>
   `<span class="meta">${fmt(n.publishedAt)}</span><span class="dot">·</span>` +
   `<span class="meta">${esc(n.sourceName)}</span>` +
   (n.isPrimary ? '<span class="tag tag--gov">一次情報</span>' : '');
 
-const areaTags = (n) =>
-  n.areas.filter((a) => a !== '全国').slice(0, 3).map((a) => `<span class="tag">${esc(a)}</span>`).join('');
+/** 地域タグ。押すとその都道府県のページへ行けるようにする */
+const areaLinks = (n, base) =>
+  n.areas.filter((a) => a !== '全国').slice(0, 3)
+    .map((a) => (slugs[a]
+      ? `<a class="tag" href="${base}area/${slugs[a]}.html">${esc(a)}</a>`
+      : `<span class="tag">${esc(a)}</span>`)).join('');
 
 const impactBox = (n, mild = false) => {
   const im = impactFor(n);
@@ -203,49 +211,52 @@ const impactBox = (n, mild = false) => {
     <p class="impact__t">${esc(im.text)}</p></div>`;
 };
 
-/** 一覧の1件 */
-function item(n, others = [], attrs = '', { hideImpact = false } = {}) {
+/** 「保存」「最近見た」をブラウザに覚えさせるための材料 */
+const cardData = (n) =>
+  ` data-id="${esc(n.id)}" data-title="${esc(n.title)}" data-url="${esc(n.url)}"` +
+  ` data-outlet="${esc(n.sourceName)}" data-date="${esc(n.publishedAt ?? '')}"` +
+  ` data-cat="${esc(n.category.name)}"`;
+
+/** 保存ボタン。記録はそのブラウザの中だけで、どこにも送りません */
+const saveButton = () =>
+  `<button class="tag tag--save" type="button" data-save aria-pressed="false">` +
+  `<span class="on">保存済み</span><span class="off">保存する</span></button>`;
+
+/**
+ * 一覧の1件。
+ * カード全体を押すと記事（外部サイト）へ、
+ * 中のタグを押すとサイト内のページへ行けるようにしている。
+ */
+function item(n, others = [], attrs = '', { hideImpact = false, base = '../' } = {}) {
   const sum = summaryFor(n);
-  return `<a class="item" href="${esc(n.url)}" target="_blank" rel="noopener nofollow"${attrs}>
-  <div class="item__top">${catLabel(n)}${metaLine(n)}</div>
-  <h3 class="item__title">${esc(n.title)}</h3>
+  return `<div class="item"${attrs}${cardData(n)}>
+  <div class="item__top">${catLabel(n, base)}${metaLine(n)}</div>
+  <h3 class="item__title"><a href="${esc(n.url)}" target="_blank" rel="noopener nofollow"
+    data-track>${esc(n.title)}<span class="ext" aria-label="外部サイトが開きます">↗</span></a></h3>
   ${sum ? `<p class="item__sum">${esc(sum.text)}${sum.ai ? '<span class="meta">（AI要約・下書き）</span>' : ''}</p>` : ''}
   ${hideImpact ? '' : impactBox(n)}
-  <div class="item__tags">${areaTags(n)}${
-    others.length ? `<span class="meta">ほか${others.length}媒体</span>` : ''}</div>
-</a>`;
+  <div class="item__tags">${areaLinks(n, base)}${
+    others.length ? `<span class="meta">ほか${others.length}媒体</span>` : ''}${saveButton()}</div>
+</div>`;
 }
 
 /**
  * 同じ文が並ぶと読みにくいので、まとまりの中で2回目以降の
  * 「民泊事業者への影響」は出さない。
  */
-function itemsNoRepeat(entries) {
+function itemsNoRepeat(entries, base) {
   const seen = new Set();
   return entries.map((e) => {
     const t = impactFor(e.lead ?? e)?.text ?? null;
     const dup = t != null && seen.has(t);
     if (t != null) seen.add(t);
-    return item(e.lead ?? e, e.others ?? [], '', { hideImpact: dup });
+    return item(e.lead ?? e, e.others ?? [], '', { hideImpact: dup, base });
   }).join('');
 }
 
-/** 最重要の1件 */
-function leadItem(n, others = []) {
-  const sum = summaryFor(n);
-  return `<a class="lead" href="${esc(n.url)}" target="_blank" rel="noopener nofollow">
-  <div class="item__top">${catLabel(n)}${metaLine(n)}${
-    others.length ? `<span class="meta">ほか${others.length}媒体が報じています</span>` : ''}</div>
-  <h2 class="lead__title">${esc(n.title)}</h2>
-  ${sum ? `<p class="item__sum">${esc(sum.text)}</p>` : ''}
-  ${impactBox(n)}
-  <div class="item__tags">${areaTags(n)}</div>
-</a>`;
-}
-
-const feedList = (entries, empty = '該当する記事はまだありません。') =>
+const feedList = (entries, empty = '該当する記事はまだありません。', base = '../') =>
   entries.length
-    ? `<div class="feed">${entries.map((e) => item(e.lead ?? e, e.others ?? [])).join('')}</div>`
+    ? `<div class="feed">${entries.map((e) => item(e.lead ?? e, e.others ?? [], '', { base })).join('')}</div>`
     : `<p class="empty">${empty}</p>`;
 
 const secHead = (title, note, moreHref, moreLabel) =>
@@ -349,13 +360,13 @@ ${deep.length ? `<section class="band">${wrap(`
   ${localFeed.length ? `<div class="box">
     <div class="box__head"><h3>自治体のルール変更</h3>
       <a href="${base}news/?cat=${encodeURIComponent('自治体ルール')}">もっと見る →</a></div>
-    <div class="feature2">${itemsNoRepeat(localFeed.slice(0, 4))}</div>
+    <div class="feature2">${itemsNoRepeat(localFeed.slice(0, 4), base)}</div>
   </div>` : ''}
 
   <div class="box">
     <div class="box__head"><h3>行政発表</h3>
       <a href="${base}news/?src=${encodeURIComponent('行政発表')}">もっと見る →</a></div>
-    <div class="feature2">${itemsNoRepeat(govFeed.slice(0, 4))}</div>
+    <div class="feature2">${itemsNoRepeat(govFeed.slice(0, 4), base)}</div>
   </div>
 
   <div class="box">
@@ -398,9 +409,9 @@ function pageNews() {
   const rest = feed.slice(2);
   const rows = rest.map((e) => {
     const n = e.lead;
-    const attrs = ` data-cat="${esc(n.category.name)}" data-area="${esc(n.areas.join('|'))}"` +
-      ` data-src="${n.isPrimary ? '行政発表' : '報道'}" data-title="${esc(n.title)}"`;
-    return item(n, e.others, attrs);
+    const attrs = ` data-area="${esc(n.areas.join('|'))}"` +
+      ` data-src="${n.isPrimary ? '行政発表' : '報道'}"`;
+    return item(n, e.others, attrs, { base });
   }).join('');
 
   const areaOptions = prefectures
@@ -420,7 +431,7 @@ function pageNews() {
   <div>
     ${featured.length ? `<section class="sec" style="margin-top:0">
       ${secHead('注目の話題', '')}
-      <div class="feature2">${featured.map((e) => item(e.lead, e.others)).join('')}</div>
+      <div class="feature2">${featured.map((e) => item(e.lead, e.others, '', { base })).join('')}</div>
     </section>` : ''}
 
     <div class="sec__head" style="margin-top:34px;margin-bottom:12px">
@@ -949,7 +960,7 @@ function pageArea(pref) {
 
     <section class="sec">
       ${secHead(`${esc(pref)}に関わるニュース`, `${items.length}件`)}
-      ${feedList(items.slice(0, 20), `${esc(pref)}を名指しした発表はまだ取得できていません。全国向けの発表は<a href="${base}news/">ニュース</a>をご覧ください。`)}
+      ${feedList(items.slice(0, 20), `${esc(pref)}を名指しした発表はまだ取得できていません。全国向けの発表は<a href="${base}news/">ニュース</a>をご覧ください。`, base)}
     </section>
   </div>
   <aside class="rail">
@@ -1150,6 +1161,37 @@ function wrapReport(r) {
   return /<body[^>]*>/i.test(html) ? html.replace(/<body[^>]*>/i, (m) => m + bar) : bar + html;
 }
 
+// ---------- 保存した記事 ----------
+function pageSaved() {
+  const base = '../';
+  const body = `
+<p class="crumb"><a href="${base}">ホーム</a> ＞ 保存した記事</p>
+<div class="phead">
+  <h1 class="h-page">保存した記事</h1>
+  <p class="sub">気になった記事を手元に置いておけます。記録はこの端末のブラウザの中だけに残り、どこにも送られません。</p>
+</div>
+
+<section class="sec" style="margin-top:0">
+  <div class="sec__head"><h2>保存した記事</h2><span class="meta" id="saved-count"></span></div>
+  <div id="saved-list"></div>
+</section>
+
+<section class="sec">
+  <div class="sec__head"><h2>最近見た記事</h2><span class="meta" id="recent-count"></span></div>
+  <div id="recent-list"></div>
+  <button class="pill" type="button" id="recent-clear" style="margin-top:14px">記録を消す</button>
+</section>
+
+<div class="notice" style="margin:26px 0 60px">
+  <strong>記録の置き場所について。</strong>保存と閲覧の記録は、いまお使いのブラウザの中だけに保存しています。
+  サーバーには送っていないため、別の端末や別のブラウザでは見られません。
+  ブラウザの履歴やサイトデータを消すと、あわせて消えます。
+</div>`;
+  return layout(base, {
+    title: '保存した記事', description: '気になった記事の保存と、最近見た記事。', current: 'saved', body,
+  });
+}
+
 // ---------- このサイトについて ----------
 function pageAbout() {
   const base = '';
@@ -1204,6 +1246,8 @@ write('area/index.html', pageAreaIndex());
 write('start/index.html', pageStart());
 write('guides/index.html', pageGuideIndex());
 write('about.html', pageAbout());
+write('saved/index.html', pageSaved());
+write('assets/app.js', appJs.trim() + '\n');
 if (docs.sources.length) write('laws/index.html', pageLaws());
 for (const g of guides) write(`guides/${g.slug}.html`, pageGuide(g));
 for (const pref of prefectures) write(`area/${slugs[pref]}.html`, pageArea(pref));
@@ -1220,7 +1264,7 @@ if (reports.length) {
 write('robots.txt', `User-agent: *\nAllow: /\n${site.url ? `Sitemap: ${site.url}/sitemap.xml\n` : ''}`);
 write('.nojekyll', '');
 
-const pages = ['', 'news/', 'stats/', 'area/', 'start/', 'guides/', 'about.html',
+const pages = ['', 'news/', 'stats/', 'area/', 'start/', 'guides/', 'saved/', 'about.html',
   ...(docs.sources.length ? ['laws/'] : []),
   ...(reports.length ? ['reports/', ...reports.map((r) => `reports/${encodeURIComponent(r.file)}`)] : []),
   ...guides.map((g) => `guides/${g.slug}.html`), ...prefectures.map((a) => `area/${slugs[a]}.html`)];

@@ -124,6 +124,9 @@ button{font-family:inherit}
 /* カテゴリ名。色そのものを文字に使うと小さい字が読みにくいので、
    色は先頭の四角が担い、文字は読める濃さにしている */
 .cat{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:var(--ink-2);
+  text-decoration:none}
+a.cat:hover{color:var(--green-ink);text-decoration:underline}
+.cat{
   letter-spacing:.02em;white-space:nowrap}
 .cat::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--cat,var(--green));flex:none}
 .band--dark .cat,.top .cat{color:#9FDED6}
@@ -135,9 +138,38 @@ a.tag:hover{border-color:var(--green);color:var(--green-ink);text-decoration:non
 
 /* ---------------- ニュースカード ---------------- */
 .feed{display:flex;flex-direction:column;gap:10px}
-.item{display:block;background:var(--surface);border-radius:var(--r);padding:18px 20px;color:inherit;
-  box-shadow:var(--shadow);transition:box-shadow .16s ease,transform .16s ease}
-.item:hover{box-shadow:var(--shadow-lift);transform:translateY(-2px);text-decoration:none}
+/* カード。見出しのリンクをカード全体まで広げ、
+   中のタグ（地域・カテゴリ・保存）はその上に置いて別々に押せるようにしている */
+.item{position:relative;display:block;background:var(--surface);border-radius:var(--r);padding:18px 20px;
+  color:inherit;box-shadow:var(--shadow);transition:box-shadow .16s ease,transform .16s ease}
+.item:hover{box-shadow:var(--shadow-lift);transform:translateY(-2px)}
+.item__title a{color:inherit}
+.item__title a::after{content:"";position:absolute;inset:0;border-radius:var(--r)}
+.item:hover .item__title a{color:var(--green-deep);text-decoration:none}
+.item__top,.item__tags{position:relative;z-index:1}
+.item__top .cat,.item__tags a,.item__tags button{pointer-events:auto}
+/* 外部サイトへ出ることが分かる印 */
+.ext{font-size:11px;margin-left:5px;color:var(--ink-3);font-weight:500;vertical-align:1px}
+
+/* 保存ボタン */
+.tag--save{cursor:pointer;font-family:inherit}
+.tag--save .on{display:none}
+.tag--save[aria-pressed=true]{background:var(--green-soft);border-color:var(--green);color:var(--green-ink);
+  font-weight:600}
+.tag--save[aria-pressed=true] .on{display:inline}
+.tag--save[aria-pressed=true] .off{display:none}
+.tag--save::before{content:"☆";margin-right:4px}
+.tag--save[aria-pressed=true]::before{content:"★"}
+/* 保存が使えないブラウザでは出さない */
+.no-store .tag--save,.no-store .headsaved{display:none}
+
+/* ヘッダーの「保存」 */
+.headsaved{display:inline-flex;align-items:center;gap:6px;flex:none;font-size:12.5px;font-weight:500;
+  color:var(--ink-2);border:1px solid var(--line-2);border-radius:var(--r-pill);padding:6px 12px;
+  background:var(--surface);white-space:nowrap}
+.headsaved:hover{border-color:var(--green);color:var(--green-ink);text-decoration:none}
+.headsaved b{font-size:11px;font-weight:700;background:var(--green-ink);color:#fff;border-radius:var(--r-pill);
+  min-width:17px;text-align:center;padding:0 5px;line-height:17px}
 .item__top{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:8px}
 .item__title{font-size:17px;font-weight:700;line-height:1.6;letter-spacing:-.015em;color:var(--ink)}
 .item:hover .item__title{color:var(--green-deep)}
