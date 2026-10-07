@@ -320,12 +320,12 @@ ${hero}
       let sum = summaryFor(n) ?? impactFor(n);
       if (sum && seen.has(sum.text)) sum = null; else if (sum) seen.add(sum.text);
       return `<a class="mini" href="${esc(n.url)}" target="_blank" rel="noopener nofollow"
-        style="background:rgba(255,255,255,.06);box-shadow:none;color:#F6E8DE">
+        style="background:rgba(255,255,255,.055);box-shadow:none;color:var(--on-band)">
         ${thumb(n)}
-        <span class="cat" style="--cat:#F0B98C">${esc(n.category.name)}</span>
+        <span class="cat" style="--cat:${hueOf(n)}">${esc(n.category.name)}</span>
         <h3 style="color:#fff">${esc(n.title)}</h3>
-        ${sum ? `<p style="color:#E4CBB9">${esc(sum.text.slice(0, 84))}${sum.text.length > 84 ? '…' : ''}</p>` : ''}
-        <span style="font-size:11.5px;color:#D3B49F;margin-top:auto">${fmt(n.publishedAt)}　${esc(n.sourceName)}</span>
+        ${sum ? `<p style="color:#C9C6C1">${esc(sum.text.slice(0, 84))}${sum.text.length > 84 ? '…' : ''}</p>` : ''}
+        <span style="font-size:11.5px;color:#9B9790;margin-top:auto">${fmt(n.publishedAt)}　${esc(n.sourceName)}</span>
       </a>`;
     }).join(''); })()}
   </div>`)}</section>
@@ -1153,7 +1153,7 @@ function pageReportIndex() {
 function wrapReport(r) {
   const html = readFileSync(new URL(r.file, reportDir), 'utf8');
   const bar = `<div style="position:sticky;top:0;z-index:99999;display:flex;align-items:center;gap:14px;
-  padding:9px 18px;background:#2B1710;color:#fff;font-size:13px;line-height:1.5;
+  padding:9px 18px;background:#23211E;color:#fff;font-size:13px;line-height:1.5;
   font-family:system-ui,-apple-system,'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif">
   <a href="../reports/" style="color:#fff;text-decoration:none;font-weight:600">← ${esc(site.name)} のレポート一覧</a>
   <span style="opacity:.6">${esc(r.kind)}　${esc(fmt(r.date))}</span>

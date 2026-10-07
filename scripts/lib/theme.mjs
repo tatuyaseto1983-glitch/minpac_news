@@ -2,17 +2,20 @@ export const css = `
 /* ---------------- tokens ---------------- */
 :root{
   /* 面と文字：白〜ごく薄いグレー。枠線は最小限にして、余白と背景で階層をつくる */
-  --paper:#FAF8F6; --surface:#FFFFFF; --surface-2:#F4F1ED; --surface-3:#EAE5DF;
-  --ink:#1A1512; --ink-2:#5F5750; --ink-3:#675F58;
-  --line:#EDE8E2; --line-2:#DED6CD;
+  --paper:#FAFAF9; --surface:#FFFFFF; --surface-2:#F3F3F1; --surface-3:#E8E7E4;
+  --ink:#1A1917; --ink-2:#5C5A55; --ink-3:#6B6864;
+  --line:#E9E8E5; --line-2:#DAD8D4;
 
-  /* 主色は深いグリーン。ブラウン／アンバーはアクセントだけに使う */
-  --brand:#D96319; --brand-deep:#8E3C10; --brand-ink:#A94A12; --brand-soft:#FBEFE6;
-  --band-dark:#6E2E0E;            /* 濃い帯の面。明暗どちらでも濃いまま */
+  /* ロゴのオレンジは「効かせどころ」だけに使う。面の広いところは無彩色に寄せる */
+  --brand:#D96319; --brand-deep:#A94A12; --brand-ink:#A94A12; --brand-soft:#FBF1E8;
+  --band-dark:#23211E;            /* 濃い帯の面。炭色。明暗どちらでも濃いまま */
+  --on-band:#E8E6E2;              /* 濃い帯の上の文字 */
+  --on-band-2:#A8A39C;            /* 同・補助の文字 */
+  --on-band-key:#F0A05A;          /* 同・オレンジのアクセント */
   --amber:#B5831F; --amber-soft:#FAF2E2;
   --alert:#B4503F; --alert-soft:#FBEAE6;
 
-  /* カテゴリは6つ。色は3系統だけに抑える（規制＝グリーン、実務／お金＝アンバー、市場・業界＝ニュートラル） */
+  /* カテゴリは6つ。文字は読みやすい濃さにし、色は先頭の四角だけが担う */
   --c-local:#D96319; --c-law:#1C6AAE; --c-market:#B5831F;
   --c-start:#8E4FA8; --c-subsidy:#3F8A33; --c-industry:#B8456E;
 
@@ -27,11 +30,12 @@ export const css = `
   --shadow-lift:0 2px 4px rgba(16,40,38,.05), 0 18px 40px -24px rgba(16,40,38,.4);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){
-  --paper:#13100E; --surface:#1C1816; --surface-2:#241F1C; --surface-3:#2E2823;
-  --ink:#F2EDE8; --ink-2:#B5AAA1; --ink-3:#9A8F86;
-  --line:#2A2420; --line-2:#3A332D;
-  --brand:#E8793A; --brand-deep:#F09A5E; --brand-ink:#F09A5E; --brand-soft:#2E1B10;
-  --band-dark:#2B1710;
+  --paper:#121210; --surface:#1B1A18; --surface-2:#232220; --surface-3:#2C2B28;
+  --ink:#F0EEEB; --ink-2:#B0ACA6; --ink-3:#96928C;
+  --line:#272624; --line-2:#37352F;
+  --brand:#E8793A; --brand-deep:#F09A5E; --brand-ink:#F09A5E; --brand-soft:#2B1E14;
+  --band-dark:#1A1917;
+  --on-band:#E8E6E2; --on-band-2:#A8A39C; --on-band-key:#F0A05A;
   --amber:#CDA34E; --amber-soft:#2E2314;
   --alert:#D47764; --alert-soft:#33201C;
   --c-local:#D4691F; --c-law:#3E8CC8; --c-market:#B08A33;
@@ -42,11 +46,12 @@ export const css = `
   --shadow-lift:0 2px 4px rgba(0,0,0,.35), 0 18px 40px -24px rgba(0,0,0,.8);
 }}
 :root[data-theme=dark]{
-  --paper:#13100E; --surface:#1C1816; --surface-2:#241F1C; --surface-3:#2E2823;
-  --ink:#F2EDE8; --ink-2:#B5AAA1; --ink-3:#9A8F86;
-  --line:#2A2420; --line-2:#3A332D;
-  --brand:#E8793A; --brand-deep:#F09A5E; --brand-ink:#F09A5E; --brand-soft:#2E1B10;
-  --band-dark:#2B1710;
+  --paper:#121210; --surface:#1B1A18; --surface-2:#232220; --surface-3:#2C2B28;
+  --ink:#F0EEEB; --ink-2:#B0ACA6; --ink-3:#96928C;
+  --line:#272624; --line-2:#37352F;
+  --brand:#E8793A; --brand-deep:#F09A5E; --brand-ink:#F09A5E; --brand-soft:#2B1E14;
+  --band-dark:#1A1917;
+  --on-band:#E8E6E2; --on-band-2:#A8A39C; --on-band-key:#F0A05A;
   --amber:#CDA34E; --amber-soft:#2E2314;
   --alert:#D47764; --alert-soft:#33201C;
   --c-local:#D4691F; --c-law:#3E8CC8; --c-market:#B08A33;
@@ -127,7 +132,10 @@ a.cat:hover{color:var(--brand-ink);text-decoration:underline}
 .cat{
   letter-spacing:.02em;white-space:nowrap}
 .cat::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--cat,var(--brand));flex:none}
-.band--dark .cat,.top .cat{color:#F0B98C}
+/* 濃い帯の上では、カテゴリの点も明るい段に差し替える（点が沈まないように） */
+.band--dark,.top{--c-local:#D4691F; --c-law:#3E8CC8; --c-market:#B08A33;
+  --c-start:#9560B5; --c-subsidy:#49943C; --c-industry:#C25075}
+.band--dark .cat,.top .cat{color:var(--on-band-2)}
 .tag{display:inline-flex;align-items:center;font-size:11.5px;font-weight:500;color:var(--ink-2);
   border:1px solid var(--line-2);border-radius:var(--r-pill);padding:2px 10px;white-space:nowrap;background:var(--surface)}
 a.tag:hover{border-color:var(--brand);color:var(--brand-ink);text-decoration:none}
@@ -301,10 +309,10 @@ a.pill:hover{text-decoration:none}
 .band{padding:44px 0}
 .band > .wrap{padding-top:0;padding-bottom:0}
 .band--soft{background:var(--surface-2)}
-.band--dark{background:var(--band-dark);color:#F6E8DE}
+.band--dark{background:var(--band-dark);color:var(--on-band)}
 .band--dark .sec__head h2,.band--dark h2{color:#FFFFFF}
-.band--dark .meta,.band--dark .sec__head .meta{color:#D3B49F}
-.band--dark .sec__more{color:#F0B98C}
+.band--dark .meta,.band--dark .sec__head .meta{color:var(--on-band-2)}
+.band--dark .sec__more{color:var(--on-band-key)}
 
 /* 各社の記事画像（保存はせず、相手のサーバーのものを参照する）。
    写真が無い記事・読み込めなかった記事は、下に敷いたカテゴリ色の面がそのまま出る
@@ -319,28 +327,28 @@ a.pill:hover{text-decoration:none}
     color-mix(in srgb,var(--cat,var(--brand)) 24%,transparent),
     color-mix(in srgb,var(--cat,var(--brand)) 6%,transparent))}
 .mini .thumb{border-radius:var(--r) var(--r) 0 0;background:rgba(0,0,0,.22)}
-.mini .thumb__ph{color:#D3B49F;
-  background:linear-gradient(135deg,rgba(240,185,140,.20),rgba(240,185,140,.03))}
+.mini .thumb__ph{color:var(--on-band-2);
+  background:linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.02))}
 
 /* いちばん上の注目記事。
    写真があるときは、カード全体の背面に敷く（枠の高さは文章で決まるので崩れない）。 */
-.top{background:var(--band-dark);color:#F6E8DE;border-radius:var(--r);padding:34px 34px 30px;
+.top{background:var(--band-dark);color:var(--on-band);border-radius:var(--r);padding:34px 34px 30px;
   display:block;position:relative;overflow:hidden;min-height:230px}
 .top::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(120% 90% at 82% 8%,rgba(217,99,25,.34),transparent 62%)}
-.top__img{position:absolute;inset:0;z-index:0;display:block;overflow:hidden;background:#2B1710}
+  background:radial-gradient(120% 90% at 84% 6%,rgba(217,99,25,.20),transparent 58%)}
+.top__img{position:absolute;inset:0;z-index:0;display:block;overflow:hidden;background:#1A1917}
 .top__img img{width:100%;height:100%;object-fit:cover;display:block;opacity:.42}
 .top__img::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(105deg,rgba(60,22,8,.94) 32%,rgba(60,22,8,.60) 100%)}
+  background:linear-gradient(105deg,rgba(26,25,23,.95) 34%,rgba(26,25,23,.66) 100%)}
 .top > *:not(.top__img){position:relative;z-index:2}
 .top:hover{text-decoration:none}
-.top__eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;color:#F0B98C;display:block}
+.top__eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--on-band-key);display:block}
 .top__title{font-size:clamp(22px,2.9vw,34px);font-weight:700;line-height:1.45;letter-spacing:-.03em;
   margin:12px 0 0;color:#FFFFFF;max-width:24ch;text-shadow:0 1px 14px rgba(8,34,32,.45)}
 .top:hover .top__title{text-decoration:underline;text-underline-offset:4px}
-.top__meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:12px;color:#D9BCA7;margin-top:14px}
-.top__sum{margin:14px 0 0;font-size:14px;line-height:1.9;color:#EDD9CB;max-width:52ch}
-.top .tag{border-color:rgba(255,255,255,.3);color:#EDD9CB;background:transparent}
+.top__meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:12px;color:var(--on-band-2);margin-top:14px}
+.top__sum{margin:14px 0 0;font-size:14px;line-height:1.9;color:#CFCCC7;max-width:52ch}
+.top .tag{border-color:rgba(255,255,255,.26);color:#CFCCC7;background:transparent}
 @media(max-width:640px){.top{padding:24px 22px;min-height:200px}}
 
 /* 見出しつきの箱（カテゴリ記事） */

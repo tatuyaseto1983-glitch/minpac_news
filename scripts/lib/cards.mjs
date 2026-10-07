@@ -3,7 +3,7 @@ import { readFileSync, existsSync } from 'node:fs';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-// カテゴリは6つ。色は3系統（規制＝グリーン、実務とお金＝アンバー、市場と業界＝ニュートラル）
+// カテゴリは6つ。実際の色は CSS 変数（--c-*）側で決める。濃い帯の上では明るい段に差し替わる。
 export const CATEGORY = {
   local:    { hue: 'var(--c-local)' },
   law:      { hue: 'var(--c-law)' },
