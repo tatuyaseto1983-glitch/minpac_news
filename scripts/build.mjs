@@ -14,7 +14,7 @@ const p = (rel) => new URL(rel, root);
 const OUT = new URL('dist/', root);
 
 const site = {
-  name: '民泊コンパス',
+  name: 'minpac',
   tagline: '民泊の「いま」と「できる」がわかる。',
   lede: '法令、条例、行政発表、市場データ、開業情報をひとつに。',
   url: process.env.SITE_URL ?? '',
@@ -158,7 +158,8 @@ function layout(base, { title, description, current, body, wide = false }) {
 </head>
 <body>
 <header class="site-header" id="hdr"><div class="wrap">
-  <a class="brand" href="${base}"><span class="mk"></span>${site.name}</a>
+  <a class="brand" href="${base}"><img src="${base}assets/logo.png" alt="${esc(site.name)}"
+    width="442" height="80"></a>
   <nav class="site-nav">${NAV.map(([href, label, id]) =>
     `<a href="${base}${href}"${id === current ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>
   <form class="headsearch" action="${base}news/" method="get" role="search">
@@ -288,10 +289,10 @@ function pageHome() {
   const tSum = t ? summaryFor(t) : null;
   const tImg = t ? imageOf(t) : null;
   const hero = t ? `<section class="band">${wrap(`
-    <a class="top${tImg ? ' top--img' : ''}" href="${esc(t.url)}" target="_blank" rel="noopener nofollow">
+    <a class="top" href="${esc(t.url)}" target="_blank" rel="noopener nofollow" data-track>
       ${tImg ? `<span class="top__img"><img src="${esc(tImg)}" alt="" decoding="async"
         referrerpolicy="no-referrer-when-downgrade"
-        onerror="this.closest('.top').classList.remove('top--img');this.closest('.top__img').remove()"></span>` : ''}
+        onerror="this.closest('.top__img').remove()"></span>` : ''}
       <span class="top__eyebrow">いま押さえておきたい</span>
       <h1 class="top__title">${esc(t.title)}</h1>
       <p class="top__sum">${esc(tSum?.text ?? impactFor(t)?.text ?? site.lede)}</p>
@@ -1248,6 +1249,7 @@ write('guides/index.html', pageGuideIndex());
 write('about.html', pageAbout());
 write('saved/index.html', pageSaved());
 write('assets/app.js', appJs.trim() + '\n');
+copyFileSync(p('assets/logo.png'), new URL('assets/logo.png', OUT));
 if (docs.sources.length) write('laws/index.html', pageLaws());
 for (const g of guides) write(`guides/${g.slug}.html`, pageGuide(g));
 for (const pref of prefectures) write(`area/${slugs[pref]}.html`, pageArea(pref));

@@ -9,6 +9,7 @@ export const css = `
   /* 主色は深いグリーン。ブラウン／アンバーはアクセントだけに使う */
   --green:#2EA89E; --green-deep:#14514C; --green-ink:#1B7C74; --green-soft:#E9F4F2;
   --amber:#C08340; --amber-soft:#FAF1E6;
+  --brand:#D96A24; /* minpac のロゴの色 */
   --alert:#B4503F; --alert-soft:#FBEAE6;
 
   /* カテゴリは6つ。色は3系統だけに抑える（規制＝グリーン、実務／お金＝アンバー、市場・業界＝ニュートラル） */
@@ -32,6 +33,7 @@ export const css = `
   --line:#232E2D; --line-2:#334140;
   --green:#3EBFB3; --green-deep:#9FDED6; --green-ink:#5CCBC0; --green-soft:#122E2B;
   --amber:#D79E5E; --amber-soft:#2E2314;
+  --brand:#E07E3C;
   --alert:#D47764; --alert-soft:#33201C;
   --c-market:#8AA6B5; --c-industry:#9AA5A3; --c-subsidy:#C79355;
   --k1:#2FA398; --k2:#BB8942; --k1-pale:#28524D;
@@ -45,6 +47,7 @@ export const css = `
   --line:#232E2D; --line-2:#334140;
   --green:#3EBFB3; --green-deep:#9FDED6; --green-ink:#5CCBC0; --green-soft:#122E2B;
   --amber:#D79E5E; --amber-soft:#2E2314;
+  --brand:#E07E3C;
   --alert:#D47764; --alert-soft:#33201C;
   --c-market:#8AA6B5; --c-industry:#9AA5A3; --c-subsidy:#C79355;
   --k1:#2FA398; --k2:#BB8942; --k1-pale:#28524D;
@@ -87,16 +90,10 @@ button{font-family:inherit}
 .site-header.is-small{box-shadow:0 1px 10px rgba(16,40,38,.07)}
 .site-header .wrap{display:flex;align-items:center;gap:26px;height:66px;transition:height .18s ease}
 .site-header.is-small .wrap{height:52px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:16.5px;color:var(--ink);
-  letter-spacing:-.02em;flex:none}
-.brand:hover{text-decoration:none}
-.brand .mk{width:24px;height:14px;flex:none;background:
-  radial-gradient(circle 6px at 6px 7px,var(--green) 0 6px,transparent 6px),
-  radial-gradient(circle 6px at 18px 7px,var(--green) 0 6px,transparent 6px),
-  linear-gradient(var(--green),var(--green)) 6px 5px/12px 4px no-repeat;background-repeat:no-repeat}
-.brand .mk::after{content:"";display:block;width:24px;height:14px;background:
-  radial-gradient(circle 2.4px at 6px 7px,var(--surface) 0 2.4px,transparent 2.4px),
-  radial-gradient(circle 2.4px at 18px 7px,var(--surface) 0 2.4px,transparent 2.4px)}
+.brand{display:flex;align-items:center;flex:none;line-height:0}
+.brand:hover{text-decoration:none;opacity:.8}
+.brand img{height:26px;width:auto;display:block}
+@media(max-width:520px){.brand img{height:22px}}
 .site-nav{display:flex;gap:22px;font-size:13.5px;font-weight:500;margin-right:auto}
 .site-nav a{color:var(--ink-2);position:relative;padding:4px 0}
 .site-nav a:hover{color:var(--ink);text-decoration:none}
@@ -308,26 +305,9 @@ a.pill:hover{text-decoration:none}
 .band--dark .meta,.band--dark .sec__head .meta{color:#A8CFC9}
 .band--dark .sec__more{color:#BFE3DD}
 
-/* いちばん上の注目記事 */
-.top{background:var(--green-deep);color:#EAF5F3;border-radius:var(--r);padding:34px 34px 30px;
-  display:block;position:relative;overflow:hidden;min-height:230px}
-.top::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(120% 90% at 82% 8%,rgba(46,168,158,.34),transparent 62%)}
-.top > *{position:relative;z-index:1}
-.top:hover{text-decoration:none}
-.top__eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;color:#9FDED6;display:block}
-.top__title{font-size:clamp(22px,2.9vw,34px);font-weight:700;line-height:1.45;letter-spacing:-.03em;
-  margin:12px 0 0;color:#FFFFFF;max-width:24ch}
-.top:hover .top__title{text-decoration:underline;text-underline-offset:4px}
-.top__meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:12px;color:#A8CFC9}
-.top__sum{margin:14px 0 0;font-size:14px;line-height:1.9;color:#CFE7E3;max-width:52ch}
-.top .tag{border-color:rgba(255,255,255,.28);color:#CFE7E3;background:transparent}
-@media(max-width:640px){.top{padding:24px 22px}}
-
 /* 各社の記事画像（保存はせず、相手のサーバーのものを参照する）。
-   読み込めなかったときは onerror でこの枠ごと消す */
-/* 画像の枠。写真が無い記事・読み込めなかった記事は、
-   下に敷いたカテゴリ色の面がそのまま出る（高さが揃い、崩れない） */
+   写真が無い記事・読み込めなかった記事は、下に敷いたカテゴリ色の面がそのまま出る
+   （高さが揃い、崩れない） */
 .thumb{display:block;position:relative;overflow:hidden;border-radius:var(--r-sm);
   aspect-ratio:16/9;margin:-16px -18px 10px;background:var(--surface-3)}
 .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
@@ -341,22 +321,26 @@ a.pill:hover{text-decoration:none}
 .mini .thumb__ph{color:#8FC3BC;
   background:linear-gradient(135deg,rgba(126,211,201,.20),rgba(126,211,201,.03))}
 
-/* 注目の1本に画像があるとき */
-.top--img{padding-top:0;padding-left:0;padding-right:0}
-.top__img{position:relative;aspect-ratio:21/9;overflow:hidden;background:#0C2B29}
-.top__img img{width:100%;height:100%;object-fit:cover;display:block;opacity:.55}
+/* いちばん上の注目記事。
+   写真があるときは、カード全体の背面に敷く（枠の高さは文章で決まるので崩れない）。 */
+.top{background:var(--green-deep);color:#EAF5F3;border-radius:var(--r);padding:34px 34px 30px;
+  display:block;position:relative;overflow:hidden;min-height:230px}
+.top::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(120% 90% at 82% 8%,rgba(46,168,158,.34),transparent 62%)}
+.top__img{position:absolute;inset:0;z-index:0;display:block;overflow:hidden}
+.top__img img{width:100%;height:100%;object-fit:cover;display:block;opacity:.42}
 .top__img::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(20,81,76,.25),rgba(20,81,76,.96))}
-.top--img .top__eyebrow,.top--img .top__title,.top--img .top__sum,.top--img .top__meta{
-  padding-left:34px;padding-right:34px}
-.top--img .top__eyebrow{margin-top:-64px}
-.top--img .top__title{max-width:30ch}
-@media(max-width:640px){
-  .top--img .top__eyebrow,.top--img .top__title,.top--img .top__sum,.top--img .top__meta{
-    padding-left:22px;padding-right:22px}
-  .top--img .top__eyebrow{margin-top:-40px}
-  .top__img{aspect-ratio:16/9}
-}
+  background:linear-gradient(105deg,rgba(20,81,76,.94) 32%,rgba(20,81,76,.62) 100%)}
+.top > *:not(.top__img){position:relative;z-index:2}
+.top:hover{text-decoration:none}
+.top__eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;color:#9FDED6;display:block}
+.top__title{font-size:clamp(22px,2.9vw,34px);font-weight:700;line-height:1.45;letter-spacing:-.03em;
+  margin:12px 0 0;color:#FFFFFF;max-width:24ch;text-shadow:0 1px 14px rgba(8,34,32,.45)}
+.top:hover .top__title{text-decoration:underline;text-underline-offset:4px}
+.top__meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:12px;color:#BCDCD7;margin-top:14px}
+.top__sum{margin:14px 0 0;font-size:14px;line-height:1.9;color:#D5E9E6;max-width:52ch}
+.top .tag{border-color:rgba(255,255,255,.3);color:#D5E9E6;background:transparent}
+@media(max-width:640px){.top{padding:24px 22px;min-height:200px}}
 
 /* 見出しつきの箱（カテゴリ記事） */
 .box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px 22px;
@@ -442,6 +426,6 @@ a.pill:hover{text-decoration:none}
 .site-footer .micro{max-width:76ch}
 .brandbar{display:flex;height:3px;width:96px;border-radius:2px;overflow:hidden}
 .brandbar i{display:block;height:100%}
-.brandbar i:first-child{background:var(--green);width:70%}
-.brandbar i:last-child{background:var(--amber);width:30%}
+.brandbar i:first-child{background:var(--brand);width:70%}
+.brandbar i:last-child{background:var(--green);width:30%}
 `;
