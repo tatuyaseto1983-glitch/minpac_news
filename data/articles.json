@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-10-07",
-  "count": 370,
+  "count": 371,
   "items": [
     {
       "id": "ylhpo4",
@@ -9194,6 +9194,32 @@
       "imageTriedAt": "2026-09-16",
       "articleUrl": "https://business.nikkei.com/atcl/gen/19/00002/090200646/",
       "image": "https://business.nikkei.com/atcl/gen/19/00002/090200646/fb.jpg"
+    },
+    {
+      "id": "1pkb3w3",
+      "title": "京都観光「数より質」で誘客 市、簡易宿所の規制強化 顧客満足度向上めざす",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9JaFNVbTFVV2IwVGY4ZWN5Q0NiMW5wLWVDNTdsQTFSakZOZ1ptd1d6U2N4bktTNEh6eUdHZHIzbGhaWWxkV3d1dE1BMTdoaDZHMlZGMzJ2NVpjX2ZuWWtLcEhCV3ZIUDFwR21FeA?oc=5",
+      "publishedAt": "2019-07-29",
+      "sourceId": "google-news",
+      "sourceName": "日本経済新聞",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "京都府"
+      ],
+      "category": {
+        "id": "local",
+        "name": "自治体ルール"
+      },
+      "businessTypes": [
+        "簡易宿所"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-10-07",
+      "lastSeenAt": "2026-10-07",
+      "imageTriedAt": "2026-10-07",
+      "articleUrl": "https://www.nikkei.com/article/DGKKZO47839930W9A720C1ML0000/"
     },
     {
       "id": "sgmn1s",
