@@ -320,12 +320,12 @@ ${hero}
       let sum = summaryFor(n) ?? impactFor(n);
       if (sum && seen.has(sum.text)) sum = null; else if (sum) seen.add(sum.text);
       return `<a class="mini" href="${esc(n.url)}" target="_blank" rel="noopener nofollow"
-        style="background:rgba(255,255,255,.06);box-shadow:none;color:#EAF5F3">
+        style="background:rgba(255,255,255,.06);box-shadow:none;color:#F6E8DE">
         ${thumb(n)}
-        <span class="cat" style="--cat:#7FD3C9">${esc(n.category.name)}</span>
+        <span class="cat" style="--cat:#F0B98C">${esc(n.category.name)}</span>
         <h3 style="color:#fff">${esc(n.title)}</h3>
-        ${sum ? `<p style="color:#B9DCD7">${esc(sum.text.slice(0, 84))}${sum.text.length > 84 ? '…' : ''}</p>` : ''}
-        <span style="font-size:11.5px;color:#8FC3BC;margin-top:auto">${fmt(n.publishedAt)}　${esc(n.sourceName)}</span>
+        ${sum ? `<p style="color:#E4CBB9">${esc(sum.text.slice(0, 84))}${sum.text.length > 84 ? '…' : ''}</p>` : ''}
+        <span style="font-size:11.5px;color:#D3B49F;margin-top:auto">${fmt(n.publishedAt)}　${esc(n.sourceName)}</span>
       </a>`;
     }).join(''); })()}
   </div>`)}</section>
@@ -694,7 +694,7 @@ ${filings ? `<div class="panel">
   ${proportionBar([
     { name: '東京23区', value: filings.totals.ward.homes, key: 'k1' },
     { name: '保健所設置市', value: filings.totals.city.homes, key: 'k2' },
-    { name: '都道府県', value: filings.totals.prefecture.homes, key: 'k1-pale' },
+    { name: '都道府県', value: filings.totals.prefecture.homes, key: 'k3' },
   ], { unit: '件' })}
   <p class="lead-t">全国の民泊の${Math.round((filings.totals.ward.homes / filings.totals.all.homes) * 100)}%が東京23区にあります。<strong>「どこに届け出るか」は、物件の住所で決まります。</strong>同じ都内でも、23区なら区、それ以外なら都が窓口です。</p>
   ${filings.tokku ? `<dl class="tiles" style="margin-top:20px">
@@ -845,7 +845,7 @@ function pageAreaIndex() {
   ${prefectures.map((a) => {
     const m = muni.areas?.[a];
     const ord = m ? (m.self?.hasOrdinance ? 1 : 0) + m.municipalities.filter((o) => o.hasOrdinance).length : 0;
-    return `<a class="pill" href="${base}area/${slugs[a]}.html">${a}${ord ? `　<span style="color:var(--green-ink)">条例${ord}</span>` : ''}</a>`;
+    return `<a class="pill" href="${base}area/${slugs[a]}.html">${a}${ord ? `　<span style="color:var(--brand-ink)">条例${ord}</span>` : ''}</a>`;
   }).join('')}
 </div>
 <div class="notice">数字は、その都道府県で条例が定められている自治体の数です（観光庁の一覧に基づく）。条例があると、区域や期間などに法律への上乗せの決まりがある場合があります。</div>
@@ -1153,7 +1153,7 @@ function pageReportIndex() {
 function wrapReport(r) {
   const html = readFileSync(new URL(r.file, reportDir), 'utf8');
   const bar = `<div style="position:sticky;top:0;z-index:99999;display:flex;align-items:center;gap:14px;
-  padding:9px 18px;background:#12312F;color:#fff;font-size:13px;line-height:1.5;
+  padding:9px 18px;background:#2B1710;color:#fff;font-size:13px;line-height:1.5;
   font-family:system-ui,-apple-system,'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif">
   <a href="../reports/" style="color:#fff;text-decoration:none;font-weight:600">← ${esc(site.name)} のレポート一覧</a>
   <span style="opacity:.6">${esc(r.kind)}　${esc(fmt(r.date))}</span>
