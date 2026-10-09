@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-08",
+  "updatedAt": "2026-10-09",
   "minpaku": {
     "asOf": "令和8年9月15日",
     "filed": 67932,
@@ -9,7 +9,7 @@
     "brokers": 66,
     "source": "民泊制度ポータルサイト 施行状況",
     "sourceUrl": "https://www.mlit.go.jp/kankocho/minpaku/business/host/construction_situation.html",
-    "fetchedAt": "2026-10-08"
+    "fetchedAt": "2026-10-09"
   },
   "history": [
     {
@@ -43,7 +43,7 @@
     "kani": 41909,
     "source": "厚生労働省 旅館業の概要",
     "sourceUrl": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/seikatsu-eisei/seikatsu-eisei03/03.html",
-    "fetchedAt": "2026-10-08"
+    "fetchedAt": "2026-10-09"
   },
   "lodging": {
     "period": "2026年8月",
@@ -65,6 +65,6 @@
     "sourceUrl": "https://www.mlit.go.jp/kankocho/news02_00102.html",
     "articleTitle": "宿泊旅行統計調査（2026年8月・第1次速報、2026年7月・第2次速報）",
     "publishedAt": "2026-09-30",
-    "fetchedAt": "2026-10-08"
+    "fetchedAt": "2026-10-09"
   }
 }
