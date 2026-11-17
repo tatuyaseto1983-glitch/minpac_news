@@ -1,7 +1,32 @@
 {
-  "updatedAt": "2026-11-16",
-  "count": 189,
+  "updatedAt": "2026-11-17",
+  "count": 186,
   "items": [
+    {
+      "id": "b5rm2a",
+      "title": "札幌で民泊が急増中 3Dマップ化したら密集エリアが見えてきた＜記者トーク＞",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9UOVZIaE5PdHlDSlJxWm5qS3F0YmMwbWxQbk1ENVFPU2hKU3V0UGpiSjBXSmNkNGV5cFgzbC1qMkFIQk1IWHVscDVpb3l1d2RkNU8yWWpNU1Ezdw?oc=5",
+      "publishedAt": "2026-11-16",
+      "sourceId": "google-news",
+      "sourceName": "北海道新聞デジタル",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "北海道"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17",
+      "articleUrl": "https://www.hokkaido-np.co.jp/article/1409077/",
+      "image": "https://static.hokkaido-np.co.jp/image/article/size1/5/3/2/6/5326b8a5c6c9219c17530c771406027d_1.webp?20261117115227"
+    },
     {
       "id": "h0qjw9",
       "title": "被災地の住宅、ホテルにも アジア大会のコンテナ宿泊施設を再利用へ",
@@ -22,10 +47,82 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-16",
       "articleUrl": "https://www.asahi.com/articles/ASVCF1SWYVCFOIPE003M.html",
       "image": "https://imgopt.asahi.com/ogp/AS20261113002500_comm.jpg"
+    },
+    {
+      "id": "y4vxdq",
+      "title": "保坂区長の目指す「民泊と地域との共生」に意義あり！区議会だよりご覧ください",
+      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5tRThDQlBFejJDaXVKUzBVeHgxamxPeVlZdFppbXludmdGVWJia0lkOEFZbm54U2hSbVFLaklGakFqZGl1OE5MMzJR?oc=5",
+      "publishedAt": "2026-11-14",
+      "sourceId": "google-news",
+      "sourceName": "https://momono.info/",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "全国"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17",
+      "articleUrl": "https://momono.info/archives/29849",
+      "image": "https://momono.info/wp-content/uploads/2026/11/%E8%B3%AA%E5%95%8F%E7%AD%94%E5%BC%81%E8%A6%81%E6%97%A8%EF%BC%93.jpg"
+    },
+    {
+      "id": "mls8h9",
+      "title": "「伊江島のお母さん、また来たよ」 20年前に民泊した永山さん、與那城さん家族と再会 沖縄",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5aMTNpdnU0ekUyMDlidWREdzl3VUprMG1OcHFad1JJQ1AyZldhSTA1aEZ4dklsQ2dWckdUOVotM3NsOUVKek85SFJSSUU5Mmh6bnUzSHV3aEFIUGYtMVE?oc=5",
+      "publishedAt": "2026-11-14",
+      "sourceId": "google-news",
+      "sourceName": "琉球新報デジタル",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "沖縄県"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17",
+      "articleUrl": "https://ryukyushimpo.jp/region/entry-5601741.html"
+    },
+    {
+      "id": "vlduqt",
+      "title": "“民泊”トラブル相次ぐ中…東京都が初の「適正運営強化月間」 施設を巡回しチェック（TOKYO MX）",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE56ei1lUmxLSkIydUdVUUZlaWRmZGl2QnNuSU5jSWtRNFRqR2RaNGYwNXRaNVBnMkFHVmVsdTFlOFhJNVAxTHhyYThraHpqdzNCNG00TW85c1VSRDN1NWs4Z2dsUFZieTZtcjBCcXZwOTR2SFN6c2tkbkVZaE5Gczg?oc=5",
+      "publishedAt": "2026-11-13",
+      "sourceId": "google-news",
+      "sourceName": "Yahoo!ニュース",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "東京都"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17"
     },
     {
       "id": "nk0dsk",
@@ -47,7 +144,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://s.mxtv.jp/tokyomxplus/mx/article/202611131020/",
       "image": "https://s.mxtv.jp/tokyomxplus/mx/public/article/mainVisual/n0s51v016opvjk9clg1c4eajag66an.jpg"
@@ -72,7 +169,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://news.yahoo.co.jp/articles/0042527f5af5332dd459db71e57836006506ac8e",
       "image": "https://s.yimg.jp/images/news-web/versions/20261113-bd39b63/all/images/ogp_default.png"
@@ -97,60 +194,33 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://www.tokyo-np.co.jp/article/528054",
       "image": "https://static.tokyo-np.co.jp/image/article/size1/2/d/c/5/2dc5d08c4f73a861d9cad651b13e1d8d_1.jpg"
     },
     {
-      "id": "2cfk0l",
-      "title": "“民泊”トラブル相次ぐ中…東京都が初の「適正運営強化月間」 施設を巡回しチェック",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1ORVkza29ReEpDM2ZjaDY1VDlQVUhCU1oxS21YdlhOU0RDcEpSc295OXFSMkFoaHNFRTA1a3BzV3NzWldzUjBRbkJETEpMRU5MTGVJLVhoRVlwZ29hcnJwZGZqUE1kaU1GWkRSNElB?oc=5",
+      "id": "1obv5vz",
+      "title": "新宿区長選 4人が立候補、現職に新人3人が挑む 民泊規制も争点に（TOKYO MX）",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1FTzFnS2ExX25pVkI5QnhOSUt3VW5TdzFpMXRSY1cxd2d5MmdiQlNWTE4yU0RzN1lrQl9Yaklqa2hpQ1ZCMU9zN3VKUWhvU0c4SEtiaVhlN2NDb3ZOUS0wN3M1a1NDbUkzMDFfV3hFU0NrY0dteWNaZjljaWhUUG8?oc=5",
       "publishedAt": "2026-11-13",
       "sourceId": "google-news",
-      "sourceName": "TOKYO MX",
+      "sourceName": "Yahoo!ニュース",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
         "東京都"
       ],
       "category": {
-        "id": "industry",
-        "name": "業界動向"
+        "id": "local",
+        "name": "自治体ルール"
       },
       "businessTypes": [],
       "score": 3,
       "matchedKeywords": [],
-      "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-16",
-      "articleUrl": "https://s.mxtv.jp/tokyomxplus/mx/article/202611131030/detail/",
-      "image": "https://s.mxtv.jp/tokyomxplus/mx/public/article/mainVisual/7szzr1dhlkl927t0tor4surrknezf9.jpg"
-    },
-    {
-      "id": "1pkuho4",
-      "title": "万博記念公園駅前に1.8万人収容の「OSAKA ARENA」、2030年開業へ！ホテル2施設・商業2万㎡・オフィス・住宅540戸、2038年まで続く延床21.9万㎡の複合都市開発の全貌",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5uY1g4MmN4ZWFnV2tycl9Pb1R6c1hab1JHMlNibFJOR0VweEo0alZod2RORFR2M1ZjblBTYURtaHVyQ1o0eUczUG1NRHhqWVpSaElocE40LVFsVXhpdnc?oc=5",
-      "publishedAt": "2026-11-13",
-      "sourceId": "google-news",
-      "sourceName": "再都市化",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-16",
-      "articleUrl": "https://saitoshika-west.com/blog-entry-10573.html",
-      "image": "https://saitoshika-west.com/wp/wp-content/uploads/2026/11/20230922-2-2-1024x682.jpg"
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17"
     },
     {
       "id": "1kb7bws",
@@ -175,7 +245,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://neyagawa.goguynet.jp/2026/11/14/syukuhaku_ryokan_kaisei/",
       "image": "https://neyagawa.goguynet.jp/wp-content/uploads/sites/35/2023/12/hokenhukushi.jpg"
@@ -200,7 +270,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://www.qab.co.jp/quebee/video/000547457/",
       "image": "https://www.qab.co.jp/quebee/wp-content/uploads/000547457_640.jpg"
@@ -225,7 +295,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://news.tv-asahi.co.jp/news_society/articles/000547457.html",
       "image": "https://news.tv-asahi.co.jp/articles_img/000547457_1200.jpg"
@@ -250,56 +320,9 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://www.kenbiya.com/ar/cl/retsuden/tc-255/256.html"
-    },
-    {
-      "id": "15gdhc4",
-      "title": "新宿区長選 4人が立候補、現職に新人3人が挑む 民泊規制も争点に",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE11VFVRaDBGLXN1aFhBMDFCQS16ZDZKVnlHMG5lVGg2OUt6Vm95UkE2N1lkcUUzNXBoX1BjVC02Q1M1RnFTRy1oN1ZmbU1RVHYzalhoR3Y2dWVweFRrN0xadGNPbVVod1JsVUM4NkNR?oc=5",
-      "publishedAt": "2026-11-13",
-      "sourceId": "google-news",
-      "sourceName": "TOKYO MX",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "東京都"
-      ],
-      "category": {
-        "id": "local",
-        "name": "自治体ルール"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-16",
-      "articleUrl": "https://s.mxtv.jp/tokyomxplus/mx/article/202611131020/detail/",
-      "image": "https://s.mxtv.jp/tokyomxplus/mx/public/article/mainVisual/n0s51v016opvjk9clg1c4eajag66an.jpg"
-    },
-    {
-      "id": "11aspev",
-      "title": "足立西高生徒が生物園の魅力を取材しました",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBidHB4MVUyMnhseDZyUlh6ZW5FeUhHYWRNUC1HTkowWnV4VWlxS1BLbnM1OW1JcEZ5WF9oQlozZEdVUk9ubU0tbTMyVjZuR0NYWmt5cWpSLUJYUmJkVjQ4YWFOeDA2Mm10WXNPMXFYU1c3a2I1Zk9RLUR3?oc=5",
-      "publishedAt": "2026-11-13",
-      "sourceId": "google-news",
-      "sourceName": "足立区公式",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": true,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15"
     },
     {
       "id": "te3g88",
@@ -321,32 +344,10 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://mainichi.jp/articles/20261113/ddl/k26/040/133000c",
       "image": "https://cdn.mainichi.jp/vol1/2026/11/13/20261113ddlk26040366000p/0c10.jpg?2"
-    },
-    {
-      "id": "ancrqk",
-      "title": "【令和9年2月6日（土曜日）】第7回足立レインボー映画祭（東京芸術センター・天空劇場）",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1NcnlnbWhaR3FFc0dIQzJDZFM2UEVGbTNtVTJ6SEZENXhoSXlEYkVRakRTTE9CYUs0WlpCSGItVV9oeWFjNmN4bFdYdXVwbTM2Z1hhbFRZZXB5eXowTU5aUENDbTNYV0wxd2c?oc=5",
-      "publishedAt": "2026-11-12",
-      "sourceId": "google-news",
-      "sourceName": "足立区公式",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": true,
-      "areas": [
-        "東京都"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15"
     },
     {
       "id": "7lvziv",
@@ -368,7 +369,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-12",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1qoqog9",
@@ -390,10 +391,34 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://www.yomiuri.co.jp/national/20261112-GYT1T00347/",
       "image": "https://www.yomiuri.co.jp/media/2026/11/20261112-GYT1I00348-1.jpg?type=ogp"
+    },
+    {
+      "id": "1fxwmvr",
+      "title": "東京都が民泊施設を巡回 トラブル増加、適正運営を促進",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE01RkNGT1F0NHR3WW81ZUMxekpEMWlkSjd0MTZhWWZqMF93OHJiUnNsN0FfajBLUFpXQm9ZWGtnTjlWcVVjOEZ3Q05aWVYwMjFqaWtSLV9UM1BxLUZFdUg1UFNYOElnTl96eXJnQw?oc=5",
+      "publishedAt": "2026-11-12",
+      "sourceId": "google-news",
+      "sourceName": "日本経済新聞",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "東京都"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17",
+      "articleUrl": "https://www.nikkei.com/article/DGXZQOCC125YL0S6A111C2000000/"
     },
     {
       "id": "1cmb9io",
@@ -415,7 +440,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-13",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-13",
       "articleUrl": "https://news.web.nhk/newsweb/na/nd-20261112de74962",
       "image": "https://imgu.web.nhk/news/u/news/nd/kiji/20261112de74962/20261112de74962_E0000169213_1_l.jpg"
@@ -445,12 +470,12 @@
       "lastSeenAt": "2026-11-15"
     },
     {
-      "id": "x1fw7l",
-      "title": "【怒髪天ルポ】急増「淡路島の迷惑民泊」ゴミ放置に看板破壊でいよいよ規制強化に乗り出した「分断の現場」",
-      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1TR1RLYmVqZVNEc1dqcnBYU2FfQ3lqcGN6akMyZTVrWW95OVR6d0RldG1sZVpYOEd5amZKZTB1d0RmQngtQXFvY00xUVMtUQ?oc=5",
-      "publishedAt": "2026-11-10",
+      "id": "82d9t9",
+      "title": "［エアビーアンドビー：Q3 2026 決算まとめ］再加速した民泊の巨人が、AIで旅の玄関口を狙う",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQVXBfaHRMdExxbEdDWjZzb3lXWmdiREtsd2dUbDFscVFYODhmSlhNREpONUdOV0NfYkxMMkdmZmVUUE1vTWdiTG1TTEctVlJ2T21XbDlnYU9DM1E0MWR1aHNYZW9TcmdfVnduOXltWU1ZemROTUdiOUpjTUNtMVhPdzlIM0FmZGxMOVZNNU1xMmM5S3RhYXZBWTBR?oc=5",
+      "publishedAt": "2026-11-11",
       "sourceId": "google-news",
-      "sourceName": "アサ芸プラス",
+      "sourceName": "Business Insider Japan",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -463,16 +488,39 @@
       "businessTypes": [],
       "score": 3,
       "matchedKeywords": [],
-      "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-16",
-      "articleUrl": "https://www.asagei.com/excerpt/350286",
-      "image": "https://cdn.asagei.com/asagei/uploads/2026/11/ap-awajisima-20261109151639.jpg"
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17"
     },
     {
-      "id": "iqviyn",
-      "title": "星野リゾート代表「民泊ないと競争力低下」長門湯本温泉で提言（ＫＲＹ山口放送）",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5sOV96OURuWXJ2OC04TXZuZ0gzcVBhdHJwdTdIdFJtNGJhV1R3Z2Jkb3JJclpiay1va2UtbG8yRXB1VDdDU0VTTDM5X3lkNGkxbkNweTZPTUQ4LWhXSUQ5QWQ1SW9sV0IybjZtTERTUVdxSTBOd194UUMyQ3Mxa0k?oc=5",
+      "id": "19rgq48",
+      "title": "福岡市長選挙に立候補 吉富 景子（よしとみ・けいこ）氏の経歴・政策まとめ（選挙ドットコム）",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBPbWlsTDRrd1pNdmVrRlF5SGhnblhHN19OT1ZNTFk2dkpTNFB2LUFYbTBOMVVDRXkxZDFCWnNNU05qMG42TnJXcmY4c0diX2hWa2pQUFpKR2tiTTVRc2dhbE5mWXNVY19SSGdTalJUOXZJV0c5Z2hBWEdaRkR1TFE?oc=5",
+      "publishedAt": "2026-11-11",
+      "sourceId": "google-news",
+      "sourceName": "Yahoo!ニュース",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "福岡県"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17",
+      "articleUrl": "https://news.yahoo.co.jp/articles/e765961be4c929eca244845b706624defb722778",
+      "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261112-00010004-senkyocom-000-1-view.jpg?exp=10800"
+    },
+    {
+      "id": "mrht92",
+      "title": "空き家率が全国ワーストの県で現存最古の酒蔵の離れを改修、３０年も無住だったスペースを民泊に…所有者の蔵元「建物がよみがえった感覚」（読売新聞オンライン）",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBJYkNoTmU5X3lZcDFlbmtvUHpXRURuWDdjOHNXeVZWRjdMc0hGRWxIYkNGaE5QcDBEeW9EYjExaGRQTDl1MktyZDYzVTR6cmR5b2Q5bFp6LXB0d2VZT0doQ0Y0a3l0U0tiSnlHY05UQlROTk05VVBHc3R3ZVhMTDg?oc=5",
       "publishedAt": "2026-11-10",
       "sourceId": "google-news",
       "sourceName": "Yahoo!ニュース",
@@ -488,19 +536,19 @@
       "businessTypes": [],
       "score": 3,
       "matchedKeywords": [],
-      "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-14",
-      "articleUrl": "https://news.yahoo.co.jp/articles/dbc8828adabdd4852ab0b54f3098b071fc89a2dd",
-      "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261110-09781886-kry-000-2-thumb.jpg?exp=10800"
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17",
+      "articleUrl": "https://news.yahoo.co.jp/articles/d0fd66e682d07fe3fbd3fe22070d5c6f661e39a7",
+      "image": "https://s.yimg.jp/images/news-web/versions/20261117-bdd356a/all/images/ogp_default.png"
     },
     {
-      "id": "v59iqf",
-      "title": "GACKTの\"元愛車\"がまさかの「民泊」に!? 「1年がかりの特注内装」＆「ド迫力ワイドボディ」採用！ 本人も感謝した「アメ車」意外な\"その後\"とは",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1PTFdhZXAzeXNhWjRlLXlRbjZaOWpQZUtibnVCaGNlUzBvVHJKWGU5T0FxUWZyVXVtS2VLck1VZzZQMEs0VjBsaWRHWQ?oc=5",
-      "publishedAt": "2026-11-09",
+      "id": "h2dzxl",
+      "title": "星野リゾート代表「民泊ないと競争力低下」長門湯本温泉で提言（2026年11月10日掲載）｜KRY NEWS NNN",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPaEkxZDRuV0tDUzRYb1doWUtPMEgyNHhtalNDdVVsZ1U4QldLbHFmdVhBZ2ZKXzJiT2lkM2pBTENESlZZcTRpZFJwU21QLUwyQk1TSVczOG16azgzb3N4ZEM0TFl1Y00zV21aZmR2UWVGWkFmM2wzMDB6Umdia3NLNFZoeUhxLUU?oc=5",
+      "publishedAt": "2026-11-10",
       "sourceId": "google-news",
-      "sourceName": "くるまのニュース",
+      "sourceName": "日テレNEWS NNN",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -513,11 +561,11 @@
       "businessTypes": [],
       "score": 3,
       "matchedKeywords": [],
-      "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-14",
-      "articleUrl": "https://kuruma-news.jp/post/1133634",
-      "image": "https://kuruma-news.jp/wp-content/uploads/2027/10/20261016_GACKT_jpp080792552.jpg"
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17",
+      "articleUrl": "https://news.ntv.co.jp/n/kry/category/society/kr76f4c45e50394ae9a65ea45d1a8adbc9",
+      "image": "https://image.gallery.play.jp/kry-news/articles/d2e79dde636c49afb6684c2633b3510e/06451b5f-a03b-4222-bf3b-62f87b5e100b.jpg?w=1200"
     },
     {
       "id": "8bkjr0",
@@ -539,35 +587,35 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-16",
       "articleUrl": "https://news.yahoo.co.jp/articles/94c694ccde3f2ead72478e464147d159a188584c",
       "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261102-08437763-ytv-000-6-thumb.jpg?exp=10800"
     },
     {
-      "id": "1chbcm1",
-      "title": "【速報】民泊規制強化へ“従業員の常駐義務化” 2月の市議会に条例改正案を提案する方針 京都市（読売テレビ）",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9pYWFNc3NtbVhKXzNmQUZhNk5xQmJwS0p0TUt3SDhVTnlWX1J2Tks2aVNUdlJNSkN0RUE3cktILVJDUzhZd2tlOU9naVpjQXZ2c2NWOHVtYllyLWl1N1VaejkyOHBmVEVNX2xrYUlBWEQyTldnTWM3amV5dGlZSkU?oc=5",
-      "publishedAt": "2026-11-06",
+      "id": "1fztt2n",
+      "title": "台東区が民泊事業者に初の「業務改善命令」 改善見られなければ事業者名公表",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBCUlZQXzF5Yk9LVEZLZmdGQUxocWFySFhralZCZXhLTGVGUGJRaDhiSnZ4Zm9hRkoySDlKSlFCNnhCRDF0c1cyZk5JZFJqYTJTbHZxZko5dV80ZDdMLTYwSUZQaUlwQlBKbjE2QjNn?oc=5",
+      "publishedAt": "2026-11-09",
       "sourceId": "google-news",
-      "sourceName": "Yahoo!ニュース",
+      "sourceName": "TOKYO MX",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
-        "京都府"
+        "東京都"
       ],
       "category": {
-        "id": "local",
-        "name": "自治体ルール"
+        "id": "industry",
+        "name": "業界動向"
       },
       "businessTypes": [],
       "score": 3,
       "matchedKeywords": [],
-      "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-14",
-      "articleUrl": "https://news.yahoo.co.jp/articles/b00aabf9a36c724e179b8e270dfe8e53cf9ec44e",
-      "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261102-02946816-ytv-000-3-view.jpg?exp=10800"
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17",
+      "articleUrl": "https://s.mxtv.jp/tokyomxplus/mx/article/202611091010/detail/",
+      "image": "https://s.mxtv.jp/tokyomxplus/mx/public/article/mainVisual/joeditduu6j544nbj1iyoiosz02x3y.jpg"
     },
     {
       "id": "188p8a4",
@@ -589,81 +637,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-06",
-      "lastSeenAt": "2026-11-15"
-    },
-    {
-      "id": "1s6cgv3",
-      "title": "東京・台東区が「民泊初の業務改善命令」半年間報告なしの4事業者、改善ない場合は公表",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQT2tncHhFSzh5eGZZVGc0US1FeHczVWtqWEwwTXU0d0xwdlUtZkloVmJXZGNoa3B5bng1cG5Kd1BJVHFfXzZsZm93dlowaGNQVEczeFJzcGoyMjFQd1BYaWhCdVRsU241SkpiRnl1M1AtNEQ4d1ppQ2REZnpUc3dZYm1iQzZMSE01UnpFWg?oc=5",
-      "publishedAt": "2026-11-05",
-      "sourceId": "google-news",
-      "sourceName": "産経ニュース",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "東京都"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-11-06",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-06",
-      "articleUrl": "https://www.sankei.com/article/20261105-ODKTAQKKJROKXDTD6TRJB3RTA4/?outputType"
-    },
-    {
-      "id": "7o09d4",
-      "title": "岡垣町にドッグラン付き民泊 若者たちがDIY、愛犬への思い形に（みんなの経済新聞ネットワーク）",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5pNGFHZG1PLV85LXRmNnBnTW1WNWVwMTI2R3JXVUYtVWpOTzNpME5lcmlQeEw2TG5udUJuc0FLQUJtb0NTX2p6bXVGY1lDNWxXYWhBSG9yUDlRYkhRNUp2aVpQY0Fvc0xtdnQ1TTZUYy0xQ3JxemFsNFdzTWxXYkE?oc=5",
-      "publishedAt": "2026-11-04",
-      "sourceId": "google-news",
-      "sourceName": "Yahoo!ニュース",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-16",
-      "articleUrl": "https://news.yahoo.co.jp/articles/212a2b4f2a226061e039bba4bf9181330b643195",
-      "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261104-00000010-minkei-000-2-view.jpg?exp=10800"
-    },
-    {
-      "id": "11fuzxl",
-      "title": "東京：新宿区観光公害広がる 民泊規制、防災対策も課題：地域ニュース",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE94UE9QQWl2RVQwRjFxWjAwaEc1WmoyakNMSXNfSEVfRXdkc3VLNHg3Mk5IckF0RXlvdmpqTTJZMVYyVjg0RmJ3dThyOVpxRjV6bHFEdkZyS29VNzMyUjdzdDQ0Zl84TFBhWU9jbFYxVnluNDg?oc=5",
-      "publishedAt": "2026-11-04",
-      "sourceId": "google-news",
-      "sourceName": "読売新聞",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "東京都"
-      ],
-      "category": {
-        "id": "local",
-        "name": "自治体ルール"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-05",
-      "articleUrl": "https://www.yomiuri.co.jp/local/tokyo23/news/20261104-GYTNT00239/",
-      "image": "https://www.yomiuri.co.jp/media/2026/11/20261104-GYTNI00242-1.jpg?type=ogp"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "g8aw1f",
@@ -687,7 +661,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-10-30",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "bx5yvg",
@@ -711,7 +685,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://www.nikkei.com/article/DGXZQOUF3047S0Q6A031C2000000/"
     },
@@ -737,7 +711,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-08",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-08",
       "articleUrl": "https://www.yomiuri.co.jp/national/20261030-GYT1T00083/",
       "image": "https://www.yomiuri.co.jp/media/2026/10/20261030-GYT1I00093-1.jpg?type=ogp"
@@ -762,7 +736,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-03",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1ykzccc",
@@ -786,35 +760,10 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://www.asahi.co.jp/webnews/pages/abc_63315.html",
       "image": "https://www.asahi.co.jp/webnews/pages/img/data_file/20261029/63315/0/01a1871f-b9d6-726c-b147-95a057688ca4.jpg"
-    },
-    {
-      "id": "1r1u8wl",
-      "title": "韓国・民泊経営者、日本と韓国の客の「利用後写真」を比較…「国籍で一般化しないで」と反発（KOREA WAVE）",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1kWUZINVNLWGxOZEh4WWZaV3ZyMTY0UjlrcmtmVndoMEdPNF85VGc2UUhGd1d6X1JBUDRCdU5RbnVnaUJ4c1A3SGVLQ25hbzhpVHN3NnBzTnBrdWJ6YkExeEdOU2lBOXhGMnM3cnc4WW9JdDR3ZGNKSTNnR0QwR0U?oc=5",
-      "publishedAt": "2026-10-29",
-      "sourceId": "google-news",
-      "sourceName": "Yahoo!ニュース",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-16",
-      "articleUrl": "https://news.yahoo.co.jp/articles/461f5781b24acac5850a8fd615885d4c4daef787",
-      "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261029-03659820-clc_korea-000-1-view.jpg?exp=10800"
     },
     {
       "id": "1nuhl3x",
@@ -838,7 +787,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-16",
       "articleUrl": "https://news.yahoo.co.jp/articles/457df68c3448c5264bc07394ed650683f742679d",
       "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/default.jpg?exp=10800"
@@ -865,7 +814,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-16",
       "articleUrl": "https://web.pref.hyogo.lg.jp/kf14/ryokan/r8jourei.html",
       "image": "https://web.pref.hyogo.lg.jp/shared/site_2026rn/images/sns/logo.jpg"
@@ -892,32 +841,33 @@
         "インバウンド"
       ],
       "fetchedAt": "2026-10-21",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
-      "id": "y78cdx",
-      "title": "「民泊への規制強化を喜ぶのは“違法業者”ばかりです」…専門家が明かす「閉鎖」「禁止」が民泊問題の解決に繋がらない理由 「悪質な業者は徹底的に排除してほしい」（デイリー新潮）",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5RZGpyM3pfT0VIMVVrVmZNZTRqc2FhNnVjWTJFNkJSTXZKSUhxUFpRM0pEMTVMQkNkRGJxMzc0cE9RY2ZUVUJ0X0F1czk0cjhfUU1TQmZqbE16Ny1rSXNaZWlWRUFiZXZJdGtTMG9oWWFWNWpka1lWcTZqb3VOcXc?oc=5",
-      "publishedAt": "2026-10-17",
+      "id": "nt8rqt",
+      "title": "特区民泊の「総括と方向性まとめる」 大田区長、相次ぐ苦情受け表明 [東京都]",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE8zeTVEcllmbVM5REFqMS1sU01jaEhYVFJXaFIwNGpsOTRyY19RMUxpU2lmZlZaa1BLWjR4Y3JEWENuUmlDNTlwSzhPaDhrenN2UTluU1RuU3hDNnd5UDJyT2F4a2JDV3c?oc=5",
+      "publishedAt": "2026-10-20",
       "sourceId": "google-news",
-      "sourceName": "Yahoo!ニュース",
+      "sourceName": "朝日新聞",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
-        "全国"
+        "東京都"
       ],
       "category": {
         "id": "industry",
         "name": "業界動向"
       },
-      "businessTypes": [],
+      "businessTypes": [
+        "特区民泊"
+      ],
       "score": 3,
       "matchedKeywords": [],
-      "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-16",
-      "articleUrl": "https://news.yahoo.co.jp/articles/709e4f92183b9059bc4e94f80f989ff4776a83ea",
-      "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261017-01511115-shincho-000-1-view.jpg?exp=10800"
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17",
+      "articleUrl": "https://www.asahi.com/articles/ASVBN21F3VBNOXIE02SM.html"
     },
     {
       "id": "soa5bk",
@@ -941,7 +891,7 @@
         "インバウンド"
       ],
       "fetchedAt": "2026-10-16",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1op35sw",
@@ -965,7 +915,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-10-19",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "r8t0em",
@@ -987,7 +937,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.mlit.go.jp/kankocho/page06_00013.html",
       "image": "https://www.mlit.go.jp/kankocho/content/810004410.png"
@@ -1012,10 +962,37 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-10-09",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-10-09",
       "articleUrl": "https://www.asahi.com/articles/ASVB72545VB7OXIE00TM.html",
       "image": "https://imgopt.asahi.com/ogp/AS20261007002927_comm.jpg"
+    },
+    {
+      "id": "3z3bpn",
+      "title": "北見市留辺蘂町の休養施設「ぱるむ」宿泊停止 旅館業法の営業許可必要で9月中旬から 市教委「運営への影響抑えたい」",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5pQzFiMGNmS0tkOTAyLVlqZDBiZzZQcFd0WGJtSWhHanl2Qk1TM3JtUEVpZnNJQ1RNVFFqT2JJTFBrRlRpLXl0TGo0VQ?oc=5",
+      "publishedAt": "2026-10-01",
+      "sourceId": "google-news",
+      "sourceName": "47NEWS",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "全国"
+      ],
+      "category": {
+        "id": "start",
+        "name": "開業"
+      },
+      "businessTypes": [
+        "簡易宿所"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17",
+      "articleUrl": "https://www.47news.jp/15021077.html",
+      "image": "https://img.cf.47news.jp/public/photo/a9bbea7ebe44beb6037c0c42a2a49d50/photo.jpg"
     },
     {
       "id": "kvnqw6",
@@ -1039,7 +1016,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-30",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-30",
       "articleUrl": "https://www.nikkei.com/article/DGXZQOUF116O40R10C26A9000000/"
     },
@@ -1065,7 +1042,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-30",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1erv6fq",
@@ -1089,7 +1066,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-30",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "13q5uqj",
@@ -1111,7 +1088,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-30",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-30",
       "articleUrl": "https://www.tokyo-np.co.jp/article/517933",
       "image": "https://static.tokyo-np.co.jp/image/article/size1/3/6/9/1/3691cb68e257cfd3fd5bbf7559235fb6_1.jpg"
@@ -1136,7 +1113,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-16",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "5cf4q0",
@@ -1161,7 +1138,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://www.ktv.jp/news/feature/260904-minpaku/",
       "image": "https://www.ktv.jp/news/wp-content/uploads/sites/2/2026/09/Still0904_00270.jpg"
@@ -1188,7 +1165,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-03",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.city.sumida.lg.jp/kenko_fukushi/eisei/juutaku_syukuhaku/jr/minnpakusyuuhen.html",
       "image": "https://www.city.sumida.lg.jp/images/slogo.png"
@@ -1213,7 +1190,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-09",
       "articleUrl": "https://www.asahi.com/articles/ASV92328FV92OXIE006M.html",
       "image": "https://imgopt.asahi.com/ogp/AS20260902003377_comm.jpg"
@@ -1240,7 +1217,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "xs0mo5",
@@ -1262,7 +1239,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-13",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-13",
       "articleUrl": "https://news.yahoo.co.jp/articles/1cb11166129192f504a89d9695e9243236ddf5b2",
       "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20260822-03649493-clc_korea-000-1-view.jpg?exp=10800"
@@ -1289,7 +1266,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-10-01",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-10-01",
       "articleUrl": "https://www.kyoto-minpo.net/archives/2026/08/15/post-33231.php",
       "image": "https://www.kyoto-minpo.net/web/wp-content/uploads/2026/08/20260814_002.jpg"
@@ -1316,7 +1293,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "a8u25r",
@@ -1340,7 +1317,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1vb436q",
@@ -1362,7 +1339,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.jimin.jp/news/information/213855.html",
       "image": "https://www.jimin.jp/news/information/img/213855_01.png"
@@ -1392,7 +1369,7 @@
         "住宅宿泊事業"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "4c4tq1",
@@ -1416,7 +1393,7 @@
         "インバウンド"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1kpvesh",
@@ -1440,7 +1417,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-09",
       "articleUrl": "https://www.mlit.go.jp/kankocho/news06_00067.html",
       "image": "https://www.mlit.go.jp/kankocho/content/810004410.png"
@@ -1467,7 +1444,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "jvp4oq",
@@ -1489,7 +1466,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1suuh07",
@@ -1513,7 +1490,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-11",
       "articleUrl": "https://www.asahi.com/articles/ASV6N3R1XV6NUDCB001M.html",
       "image": "https://imgopt.asahi.com/ogp/AS20260620003542_comm.jpg"
@@ -1538,7 +1515,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-10-29",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "4i8ie7",
@@ -1563,7 +1540,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-29",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-29",
       "articleUrl": "https://news.yahoo.co.jp/articles/7fcd31c3c779211a7ec320942b0ecd33ebc75b1a",
       "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20260530-22687674-mbsnews-000-3-view.jpg?exp=10800"
@@ -1590,7 +1567,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-10-23",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "xrfkzx",
@@ -1614,7 +1591,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "mak9yf",
@@ -1638,7 +1615,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-16",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-16",
       "articleUrl": "https://www.asahi.com/articles/ASV5Y32WMV5YOXIE04XM.html",
       "image": "https://imgopt.asahi.com/ogp/AS20260529002735_comm.jpg"
@@ -1665,34 +1642,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
-    },
-    {
-      "id": "1rmns4h",
-      "title": "大阪市の「特区民泊」 期限迫り、申請殺到 5月は1000件超か",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE53dlE4RVN0OXFSZjJQcDFrV3IxZTkycExvejV1bkpwNVJWUDJyZlFhODNMSDBray14QVRFaUVDbXZTQzM0TlZZMG9JQkpDa1RBQ181azhIOWMtaTE4N1NEaXdqX2dqS2pV?oc=5",
-      "publishedAt": "2026-05-28",
-      "sourceId": "google-news",
-      "sourceName": "毎日新聞",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "大阪府"
-      ],
-      "category": {
-        "id": "start",
-        "name": "開業"
-      },
-      "businessTypes": [
-        "特区民泊"
-      ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-10-06",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-10-06",
-      "articleUrl": "https://mainichi.jp/articles/20260528/k00/00m/040/285000c",
-      "image": "https://cdn.mainichi.jp/vol1/2026/05/28/20260528k0000m040283000p/0c10.jpg?1"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "199nyzz",
@@ -1716,7 +1666,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-13",
       "articleUrl": "https://www.yomiuri.co.jp/national/20260527-GYT1T00073/",
       "image": "https://www.yomiuri.co.jp/media/2026/05/20260527-GYT1I00076-1.jpg?type=ogp"
@@ -1743,7 +1693,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-24",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "2s026f",
@@ -1767,7 +1717,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1u5v1l7",
@@ -1791,7 +1741,7 @@
         "訪日外国人"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "6o4n0h",
@@ -1815,7 +1765,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-14"
     },
     {
@@ -1840,7 +1790,7 @@
         "インバウンド"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1cynhj7",
@@ -1864,7 +1814,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://newsdig.tbs.co.jp/articles/rsk/2601526?display"
     },
@@ -1890,7 +1840,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-04",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://news.yahoo.co.jp/expert/articles/90f80ab143f5c5166ece71049c2d74a12c8c9ea4",
       "image": "https://newsatcl-pctr.c.yimg.jp/t/iwiz-yn/rpr/nakamuratomohiko/02597987/title-1775498645807.jpeg?exp=10800"
@@ -1917,7 +1867,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "19e9hb6",
@@ -1941,7 +1891,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "vs501q",
@@ -1965,7 +1915,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-14"
     },
     {
@@ -1990,7 +1940,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-04",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://dot.asahi.com/articles/-/278920?page",
       "image": "https://aeradot.ismcdn.jp/mwimgs/9/1/1200xm/img_916ae9cc5c17ffad08972fe96757b33a122654.jpg"
@@ -2017,7 +1967,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-18",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-18",
       "articleUrl": "https://www.asahi.com/articles/ASV3K2GV9V3KOXIE01TM.html",
       "image": "https://imgopt.asahi.com/ogp/AS20260317002699_comm.jpg"
@@ -2044,7 +1994,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "17k820m",
@@ -2066,7 +2016,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-10-16",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1p0olzd",
@@ -2090,7 +2040,7 @@
         "インバウンド"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "9d6w1a",
@@ -2114,7 +2064,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-16",
       "articleUrl": "https://www.asahi.com/articles/ASV2B1QFPV2BPTIL008M.html",
       "image": "https://imgopt.asahi.com/ogp/AS20260210002697_comm.jpg"
@@ -2139,7 +2089,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-10-16",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "ihomv5",
@@ -2163,7 +2113,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "17hu98u",
@@ -2187,7 +2137,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "4ynj0t",
@@ -2211,7 +2161,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://www.coolkagawa.jp/news/entry-5292.html",
       "image": "https://www.coolkagawa.jp/media/001/202601/2cce14bbf7e5ba2062a2c09f8241d989dfa23716936284031cb12d53a7a4a962.jpg"
@@ -2238,7 +2188,7 @@
         "インバウンド"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1ato39w",
@@ -2262,7 +2212,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://news.yahoo.co.jp/expert/articles/7d57bd5421df03beaf9456a41c00794369179a45",
       "image": "https://newsatcl-pctr.c.yimg.jp/t/iwiz-yn/rpr/nakamuratomohiko/02502342/title-1768255391879.jpeg?exp=10800"
@@ -2289,7 +2239,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-10-02",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1blho6c",
@@ -2313,7 +2263,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "tpx1lf",
@@ -2337,7 +2287,7 @@
         "インバウンド"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1f9ym1f",
@@ -2361,7 +2311,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-30",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-30",
       "articleUrl": "https://www.hokkoku.co.jp/articles/-/1964403",
       "image": "https://hokkoku.ismcdn.jp/mwimgs/1/1/1200wm/img_116af64ba397fe38545c58e92d1eeee5231624.jpg"
@@ -2388,7 +2338,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-04",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.asahi.com/articles/ASTD941DJTD9UDCB00DM.html",
       "image": "https://imgopt.asahi.com/ogp/AS20251210000675_comm.jpg"
@@ -2415,7 +2365,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1o7dofh",
@@ -2439,7 +2389,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1fg373a",
@@ -2463,7 +2413,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.nikkei.com/article/DGXZQOUF284Y30Y5A121C2000000/"
     },
@@ -2489,7 +2439,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "qfmn6h",
@@ -2513,7 +2463,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.asahi.com/articles/ASTCK2TJXTCKOXIE011M.html",
       "image": "https://imgopt.asahi.com/ogp/AS20251117002625_comm.jpg"
@@ -2540,35 +2490,9 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.nikkei.com/article/DGXZQOUF11AA90R11C25A1000000/"
-    },
-    {
-      "id": "37mzmf",
-      "title": "特区民泊、来年5月での新規申請停止 大阪市の方針を政府が了承 苦情急増で体制強化",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE0zZUo2WlZkc1UyS2dZdFVqSHhVVTQyUGV0SEo1amFaYmNXVG5EdmFCQTJiUUdhZm9qbjFZRmtIZWU2dVBELVBhampKazZhZ3NzU19VTHBLTkp0aG56eDZkc2U2XzJuOFlTamtYSEI2cjlyNEx1Vmc?oc=5",
-      "publishedAt": "2025-11-17",
-      "sourceId": "google-news",
-      "sourceName": "産経ニュース",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "大阪府"
-      ],
-      "category": {
-        "id": "start",
-        "name": "開業"
-      },
-      "businessTypes": [
-        "特区民泊"
-      ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-05",
-      "articleUrl": "https://www.sankei.com/article/20251117-YYY2LV6XRFOVZHQJGTSNZTHASI/"
     },
     {
       "id": "1n7psgf",
@@ -2592,7 +2516,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "ao3nxq",
@@ -2616,7 +2540,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.nikkei.com/article/DGXZQOUF285ED0Y5A021C2000000/"
     },
@@ -2642,7 +2566,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.asahi.com/articles/ASTBW33PKTBWOXIE02VM.html",
       "image": "https://imgopt.asahi.com/ogp/AS20251027003138_comm.jpg"
@@ -2669,7 +2593,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.yomiuri.co.jp/national/20251027-OYT1T50150/",
       "image": "https://www.yomiuri.co.jp/media/2025/10/20251027-OYT1I50170-1.jpg?type=ogp"
@@ -2696,7 +2620,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.nikkei.com/article/DGXZQOUF17B8B0X11C25A0000000/"
     },
@@ -2722,7 +2646,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.nikkei.com/article/DGXZQOUF1621T0W5A011C2000000/"
     },
@@ -2748,7 +2672,7 @@
         "インバウンド"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "suwa0y",
@@ -2772,7 +2696,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://net.keizaikai.co.jp/archives/3196",
       "image": "https://prd-cdn-keizaikai.storage.googleapis.com/images/JVTTIdiurzEyJKCZGDopjImBPNSanLSC/676c200e-7a97-4de8-9b39-f1ff6fabf2f0.png"
@@ -2799,7 +2723,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-24",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-26",
       "articleUrl": "https://newsdig.tbs.co.jp/articles/rsk/2220413?display"
     },
@@ -2825,7 +2749,7 @@
         "インバウンド"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "cety5b",
@@ -2847,7 +2771,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "abkbxo",
@@ -2871,7 +2795,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-06",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-06",
       "articleUrl": "https://www.asahi.com/articles/AST9Z3QN0T9ZOXIE03CM.html",
       "image": "https://imgopt.asahi.com/ogp/AS20250930003761_comm.jpg"
@@ -2898,7 +2822,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-16",
       "articleUrl": "https://www.yomiuri.co.jp/national/20250930-OYT1T50063/",
       "image": "https://www.yomiuri.co.jp/media/2025/09/20250930-OYT1I50056-1.jpg?type=ogp"
@@ -2925,7 +2849,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.asahi.com/articles/AST9Z2FRGT9ZOXIE010M.html",
       "image": "https://imgopt.asahi.com/ogp/AS20250930002775_comm.jpg"
@@ -2952,7 +2876,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "nlyrhy",
@@ -2976,7 +2900,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "ig1ys8",
@@ -2998,7 +2922,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "ggoxmw",
@@ -3022,7 +2946,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.asahi.com/articles/AST9Y42NFT9YOXIE00VM.html",
       "image": "https://imgopt.asahi.com/ogp/AS20250929004631_comm.jpg"
@@ -3049,7 +2973,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.nikkei.com/article/DGXZQOUF25AOM0V20C25A9000000/"
     },
@@ -3075,7 +2999,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-05",
       "articleUrl": "https://www.nikkei.com/article/DGXZQOUF25BGJ0V20C25A9000000/"
     },
@@ -3101,36 +3025,9 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-06",
       "articleUrl": "https://www.nikkei.com/article/DGXZQOUF164AL0W5A910C2000000/"
-    },
-    {
-      "id": "ued4u8",
-      "title": "JR四国が簡易宿所5号店オープンへ 築約50年の旧物産店を改装 古民家や空き家などを活用した宿泊施設【香川】",
-      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5BX2FyMGdtM1ZweE5LTnNUTmI2MVRiYnh2X3ZkYTNLLXY4S2haenhNVHV5Qy1iMW9NeGlPYWtxck1kLVpXd1lyMUMxc2NHZ010cDZ5eVdxQQ?oc=5",
-      "publishedAt": "2025-09-12",
-      "sourceId": "google-news",
-      "sourceName": "TBS NEWS DIG",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "全国"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [
-        "簡易宿所"
-      ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-11-07",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-07",
-      "articleUrl": "https://newsdig.tbs.co.jp/articles/-/2166259",
-      "image": "https://newsdig.ismcdn.jp/mwimgs/1/e/1200w/img_1e1165621add097e5d5f02acb05fb1f6836729.jpg"
     },
     {
       "id": "12ozgbi",
@@ -3154,7 +3051,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-06",
       "articleUrl": "https://www.sankei.com/article/20250901-ADCUNIR4DRORZPW6X45TCHKDWI/"
     },
@@ -3180,7 +3077,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "51ffol",
@@ -3205,7 +3102,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://www.sankei.com/article/20250829-4HPWBJKSEZKLBEROPFCMTNG4DM/"
     },
@@ -3231,7 +3128,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1phc7v7",
@@ -3255,7 +3152,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1as1a96",
@@ -3279,7 +3176,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "jl3emq",
@@ -3303,7 +3200,7 @@
         "インバウンド"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1reujyq",
@@ -3327,7 +3224,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-10-23",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "12dajcv",
@@ -3351,7 +3248,33 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
+    },
+    {
+      "id": "1eouxwf",
+      "title": "特区民泊95％、突出の大阪市で顕在化する「制度の欠陥」 新築マンション全室計画の波紋",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFAyM0pjajkwN1pTMDB4eDRkdkpaclBUUENZUkY1cmRnSS11Vmc0MHZxUjhFMG8yU196bnhWbGNsejFENTRIbi1ZcUs4ZUpJckNHZjN2NUZvbUJHYkdSQnluSWVhdzdyNGxVRVd4U09vMEh0aXN0Smc?oc=5",
+      "publishedAt": "2025-06-21",
+      "sourceId": "google-news",
+      "sourceName": "産経ニュース",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "大阪府"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [
+        "特区民泊"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17",
+      "articleUrl": "https://www.sankei.com/article/20250621-BCEM36SQSVJ5BA2UTTQRM7BVLM/"
     },
     {
       "id": "k5abek",
@@ -3375,7 +3298,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-16",
       "articleUrl": "https://www.kyoto-np.co.jp/articles/-/1492571",
       "image": "https://kyoto-np.ismcdn.jp/mwimgs/1/0/1200wm/img_105861ac30838d43c839f77d6639b1ee1004362.jpg"
@@ -3402,7 +3325,7 @@
         "宿泊事業"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "6sy5ba",
@@ -3426,7 +3349,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "15wjz2p",
@@ -3450,7 +3373,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "125r76p",
@@ -3474,7 +3397,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "8ll19t",
@@ -3498,7 +3421,7 @@
         "訪日外国人"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1jhqc98",
@@ -3522,7 +3445,7 @@
         "インバウンド"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1gbrbbt",
@@ -3546,7 +3469,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-10-21",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "5w4w8u",
@@ -3570,7 +3493,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-06",
       "articleUrl": "https://www.pref.saitama.lg.jp/a0806/minpaku/jutaku-shukuhaku06.html",
       "image": "https://www.pref.saitama.lg.jp/shared/images/sns/logo.png"
@@ -3597,7 +3520,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "8qtdgu",
@@ -3645,7 +3568,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "flo5pi",
@@ -3669,7 +3592,7 @@
         "インバウンド"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "q2js9i",
@@ -3693,7 +3616,7 @@
         "宿泊旅行統計"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "2qzhhp",
@@ -3741,7 +3664,7 @@
         "インバウンド"
       ],
       "fetchedAt": "2026-09-07",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "ygvyeu",
@@ -3789,7 +3712,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "c91600",
@@ -3861,7 +3784,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1f0qfn3",
@@ -3912,32 +3835,6 @@
       "lastSeenAt": "2026-10-15"
     },
     {
-      "id": "1ko3fc9",
-      "title": "大阪は民泊無法地帯？「特区民泊」の2泊3日以上のルールを守らない物件が大阪で多発",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9NS2RQUHZwSXNaZDllWHFrTzAyT3Z0SmFuUjVXeXdOX1RuVnJkcHMtMWdnMEowdkZ6VHBOakh1TTZON2Q1UHA2MFk2VTFsUnlUUWtudGZiTTlkSi1HcmdVMXlPTmFjdE0?oc=5",
-      "publishedAt": "2024-05-29",
-      "sourceId": "google-news",
-      "sourceName": "健美家",
-      "via": "報道各社（Google ニュース経由）",
-      "isPrimary": false,
-      "areas": [
-        "大阪府"
-      ],
-      "category": {
-        "id": "industry",
-        "name": "業界動向"
-      },
-      "businessTypes": [
-        "特区民泊"
-      ],
-      "score": 3,
-      "matchedKeywords": [],
-      "fetchedAt": "2026-11-07",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-07",
-      "articleUrl": "https://www.kenbiya.com/ar/ns/for_rent/minpaku/7925.html"
-    },
-    {
       "id": "1udsv6u",
       "title": "特区民泊第3号を認定しました",
       "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQWE4zT3hpWGJkYjJEY3dNMDh2eENVekRUOWYyTk9ZR3lXcW9ZZWV4TWJWamZLUUlIcXkzVlhRemZia2pOVFFtUHd4NmhvelllRGFSZVZfc1ZEOWk0VjBLa3VsQm1KX0I5d1J4NU5zN0F4bkcwcGdmb1A4NVdiaUY0ZE01VlFrVUFYY09hMEVYZC1XRDdUOGtkOGRjOUd6V2hPMU9jdG9QanJRdUM5c0ZNNDRmYWdicDZ4U01NQ2ZWZlRCRHZfQnp5TlRzMA?oc=5",
@@ -3959,7 +3856,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1cf17ee",
@@ -4005,7 +3902,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1gm10i6",
@@ -4077,7 +3974,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "1f1ilet",
@@ -4101,7 +3998,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-10-29",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-06",
       "articleUrl": "https://web.pref.hyogo.lg.jp/kf14/jigyousyoukei.html",
       "image": "https://web.pref.hyogo.lg.jp/shared/site_2026rn/images/sns/logo.jpg"
@@ -4152,7 +4049,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-09-18",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-09-18",
       "articleUrl": "https://www.gov-online.go.jp/article/202311/entry-9839.html",
       "image": "https://www.gov-online.go.jp/assets/useful/ryokan1.webp"
@@ -4179,7 +4076,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-10",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-10",
       "articleUrl": "https://www.mhlw.go.jp/kaiseiryokangyohou/"
     },
@@ -4345,7 +4242,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "13a1hw7",
@@ -4367,7 +4264,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-16",
       "articleUrl": "https://www.city.ota.tokyo.jp/seikatsu/hoken/minpaku/hyoushiki.html",
       "image": "https://www.city.ota.tokyo.jp/images/ogp.png"
@@ -4394,7 +4291,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-07",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-07",
       "articleUrl": "https://hojyokin-portal.jp/columns/tokyo2020-bouhan",
       "image": "https://assets.hojyokin-portal.jp/storage/finder/images/2019/12/minpaku.png"
@@ -4421,7 +4318,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "t7bzdc",
@@ -4443,7 +4340,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "hj9060",
@@ -4467,7 +4364,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15"
+      "lastSeenAt": "2026-11-17"
     },
     {
       "id": "lecazq",
@@ -4491,7 +4388,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://newswitch.jp/image/21475",
       "image": "https://images.newswitch.jp/images/KRboSVhR2ikG0e86Ry0HCHD0PNHxraweDWeOeqDD.jpeg"
@@ -4518,7 +4415,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-10-10",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-10-10",
       "articleUrl": "https://www.nikkei.com/article/DGKKZO47839930W9A720C1ML0000/"
     },
@@ -4545,7 +4442,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://invest-online.jp/column/pattern-of-vacation-rental2-13897/",
       "image": "https://invest-online.jp/wp/wp-content/uploads/2019/05/minpaku_ec.jpg"
@@ -4572,10 +4469,35 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-16",
       "articleUrl": "https://www.asahi.com/articles/ASM4R51YKM4RPLFA006.html",
       "image": "https://www.asahicom.jp/articles/images/c_AS20190508001019_comm.jpg"
+    },
+    {
+      "id": "1unstaz",
+      "title": "住宅宿泊事業（民泊）について",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5XR2JhMGpMT3VqOUFkYUU0N0pOQXhWU1RkRGRzNjlEdU1FMDFTRU5QR1czOXIxSXdTQ1dkWUIxYmhYbGZqWEpyc1M5eU1DU1BoRU81dUJ4Z244aWhoT3h1eVlONms5bmFjX3kwN1hR?oc=5",
+      "publishedAt": "2018-11-22",
+      "sourceId": "google-news",
+      "sourceName": "京都府",
+      "via": "報道各社（Google ニュース経由）",
+      "isPrimary": false,
+      "areas": [
+        "全国"
+      ],
+      "category": {
+        "id": "industry",
+        "name": "業界動向"
+      },
+      "businessTypes": [
+        "住宅宿泊事業"
+      ],
+      "score": 3,
+      "matchedKeywords": [],
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17"
     },
     {
       "id": "1ks4ktp",
@@ -4599,17 +4521,17 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-06",
       "articleUrl": "https://www.pref.aichi.jp/soshiki/eisei/minpaku-todokede.html"
     },
     {
-      "id": "yymvf0",
-      "title": "住宅宿泊事業（民泊）について",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1vRi1rSkpNY3FHWFpjeDlTY3R5UmduRzRMc0lIV2lUS0RrZE44cl9pM21kUzdvQzNWZFN6VGE4alY3NGJoVDFpaVJYNnRrRXNfaFJDenBXMjlfTVFGa0tVbDcxZi01MUJJMDRvdlpLd3dPalo4MzAw?oc=5",
-      "publishedAt": "2018-06-15",
+      "id": "xxnes8",
+      "title": "雑居ビルや京町家、簡易宿所に「変身」",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE8zS0FuckF2RmhKZUlhdDFhOExHSHhfUnVpNVFHQng4eWhuUnVBSlNXSElaa25UeHp2SU5zb0pfdnNEbXJVTzdodDNzcnJlWVVrSkRQSEZyaXd1VHlP?oc=5",
+      "publishedAt": "2018-08-23",
       "sourceId": "google-news",
-      "sourceName": "埼玉県",
+      "sourceName": "朝日新聞",
       "via": "報道各社（Google ニュース経由）",
       "isPrimary": false,
       "areas": [
@@ -4620,15 +4542,14 @@
         "name": "業界動向"
       },
       "businessTypes": [
-        "住宅宿泊事業"
+        "簡易宿所"
       ],
       "score": 3,
       "matchedKeywords": [],
-      "fetchedAt": "2026-11-15",
-      "lastSeenAt": "2026-11-15",
-      "imageTriedAt": "2026-11-16",
-      "articleUrl": "https://www.pref.saitama.lg.jp/a0806/minpaku/jutaku-shukuhaku00.html",
-      "image": "https://www.pref.saitama.lg.jp/shared/images/sns/logo.png"
+      "fetchedAt": "2026-11-17",
+      "lastSeenAt": "2026-11-17",
+      "imageTriedAt": "2026-11-17",
+      "articleUrl": "https://www.asahi.com/articles/DA3S13646961.html"
     },
     {
       "id": "15005du",
@@ -4652,7 +4573,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-14",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-14",
       "articleUrl": "https://www.travelvoice.jp/20180305-107008",
       "image": "https://www.travelvoice.jp/wp-content/uploads/2018/03/107008_01.jpg"
@@ -4679,7 +4600,7 @@
       "score": 3,
       "matchedKeywords": [],
       "fetchedAt": "2026-11-05",
-      "lastSeenAt": "2026-11-15",
+      "lastSeenAt": "2026-11-17",
       "imageTriedAt": "2026-11-06",
       "articleUrl": "https://www.rakumachi.jp/news/column/176489"
     },
